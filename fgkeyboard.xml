@@ -134,7 +134,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>9</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -145,7 +144,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>0</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
     <key n="50">
@@ -154,7 +152,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>1</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -164,7 +161,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>2</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -175,7 +171,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>3</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -185,7 +180,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>4</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -195,7 +189,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>5</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -205,7 +198,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>6</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -215,7 +207,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>7</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
@@ -225,7 +216,6 @@
         <binding>
             <command>fgcamera-select</command>
             <camera-id>8</camera-id>
-            <camera-type>aircraft</camera-type>
         </binding>
     </key>
 
