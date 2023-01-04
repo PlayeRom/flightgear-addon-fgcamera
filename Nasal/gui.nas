@@ -41,6 +41,8 @@ var load_gui = func {
 	}
 
 	fgcommand("gui-redraw");
+
+	register_gui_mini_dialogs();
 }
 
 #--------------------------------------------------
@@ -67,6 +69,53 @@ var is_menu_item_exists = func (menu_item_name) {
 	}
 
 	return 0;
+}
+
+var register_gui_mini_dialogs = func {
+
+	var x_size = getprop("/sim/startup/xsize");
+	var y_size = getprop("/sim/startup/ysize");
+
+	var calc_screen_xsize = func x_size = getprop("/sim/startup/xsize");
+	var calc_screen_ysize = func y_size = getprop("/sim/startup/ysize");
+
+	setlistener("/sim/startup/xsize", func calc_screen_xsize());
+	setlistener("/sim/startup/ysize", func calc_screen_ysize());
+
+	var __mouse = {
+		x: func getprop("/devices/status/mice/mouse/x") or 0,
+		y: func getprop("/devices/status/mice/mouse/y") or 0,
+	};
+
+
+	mini_dialog = gui.Dialog.new(
+		"/sim/gui/dialogs/fgcamera-mini-dialog/dialog",
+		my_root_path ~ "/GUI/fgcamera-mini-dialog.xml"
+	);
+
+	setlistener("/devices/status/mice/mouse/y", func {
+		if (!getprop("/sim/fgcamera/mini-dialog-enable")) {
+			if (mini_dialog.is_open()) {
+				mini_dialog.close();
+			}
+
+			return;
+		}
+
+		if (getprop("/sim/fgcamera/mini-dialog-autohide")) {
+			if ( (__mouse.y() > (y_size - 120)) and (__mouse.x() < 200) ) {
+				if (!mini_dialog.is_open()) {
+					mini_dialog.open();
+				}
+			}
+			else if (mini_dialog.is_open()) {
+				mini_dialog.close();
+			}
+		}
+		else if (!mini_dialog.is_open()) {
+			mini_dialog.open();
+		}
+	}, 1, 0);
 }
 
 print("GUI loaded");

@@ -39,18 +39,27 @@ var load_cameras = func {
 	if (cam_version != my_version)
 		update_cam_version(cam_version);
 
-	var spring_loaded_mouse = cameraN.getChild("spring-loaded-mouse", 0, 1).getValue() or "0";
-	setprop("/sim/fgcamera/mouse/spring-loaded", spring_loaded_mouse);
+	load_option(cameraN, "spring-loaded-mouse", "mouse/spring-loaded");
+	load_option(cameraN, "mini-dialog-enable");
+	load_option(cameraN, "mini-dialog-autohide");
 
 	cameraN.remove();
 	return size(cameras);
-}
+};
+
+var load_option = func(cameraN, option_name, prop_name = nil) {
+	if (prop_name == nil) {
+		prop_name = option_name;
+	}
+	var value = cameraN.getChild(option_name, 0, 1).getValue() or "0";
+	setprop("/sim/fgcamera/" ~ prop_name, value);
+};
 
 #--------------------------------------------------
 var set_default_offsets = func {
 	forindex (var i; manager._list)
 		cameras[0].offsets[i] = num(getprop( "/sim/view/config/" ~ manager._list[i] )) or 0;
-}
+};
 
 #--------------------------------------------------
 var save_cameras = func {
@@ -58,7 +67,6 @@ var save_cameras = func {
 	var path     = getprop("/sim/fg-home") ~ "/aircraft-data/FGCamera/" ~ aircraft;
 	var file     = aircraft ~ ".xml";
 	var node     = props.Node.new();
-	var sl_mouse = getprop("/sim/fgcamera/mouse/spring-loaded");
 
 	forindex (var i; cameras) {
 		foreach (var a; keys(cameras[i]) ) {
@@ -70,8 +78,10 @@ var save_cameras = func {
 	}
 
 	node.getChild("version", 0, 1).setValue(my_version);
-	node.getChild("spring-loaded-mouse", 0, 1).setValue(sl_mouse);
+	node.getChild("spring-loaded-mouse",  0, 1).setValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
+	node.getChild("mini-dialog-enable",   0, 1).setValue(getprop("/sim/fgcamera/mini-dialog-enable"));
+	node.getChild("mini-dialog-autohide", 0, 1).setValue(getprop("/sim/fgcamera/mini-dialog-autohide"));
 
 	io.write_properties(path ~ "/" ~ file, node);
 	node.remove();
-}
+};

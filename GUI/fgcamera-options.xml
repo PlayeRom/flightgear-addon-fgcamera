@@ -40,6 +40,40 @@
 				<command>dialog-apply</command>
 			</binding>
 		</checkbox>
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Enable mini dialog</label>
+			<property>/sim/fgcamera/mini-dialog-enable</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script><![CDATA[
+					if (fgcamera.mini_dialog != nil) {
+						if (getprop("/sim/fgcamera/mini-dialog-enable")) {
+							fgcamera.mini_dialog.open();
+						}
+						else {
+							fgcamera.mini_dialog.close();
+						}
+					}
+				]]></script>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Autohide mini dialog</label>
+			<property>/sim/fgcamera/mini-dialog-autohide</property>
+			<enable>
+				<property>/sim/fgcamera/mini-dialog-enable</property>
+			</enable>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
 	</group>
 
 	<hrule/>
@@ -53,10 +87,23 @@
 			<legend>Save</legend>
 			<pref-width>90</pref-width>
 			<pref-height>30</pref-height>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script><![CDATA[
+					fgcamera.save_cameras();
+				]]></script>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
 		</button>
 
 		<button>
 			<legend>Close</legend>
+			<key>Esc</key>
 			<pref-width>90</pref-width>
 			<pref-height>30</pref-height>
 			<binding>

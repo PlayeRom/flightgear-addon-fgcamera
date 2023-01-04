@@ -11,6 +11,8 @@
 			<mouse>
 				<spring-loaded type="bool" userarchive="y">true</spring-loaded>
 			</mouse>
+			<mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
+			<mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
 		</fgcamera>
 
 		<panel>
