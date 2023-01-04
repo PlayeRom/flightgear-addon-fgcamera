@@ -128,8 +128,13 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	}
 
 	# setting camera-id
-	if ( getprop("/sim/fgcamera/enable") ) {
-		setprop (my_node_path ~ "/current-camera/camera-id", 1);
+	if (getprop("/sim/fgcamera/enable")) {
+		var selectCameraTimer = maketimer(2, func {
+			# Delay selecting default camera for fix FOV
+			setprop(my_node_path ~ "/current-camera/camera-id", 0);
+		});
+		selectCameraTimer.singleShot = 1;
+		selectCameraTimer.start();
 	}
 
 	# welcome message
