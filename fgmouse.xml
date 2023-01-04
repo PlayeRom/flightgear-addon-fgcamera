@@ -79,8 +79,8 @@ current mode for each mouse is held in the
 				</binding>
 			</button>
 
-	<!-- extra buttons control elevator trim -->
-	<!-- these are often assigned to mouse-wheel motion in Linux -->
+			<!-- extra buttons control elevator trim -->
+			<!-- these are often assigned to mouse-wheel motion in Linux -->
 			<button n="3">
 				<binding>
 				<command>property-adjust</command>
@@ -164,7 +164,7 @@ current mode for each mouse is held in the
 			</y-axis>
 		</mode>
 
-	<!-- Mode 2: view mode -->
+		<!-- Mode 2: view mode -->
 		<mode n="2">
 			<cursor>left-right</cursor>
 			<constrained type="bool">true</constrained>
@@ -175,7 +175,7 @@ current mode for each mouse is held in the
 				<binding>
 					<condition>
 						<property>/sim/fgcamera/fgcamera-enabled</property>
-                        <not><property>/sim/fgcamera/mouse/spring-loaded</property></not>
+						<not><property>/sim/fgcamera/mouse/spring-loaded</property></not>
 					</condition>
 					<command>fgcamera-reset-view</command>
 				</binding>
@@ -193,8 +193,8 @@ current mode for each mouse is held in the
 				</binding>
 				<binding>
 					<condition>
-                        <not><property>/devices/status/mice/mouse[0]/button[2]</property></not>
-                        <property>/devices/status/mice/mouse[0]/button[1]</property>
+						<not><property>/devices/status/mice/mouse[0]/button[2]</property></not>
+						<property>/devices/status/mice/mouse[0]/button[1]</property>
 					</condition>
 					<command>nasal</command>
 					<script>
@@ -223,7 +223,7 @@ current mode for each mouse is held in the
 					<reason>right-click</reason>
 				</binding>
 			</button>
- 
+
 			<!-- extra buttons control FoV -->
 			<!-- these are often assigned to mouse-wheel motion in Linux -->
 			<button n="3">
@@ -247,7 +247,7 @@ current mode for each mouse is held in the
 				<binding>
 					<condition>
 						<property>/sim/fgcamera/fgcamera-enabled</property>
-                        <not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
+						<not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
 					</condition>
 					<command>property-adjust</command>
 					<property>/sim/fgcamera/mouse/heading-offset</property>
@@ -286,15 +286,15 @@ current mode for each mouse is held in the
 					<factor type="double">1</factor>
 					<wrap type="bool">false</wrap>
 				</binding>
-                <binding>
-                    <!-- move view up/down with fgcamera with MMB+RMB -->
+				<binding>
+					<!-- move view up/down with fgcamera with MMB+RMB -->
 					<condition>
 						<property>/sim/fgcamera/fgcamera-enabled</property>
-                        <property>/devices/status/mice/mouse[0]/button[1]</property>
-                        <property>/devices/status/mice/mouse[0]/button[2]</property>
+						<property>/devices/status/mice/mouse[0]/button[1]</property>
+						<property>/devices/status/mice/mouse[0]/button[2]</property>
 					</condition>
-                    <command>property-adjust</command>
-                    <property>/sim/fgcamera/mouse/x-offset</property>
+					<command>property-adjust</command>
+					<property>/sim/fgcamera/mouse/x-offset</property>
 					<factor>1.0</factor>
 				</binding>
 			</x-axis>
@@ -306,21 +306,21 @@ current mode for each mouse is held in the
 				<binding>
 					<condition>
 						<property>/sim/fgcamera/fgcamera-enabled</property>
-                        <not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
+						<not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
 					</condition>
 					<command>property-adjust</command>
 					<property>/sim/fgcamera/mouse/pitch-offset</property>
 					<factor>-100.0</factor>
 				</binding>
-                <binding>
-                    <!-- move view up/down with fgcamera with MMB+RMB -->
+				<binding>
+					<!-- move view up/down with fgcamera with MMB+RMB -->
 					<condition>
 						<property>/sim/fgcamera/fgcamera-enabled</property>
-                        <property>/devices/status/mice/mouse[0]/button[1]</property>
-                        <property>/devices/status/mice/mouse[0]/button[2]</property>
+						<property>/devices/status/mice/mouse[0]/button[1]</property>
+						<property>/devices/status/mice/mouse[0]/button[2]</property>
 					</condition>
-                    <command>property-adjust</command>
-                    <property>/sim/fgcamera/mouse/y-offset</property>
+					<command>property-adjust</command>
+					<property>/sim/fgcamera/mouse/y-offset</property>
 					<factor>-1.0</factor>
 				</binding>
 				<binding>
@@ -372,15 +372,15 @@ current mode for each mouse is held in the
 					<factor type="double">1</factor>
 					<wrap type="bool">false</wrap>
 				</binding>
-                <binding>
-                    <!-- move view forward/backward with fgcamera with MMB+RMB -->
+				<binding>
+					<!-- move view forward/backward with fgcamera with MMB+RMB -->
 					<condition>
 						<property>/sim/fgcamera/fgcamera-enabled</property>
-                        <property>/devices/status/mice/mouse[0]/button[1]</property>
-                        <property>/devices/status/mice/mouse[0]/button[2]</property>
+						<property>/devices/status/mice/mouse[0]/button[1]</property>
+						<property>/devices/status/mice/mouse[0]/button[2]</property>
 					</condition>
-                    <command>property-adjust</command>
-                    <property>/sim/fgcamera/mouse/z-offset</property>
+					<command>property-adjust</command>
+					<property>/sim/fgcamera/mouse/z-offset</property>
 					<factor>1.0</factor>
 				</binding>
 			</y-axis-ctrl>
@@ -425,7 +425,7 @@ current mode for each mouse is held in the
 				<binding>
 					<condition>
 						<property>/sim/fgcamera/fgcamera-enabled</property>
-                        <not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
+						<not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
 					</condition>
 					<command>property-adjust</command>
 					<property>/sim/fgcamera/mouse/pitch-offset</property>

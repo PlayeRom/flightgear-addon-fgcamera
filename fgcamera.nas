@@ -87,18 +87,18 @@ var init_mouse = func {
 var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	removelistener(fdm_init_listener);
 
-    # user-archive & defaults
-    var welcomeSkipNode = props.globals.getNode("/sim/fgcamera/welcome-skip", 1);
-    welcomeSkipNode.setAttribute("userarchive", "y");
-    if (welcomeSkipNode.getValue() == nil) {
-      welcomeSkipNode.setValue("0");
-    }
+	# user-archive & defaults
+	var welcomeSkipNode = props.globals.getNode("/sim/fgcamera/welcome-skip", 1);
+	welcomeSkipNode.setAttribute("userarchive", "y");
+	if (welcomeSkipNode.getValue() == nil) {
+		welcomeSkipNode.setValue("0");
+	}
 
-    # helicopeter flag
+	# helicopeter flag
 	helicopterF = check_helicopter();
 	print("helicopter: " ~ helicopterF);
 
-    # loading nasal functions
+	# loading nasal functions
 	load_nasal ([
 		"math",
 		"version",
@@ -117,23 +117,23 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 		"offsets_manager",
 	]);
 
-    init_mouse();
+	init_mouse();
 	add_commands();
 	load_cameras();
 	load_gui();
 
-    # register views
+	# register views
 	foreach (var a; my_views) {
 		view.manager.register(a, fgcamera_view_handler);
 	}
 
-    # setting camera-id
+	# setting camera-id
 	if ( getprop("/sim/fgcamera/enable") ) {
 		setprop (my_node_path ~ "/current-camera/camera-id", 1);
 	}
 
-    # welcome message
-    if (getprop("/sim/fgcamera/welcome-skip") != 1) {
+	# welcome message
+	if (getprop("/sim/fgcamera/welcome-skip") != 1) {
 		fgcommand("dialog-show", props.Node.new({'dialog-name':'fgcamera-welcome'}));
 	}
 });
@@ -158,23 +158,23 @@ var walkerGetin_callback  = func{0};  # callback when getting in
 var lastWalkerFGCam = nil;  # here we store what view we were in when the walker exits
 
 setlistener("sim/walker/key-triggers/outside-toggle", func {
-    # we let pass some time so the walker code can execute first
-    var timer = nil;
-    if (getprop("sim/walker/key-triggers/outside-toggle")) {
-        walkerGetout_callback();
-        timer = maketimer(walkerGetoutTime + 0.5, func(){
-            # went outside
-            lastWalkerFGCam = getprop("/sim/current-view/view-number-raw");
-            view.setViewByIndex(110);  #110 is defined as walk view by fgdata/walker-include.xml
-        });
-    } else {
-        walkerGetin_callback();
-        timer = maketimer(walkerGetinTime + 0.5, func(){
-            # went inside
-            view.setViewByIndex(lastWalkerFGCam);  #110 is defined as walk view by fgdata/walker-include.xml
-            lastWalkerFGCam = nil;
-        });
-    }
-    timer.singleShot = 1; # timer will only be run once
-    timer.start();
+	# we let pass some time so the walker code can execute first
+	var timer = nil;
+	if (getprop("sim/walker/key-triggers/outside-toggle")) {
+		walkerGetout_callback();
+		timer = maketimer(walkerGetoutTime + 0.5, func(){
+			# went outside
+			lastWalkerFGCam = getprop("/sim/current-view/view-number-raw");
+			view.setViewByIndex(110);  #110 is defined as walk view by fgdata/walker-include.xml
+		});
+	} else {
+		walkerGetin_callback();
+		timer = maketimer(walkerGetinTime + 0.5, func(){
+			# went inside
+			view.setViewByIndex(lastWalkerFGCam);  #110 is defined as walk view by fgdata/walker-include.xml
+			lastWalkerFGCam = nil;
+		});
+	}
+	timer.singleShot = 1; # timer will only be run once
+	timer.start();
 });

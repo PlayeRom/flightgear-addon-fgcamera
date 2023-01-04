@@ -2,7 +2,7 @@
 
 
 <PropertyList>
-      <mixer>
+    <mixer>
         <z type="string">0</z>
         <z n="1" type="string">0</z>
         <z n="2" type="string">0.850705</z>
@@ -28,8 +28,8 @@
         <r n="1" type="string">0</r>
         <r n="2" type="string">0</r>
         <r n="3" type="string">0.515902</r>
-      </mixer>
-      <GEN>
+    </mixer>
+    <GEN>
         <sine type="string">0</sine>
         <sine n="1" type="string">0</sine>
         <sine n="2" type="string">0</sine>
@@ -50,8 +50,8 @@
         <noise type="string">1</noise>
         <noise n="1" type="string">1.125</noise>
         <noise n="2" type="string">0.200709</noise>
-      </GEN>
-      <GEN n="1">
+    </GEN>
+    <GEN n="1">
         <sine type="string">0</sine>
         <sine n="1" type="string">0</sine>
         <sine n="2" type="string">0</sine>
@@ -72,8 +72,8 @@
         <noise type="string">1</noise>
         <noise n="1" type="string">1.25486</noise>
         <noise n="2" type="string">0.105208</noise>
-      </GEN>
-      <GEN n="2">
+    </GEN>
+    <GEN n="2">
         <sine type="string">0</sine>
         <sine n="1" type="string">0</sine>
         <sine n="2" type="string">0</sine>
@@ -94,8 +94,8 @@
         <noise type="string">1</noise>
         <noise n="1" type="string">1.24748</noise>
         <noise n="2" type="string">0.0849423</noise>
-      </GEN>
-      <curves>
+    </GEN>
+    <curves>
         <filter type="double">0.108</filter>
         <filter n="1" type="double">0.054</filter>
         <filter n="2" type="double">0.06</filter>
@@ -136,5 +136,5 @@
         <v2 n="7" type="double">70</v2>
         <v2 n="8" type="double">80.1</v2>
         <v2 n="9" type="double">90.2</v2>
-      </curves>
+    </curves>
 </PropertyList>

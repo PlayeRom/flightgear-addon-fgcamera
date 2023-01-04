@@ -91,28 +91,28 @@ var DHM_handler = {
 	init: func {
 		me.dhm_y = DHM.new("/accelerations/pilot/z-accel-fps_sec");
 		me.dhm_y.setMass(10)
-		        .setDamping(30)
-		        .setLimit(0.025)
-		        .setDefault_acc(32.18516)
-		        .setCorrection(9.81)
-		        .setConstantG(0.05)
-		        .setImpulseG(0.2)
-		        .setPitch(50);
+				.setDamping(30)
+				.setLimit(0.025)
+				.setDefault_acc(32.18516)
+				.setCorrection(9.81)
+				.setConstantG(0.05)
+				.setImpulseG(0.2)
+				.setPitch(50);
 
 		me.dhm_x = DHM.new("/accelerations/pilot/y-accel-fps_sec");
 		me.dhm_x.setMass(10)
-		        .setDamping(30)
-		        .setLimit(0.05)
-		        .setBank(50)
-		        .setImpulseG(0.4)
-		        .setConstantG(0.5);
+				.setDamping(30)
+				.setLimit(0.05)
+				.setBank(50)
+				.setImpulseG(0.4)
+				.setConstantG(0.5);
 
 		me.dhm_z = DHM.new("/accelerations/pilot/x-accel-fps_sec");
 		me.dhm_z.setMass(10)
-		        .setDamping(30)
-		        .setLimit(0.05)
-		        .setImpulseG(0)
-		        .setConstantG(0.25);
+				.setDamping(30)
+				.setLimit(0.05)
+				.setImpulseG(0)
+				.setConstantG(0.25);
 	},
 #--------------------------------------------------
 	_trigger: func {},

@@ -1,14 +1,14 @@
 #==================================================
 #	API for fgcommands
 #
-#		fgcamera-select (<camera-id>)
-#		fgcamera-adjust (<dof>, <velocity>)
-#		fgcamera-save   ()
-#   fgcamera-reset-view ()
-#		fgcamera-next-category ()
-#   fgcamera-prev-category ()
-#   fgcamera-next-in-category ()
-#   fgcamera-prev-in_category ()
+#	fgcamera-select (<camera-id>)
+#	fgcamera-adjust (<dof>, <velocity>)
+#	fgcamera-save   ()
+#	fgcamera-reset-view ()
+#	fgcamera-next-category ()
+#	fgcamera-prev-category ()
+#	fgcamera-next-in-category ()
+#	fgcamera-prev-in_category ()
 #==================================================
 var commands = {
 #--------------------------------------------------
