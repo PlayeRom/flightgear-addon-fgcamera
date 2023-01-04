@@ -43,9 +43,9 @@
 						.moveTo(-w/2, -w/2 * 0)
 						.arcSmallCWTo(w/2, w/2, 0, w/2, 0)
 						.arcSmallCWTo(w/2, w/2, 0, -w/2, 0)
-#						.lineTo(w/2, -w/2)
-#						.lineTo(w/2, w/2)
-#						.lineTo(-w/2, w/2)
+						# .lineTo(w/2, -w/2)
+						# .lineTo(w/2, w/2)
+						# .lineTo(-w/2, w/2)
 						.close()
 						.setColor(0,0.8,0)
 						.setColorFill(0.25,0.24,0.22)
@@ -119,7 +119,7 @@
 					return m;
 				},
 
-				reset: func me._chart.setTranslation(30, -30),
+				reset: func me._chart.setTranslation(30, 15),
 
 				update: func (h) {
 					for (var i = 0; i <= 9; i += 1) {
@@ -184,7 +184,7 @@
 		]]></close>
 	</nasal>
 
-<!-- Title -->
+	<!-- Title -->
 	<group>
 		<layout>hbox</layout>
 
@@ -208,9 +208,9 @@
 
 	<hrule/>
 
-
 	<group>
 		<layout>hbox</layout>
+		<padding>6</padding>
 
 		<text>
 			<label>Level</label>
@@ -223,8 +223,8 @@
 				<valign>fill</valign>
 				<halign>fill</halign>
 				<!-- stretch>true</stretch -->
-				<pref-width>600</pref-width>
-				<pref-height>250</pref-height>
+				<pref-width>1000</pref-width>
+				<pref-height>290</pref-height>
 				<nasal>
 					<load> <![CDATA[
 						var myCanvas1 = canvas.get( cmdarg() );
@@ -247,6 +247,8 @@
 
 	<group>
 		<layout>hbox</layout>
+		<padding>6</padding>
+
 		<text>
 			<label>Filter</label>
 		</text>
@@ -256,8 +258,8 @@
 				<name>filter-curve</name>
 				<valign>fill</valign>
 				<halign>fill</halign>
-				<pref-width>600</pref-width>
-				<pref-height>250</pref-height>
+				<pref-width>1000</pref-width>
+				<pref-height>290</pref-height>
 				<nasal>
 					<load> <![CDATA[
 						var myCanvas2 = canvas.get( cmdarg() );
@@ -273,5 +275,28 @@
 	<text>
 		<label>Velocity, knots</label>
 	</text>
+
+	<hrule/>
+
+	<group>
+		<layout>hbox</layout>
+		<padding>6</padding>
+		<empty><stretch>1</stretch></empty>
+		<button>
+			<legend>Back</legend>
+			<key>Esc</key>
+			<pref-width>90</pref-width>
+			<pref-height>30</pref-height>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>RND-mixer</dialog-name>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+				<dialog-name>RND-curves</dialog-name>
+			</binding>
+		</button>
+		<empty><stretch>1</stretch></empty>
+	</group>
 
 </PropertyList>

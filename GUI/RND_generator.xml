@@ -7,7 +7,7 @@
 	<x>20</x>
 	<y>-50</y>
 
-<!-- Title -->
+	<!-- Title -->
 	<group>
 		<layout>hbox</layout>
 
@@ -33,6 +33,7 @@
 
 	<group>
 		<layout>vbox</layout>
+		<padding>6</padding>
 
 		<group> <!-- top row -->
 			<layout>hbox</layout>
@@ -712,6 +713,29 @@
 
 			<!-- empty> <stretch>true</stretch> </empty -->
 		</group> <!-- /bottom row -->
+	</group>
+
+	<hrule/>
+
+	<group>
+		<layout>hbox</layout>
+		<padding>6</padding>
+		<empty><stretch>1</stretch></empty>
+		<button>
+			<legend>Back</legend>
+			<key>Esc</key>
+			<pref-width>90</pref-width>
+			<pref-height>30</pref-height>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>RND-mixer</dialog-name>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+				<dialog-name>RND-generator</dialog-name>
+			</binding>
+		</button>
+		<empty><stretch>1</stretch></empty>
 	</group>
 
 	<nasal>

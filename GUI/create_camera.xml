@@ -4,7 +4,6 @@
 	<name>create-new-camera</name>
 	<layout>vbox</layout>
 	<width>330</width>
-	<height>130</height>
 
 	<group>
 		<layout>hbox</layout>
@@ -33,6 +32,7 @@
 
 	<group>
 		<layout>hbox</layout>
+		<padding>6</padding>
 
 		<text>
 			<label>Camera type:</label>
@@ -59,11 +59,11 @@
 			<value>world (look at) n/a</value>
 			<value>world (look from)</value>
 		</combo>
-
 	</group>
 
 	<group>
 		<layout>hbox</layout>
+		<padding>6</padding>
 
 		<text>
 			<label>Camera name:</label>
@@ -89,6 +89,8 @@
 
 	<group>
 		<layout>hbox</layout>
+		<padding>6</padding>
+
 		<empty><stretch>1</stretch></empty>
 		<button>
 			<legend>Create</legend>

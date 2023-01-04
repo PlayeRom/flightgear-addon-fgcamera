@@ -54,6 +54,7 @@
 
 	<group>
 		<layout>hbox</layout>
+		<padding>6</padding>
 		<empty><stretch>1</stretch></empty>
 		<button>
 			<legend>Close</legend>
