@@ -127,14 +127,20 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 		view.manager.register(a, fgcamera_view_handler);
 	}
 
-	# setting camera-id
 	if (getprop("/sim/fgcamera/enable")) {
+		# setting camera-id
 		var selectCameraTimer = maketimer(2, func {
 			# Delay selecting default camera for fix FOV
 			setprop(my_node_path ~ "/current-camera/camera-id", 0);
 		});
 		selectCameraTimer.singleShot = 1;
 		selectCameraTimer.start();
+
+		# Disable pilot model in cockpit
+		var is_occupants_models_visible = getprop("/sim/model/occupants");
+		if (is_occupants_models_visible) {
+			setprop("/sim/model/occupants", 0);
+		}
 	}
 
 	# welcome message
