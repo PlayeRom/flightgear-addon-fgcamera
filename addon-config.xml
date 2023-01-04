@@ -13,6 +13,7 @@
 			</mouse>
 			<mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
 			<mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
+			<use-ctrl-with-numkeys type="bool">false</use-ctrl-with-numkeys>
 		</fgcamera>
 
 		<panel>

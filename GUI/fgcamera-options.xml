@@ -74,6 +74,15 @@
 				<command>dialog-apply</command>
 			</binding>
 		</checkbox>
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Use Ctrl with numeric keys</label>
+			<property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
 	</group>
 
 	<hrule/>

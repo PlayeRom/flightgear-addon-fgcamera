@@ -42,6 +42,7 @@ var load_cameras = func {
 	load_option(cameraN, "spring-loaded-mouse", "mouse/spring-loaded");
 	load_option(cameraN, "mini-dialog-enable");
 	load_option(cameraN, "mini-dialog-autohide");
+	load_option(cameraN, "use-ctrl-with-numkeys");
 
 	cameraN.remove();
 	return size(cameras);
@@ -81,6 +82,7 @@ var save_cameras = func {
 	node.getChild("spring-loaded-mouse",  0, 1).setValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
 	node.getChild("mini-dialog-enable",   0, 1).setValue(getprop("/sim/fgcamera/mini-dialog-enable"));
 	node.getChild("mini-dialog-autohide", 0, 1).setValue(getprop("/sim/fgcamera/mini-dialog-autohide"));
+	node.getChild("use-ctrl-with-numkeys", 0, 1).setValue(getprop("/sim/fgcamera/use-ctrl-with-numkeys"));
 
 	io.write_properties(path ~ "/" ~ file, node);
 	node.remove();

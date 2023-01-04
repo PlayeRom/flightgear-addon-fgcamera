@@ -201,7 +201,7 @@
 			</button>
 
 			<button>
-				<legend>Del</legend>
+				<legend>Delete</legend>
 				<pref-height>30</pref-height>
 				<binding>
 					<command>nasal</command>

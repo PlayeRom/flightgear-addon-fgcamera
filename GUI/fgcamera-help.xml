@@ -47,6 +47,14 @@
 		</text>
 		<text>
 			<halign>center</halign>
+			<label>If you need numeric keys to control the aircraft, you can enable</label>
+		</text>
+		<text>
+			<halign>center</halign>
+			<label>"User Ctrl with numeric keys" option and use Ctrl-0 to Ctrl-9.</label>
+		</text>
+		<text>
+			<halign>center</halign>
 			<label></label>
 		</text>
 
