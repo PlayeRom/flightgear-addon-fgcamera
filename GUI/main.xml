@@ -359,13 +359,17 @@
 			#	Delete camera
 			#==================================================
 			var delete_camera = func {
+				var n = size(fgcamera.cameras);
+				if (n == 1) {
+					gui.popupTip("The last camera cannot be deleted");
+					return;
+				}
+
 				var id     = fgcamera.current[1];
 				var new_id = id;
-				var n      = size(fgcamera.cameras);
-				if (n == 1)
-					return;
-				if (new_id == (n - 1))
+				if (new_id == (n - 1)) {
 					new_id -= 1;
+				}
 				fgcamera.cameras[id] = nil;
 				fgcamera.cameras     = compress_vector(fgcamera.cameras);
 				fgcamera.current[1]  = new_id;
