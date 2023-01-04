@@ -4,22 +4,36 @@
 
 #--------------------------------------------------
 var load_gui = func {
-	var dialogs   = ["fgcamera-main", "create-new-camera", "current-camera",
-									 "fgcamera-options", "DHM-settings", "RND-mixer",
-									 "RND-generator", "RND-curves", "RND-import", "fgcamera-help", "fgcamera-welcome"];
-	var filenames = ["main", "create_camera", "camera_settings", "fgcamera_options",
-									 "DHM_settings", "RND_mixer", "RND_generator", "RND_curves",
-									 "RND_import", "fgcamera-help", "fgcamera-welcome"];
+	var dialogs   = [
+		"fgcamera-main",
+		"create-new-camera",
+		"current-camera-settings",
+		"fgcamera-options",
+		"DHM-settings",
+		"RND-mixer",
+		"RND-generator",
+		"RND-curves",
+		"RND-import",
+		"fgcamera-help",
+		"fgcamera-welcome",
+	];
+
 	var menu_item_name = "fgcamera";
 
-	forindex (var i; dialogs) {
-		gui.Dialog.new("/sim/gui/dialogs/" ~ dialogs[i] ~ "/dialog", my_root_path ~ "/GUI/" ~ filenames[i] ~ ".xml");
+	foreach (var name; dialogs) {
+		gui.Dialog.new(
+			"/sim/gui/dialogs/" ~ name ~ "/dialog",
+			my_root_path ~ "/GUI/" ~ name ~ ".xml"
+		);
 	}
 
 	var data = {
 		label   : "FGCamera",
 		name    : menu_item_name,
-		binding : { command : "dialog-show", "dialog-name" : "fgcamera-main" }
+		binding : {
+			"command"     : "dialog-show",
+			"dialog-name" : "fgcamera-main",
+		}
 	};
 
 	if (!is_menu_item_exists(menu_item_name)) {
