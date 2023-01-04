@@ -11,9 +11,10 @@
 			<mouse>
 				<spring-loaded type="bool" userarchive="y">true</spring-loaded>
 			</mouse>
+			<welcome-skip type="bool" userarchive="y">false</welcome-skip>
 			<mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
 			<mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
-			<use-ctrl-with-numkeys type="bool">false</use-ctrl-with-numkeys>
+			<use-ctrl-with-numkeys type="bool" userarchive="y">false</use-ctrl-with-numkeys>
 		</fgcamera>
 
 		<panel>

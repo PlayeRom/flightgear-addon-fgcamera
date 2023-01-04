@@ -89,13 +89,6 @@ var init_mouse = func {
 var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	removelistener(fdm_init_listener);
 
-	# user-archive & defaults
-	var welcomeSkipNode = props.globals.getNode("/sim/fgcamera/welcome-skip", 1);
-	welcomeSkipNode.setAttribute("userarchive", "y");
-	if (welcomeSkipNode.getValue() == nil) {
-		welcomeSkipNode.setValue("0");
-	}
-
 	# helicopeter flag
 	helicopterF = check_helicopter();
 	print("helicopter: " ~ helicopterF);
