@@ -21,7 +21,9 @@ var Mouse = {
 			_path_internal : "/sim/fgcamera/mouse/",
 			_control_mode  : 0, # 0 - mouse; 1 - yoke;
 			_prev_mode     : 0, # prevous mode, before using spring-loaded mode
-		 };
+		};
+
+		me.init();
 
 		me.right_mouse_btn_listener = setlistener("/devices/status/mice/mouse/button[2]", func(node) {
 			me.use_spring_loaded(node);
@@ -37,6 +39,18 @@ var Mouse = {
 	#
 	del: func {
 		removelistener(me.right_mouse_btn_listener);
+	},
+
+	#
+	# Load new mouse configuration & reinit input subsystem
+	#
+	# @return bool
+	#
+	init: func {
+		props.getNode("/input/mice").removeAllChildren();
+		io.read_properties(my_root_path ~ "/fgmouse.xml", "/input/mice");
+
+		return fgcommand("reinit", props.Node.new({"subsystem": "input"}));
 	},
 
 	#--------------------------------------------------

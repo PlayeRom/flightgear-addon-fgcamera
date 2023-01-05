@@ -52,15 +52,6 @@ var fgcamera_view_handler = {
 	stop   : func { manager.stop(); configure_FG("stop") }
 };
 
-var init_mouse = func {
-	mouse = Mouse.new();
-
-	# load new mouse configuration & reinit input subsystem
-	props.getNode("/input/mice").removeAllChildren();
-	io.read_properties(my_root_path ~ "/fgmouse.xml", "/input/mice");
-	fgcommand("reinit", props.Node.new({"subsystem": "input"}));
-};
-
 #--------------------------------------------------
 var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	removelistener(fdm_init_listener);
@@ -69,7 +60,7 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	helicopterF = check_helicopter();
 	print("helicopter: " ~ helicopterF);
 
-	init_mouse();
+	mouse = Mouse.new();
 	Commands.new();
 	fileHandler = FileHandler.new();
 	camGui = Gui.new();
@@ -103,7 +94,9 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 
 var reinit_listener = setlistener("/sim/signals/reinit", func {
 
-	init_mouse();
+	if (mouse != nil) {
+		mouse.init();
+	}
 
 	fgcommand("gui-redraw");
 	fgcommand("fgcamera-reset-view");
