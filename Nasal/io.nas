@@ -40,10 +40,10 @@ var load_cameras = func {
 		update_cam_version(cam_version);
 	}
 
-	load_bool_option(cameraN, "spring-loaded-mouse", "mouse/spring-loaded");
-	load_bool_option(cameraN, "mini-dialog-enable");
-	load_bool_option(cameraN, "mini-dialog-autohide");
-	load_bool_option(cameraN, "use-ctrl-with-numkeys");
+	load_bool_option(cameraN, 1, "spring-loaded-mouse", "mouse/spring-loaded");
+	load_bool_option(cameraN, 1, "mini-dialog-enable");
+	load_bool_option(cameraN, 0, "mini-dialog-autohide");
+	load_bool_option(cameraN, 0, "use-ctrl-with-numkeys");
 
 	var value = cameraN.getChild("mini-dialog-type", 0, 1).getValue() or "simple";
 	setprop("/sim/fgcamera/" ~ "mini-dialog-type", value);
@@ -52,11 +52,11 @@ var load_cameras = func {
 	return size(cameras);
 };
 
-var load_bool_option = func(cameraN, option_name, prop_name = nil) {
+var load_bool_option = func(cameraN, default_value, option_name, prop_name = nil) {
 	if (prop_name == nil) {
 		prop_name = option_name;
 	}
-	var value = cameraN.getChild(option_name, 0, 1).getBoolValue() or 0;
+	var value = cameraN.getChild(option_name, 0, 1).getBoolValue() or default_value;
 	setprop("/sim/fgcamera/" ~ prop_name, value);
 };
 
