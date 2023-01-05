@@ -69,7 +69,7 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	print("helicopter: " ~ helicopterF);
 
 	init_mouse();
-	add_commands();
+	Commands.new();
 	load_cameras();
 	camGui = Gui.new();
 

@@ -10,138 +10,174 @@
 #	fgcamera-next-in-category ()
 #	fgcamera-prev-in_category ()
 #==================================================
-var commands = {
-#--------------------------------------------------
-	"fgcamera-select": func {
-		var data = cmdarg().getValues();
-		popupTipF = 1;
-		setprop (my_node_path ~ "/current-camera/camera-id", data["camera-id"]);
-	},
-#--------------------------------------------------
-	"fgcamera-adjust": func {
-		var data = cmdarg().getValues();
 
-		setprop (my_node_path ~ "/controls/adjust-" ~ data.dof, data.velocity);
-	},
-#--------------------------------------------------
-	"fgcamera-save": func {
-		setprop (my_node_path ~ "/save-cameras", 1);
-	},
-#--------------------------------------------------
-	"fgcamera-reset-view": func {
-		popupTipF = 0;
-		setprop (my_node_path ~ "/current-camera/camera-id", current[1]);
-	},
-#--------------------------------------------------
-	"fgcamera-next-category": func {
-		cycle_category_only(1);
-	},
-#--------------------------------------------------
-	"fgcamera-prev-category": func {
-		cycle_category_only(-1);
-	},
-#--------------------------------------------------
-	"fgcamera-next-in-category": func {
-		cycle_camera_in_category(1);
-	},
-#--------------------------------------------------
-	"fgcamera-prev-in-category": func {
-		cycle_camera_in_category(-1);
-	},
+var Commands = {
+    #
+    # Constructor
+    #
+    # @return me
+    #
+    new: func () {
+        var me = { parents: [Commands] };
+
+        me._addCommands();
+
+        return me;
+    },
+
+    #
+    # Load all commands
+    #
+    # @return void
+    #
+    _addCommands: func {
+        var commands = me._getCommansHash();
+        foreach (var name; keys(commands)) {
+            addcommand(name, commands[name]);
+        }
+    },
+
+    #
+    # Get all commands in hash
+    #
+    # @return hash
+    #
+    _getCommansHash: func {
+        return {
+            "fgcamera-select": func {
+                var data = cmdarg().getValues();
+                popupTipF = 1;
+                setprop(my_node_path ~ "/current-camera/camera-id", data["camera-id"]);
+            },
+
+            "fgcamera-adjust": func {
+                var data = cmdarg().getValues();
+                setprop(my_node_path ~ "/controls/adjust-" ~ data.dof, data.velocity);
+            },
+
+            "fgcamera-save": func {
+                setprop(my_node_path ~ "/save-cameras", 1);
+            },
+
+            "fgcamera-reset-view": func {
+                popupTipF = 0;
+                setprop(my_node_path ~ "/current-camera/camera-id", current[1]);
+            },
+
+            "fgcamera-next-category": func {
+                me._cycleCategoryOnly(1);
+            },
+
+            "fgcamera-prev-category": func {
+                me._cycleCategoryOnly(-1);
+            },
+
+            "fgcamera-next-in-category": func {
+                me._cycleCameraInCategory(1);
+            },
+
+            "fgcamera-prev-in-category": func {
+                me._cycleCameraInCategory(-1);
+            },
+        }
+    },
+
+    #
+    # Cycle through categories
+    #
+    # @param int direction - If direction > 0 - move forward, direction < 0 - move backward
+    # @return void
+    #
+    _cycleCategoryOnly: func(direction) {
+        var currentCamera   = current[1];
+        var currentCategory = cameras[currentCamera].category;
+        var cameraId = -1;
+
+        if (direction > 0) { # >>
+            forindex (var index; cameras) {
+                if (index > currentCamera and cameras[index].category > currentCategory) {
+                    cameraId = index;
+                    break;
+                }
+            }
+
+            if (cameraId == -1) {
+                currentCategory = -1;
+
+                forindex (var index; cameras) {
+                    if (cameras[index].category > currentCategory) {
+                        cameraId = index;
+                        break;
+                    }
+                }
+            }
+        }
+        else { # <<
+            var maxCategory = -1;
+            for (var index = size(cameras) - 1; index >= 0; index -= 1) {
+                if (index < currentCamera and cameras[index].category < currentCategory) {
+                    if (cameras[index].category > maxCategory) {
+                        # find the first smaller by 1 and not smaller by 2 or 3,
+                        # e.g. we have category 0, 1, 0, 3, we are on 3, and from 3 we have to go to 1 and not to 0
+                        maxCategory = cameras[index].category;
+                        cameraId = index;
+                    }
+                }
+            }
+
+            if (cameraId == -1) {
+                currentCategory = -1;
+
+                for (var index = size(cameras) - 1; index >= 0; index -= 1) {
+                    if (cameras[index].category > currentCategory) {
+                        cameraId = index;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (cameraId > -1) {
+            popupTipF = 1;
+            setprop(my_node_path ~ "/current-camera/camera-id", cameraId);
+        }
+    },
+
+    #
+    # Cycle through cameras within current category
+    #
+    # @param int direction - If direction > 0 - move forward, direction < 0 - move backward
+    # @return void
+    #
+    _cycleCameraInCategory: func(direction) {
+        var cameraId        = current[1];
+        var currentCategory = cameras[cameraId].category;
+
+        popupTipF = 1;
+
+        var br = 0;
+        while (!br) {
+            if (direction < 0)
+                cameraId -= 1;
+            else
+                cameraId += 1;
+
+            if (cameraId < 0)
+                cameraId += size(cameras);
+            elsif (cameraId > (size(cameras) - 1))
+                cameraId = 0;
+
+            var category = cameras[cameraId].category;
+
+            if (currentCategory == category) {
+                setprop(my_node_path ~ "/current-camera/camera-id", cameraId);
+                br = 1;
+            }
+
+            if (cameraId == current[1]) {
+                br = 1;
+            }
+        }
+    },
 };
 
-var cycle_category_only = func(dir) {
-	var current_camera   = current[1];
-	var current_category = cameras[current_camera].category;
-	var camera_id = -1;
-
-	if (dir > 0) { # >>
-		forindex (var index; cameras) {
-			if (index > current_camera and cameras[index].category > current_category) {
-				camera_id = index;
-				break;
-			}
-		}
-
-		if (camera_id == -1) {
-			current_category = -1;
-
-			forindex (var index; cameras) {
-				if (cameras[index].category > current_category) {
-					camera_id = index;
-					break;
-				}
-			}
-		}
-	}
-	else { # <<
-		var max_category = -1;
-		for (var index = size(cameras) - 1; index >= 0; index -= 1) {
-			if (index < current_camera and cameras[index].category < current_category) {
-				if (cameras[index].category > max_category) {
-					# find the first smaller by 1 and not smaller by 2 or 3,
-					# e.g. we have category 0, 1, 0, 3, we are on 3, and from 3 we have to go to 1 and not to 0
-					max_category = cameras[index].category;
-					camera_id = index;
-				}
-			}
-		}
-
-		if (camera_id == -1) {
-			current_category = -1;
-
-			for (var index = size(cameras) - 1; index >= 0; index -= 1) {
-				if (cameras[index].category > current_category) {
-					camera_id = index;
-					break;
-				}
-			}
-		}
-	}
-
-	if (camera_id > -1) {
-		popupTipF = 1;
-		setprop(my_node_path ~ "/current-camera/camera-id", camera_id);
-	}
-};
-
-#--------------------------------------------------
-var cycle_camera_in_category = func(dir) {
-	var camera_id        = current[1];
-	var current_category = cameras[camera_id].category;
-
-	popupTipF = 1;
-
-	var br = 0;
-	while (!br) {
-		if (dir < 0)
-			camera_id -= 1;
-		else
-			camera_id += 1;
-
-		if (camera_id < 0)
-			camera_id += size(cameras);
-		elsif (camera_id > (size(cameras) - 1))
-			camera_id = 0;
-
-		var category = cameras[camera_id].category;
-
-		if (current_category == category) {
-			setprop(my_node_path ~ "/current-camera/camera-id", camera_id);
-			br = 1;
-		}
-
-		if (camera_id == current[1]) {
-			br = 1;
-		}
-	}
-}
-
-#--------------------------------------------------
-var add_commands = func {
-	foreach (var name; keys(commands)) {
-		addcommand(name, commands[name]);
-	}
-}
-
-print("Commands script loaded");
