@@ -743,8 +743,8 @@
 			var path = "/sim/fgcamera/dialogs/RND/generator/";
 			var g_id = getprop(path ~ "current-generator");
 			var listeners = [
-				setlistener( fgcamera.my_node_path ~ "/current-camera/RND-updated", func update() ),
-			#	setlistener( fgcamera.my_node_path ~ "/current-camera/camera-id", func update() ),
+				setlistener( fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func update() ),
+			#	setlistener( fgcamera.g_myNodePath ~ "/current-camera/camera-id", func update() ),
 			];
 			var mode = nil;
 

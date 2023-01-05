@@ -46,22 +46,22 @@ var Commands = {
         return {
             "fgcamera-select": func {
                 var data = cmdarg().getValues();
-                popupTipF = 1;
-                setprop(my_node_path ~ "/current-camera/camera-id", data["camera-id"]);
+                setprop(g_myNodePath ~ "/popupTip", 1);
+                setprop(g_myNodePath ~ "/current-camera/camera-id", data["camera-id"]);
             },
 
             "fgcamera-adjust": func {
                 var data = cmdarg().getValues();
-                setprop(my_node_path ~ "/controls/adjust-" ~ data.dof, data.velocity);
+                setprop(g_myNodePath ~ "/controls/adjust-" ~ data.dof, data.velocity);
             },
 
             "fgcamera-save": func {
-                setprop(my_node_path ~ "/save-cameras", 1);
+                setprop(g_myNodePath ~ "/save-cameras", 1);
             },
 
             "fgcamera-reset-view": func {
-                popupTipF = 0;
-                setprop(my_node_path ~ "/current-camera/camera-id", current[1]);
+                setprop(g_myNodePath ~ "/popupTip", 0);
+                setprop(g_myNodePath ~ "/current-camera/camera-id", current[1]);
             },
 
             "fgcamera-next-category": func {
@@ -138,8 +138,8 @@ var Commands = {
         }
 
         if (cameraId > -1) {
-            popupTipF = 1;
-            setprop(my_node_path ~ "/current-camera/camera-id", cameraId);
+            setprop(g_myNodePath ~ "/popupTip", 1);
+            setprop(g_myNodePath ~ "/current-camera/camera-id", cameraId);
         }
     },
 
@@ -153,7 +153,7 @@ var Commands = {
         var cameraId        = current[1];
         var currentCategory = cameras[cameraId].category;
 
-        popupTipF = 1;
+        setprop(g_myNodePath ~ "/popupTip", 1);
 
         var br = 0;
         while (!br) {
@@ -170,7 +170,7 @@ var Commands = {
             var category = cameras[cameraId].category;
 
             if (currentCategory == category) {
-                setprop(my_node_path ~ "/current-camera/camera-id", cameraId);
+                setprop(g_myNodePath ~ "/current-camera/camera-id", cameraId);
                 br = 1;
             }
 

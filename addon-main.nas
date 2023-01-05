@@ -35,6 +35,10 @@ var main = func(addon) {
 
 	# load scripts
 	foreach (var file; files) {
-		io.load_nasal(basePath ~ "/" ~ file ~ ".nas", "fgcamera");
+		if (!io.load_nasal(basePath ~ "/" ~ file ~ ".nas", "fgcamera")) {
+			print("FGCamera: add-on module \"", file, "\" loading failed");
+		}
 	}
+
+	fgcamera.init(addon);
 }

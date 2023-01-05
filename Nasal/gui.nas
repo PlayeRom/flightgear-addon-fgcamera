@@ -12,11 +12,13 @@ var Gui = {
     #
     # Constructor
     #
+    # @param hash addon
     # @return me
     #
-    new: func {
+    new: func(addon) {
         var me = {
-            parents: [Gui],
+            parents        : [Gui],
+            _addonBasePath : addon.basePath,
 
             # Mini dialog variables
             _nodeMiniDialogEnable   : globals.props.getNode("/sim/fgcamera/mini-dialog-enable"),
@@ -72,7 +74,7 @@ var Gui = {
         foreach (var name; dialogs) {
             gui.Dialog.new(
                 "/sim/gui/dialogs/" ~ name ~ "/dialog",
-                my_root_path ~ "/GUI/" ~ name ~ ".xml"
+                me._addonBasePath ~ "/GUI/" ~ name ~ ".xml"
             );
         }
     },
@@ -148,12 +150,12 @@ var Gui = {
     _createMiniDialogs: func {
         me._miniDialogSimple = gui.Dialog.new(
             "/sim/gui/dialogs/fgcamera-mini-dialog-simple/dialog",
-            my_root_path ~ "/GUI/fgcamera-mini-dialog-simple.xml"
+            me._addonBasePath ~ "/GUI/fgcamera-mini-dialog-simple.xml"
         );
 
         me._miniDialogSlots = gui.Dialog.new(
             "/sim/gui/dialogs/fgcamera-mini-dialog-slots/dialog",
-            my_root_path ~ "/GUI/fgcamera-mini-dialog-slots.xml"
+            me._addonBasePath ~ "/GUI/fgcamera-mini-dialog-slots.xml"
         );
 
         me.setMiniDialogListener();

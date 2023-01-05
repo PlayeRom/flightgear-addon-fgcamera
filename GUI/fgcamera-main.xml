@@ -257,9 +257,9 @@
 	<nasal>
 		<open> <![CDATA[
 			var list        = cmdarg().getNode("group[2]/group[1]/list");
-			var dlg_path    = fgcamera.my_node_path ~ "/dialogs/fgcamera-main";
+			var dlg_path    = fgcamera.g_myNodePath ~ "/dialogs/fgcamera-main";
 			var names       = [];
-			var listener    = setlistener(fgcamera.my_node_path ~ "/current-camera/camera-id", func{update_list()});
+			var listener    = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func{update_list()});
 			#==================================================
 			#	Functions
 			#==================================================
@@ -319,7 +319,7 @@
 				var new_camera = cameraN.getValues();
 				new_camera.name ~= "-copy";
 				append(fgcamera.cameras, new_camera);
-				setprop(fgcamera.my_node_path ~ "/current-camera/camera-id", size(fgcamera.cameras) - 1);
+				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", size(fgcamera.cameras) - 1);
 				update_list();
 				cameraN.remove();
 			}
@@ -363,10 +363,10 @@
 				var i = 0;
 				foreach (var a; list.getChildren("value")) {
 					if (a.getValue() == name)
-						setprop(fgcamera.my_node_path ~ "/current-camera/camera-id", i) and return;
+						setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", i) and return;
 					i += 1;
 				}
-				setprop(fgcamera.my_node_path ~ "/current-camera/camera-id", 0);
+				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", 0);
 			}
 			#==================================================
 			#	Delete camera
@@ -386,7 +386,7 @@
 				fgcamera.cameras[id] = nil;
 				fgcamera.cameras     = compress_vector(fgcamera.cameras);
 				fgcamera.current[1]  = new_id;
-				setprop(fgcamera.my_node_path ~ "/current-camera/camera-id", new_id);
+				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", new_id);
 			}
 			#==================================================
 			update_list();

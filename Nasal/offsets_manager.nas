@@ -10,7 +10,7 @@ var manager = {
 		if ( me.initialized ) return;
 
 		foreach (var h; me.handlers)
-			if ( hasmember(h, "init") ) h.init();
+			if ( view.hasmember(h, "init") ) h.init();
 
 		me.initialized = 1;
 	},
@@ -18,7 +18,7 @@ var manager = {
 	start : func {
 		setprop("/sim/fgcamera/fgcamera-enabled", 1);
 		foreach (var h; me.handlers)
-			if ( hasmember(h, "start") )
+			if ( view.hasmember(h, "start") )
 				h.start();
 	},
 #--------------------------------------------------
@@ -51,20 +51,20 @@ var manager = {
 #--------------------------------------------------
 	reset : func {
 		foreach (var h; me.handlers)
-			if ( hasmember(h, "reset") )
+			if ( view.hasmember(h, "reset") )
 				h.reset();
 	},
 #--------------------------------------------------
 	stop : func {
 		setprop("/sim/fgcamera/fgcamera-enabled", 0);
 		foreach (var h; me.handlers)
-			if ( hasmember(h, "stop") )
+			if ( view.hasmember(h, "stop") )
 				h.stop();
 	},
 #--------------------------------------------------
 	_reset : func {
 		foreach (var h; me.handlers)
-			if ( hasmember(h, "_reset") )
+			if ( view.hasmember(h, "_reset") )
 				h._reset();
 			elsif ( !h.free )
 				forindex (var i; h.offsets)

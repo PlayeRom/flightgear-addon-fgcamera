@@ -26,7 +26,7 @@ var adjustment_handler = {
 			else
 				v = v_cfg[1];
 
-			me._v[i] = getprop(my_node_path ~ "/controls/adjust-" ~ me._list[i]) or 0;
+			me._v[i] = getprop(g_myNodePath ~ "/controls/adjust-" ~ me._list[i]) or 0;
 			if ( (me._v[i] *= v) != 0 )
 				me._updateF = 1;
 		}
@@ -34,7 +34,7 @@ var adjustment_handler = {
 #--------------------------------------------------
 	start: func {
 		foreach (var a; me._list) {
-			var listener = setlistener( my_node_path ~ "/controls/adjust-" ~ a, func { me._trigger() }, 0, 0 );
+			var listener = setlistener( g_myNodePath ~ "/controls/adjust-" ~ a, func { me._trigger() }, 0, 0 );
 			append (me._listeners, listener);
 		}
 	},
@@ -66,7 +66,7 @@ var adjustment_handler = {
 			}
 		}
 	},
-#--------------------------------------------------	
+#--------------------------------------------------
 	_rotate: func {
 		var t = subvec(me._v, 0, 3);
 		var r = subvec(offsets, 3);

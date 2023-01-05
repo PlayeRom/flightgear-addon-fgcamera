@@ -7,38 +7,36 @@
 #==================================================
 var Mouse = {
     #
+    # Constants
+    #
+    MODE_LOOK_AROUND : 2,
+
+    #
     # Constructor
     #
+    # @param hash addon
     # @return me
     #
-    new: func {
+    new: func(addon) {
         var me = {
-            parents       : [Mouse],
-            _current      : zeros(6),
-            _previous     : zeros(6),
-            _delta        : zeros(6),
-            _path         : "/devices/status/mice/mouse/",
-            _pathInternal : "/sim/fgcamera/mouse/",
-            _controlMode  : 0, # 0 - mouse; 1 - yoke;
-            _prevMode     : 0, # prevous mode, before using spring-loaded mode
+            parents        : [Mouse],
+            _addonBasePath : addon.basePath,
+            _current       : zeros(6),
+            _previous      : zeros(6),
+            _delta         : zeros(6),
+            _path          : "/devices/status/mice/mouse/",
+            _pathInternal  : "/sim/fgcamera/mouse/",
+            _controlMode   : 0, # 0 - mouse; 1 - yoke;
+            _prevMode      : 0, # prevous mode, before using spring-loaded mode
         };
 
         me.init();
 
-        me._rightMouseBtnListener = setlistener("/devices/status/mice/mouse/button[2]", func(node) {
+        setlistener("/devices/status/mice/mouse/button[2]", func(node) {
             me._useSpringLoaded(node);
         });
 
         return me;
-    },
-
-    #
-    # Destructor
-    #
-    # @return void
-    #
-    del: func {
-        removelistener(me._rightMouseBtnListener);
     },
 
     #
@@ -48,7 +46,7 @@ var Mouse = {
     #
     init: func {
         props.getNode("/input/mice").removeAllChildren();
-        io.read_properties(my_root_path ~ "/fgmouse.xml", "/input/mice");
+        io.read_properties(me._addonBasePath ~ "/fgmouse.xml", "/input/mice");
 
         return fgcommand("reinit", props.Node.new({"subsystem": "input"}));
     },
@@ -150,7 +148,7 @@ var Mouse = {
         var rightButton = node.getIntValue();
         if (rightButton) {
             me._prevMode = mouse.getMode();
-            me.setMode(2); # set "look around" mode
+            me.setMode(Mouse.MODE_LOOK_AROUND); # set "look around" mode
         } else {
             me.setMode(me._prevMode);
         }

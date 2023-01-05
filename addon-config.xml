@@ -11,6 +11,10 @@
 			<!-- /sim/fgcamera/fgcamera-enabled - If true then FGCamera view is currently working, otherwise FG view is currently working -->
 
 			<enable type="bool">true</enable>
+
+			<!-- Display popupTip with camera name: -->
+			<popupTip type="bool">false</popupTip>
+
 			<mouse>
 				<spring-loaded type="bool" userarchive="y">true</spring-loaded>
 			</mouse>

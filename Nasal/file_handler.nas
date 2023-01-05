@@ -5,12 +5,15 @@ var FileHandler = {
     #
     # Constructor
     #
+    # @param hash addon
     # @return me
     #
-    new: func {
+    new: func(addon) {
         var me = {
-            parents   : [FileHandler],
-            migration : Migration.new(),
+            parents         : [FileHandler],
+            _migration      : Migration.new(),
+            _currentVersion : addon.version.str(),
+            _addonBasePath  : addon.basePath,
         };
 
         me._loadCameras();
@@ -36,7 +39,7 @@ var FileHandler = {
             path = getprop("/sim/aircraft-dir") ~ "/FGCamera/";
             if (call(io.readfile, [path ~ "/" ~ file], nil, nil, var err = []) == nil) {
                 # default configuration
-                path = my_root_path;
+                path = me._addonBasePath;
                 file = "default-cameras.xml";
                 isDefault = 1;
             }
@@ -56,8 +59,8 @@ var FileHandler = {
 
         var version = cameraNode.getChild("version", 0, 1).getValue() or "v1.0";
         print("Loaded cameras version: ", version);
-        if (version != my_version) {
-            me.migration.upgradeVersion(version);
+        if (version != me._currentVersion) {
+            me._migration.upgradeVersion(version);
         }
 
         me._loadBoolOption(cameraNode, 1, "spring-loaded-mouse", "mouse/spring-loaded");
@@ -123,7 +126,7 @@ var FileHandler = {
             }
         }
 
-        node.getChild("version",               index, create).setValue(my_version);
+        node.getChild("version",               index, create).setValue(me._currentVersion);
         node.getChild("mini-dialog-type",      index, create).setValue(getprop("/sim/fgcamera/mini-dialog-type"));
         node.getChild("spring-loaded-mouse",   index, create).setBoolValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
         node.getChild("mini-dialog-enable",    index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-enable"));

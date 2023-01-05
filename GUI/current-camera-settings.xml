@@ -424,7 +424,7 @@
 
 	<nasal>
 		<open> <![CDATA[
-			var listener = setlistener(fgcamera.my_node_path ~ "/current-camera/camera-id", func{update_values()});
+			var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func{update_values()});
 			#==================================================
 			#	Functions
 			#==================================================

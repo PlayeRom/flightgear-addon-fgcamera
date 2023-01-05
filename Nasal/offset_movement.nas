@@ -16,6 +16,7 @@ var movement_handler = {
 	_diffFov: 0,
 
 	_dlg    : nil,
+	# timeF   : 0,
 #--------------------------------------------------
 	_set_tower: func (twr) {
 		var list = [
@@ -28,7 +29,7 @@ var movement_handler = {
 		];
 		var next_twr = 0;
 		foreach(var a; list) {
-			var path = my_node_path ~ "/tower/" ~ a;
+			var path = g_myNodePath ~ "/tower/" ~ a;
 			if ( getprop(path) != twr[a] ) {
 				setprop(path, twr[a]);
 				next_twr = 1;
@@ -72,18 +73,18 @@ var movement_handler = {
 	},
 #--------------------------------------------------
 	_trigger: func {
-		var camera_id = getprop ( my_node_path ~ "/current-camera/camera-id" );
+		var camera_id = getprop ( g_myNodePath ~ "/current-camera/camera-id" );
 		if ( (camera_id + 1) > size(cameras) )
 			camera_id = 0;
 
 		var view_id = view.indexof(cameras[camera_id].type);
 
-		#timeF = (cameras[current[1]].category == cameras[camera_id].category);
+		# timeF = (cameras[current[1]].category == cameras[camera_id].category);
 
 		camGui.closeDialog();
 		Panel2D.hide();
 
-		if (popupTipF * cameras[camera_id].popupTip)
+		if (getprop(g_myNodePath ~ "/popupTip") * cameras[camera_id].popupTip)
 			gui.popupTip(cameras[camera_id].name, 1);
 
 		me._set_from_to(view_id, camera_id);
@@ -98,7 +99,7 @@ var movement_handler = {
 	},
 #--------------------------------------------------
 	init: func {
-		var path      = my_node_path ~ "/current-camera/camera-id";
+		var path      = g_myNodePath ~ "/current-camera/camera-id";
 		var listener  = setlistener( path, func { me._trigger() } );
 
 		append (me._listeners, listener);
@@ -112,7 +113,7 @@ var movement_handler = {
 		var data    = cameras[current[1]].movement;
 
 		# FIXME - remove comment ?
-		if ( data.time > 0 ) #and (timeF != 0) )
+		if ( data.time > 0 ) # and (timeF != 0) )
 			me._b += dt / data.time;
 		else
 			me._b = 1;

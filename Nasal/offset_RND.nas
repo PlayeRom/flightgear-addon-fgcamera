@@ -53,7 +53,7 @@ var sine = {
 		if (!me.enabled) return me.output = 0;
 
 		me.T += dt;
-		me.output = sin(2 * math.pi * me.f * me.T);
+		me.output = math.sin(2 * math.pi * me.f * me.T);
 
 		me._offset = me.output * me.A;
 	},
@@ -107,7 +107,7 @@ var resonance = {
 		me.T  += dt;
 		me.T2 += dt;
 
-		me.output = me.output_raw * cos(2 * math.pi * me.f * me.T2);
+		me.output = me.output_raw * math.cos(2 * math.pi * me.f * me.T2);
 		me._offset = me.output * me.A;
 	},
 #--------------------------------------------------
@@ -147,8 +147,8 @@ var noise = {
 			me.A2 = rand() * me.f / 9; # * math.sgn(0.5 - rand());
 		}
 
-		me.output = me.lp.filter(me.A2, 0.1) * sin(2 * math.pi * me.f * me.T);
-		#me.output = me.A2 * (cos(2 * math.pi * me.f * me.T) - 1) / 2;
+		me.output = me.lp.filter(me.A2, 0.1) * math.sin(2 * math.pi * me.f * me.T);
+		#me.output = me.A2 * (math.cos(2 * math.pi * me.f * me.T) - 1) / 2;
 		me.T += dt;
 
 		me._offset = me.output * me.A;
@@ -269,7 +269,7 @@ var LFO2 = {
 		}
 
 		if (me._bump) {
-			me.output_raw = me._stored_offset - me.A2 * ( cos (math.pi * me.T / me._t) - 1 ) / 2;
+			me.output_raw = me._stored_offset - me.A2 * ( math.cos (math.pi * me.T / me._t) - 1 ) / 2;
 			if (me.T >= me._t) me._bump = 0;
 		} else me.output_raw = me.A2 + me._stored_offset;
 
