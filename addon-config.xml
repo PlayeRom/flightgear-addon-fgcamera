@@ -7,6 +7,9 @@
 
 	<sim>
 		<fgcamera>
+			<!-- Used in Nasal: -->
+			<!-- /sim/fgcamera/fgcamera-enabled - If true then FGCamera view is currently working, otherwise FG view is currently working -->
+
 			<enable type="bool">true</enable>
 			<mouse>
 				<spring-loaded type="bool" userarchive="y">true</spring-loaded>

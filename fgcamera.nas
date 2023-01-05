@@ -2,7 +2,6 @@ var my_addon_id  = "a.marius.FGCamera";
 var my_version   = getprop("/addons/by-id/" ~ my_addon_id ~ "/version");
 var my_root_path = getprop("/addons/by-id/" ~ my_addon_id ~ "/path");
 var my_node_path = "/sim/fgcamera";
-var my_views     = ["FGCamera1", "FGCamera2", "FGCamera3", "FGCamera4", "FGCamera5"];
 var my_settings  = {};
 
 var cameras      = [];
@@ -33,26 +32,6 @@ var check_helicopter = func props.globals.getNode("/rotors/main/torque", 0, 0) !
 #==================================================
 #	Start
 #==================================================
-var FGcycleMouseMode = nil;
-
-var configure_FG = func (mode = "start") {
-	var path = "/sim/mouse/right-button-mode-cycle-enabled";
-	if ( FGcycleMouseMode == nil ) FGcycleMouseMode = getprop(path);
-	if ( mode == "start" ) {
-		setprop(path, 1);
-	} else {
-		setprop(path, FGcycleMouseMode);
-	}
-}
-
-var fgcamera_view_handler = {
-	init   : func { manager.init() },
-	start  : func { manager.start(); configure_FG("start") },
-	update : func { return manager.update() },
-	stop   : func { manager.stop(); configure_FG("stop") }
-};
-
-#--------------------------------------------------
 var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	removelistener(fdm_init_listener);
 
@@ -64,11 +43,7 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	Commands.new();
 	fileHandler = FileHandler.new();
 	camGui = Gui.new();
-
-	# register views
-	foreach (var a; my_views) {
-		view.manager.register(a, fgcamera_view_handler);
-	}
+	Views.register();
 
 	if (getprop("/sim/fgcamera/enable")) {
 		# setting camera-id
@@ -133,4 +108,11 @@ setlistener("sim/walker/key-triggers/outside-toggle", func {
 	}
 	timer.singleShot = 1; # timer will only be run once
 	timer.start();
+});
+
+setlistener("/sim/signals/exit", func(node) {
+	if (node.getBoolValue()) {
+		# sim is going to exit, back previous FG settings for correct autosave
+		Views.configureFG(0);
+	}
 });

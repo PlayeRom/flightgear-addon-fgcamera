@@ -27,6 +27,7 @@ var main = func(addon) {
 		"Nasal/offset_adjustment",
 		"Nasal/offset_mouselook",
 		"Nasal/offsets_manager",
+		"Nasal/views",
 		"fgcamera",
 	];
 
