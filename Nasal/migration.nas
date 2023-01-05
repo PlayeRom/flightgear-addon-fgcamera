@@ -20,7 +20,7 @@ var Migration = {
     # @retrun void
     #
     upgradeVersion: func (oldVersion) {
-        var versions = _getVersionsVector(oldVersion);
+        var versions = me._getVersionsVector(oldVersion);
         if (size(versions) < 1) {
             return;
         }
