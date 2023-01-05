@@ -8,7 +8,20 @@
 	<sim>
 		<fgcamera>
 			<!-- Used in Nasal: -->
-			<!-- /sim/fgcamera/fgcamera-enabled - If true then FGCamera view is currently working, otherwise FG view is currently working -->
+			<!-- <controls> -->
+				<!-- <adjust-h> -->
+				<!-- <adjust-p> -->
+				<!-- <adjust-r> -->
+				<!-- <adjust-x> - move camera left-right-->
+				<!-- <adjust-y> - move camera up-dawn -->
+				<!-- <adjust-z> - move cameru forward-backward -->
+			<!-- <current-camera> -->
+				<!-- <RDN-updated type="double"> -->
+				<!-- <camera-id type="double"> -->
+				<!-- <camera-name type="string"> -->
+				<!-- <category type="string"> -->
+				<!-- <name type="string">  - name on list in GUI, like e.g. "1. default [0]" -->
+			<!-- <fgcamera-enabled type="bool"> - If true then FGCamera view is currently working, otherwise FG view is currently working -->
 
 			<enable type="bool">true</enable>
 
@@ -17,6 +30,14 @@
 
 			<mouse>
 				<spring-loaded type="bool" userarchive="y">true</spring-loaded>
+
+				<!-- Used in Nasal: -->
+				<!-- <handling-offset type="double"> -->
+				<!-- <pitch-offset type="double"> -->
+				<!-- <roll-offset type="double"> -->
+				<!-- <x-offset type="double"> -->
+				<!-- <y-offset type="double"> -->
+				<!-- <z-offset type="double"> -->
 			</mouse>
 			<welcome-skip type="bool" userarchive="y">false</welcome-skip>
 			<mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
