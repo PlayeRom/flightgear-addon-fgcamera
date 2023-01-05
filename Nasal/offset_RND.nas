@@ -381,7 +381,7 @@ var RND_handler = {
 		} else {
 			me._mode = me._check_mode();
 
-			if ( !helicopterF ) {
+			if (!helicopter.isHelicopter()) {
 				var v = getprop("/velocities/groundspeed-kt");
 			} else {
 				var v = getprop("/rotors/main/rpm");

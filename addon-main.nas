@@ -15,6 +15,7 @@ var main = func(addon) {
 		"Nasal/math",
 		"Nasal/migration",
 		"Nasal/gui",
+		"Nasal/helicopter",
 		"Nasal/commands",
 		"Nasal/file_handler",
 		"Nasal/mouse",

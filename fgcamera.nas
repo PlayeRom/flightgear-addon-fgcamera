@@ -13,11 +13,11 @@ var popupTipF    = 0;
 var panelF       = 0;
 var dialogF      = 0;
 var timeF        = 0;
-var helicopterF  = nil;
 
-var mouse = nil;
-var camGui = nil;
+var mouse       = nil;
+var camGui      = nil;
 var fileHandler = nil;
+var helicopter  = nil;
 
 #==================================================
 #	"Shortcuts"
@@ -26,33 +26,31 @@ var sin       = math.sin;
 var cos       = math.cos;
 var hasmember = view.hasmember;
 
-#--------------------------------------------------
-var check_helicopter = func props.globals.getNode("/rotors/main/torque", 0, 0) != nil ? 1 : 0;
-
 #==================================================
 #	Start
 #==================================================
 var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	removelistener(fdm_init_listener);
 
-	# helicopeter flag
-	helicopterF = check_helicopter();
-	print("helicopter: " ~ helicopterF);
-
-	mouse = Mouse.new();
 	Commands.new();
+	helicopter  = Helicopter.new();
+	mouse       = Mouse.new();
 	fileHandler = FileHandler.new();
-	camGui = Gui.new();
+	camGui      = Gui.new();
 	Views.register();
 
 	if (getprop("/sim/fgcamera/enable")) {
 		# setting camera-id
-		var selectCameraTimer = maketimer(2, func {
+		var delayTimer = maketimer(2, func {
 			# Delay selecting default camera for fix FOV
 			setprop(my_node_path ~ "/current-camera/camera-id", 0);
+
+			# Check helicopter with delay, the "torque" property is not set so quickly
+			helicopter.check();
+			print("FGCamera: helicopter: ", helicopter.isHelicopter());
 		});
-		selectCameraTimer.singleShot = 1;
-		selectCameraTimer.start();
+		delayTimer.singleShot = 1;
+		delayTimer.start();
 
 		# Disable pilot model in cockpit
 		var is_occupants_models_visible = getprop("/sim/model/occupants");
@@ -76,7 +74,9 @@ var reinit_listener = setlistener("/sim/signals/reinit", func {
 	fgcommand("gui-redraw");
 	fgcommand("fgcamera-reset-view");
 
-	helicopterF = check_helicopter();
+	if (helicopter != nil) {
+		helicopter.check();
+	}
 });
 
 # Support walk view toggle, when he gets out
