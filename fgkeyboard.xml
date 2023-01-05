@@ -8,7 +8,7 @@
             <repeatable>0</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>fgcamera.mouse.toggle_yoke()</script>
+                <script>fgcamera.mouse.toggleYoke()</script>
             </binding>
         </mod-ctrl>
     </key>

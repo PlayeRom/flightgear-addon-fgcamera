@@ -26,7 +26,7 @@ var mouse_look_handler = {
 	},
 #--------------------------------------------------
 	_trigger : func {
-		var m = mouse.get_mode();
+		var m = mouse.getMode();
 		if ( (m == 2) or (m == 3) ) {
 			me._mlook = 1;
 
@@ -54,7 +54,7 @@ var mouse_look_handler = {
 
 		me._updateF = me._mlook;
 
-		me._delta = mouse.get_delta();
+		me._delta = mouse.getDelta();
 		me._rotate();
 
 		var i = 0;
@@ -69,7 +69,7 @@ var mouse_look_handler = {
 			i += 1;
 		}
 	},
-#--------------------------------------------------	
+#--------------------------------------------------
 	_rotate: func {
 		var t = subvec(me._delta, 0, 3);
 		var r = subvec(offsets, 3);
