@@ -16,7 +16,7 @@ var dialogF      = 0;
 var timeF        = 0;
 var helicopterF  = nil;
 
-var mouse_enabled = 0;
+var mouse = nil;
 
 #==================================================
 #	"Shortcuts"
@@ -77,6 +77,8 @@ var load_nasal = func (v) {
 }
 
 var init_mouse = func {
+	mouse = Mouse.new();
+
 	# load new mouse configuration & reinit input subsystem
 	props.getNode("/input/mice").removeAllChildren();
 	io.read_properties(my_root_path ~ "/fgmouse.xml", "/input/mice");

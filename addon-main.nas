@@ -7,11 +7,11 @@
 # Converted to a FlightGear addon by
 # Slawek Mikula, October 2017
 
-var main = func( addon ) {
-    var root = addon.basePath;
+var main = func(addon) {
+    var basePath = addon.basePath;
 
     # load scripts
-    foreach(var f; ['fgcamera.nas','mouse.nas'] ) {
-        io.load_nasal( root ~ "/" ~ f, "fgcamera" );
+    foreach (var file; ["fgcamera"]) {
+        io.load_nasal(basePath ~ "/" ~ file ~ ".nas", "fgcamera");
     }
 }

@@ -17,11 +17,13 @@ current mode for each mouse is held in the
 		<mode-count type="int">4</mode-count>
 		<mode archive="y" type="int">0</mode>
 
+		<!-- Mode 0: pointer mode -->
 		<mode n="0">
 			<cursor>inherit</cursor>
 			<constrained type="bool">false</constrained>
 			<pass-through type="bool">true</pass-through>
 
+			<!-- Left button -->
 			<button n="0">
 				<binding>
 					<condition>
@@ -33,6 +35,7 @@ current mode for each mouse is held in the
 				</binding>
 			</button>
 
+			<!-- Right button -->
 			<button n="2">
 				<binding>
 					<condition>
@@ -54,11 +57,13 @@ current mode for each mouse is held in the
 			</button>
 		</mode>
 
+		<!-- Mode 1: control mode -->
 		<mode n="1">
 			<cursor>crosshair</cursor>
 			<constrained type="bool">true</constrained>
 			<pass-through type="bool">false</pass-through>
 
+			<!-- Right button -->
 			<button n="2">
 				<binding>
 					<condition>
