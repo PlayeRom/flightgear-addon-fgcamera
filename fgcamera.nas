@@ -18,6 +18,7 @@ var mouse       = nil;
 var camGui      = nil;
 var fileHandler = nil;
 var helicopter  = nil;
+var walker      = Walker.new();
 
 #==================================================
 #	"Shortcuts"
@@ -79,36 +80,6 @@ var reinit_listener = setlistener("/sim/signals/reinit", func {
 	}
 });
 
-# Support walk view toggle, when he gets out
-# The following variables define the behaviour and may be overriden by aircraft (for example to open the door before going out)
-# (See examples below)
-var walkerGetoutTime = 0.0;           # wait time after the GetOut callback executed
-var walkerGetinTime  = 0.0;           # wait time after the GetIn callback executed
-var walkerGetout_callback = func{0};  # callback when getting out
-var walkerGetin_callback  = func{0};  # callback when getting in
-var lastWalkerFGCam = nil;  # here we store what view we were in when the walker exits
-
-setlistener("sim/walker/key-triggers/outside-toggle", func {
-	# we let pass some time so the walker code can execute first
-	var timer = nil;
-	if (getprop("sim/walker/key-triggers/outside-toggle")) {
-		walkerGetout_callback();
-		timer = maketimer(walkerGetoutTime + 0.5, func(){
-			# went outside
-			lastWalkerFGCam = getprop("/sim/current-view/view-number-raw");
-			view.setViewByIndex(110);  #110 is defined as walk view by fgdata/walker-include.xml
-		});
-	} else {
-		walkerGetin_callback();
-		timer = maketimer(walkerGetinTime + 0.5, func(){
-			# went inside
-			view.setViewByIndex(lastWalkerFGCam);  #110 is defined as walk view by fgdata/walker-include.xml
-			lastWalkerFGCam = nil;
-		});
-	}
-	timer.singleShot = 1; # timer will only be run once
-	timer.start();
-});
 
 setlistener("/sim/signals/exit", func(node) {
 	if (node.getBoolValue()) {
