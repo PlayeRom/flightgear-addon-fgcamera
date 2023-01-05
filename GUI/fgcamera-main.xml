@@ -220,9 +220,21 @@
 		<empty><stretch>1</stretch></empty>
 
 		<button>
-			<legend>Save</legend>
-			<key>Esc</key>
+			<legend>OK</legend>
+			<equal>true</equal>
 			<pref-height>30</pref-height>
+			<binding>
+				<command>nasal</command>
+				<script>fgcamera.save_cameras()</script>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+		<button>
+			<legend>Apply</legend>
+			<equal>true</equal>
 			<binding>
 				<command>nasal</command>
 				<script>fgcamera.save_cameras()</script>
@@ -232,6 +244,7 @@
 		<button>
 			<legend>Close</legend>
 			<key>Esc</key>
+			<equal>true</equal>
 			<pref-height>30</pref-height>
 			<binding>
 				<command>dialog-close</command>
