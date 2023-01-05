@@ -81,7 +81,7 @@ var movement_handler = {
 		#timeF = (cameras[current[1]].category == cameras[camera_id].category);
 
 		camGui.closeDialog();
-		panel_2d.hide();
+		Panel2D.hide();
 
 		if (popupTipF * cameras[camera_id].popupTip)
 			gui.popupTip(cameras[camera_id].name, 1);
@@ -124,7 +124,7 @@ var movement_handler = {
 				me.offsets[i] = me._to[i];
 
 			camGui.showDialog();
-			panel_2d.show();
+			Panel2D.show();
 			setprop("/sim/current-view/field-of-view", cameras[current[1]].fov); # to be sure that finally the fov is correct
 
 		} else {

@@ -489,14 +489,14 @@
 				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/show-panel";
 				var value = getprop(path);
-				var selected_type = getprop("/sim/fgcamera/dialogs/camera-settings/show-panel-type") or fgcamera.panel_2d.DEFAULT;
+				var selected_type = getprop("/sim/fgcamera/dialogs/camera-settings/show-panel-type") or fgcamera.Panel2D.DEFAULT;
 
 				fgcamera.cameras[id]["panel-show"] = value;
 				fgcamera.cameras[id]["panel-show-type"] = selected_type;
 				if (value) {
-					fgcamera.panel_2d.show_path(selected_type);
+					fgcamera.Panel2D.showPath(selected_type);
 				} else {
-					fgcamera.panel_2d.hide();
+					fgcamera.Panel2D.hide();
 				}
 			}
 			#==================================================

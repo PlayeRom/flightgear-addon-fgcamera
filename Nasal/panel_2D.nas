@@ -2,7 +2,7 @@
 #
 # Panel 2D class
 #
-var panel_2d = {
+var Panel2D = {
     #
     # Constants
     #
@@ -14,7 +14,7 @@ var panel_2d = {
     # @return void
     #
     show: func {
-        me.show_path(cameras[current[1]]["panel-show-type"]);
+        me.showPath(cameras[current[1]]["panel-show-type"]);
     },
 
     #
@@ -23,13 +23,13 @@ var panel_2d = {
     # @param string path
     # @return void
     #
-    show_path: func(path) {
+    showPath: func(path) {
         if (!cameras[current[1]]["panel-show"]) {
             return;
         }
 
         if (path == nil or path == "") {
-            path = panel_2d.DEFAULT;
+            path = Panel2D.DEFAULT;
         }
 
         path = "Aircraft/Panels/" ~ path ~ ".xml";
