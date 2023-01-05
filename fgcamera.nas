@@ -70,12 +70,6 @@ var fgcamera_view_handler = {
 	stop   : func { manager.stop(); configure_FG("stop") }
 };
 
-var load_nasal = func (v) {
-	foreach (var script; v) {
-		io.load_nasal ( my_root_path ~ "/Nasal/" ~ script ~ ".nas", "fgcamera" );
-	}
-}
-
 var init_mouse = func {
 	mouse = Mouse.new();
 
@@ -92,25 +86,6 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 	# helicopeter flag
 	helicopterF = check_helicopter();
 	print("helicopter: " ~ helicopterF);
-
-	# loading nasal functions
-	load_nasal ([
-		"math",
-		"version",
-		"gui",
-		"commands",
-		"io",
-		"mouse",
-		"offset_template",
-		"offset_movement",
-		"offset_DHM",
-		"offset_RND",
-		"offset_trackir",
-		"offset_linuxtrack",
-		"offset_adjustment",
-		"offset_mouselook",
-		"offsets_manager",
-	]);
 
 	init_mouse();
 	add_commands();
