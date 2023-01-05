@@ -11,6 +11,7 @@ var main = func(addon) {
 	var basePath = addon.basePath;
 
 	var files = [
+		"Nasal/panel_2D",
 		"Nasal/math",
 		"Nasal/version",
 		"Nasal/gui",

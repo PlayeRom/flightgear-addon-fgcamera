@@ -26,26 +26,6 @@ var cos       = math.cos;
 var hasmember = view.hasmember;
 
 #--------------------------------------------------
-var show_panel = func() {
-	show_panel_path(cameras[current[1]]["panel-show-type"]);
-}
-
-var show_panel_path = func(path) {
-	if ( !cameras[current[1]]["panel-show"] ) {
-		return;
-	}
-
-	if (path == nil or path == "") {
-		path = "generic-vfr-panel";
-	}
-
-	path = "Aircraft/Panels/" ~ path ~ ".xml";
-
-	setprop("/sim/panel/path", path);
-	setprop("/sim/panel/visibility", 1);
-}
-#--------------------------------------------------
-var hide_panel = func { setprop("/sim/panel/visibility", 0) }
 var check_helicopter = func props.globals.getNode("/rotors/main/torque", 0, 0) != nil ? 1 : 0;
 
 #==================================================

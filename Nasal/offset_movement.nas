@@ -2,7 +2,7 @@
 #	View movement (interpolation) handler
 #==================================================
 
-movement_handler = {
+var movement_handler = {
 	parents : [ t_handler.new() ],
 
 	free    : 1,
@@ -81,7 +81,7 @@ movement_handler = {
 		#timeF = (cameras[current[1]].category == cameras[camera_id].category);
 
 		close_dialog();
-		hide_panel();
+		panel_2d.hide();
 
 		if (popupTipF * cameras[camera_id].popupTip)
 			gui.popupTip(cameras[camera_id].name, 1);
@@ -124,7 +124,7 @@ movement_handler = {
 				me.offsets[i] = me._to[i];
 
 			show_dialog();
-			show_panel();
+			panel_2d.show();
 			setprop("/sim/current-view/field-of-view", cameras[current[1]].fov); # to be sure that finally the fov is correct
 
 		} else {
