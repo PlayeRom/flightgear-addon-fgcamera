@@ -9,7 +9,8 @@ var FileHandler = {
     #
     new: func {
         var me = {
-            parents: [FileHandler],
+            parents   : [FileHandler],
+            migration : Migration.new(),
         };
 
         me._loadCameras();
@@ -56,7 +57,7 @@ var FileHandler = {
         var version = cameraNode.getChild("version", 0, 1).getValue() or "v1.0";
         print("Loaded cameras version: ", version);
         if (version != my_version) {
-            update_cam_version(version);
+            migration.upgradeVersion(version);
         }
 
         me._loadBoolOption(cameraNode, 1, "spring-loaded-mouse", "mouse/spring-loaded");

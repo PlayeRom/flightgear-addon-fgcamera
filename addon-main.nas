@@ -13,7 +13,7 @@ var main = func(addon) {
 	var files = [
 		"Nasal/panel_2D",
 		"Nasal/math",
-		"Nasal/version",
+		"Nasal/migration",
 		"Nasal/gui",
 		"Nasal/commands",
 		"Nasal/file_handler",
