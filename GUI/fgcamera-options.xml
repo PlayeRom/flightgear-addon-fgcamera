@@ -51,7 +51,7 @@
 			<binding>
 				<command>nasal</command>
 				<script><![CDATA[
-					fgcamera.setMiniDialogListener();
+					fgcamera.camGui.setMiniDialogListener();
 				]]></script>
 			</binding>
 		</checkbox>
@@ -80,7 +80,7 @@
 				<binding>
 					<command>nasal</command>
 					<script><![CDATA[
-						fgcamera.setMiniDialogListener();
+						fgcamera.camGui.setMiniDialogListener();
 					]]></script>
 				</binding>
 				<value>simple</value>
@@ -101,7 +101,7 @@
 			<binding>
 				<command>nasal</command>
 				<script><![CDATA[
-					fgcamera.setMiniDialogListener();
+					fgcamera.camGui.setMiniDialogListener();
 				]]></script>
 			</binding>
 		</checkbox>

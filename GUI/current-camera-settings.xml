@@ -509,8 +509,9 @@
 
 				fgcamera.cameras[id]["dialog-show"] = value;
 				if (value)
-					fgcamera.show_dialog(1);
-				else fgcamera.close_dialog(1);
+					fgcamera.camGui.showDialog(1);
+				else
+					fgcamera.camGui.closeDialog(1);
 			}
 			#==================================================
 			#	Dialog name
@@ -522,12 +523,12 @@
 				var value = getprop(path);
 
 				if ( getprop(path2) ) {
-					fgcamera.close_dialog(1);
+					fgcamera.camGui.closeDialog(1);
 					fgcamera.cameras[id]["dialog-show"] = 0;
 				}
 
 				fgcamera.cameras[id]["dialog-name"] = value;
-				#fgcamera.show_dialog();
+				#fgcamera.camGui.showDialog();
 				update_values();
 			}
 			#==================================================

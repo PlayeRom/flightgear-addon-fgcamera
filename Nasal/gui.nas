@@ -1,180 +1,279 @@
-#==================================================
-#	GUI loader and handler
-#==================================================
+#
+# GUI loader and handler class
+#
+var Gui = {
+    #
+    # Constants
+    #
+    MENU_NAME        : "fgcamera",
+    AUTO_HIDE_ZONE_X : 220,
+    AUTO_HIDE_ZONE_Y : 120,
 
-#--------------------------------------------------
-var load_gui = func {
-	var dialogs   = [
-		"fgcamera-main",
-		"create-new-camera",
-		"current-camera-settings",
-		"fgcamera-options",
-		"DHM-settings",
-		"RND-mixer",
-		"RND-generator",
-		"RND-curves",
-		"RND-import",
-		"fgcamera-help",
-		"fgcamera-welcome",
-	];
+    #
+    # Constructor
+    #
+    # @return me
+    #
+    new: func {
+        var me = {
+            parents: [Gui],
 
-	var menu_item_name = "fgcamera";
+            # Mini dialog variables
+            _nodeMiniDialogEnable   : globals.props.getNode("/sim/fgcamera/mini-dialog-enable"),
+            _nodeMiniDialogType     : globals.props.getNode("/sim/fgcamera/mini-dialog-type"),
+            _nodeMiniDialogAutoHide : globals.props.getNode("/sim/fgcamera/mini-dialog-autohide"),
+            _nodeMouseX             : globals.props.getNode("/devices/status/mice/mouse/x"),
+            _nodeMouseY             : globals.props.getNode("/devices/status/mice/mouse/y"),
+            _nodeSizeY              : globals.props.getNode("/sim/startup/ysize"),
+            _miniDialogSimple       : nil,
+            _miniDialogSlots        : nil,
+            _miniDialogListener     : nil,
+        };
 
-	foreach (var name; dialogs) {
-		gui.Dialog.new(
-			"/sim/gui/dialogs/" ~ name ~ "/dialog",
-			my_root_path ~ "/GUI/" ~ name ~ ".xml"
-		);
-	}
+        me._load();
 
-	var data = {
-		label   : "FGCamera",
-		name    : menu_item_name,
-		binding : {
-			"command"     : "dialog-show",
-			"dialog-name" : "fgcamera-main",
-		}
-	};
+        return me;
+    },
 
-	if (!is_menu_item_exists(menu_item_name)) {
-		props.globals.getNode("/sim/menubar/default/menu[1]").addChild("item").setValues(data);
-	}
+    #
+    # Load all dialogs and menu
+    #
+    # @return void
+    #
+    _load: func {
+        me._createDialogs();
+        me._appendToMenu();
 
-	fgcommand("gui-redraw");
+        fgcommand("gui-redraw");
 
-	register_gui_mini_dialogs();
-}
+        me._createMiniDialogs();
+    },
 
-#--------------------------------------------------
-var show_dialog = func (show = 0) {
-	if (cameras[current[1]]["dialog-show"] or show)
-		gui.showDialog(cameras[current[1]]["dialog-name"]);
-}
+    #
+    # Crate all GUI dialogs
+    #
+    # @return void
+    #
+    _createDialogs: func {
+        var dialogs   = [
+            "fgcamera-main",
+            "create-new-camera",
+            "current-camera-settings",
+            "fgcamera-options",
+            "DHM-settings",
+            "RND-mixer",
+            "RND-generator",
+            "RND-curves",
+            "RND-import",
+            "fgcamera-help",
+            "fgcamera-welcome",
+        ];
 
-#--------------------------------------------------
-var close_dialog = func (close = 0) {
-	if (cameras[current[1]]["dialog-show"] or close)
-		fgcommand ( "dialog-close", props.Node.new({ "dialog-name" : cameras[current[1]]["dialog-name"] }) );
-}
+        foreach (var name; dialogs) {
+            gui.Dialog.new(
+                "/sim/gui/dialogs/" ~ name ~ "/dialog",
+                my_root_path ~ "/GUI/" ~ name ~ ".xml"
+            );
+        }
+    },
 
-#--------------------------------------------------
-# Prevent to add menu item more than once, e.g. after reload the sim by <Shift-Esc>
-var is_menu_item_exists = func (menu_item_name) {
-	foreach (var item; props.globals.getNode("/sim/menubar/default/menu[1]").getChildren("item")) {
-		var name = item.getChild("name");
-		if (name != nil and name.getValue() == menu_item_name) {
-			print("Menu item FGCamera alredy exists");
-			return 1;
-		}
-	}
+    #
+    # Add FGCamera menu item to View
+    #
+    # @return void
+    #
+    _appendToMenu: func {
+        var data = {
+            label   : "FGCamera",
+            name    : Gui.MENU_NAME,
+            binding : {
+                "command"     : "dialog-show",
+                "dialog-name" : "fgcamera-main",
+            }
+        };
 
-	return 0;
-}
+        if (!me._isMenuItemExists()) {
+            props.globals.getNode("/sim/menubar/default/menu[1]").addChild("item").setValues(data);
+        }
+    },
 
-#--------------------------------------------------
-var node_mini_dialog_enable   = globals.props.getNode("/sim/fgcamera/mini-dialog-enable");
-var node_mini_dialog_type     = globals.props.getNode("/sim/fgcamera/mini-dialog-type");
-var node_mini_dialog_augohide = globals.props.getNode("/sim/fgcamera/mini-dialog-autohide");
+    #
+    # Prevent to add menu item more than once, e.g. after reload the sim by <Shift-Esc>
+    #
+    # @return bool
+    #
+    _isMenuItemExists: func {
+        foreach (var item; props.globals.getNode("/sim/menubar/default/menu[1]").getChildren("item")) {
+            var name = item.getChild("name");
+            if (name != nil and name.getValue() == Gui.MENU_NAME) {
+                print("Menu item FGCamera alredy exists");
+                return 1;
+            }
+        }
 
-var node_mouse_x = globals.props.getNode("/devices/status/mice/mouse/x");
-var node_mouse_y = globals.props.getNode("/devices/status/mice/mouse/y");
-var node_ysize   = globals.props.getNode("/sim/startup/ysize");
+        return 0;
+    },
 
-var mini_dialog_simple = nil;
-var mini_dialog_slots  = nil;
-var miniDialogListener = nil;
+    #
+    # Show dialog assigned to the current camera
+    #
+    # @param bool show - If true then force to show
+    # @return void
+    #
+    showDialog: func (show = 0) {
+        if (cameras[current[1]]["dialog-show"] or show) {
+            gui.showDialog(cameras[current[1]]["dialog-name"]);
+        }
+    },
 
-var register_gui_mini_dialogs = func {
-	mini_dialog_simple = gui.Dialog.new(
-		"/sim/gui/dialogs/fgcamera-mini-dialog-simple/dialog",
-		my_root_path ~ "/GUI/fgcamera-mini-dialog-simple.xml"
-	);
+    #
+    # Close dialog assigned to the current camera
+    #
+    # @param bool show - If true then force to close
+    # @return void
+    #
+    closeDialog: func (close = 0) {
+        if (cameras[current[1]]["dialog-show"] or close) {
+            fgcommand("dialog-close", props.Node.new({
+                "dialog-name" : cameras[current[1]]["dialog-name"],
+            }));
+        }
+    },
 
-	mini_dialog_slots = gui.Dialog.new(
-		"/sim/gui/dialogs/fgcamera-mini-dialog-slots/dialog",
-		my_root_path ~ "/GUI/fgcamera-mini-dialog-slots.xml"
-	);
+    #
+    # Create mini dialogs and set listener for auto hide
+    #
+    # @return void
+    #
+    _createMiniDialogs: func {
+        me._miniDialogSimple = gui.Dialog.new(
+            "/sim/gui/dialogs/fgcamera-mini-dialog-simple/dialog",
+            my_root_path ~ "/GUI/fgcamera-mini-dialog-simple.xml"
+        );
 
-	setMiniDialogListener();
+        me._miniDialogSlots = gui.Dialog.new(
+            "/sim/gui/dialogs/fgcamera-mini-dialog-slots/dialog",
+            my_root_path ~ "/GUI/fgcamera-mini-dialog-slots.xml"
+        );
+
+        me.setMiniDialogListener();
+    },
+
+    #
+    # Set listener for auto hide mini dialog
+    #
+    # @return void
+    #
+    setMiniDialogListener: func {
+        me._removeMiniDialogListener();
+
+        if (!me._nodeMiniDialogEnable.getBoolValue()) {
+            me._closeAllMiniDialogs();
+            return;
+        }
+
+        if (!me._nodeMiniDialogAutoHide.getBoolValue()) {
+            me._closeAllMiniDialogs();
+            me._openMiniDialog();
+            return;
+        }
+
+        me._miniDialogListener = _setlistener("/devices/status/mice/mouse/y", func {
+            me._getMousePosY() > (me._nodeSizeY.getIntValue() - Gui.AUTO_HIDE_ZONE_Y) and
+            me._getMousePosX() < Gui.AUTO_HIDE_ZONE_X
+                ? me._openMiniDialog()
+                : me._closeMiniDialog();
+        }, 1, 0);
+    },
+
+    #
+    # Get X position of mouse
+    #
+    # @return int
+    #
+    _getMousePosX: func {
+        return me._nodeMouseX.getValue() or 0;
+    },
+
+    #
+    # Get Y position of mouse
+    #
+    # @return int
+    #
+    _getMousePosY: func {
+        return me._nodeMouseY.getValue() or 0;
+    },
+
+    #
+    # Remove mini dialog listener
+    #
+    # @return void
+    #
+    _removeMiniDialogListener: func {
+        if (me._miniDialogListener != nil) {
+            removelistener(me._miniDialogListener);
+            me._miniDialogListener = nil;
+        }
+    },
+
+    #
+    # Open mini dialog according to type setting
+    #
+    # @return void
+    #
+    _openMiniDialog: func {
+        if (me._nodeMiniDialogType.getValue() == "slots") {
+            if (me._miniDialogSimple.is_open()) {
+                # Make sure that 2nd dialog is closed
+                me._miniDialogSimple.close();
+            }
+
+            if (!me._miniDialogSlots.is_open()) {
+                me._miniDialogSlots.open();
+            }
+        }
+        else {
+            if (me._miniDialogSlots.is_open()) {
+                # Make sure that 2nd dialog is closed
+                me._miniDialogSlots.close();
+            }
+
+            if (!me._miniDialogSimple.is_open()) {
+                me._miniDialogSimple.open();
+            }
+        }
+    },
+
+    #
+    # Close mini dialog according to type setting
+    #
+    # @return void
+    #
+    _closeMiniDialog: func {
+        if (me._nodeMiniDialogType.getValue() == "slots") {
+            if (me._miniDialogSlots.is_open()) {
+                me._miniDialogSlots.close();
+            }
+        }
+        else {
+            if (me._miniDialogSimple.is_open()) {
+                me._miniDialogSimple.close();
+            }
+        }
+    },
+
+    #
+    # Close all mini dialogs if opened
+    #
+    # @return void
+    #
+    _closeAllMiniDialogs: func {
+        if (me._miniDialogSimple.is_open()) {
+            me._miniDialogSimple.close();
+        }
+
+        if (me._miniDialogSlots.is_open()) {
+            me._miniDialogSlots.close();
+        }
+    },
 };
-
-var setMiniDialogListener = func {
-	removeMiniDialogListener();
-
-	if (!node_mini_dialog_enable.getBoolValue()) {
-		close_all_mini_dialogs();
-		return;
-	}
-
-	if (!node_mini_dialog_augohide.getBoolValue()) {
-		close_all_mini_dialogs();
-		open_mini_dialog();
-		return;
-	}
-
-	var __mouse = {
-		x: func node_mouse_x.getIntValue() or 0,
-		y: func node_mouse_y.getIntValue() or 0,
-	};
-
-	miniDialogListener = _setlistener("/devices/status/mice/mouse/y", func {
-		__mouse.y() > (node_ysize.getIntValue() - 120) and __mouse.x() < 200
-			? open_mini_dialog()
-			: close_mini_dialog();
-	}, 1, 0);
-};
-
-var removeMiniDialogListener = func {
-	if (miniDialogListener != nil) {
-		removelistener(miniDialogListener);
-		miniDialogListener = nil;
-	}
-};
-
-var open_mini_dialog = func {
-	if (node_mini_dialog_type.getValue() == "slots") {
-		if (mini_dialog_simple.is_open()) {
-			# Make sure that 2nd dialog is closed
-			mini_dialog_simple.close();
-		}
-
-		if (!mini_dialog_slots.is_open()) {
-			mini_dialog_slots.open();
-		}
-	}
-	else {
-		if (mini_dialog_slots.is_open()) {
-			# Make sure that 2nd dialog is closed
-			mini_dialog_slots.close();
-		}
-
-		if (!mini_dialog_simple.is_open()) {
-			mini_dialog_simple.open();
-		}
-	}
-};
-
-var close_mini_dialog = func {
-	if (node_mini_dialog_type.getValue() == "slots") {
-		if (mini_dialog_slots.is_open()) {
-			mini_dialog_slots.close();
-		}
-	}
-	else {
-		if (mini_dialog_simple.is_open()) {
-			mini_dialog_simple.close();
-		}
-	}
-};
-
-var close_all_mini_dialogs = func {
-	if (mini_dialog_simple.is_open()) {
-		mini_dialog_simple.close();
-	}
-
-	if (mini_dialog_slots.is_open()) {
-		mini_dialog_slots.close();
-	}
-};
-
-print("GUI loaded");
