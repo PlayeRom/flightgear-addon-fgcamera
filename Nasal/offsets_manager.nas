@@ -3,6 +3,8 @@
 #==================================================
 var manager = {
 	initialized : 0,
+	offsets     : zeros(6),
+	offsets2    : zeros(6),
 	handlers    : [ movement_handler, adjustment_handler, mouse_look_handler, DHM_handler, RND_handler, trackir_handler, linuxtrack_handler ],
 	_list       : ["x-offset-m", "y-offset-m", "z-offset-m", "heading-offset-deg", "pitch-offset-deg", "roll-offset-deg"],
 #--------------------------------------------------
@@ -27,8 +29,8 @@ var manager = {
 			dt = getprop ("/sim/time/delta-sec");
 
 		var updateF   = 0;
-		var _offsets  = zeros(6);
-		var _offsets2 = zeros(6);
+		var offsets  = zeros(6);
+		var offsets2 = zeros(6);
 
 		foreach (var h; me.handlers) {
 			if ( h._updateF )
@@ -36,13 +38,13 @@ var manager = {
 
 			h.update(dt);
 			if (h._effect)
-				forindex (var i; h.offsets) _offsets2[i] += h.offsets[i];
+				forindex (var i; h.offsets) offsets2[i] += h.offsets[i];
 			else
-				forindex (var i; h.offsets) _offsets[i] += h.offsets[i];
+				forindex (var i; h.offsets) offsets[i] += h.offsets[i];
 		}
 
-		offsets  = _offsets;
-		offsets2 = _offsets2;
+		me.offsets  = offsets;
+		me.offsets2 = offsets2;
 		if ( updateF )
 			me._apply_offsets();
 
@@ -73,11 +75,11 @@ var manager = {
 #--------------------------------------------------
 	_apply_offsets : func {
 		forindex (var i; me._list)
-			setprop ( "/sim/current-view/" ~ me._list[i], offsets[i] + offsets2[i] );
+			setprop ( "/sim/current-view/" ~ me._list[i], me.offsets[i] + me.offsets2[i] );
 	},
 #--------------------------------------------------
 	_save_offsets : func {
 		forindex (var i; cameras[current[1]].offsets)
-			cameras[current[1]].offsets[i] = offsets[i];
+			cameras[current[1]].offsets[i] = me.offsets[i];
 	},
 };

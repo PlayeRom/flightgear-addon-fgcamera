@@ -2,8 +2,6 @@ var g_Addon = nil;
 var g_myNodePath = "/sim/fgcamera";
 
 var cameras      = [];
-var offsets      = [0, 0, 0, 0, 0, 0];
-var offsets2     = [0, 0, 0, 0, 0, 0];
 var current      = [0, 0]; # [view, camera]
 
 #==================================================

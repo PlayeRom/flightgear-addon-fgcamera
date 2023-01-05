@@ -50,7 +50,7 @@ var movement_handler = {
 
 		if ( current[0] == view_id ) {
 			for (var i = 0; i <= 5; i += 1)
-				me._from[i] = offsets[i] + RND_handler.offsets[i]; # fix (cross-reference)
+				me._from[i] = manager.offsets[i] + RND_handler.offsets[i]; # fix (cross-reference)
 
 			me._b = 0 + b_twr;
 		} else {

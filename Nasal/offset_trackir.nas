@@ -32,7 +32,7 @@ var trackir_handler = {
 	},
 #--------------------------------------------------
 	_rotate: func {
-		var a = offsets[3] * D2R; #math.pi / 180;
+		var a = manager.offsets[3] * D2R; #math.pi / 180;
 		var c = math.cos(a);
 		var s = math.sin(a);
 
