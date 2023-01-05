@@ -4,7 +4,7 @@ var ht_filter = 0.05;
 #	Linuxtrack inputs handler
 #==================================================
 var linuxtrack_handler = {
-	parents  : [ t_handler.new() ],
+	parents  : [ template_handler.new() ],
 
 	free     : 1,
 	_updateF : 1,

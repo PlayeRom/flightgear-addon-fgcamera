@@ -3,7 +3,7 @@
 #==================================================
 
 var mouse_look_handler = {
-	parents      : [ t_handler.new() ],
+	parents      : [ template_handler.new() ],
 
 # FIXME - remove ?
 #	_mouse       : [[,,], [,,]],

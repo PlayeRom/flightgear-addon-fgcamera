@@ -4,7 +4,7 @@
 
 #--------------------------------------------------
 var adjustment_handler = {
-	parents      : [ t_handler.new() ],
+	parents      : [ template_handler.new() ],
 
 	_v           : zeros(6),
 	_v_t         : zeros(6), # transformed

@@ -326,7 +326,7 @@ var hp = hi_pass.new();
 #	RND effects handler
 #==================================================
 var RND_handler = {
-	parents  : [ t_handler.new() ],
+	parents  : [ template_handler.new() ],
 
 	free     : 1,
 	GUI_edit : 0, # 0 / 1

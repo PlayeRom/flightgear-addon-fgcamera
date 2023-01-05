@@ -6,7 +6,7 @@ var ht_filter = 0.1;
 
 #--------------------------------------------------
 var trackir_handler = {
-	parents  : [ t_handler.new() ],
+	parents  : [ template_handler.new() ],
 
 	free     : 1,
 

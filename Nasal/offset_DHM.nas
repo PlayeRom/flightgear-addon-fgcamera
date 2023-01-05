@@ -80,7 +80,7 @@ var DHM = {
 #	DHM effect handler
 #==================================================
 var DHM_handler = {
-	parents : [ t_handler.new() ],
+	parents : [ template_handler.new() ],
 
 	free     : 1,
 
