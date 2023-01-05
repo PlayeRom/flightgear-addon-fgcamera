@@ -18,8 +18,6 @@ var helicopterF  = nil;
 
 var mouse_enabled = 0;
 
-var mini_dialog = nil;
-
 #==================================================
 #	"Shortcuts"
 #==================================================

@@ -51,17 +51,42 @@
 			<binding>
 				<command>nasal</command>
 				<script><![CDATA[
-					if (fgcamera.mini_dialog != nil) {
-						if (getprop("/sim/fgcamera/mini-dialog-enable")) {
-							fgcamera.mini_dialog.open();
-						}
-						else {
-							fgcamera.mini_dialog.close();
-						}
-					}
+					fgcamera.setMiniDialogListener();
 				]]></script>
 			</binding>
 		</checkbox>
+
+		<group>
+			<layout>hbox</layout>
+			<text>
+				<label>Mini dialog type</label>
+				<halign>left</halign>
+				<enable>
+					<property>/sim/fgcamera/mini-dialog-enable</property>
+				</enable>
+			</text>
+			<combo>
+				<name>mini-dialog-type</name>
+				<halign>fill</halign>
+				<stretch>1</stretch>
+				<property>/sim/fgcamera/mini-dialog-type</property>
+				<enable>
+					<property>/sim/fgcamera/mini-dialog-enable</property>
+				</enable>
+				<binding>
+					<command>dialog-apply</command>
+					<object-name>mini-dialog-type</object-name>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script><![CDATA[
+						fgcamera.setMiniDialogListener();
+					]]></script>
+				</binding>
+				<value>simple</value>
+				<value>slots</value>
+			</combo>
+		</group>
 
 		<checkbox>
 			<halign>left</halign>
@@ -72,6 +97,12 @@
 			</enable>
 			<binding>
 				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script><![CDATA[
+					fgcamera.setMiniDialogListener();
+				]]></script>
 			</binding>
 		</checkbox>
 

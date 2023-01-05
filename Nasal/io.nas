@@ -45,6 +45,9 @@ var load_cameras = func {
 	load_bool_option(cameraN, "mini-dialog-autohide");
 	load_bool_option(cameraN, "use-ctrl-with-numkeys");
 
+	var value = cameraN.getChild("mini-dialog-type", 0, 1).getValue() or "simple";
+	setprop("/sim/fgcamera/" ~ "mini-dialog-type", value);
+
 	cameraN.remove();
 	return size(cameras);
 };
@@ -69,21 +72,24 @@ var save_cameras = func {
 	var path     = getprop("/sim/fg-home") ~ "/aircraft-data/FGCamera/" ~ aircraft;
 	var file     = aircraft ~ ".xml";
 	var node     = props.Node.new();
+	var index    = 0; # default child index
+	var create   = 1;
 
 	forindex (var i; cameras) {
 		foreach (var a; keys(cameras[i]) ) {
 			var data = {};
 			data[a]  = cameras[i][a];
 
-			node.getChild("camera", i, 1).setValues(data);
+			node.getChild("camera", i, create).setValues(data);
 		}
 	}
 
-	node.getChild("version", 0, 1).setValue(my_version);
-	node.getChild("spring-loaded-mouse",  0, 1).setBoolValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
-	node.getChild("mini-dialog-enable",   0, 1).setBoolValue(getprop("/sim/fgcamera/mini-dialog-enable"));
-	node.getChild("mini-dialog-autohide", 0, 1).setBoolValue(getprop("/sim/fgcamera/mini-dialog-autohide"));
-	node.getChild("use-ctrl-with-numkeys", 0, 1).setBoolValue(getprop("/sim/fgcamera/use-ctrl-with-numkeys"));
+	node.getChild("version",               index, create).setValue(my_version);
+	node.getChild("mini-dialog-type",      index, create).setValue(getprop("/sim/fgcamera/mini-dialog-type"));
+	node.getChild("spring-loaded-mouse",   index, create).setBoolValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
+	node.getChild("mini-dialog-enable",    index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-enable"));
+	node.getChild("mini-dialog-autohide",  index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-autohide"));
+	node.getChild("use-ctrl-with-numkeys", index, create).setBoolValue(getprop("/sim/fgcamera/use-ctrl-with-numkeys"));
 
 	io.write_properties(path ~ "/" ~ file, node);
 	node.remove();

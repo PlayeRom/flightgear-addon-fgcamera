@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-    <name>fgcamera-mini-dialog</name>
+    <name>fgcamera-mini-dialog-simple</name>
     <layout>hbox</layout>
     <color>
         <alpha>0.0</alpha>
