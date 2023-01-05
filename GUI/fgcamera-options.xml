@@ -133,7 +133,7 @@
 			<binding>
 				<command>nasal</command>
 				<script><![CDATA[
-					fgcamera.save_cameras();
+					fgcamera.fileHandler.saveCameras();
 				]]></script>
 			</binding>
 			<binding>

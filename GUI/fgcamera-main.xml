@@ -225,7 +225,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>nasal</command>
-				<script>fgcamera.save_cameras()</script>
+				<script>fgcamera.fileHandler.saveCameras()</script>
 			</binding>
 			<binding>
 				<command>dialog-close</command>
@@ -237,7 +237,7 @@
 			<equal>true</equal>
 			<binding>
 				<command>nasal</command>
-				<script>fgcamera.save_cameras()</script>
+				<script>fgcamera.fileHandler.saveCameras()</script>
 			</binding>
 		</button>
 

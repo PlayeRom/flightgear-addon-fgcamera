@@ -18,6 +18,7 @@ var helicopterF  = nil;
 
 var mouse = nil;
 var camGui = nil;
+var fileHandler = nil;
 
 #==================================================
 #	"Shortcuts"
@@ -70,7 +71,7 @@ var fdm_init_listener = _setlistener("/sim/signals/fdm-initialized", func {
 
 	init_mouse();
 	Commands.new();
-	load_cameras();
+	fileHandler = FileHandler.new();
 	camGui = Gui.new();
 
 	# register views

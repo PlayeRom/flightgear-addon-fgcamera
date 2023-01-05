@@ -16,7 +16,7 @@ var main = func(addon) {
 		"Nasal/version",
 		"Nasal/gui",
 		"Nasal/commands",
-		"Nasal/io",
+		"Nasal/file_handler",
 		"Nasal/mouse",
 		"Nasal/offset_template",
 		"Nasal/offset_movement",
