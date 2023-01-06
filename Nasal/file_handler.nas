@@ -63,13 +63,14 @@ var FileHandler = {
             me._migration.upgradeVersion(version);
         }
 
+        var value = cameraNode.getChild("mini-dialog-type", 0, 1).getValue() or "simple";
+        setprop("/sim/fgcamera/" ~ "mini-dialog-type", value);
+
         me._loadBoolOption(cameraNode, 1, "spring-loaded-mouse", "mouse/spring-loaded");
+        me._loadBoolOption(cameraNode, 1, "force-look-around-mode-in-fg", "mouse/force-look-around-mode-in-fg");
         me._loadBoolOption(cameraNode, 1, "mini-dialog-enable");
         me._loadBoolOption(cameraNode, 0, "mini-dialog-autohide");
         me._loadBoolOption(cameraNode, 0, "use-ctrl-with-numkeys");
-
-        var value = cameraNode.getChild("mini-dialog-type", 0, 1).getValue() or "simple";
-        setprop("/sim/fgcamera/" ~ "mini-dialog-type", value);
 
         cameraNode.remove();
         return cameras.size();
@@ -126,12 +127,13 @@ var FileHandler = {
             }
         }
 
-        node.getChild("version",               index, create).setValue(me._currentVersion);
-        node.getChild("mini-dialog-type",      index, create).setValue(getprop("/sim/fgcamera/mini-dialog-type"));
-        node.getChild("spring-loaded-mouse",   index, create).setBoolValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
-        node.getChild("mini-dialog-enable",    index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-enable"));
-        node.getChild("mini-dialog-autohide",  index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-autohide"));
-        node.getChild("use-ctrl-with-numkeys", index, create).setBoolValue(getprop("/sim/fgcamera/use-ctrl-with-numkeys"));
+        node.getChild("version",                      index, create).setValue(me._currentVersion);
+        node.getChild("mini-dialog-type",             index, create).setValue(getprop("/sim/fgcamera/mini-dialog-type"));
+        node.getChild("spring-loaded-mouse",          index, create).setBoolValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
+        node.getChild("force-look-around-mode-in-fg", index, create).setBoolValue(getprop("/sim/fgcamera/mouse/force-look-around-mode-in-fg"));
+        node.getChild("mini-dialog-enable",           index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-enable"));
+        node.getChild("mini-dialog-autohide",         index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-autohide"));
+        node.getChild("use-ctrl-with-numkeys",        index, create).setBoolValue(getprop("/sim/fgcamera/use-ctrl-with-numkeys"));
 
         io.write_properties(path ~ "/" ~ file, node);
         node.remove();

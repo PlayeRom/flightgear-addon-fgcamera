@@ -39,6 +39,10 @@
 			<mouse>
 				<spring-loaded type="bool" userarchive="y">true</spring-loaded>
 
+				<!-- When you change the camera by V key, you will switch to FG views, and here you may want to look
+					 around by press and hold right mouse button. Then set this option on true. -->
+				<force-look-around-mode-in-fg type="bool" userarchive="y">true</force-look-around-mode-in-fg>
+
 				<!-- Used in Nasal: -->
 				<!-- <handling-offset type="double"> -->
 				<!-- <pitch-offset type="double"> -->

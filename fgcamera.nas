@@ -10,6 +10,7 @@ var fileHandler = nil;
 var helicopter  = nil;
 var cameras     = Cameras.new();
 var walker      = Walker.new();
+var views       = nil;
 
 #
 # Initialize FGCamera
@@ -28,7 +29,7 @@ var init = func(addon) {
         mouse       = Mouse.new(addon);
         fileHandler = FileHandler.new(addon);
         camGui      = Gui.new(addon);
-        Views.register();
+        views       = Views.new();
 
         if (getprop("/sim/fgcamera/enable")) {
             # setting camera-id
@@ -65,11 +66,12 @@ var init = func(addon) {
         }
     });
 
-
     setlistener("/sim/signals/exit", func(node) {
         if (node.getBoolValue()) {
             # sim is going to exit, back previous FG settings for correct autosave
-            Views.configureFG(0);
+            if (views != nil) {
+                views.configureFG(0);
+            }
         }
     });
 };

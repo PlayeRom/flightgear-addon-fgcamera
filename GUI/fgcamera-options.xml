@@ -30,52 +30,62 @@
 
 	<group>
 		<layout>vbox</layout>
-		<padding>6</padding>
-
-		<checkbox>
-			<halign>left</halign>
-			<label>"spring loaded" mouse mode</label>
-			<property>/sim/fgcamera/mouse/spring-loaded</property>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
-		</checkbox>
-
-		<checkbox>
-			<halign>left</halign>
-			<label>Enable mini dialog</label>
-			<property>/sim/fgcamera/mini-dialog-enable</property>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script><![CDATA[
-					fgcamera.camGui.setMiniDialogListener();
-				]]></script>
-			</binding>
-		</checkbox>
 
 		<group>
-			<layout>hbox</layout>
-			<text>
-				<label>Mini dialog type</label>
+			<layout>vbox</layout>
+			<padding>6</padding>
+
+			<group>
+				<layout>hbox</layout>
+				<text>
+					<label>Mouse</label>
+					<halign>left</halign>
+				</text>
+
+				<hrule><stretch>true</stretch></hrule>
+			</group>
+
+			<checkbox>
 				<halign>left</halign>
-				<enable>
-					<property>/sim/fgcamera/mini-dialog-enable</property>
-				</enable>
-			</text>
-			<combo>
-				<name>mini-dialog-type</name>
-				<halign>fill</halign>
-				<stretch>1</stretch>
-				<property>/sim/fgcamera/mini-dialog-type</property>
-				<enable>
-					<property>/sim/fgcamera/mini-dialog-enable</property>
-				</enable>
+				<label>Press and hold right mouse to look around in FGCameras</label>
+				<property>/sim/fgcamera/mouse/spring-loaded</property>
+				<live>1</live>
 				<binding>
 					<command>dialog-apply</command>
-					<object-name>mini-dialog-type</object-name>
+				</binding>
+			</checkbox>
+
+			<checkbox>
+				<halign>left</halign>
+				<label>Force "Press and hold right mouse to look around" in FG views</label>
+				<property>/sim/fgcamera/mouse/force-look-around-mode-in-fg</property>
+				<live>1</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+		</group>
+
+		<group>
+			<layout>vbox</layout>
+			<padding>6</padding>
+
+			<group>
+				<layout>hbox</layout>
+				<text>
+					<label>Mini dialog</label>
+					<halign>left</halign>
+				</text>
+
+				<hrule><stretch>true</stretch></hrule>
+			</group>
+
+			<checkbox>
+				<halign>left</halign>
+				<label>Enable mini dialog</label>
+				<property>/sim/fgcamera/mini-dialog-enable</property>
+				<binding>
+					<command>dialog-apply</command>
 				</binding>
 				<binding>
 					<command>nasal</command>
@@ -83,37 +93,82 @@
 						fgcamera.camGui.setMiniDialogListener();
 					]]></script>
 				</binding>
-				<value>simple</value>
-				<value>slots</value>
-			</combo>
+			</checkbox>
+
+			<group>
+				<layout>hbox</layout>
+				<text>
+					<label>Mini dialog type</label>
+					<halign>left</halign>
+					<enable>
+						<property>/sim/fgcamera/mini-dialog-enable</property>
+					</enable>
+				</text>
+				<combo>
+					<name>mini-dialog-type</name>
+					<halign>fill</halign>
+					<stretch>1</stretch>
+					<property>/sim/fgcamera/mini-dialog-type</property>
+					<enable>
+						<property>/sim/fgcamera/mini-dialog-enable</property>
+					</enable>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>mini-dialog-type</object-name>
+					</binding>
+					<binding>
+						<command>nasal</command>
+						<script><![CDATA[
+							fgcamera.camGui.setMiniDialogListener();
+						]]></script>
+					</binding>
+					<value>simple</value>
+					<value>slots</value>
+				</combo>
+			</group>
+
+			<checkbox>
+				<halign>left</halign>
+				<label>Autohide mini dialog</label>
+				<property>/sim/fgcamera/mini-dialog-autohide</property>
+				<enable>
+					<property>/sim/fgcamera/mini-dialog-enable</property>
+				</enable>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script><![CDATA[
+						fgcamera.camGui.setMiniDialogListener();
+					]]></script>
+				</binding>
+			</checkbox>
 		</group>
 
-		<checkbox>
-			<halign>left</halign>
-			<label>Autohide mini dialog</label>
-			<property>/sim/fgcamera/mini-dialog-autohide</property>
-			<enable>
-				<property>/sim/fgcamera/mini-dialog-enable</property>
-			</enable>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script><![CDATA[
-					fgcamera.camGui.setMiniDialogListener();
-				]]></script>
-			</binding>
-		</checkbox>
+		<group>
+			<layout>vbox</layout>
+			<padding>6</padding>
 
-		<checkbox>
-			<halign>left</halign>
-			<label>Use Ctrl with numeric keys</label>
-			<property>/sim/fgcamera/use-ctrl-with-numkeys</property>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
-		</checkbox>
+			<group>
+				<layout>hbox</layout>
+				<text>
+					<label>Keys</label>
+					<halign>left</halign>
+				</text>
+
+				<hrule><stretch>true</stretch></hrule>
+			</group>
+
+			<checkbox>
+				<halign>left</halign>
+				<label>Use Ctrl with numeric keys</label>
+				<property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+		</group>
 	</group>
 
 	<hrule/>
