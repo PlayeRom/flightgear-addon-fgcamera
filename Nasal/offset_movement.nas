@@ -106,6 +106,8 @@ var movement_handler = {
 		var listener  = setlistener( path, func { me._trigger() } );
 
 		append (me._listeners, listener);
+
+		Bezier3.generate( [0.47, 0.01], [0.39, 0.98] ); #[0.52, 0.05], [0.27, 0.97]
 	},
 	stop: func,
 #--------------------------------------------------

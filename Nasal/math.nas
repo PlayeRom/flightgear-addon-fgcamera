@@ -128,9 +128,6 @@ var Bezier3 = {
 	},
 };
 
-# FIXME - another location ?
-Bezier3.generate( [0.47, 0.01], [0.39, 0.98] ); #[0.52, 0.05], [0.27, 0.97]
-
 #--------------------------------------------------
 var sin_blend = func (x) {
 	return 0.5 * (math.sin((x - 0.5) * math.pi) + 1);
