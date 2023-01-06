@@ -1,10 +1,3 @@
-# FIXME - remove ?
-#var rnd_effectN = props.Node.new();
-var rnd = [];
-
-var update_rnd_data = func {
-	rnd = cameras.getCurrent().RND;
-};
 
 # FIXME - remove ?
 #rnd[0] = {
@@ -321,9 +314,6 @@ var generator = {
 	},
 };
 
-var hp_coeff = 0.5;
-var hp = hi_pass.new();
-
 #==================================================
 #	RND effects handler
 #==================================================
@@ -340,9 +330,18 @@ var RND_handler = {
 	_gnd     : 0,
 	_mode    : 0, # 0 - ground; 1 - air;
 	_GEN     : [],
+
+	hp_coeff : 0.5,
+	rnd      : [],
+	rndEffectNode : nil, # for copy/pase in Rnd-mixer dialog
+
+#--------------------------------------------------
+	update_rnd_data: func {
+		me.rnd = cameras.getCurrent().RND;
+	},
 #--------------------------------------------------
 	init: func {
-		update_rnd_data();
+		me.update_rnd_data();
 
 		for (var i = 0; i <= 2; i += 1)
 			append(me._GEN, generator.new());
@@ -352,7 +351,7 @@ var RND_handler = {
 #--------------------------------------------------
 	_set_generators: func {
 		for (var i = 0; i <= 2; i += 1)
-			me._GEN[i].set(rnd[me._mode].GEN[i]);
+			me._GEN[i].set(me.rnd[me._mode].GEN[i]);
 
 		setprop("/sim/fgcamera/current-camera/RND-updated", 1); #trigger GUI update
 	},
@@ -365,7 +364,7 @@ var RND_handler = {
 			setlistener( "/gear/gear[1]/wow", func { get_wow(1) }, 1, 0 ),
 			setlistener( "/gear/gear[2]/wow", func { get_wow(2) }, 1, 0 ),
 			setlistener( "/sim/fgcamera/current-camera/camera-id", func {
-				update_rnd_data();
+				me.update_rnd_data();
 				me._set_generators();
 			}),
 		];
@@ -380,7 +379,7 @@ var RND_handler = {
 		var prev_mode = me._mode;
 #---
 		if ( me.GUI_edit ) {
-			hp_coeff  = 0;
+			me.hp_coeff  = 0;
 			var level = 1;
 			me._mode  = me.GUI_mode;
 		} else {
@@ -397,8 +396,8 @@ var RND_handler = {
 
 			if ( v < 0 ) v = 0;
 
-			hp_coeff  = me._find_value(rnd[me._mode].curves.v2, rnd[me._mode].curves.filter, v);
-			var level = me._find_value(rnd[me._mode].curves.v2, rnd[me._mode].curves.level,  v);
+			me.hp_coeff  = me._find_value(me.rnd[me._mode].curves.v2, me.rnd[me._mode].curves.filter, v);
+			var level = me._find_value(me.rnd[me._mode].curves.v2, me.rnd[me._mode].curves.level,  v);
 		}
 #---
 		if ( prev_mode != me._mode ) me._set_generators();
@@ -413,10 +412,10 @@ var RND_handler = {
 			var offset = 0;
 
 			for (var gen = 0; gen <= 2; gen += 1)
-				offset += rnd[me._mode].mixer[dof][gen] * me.G_output[gen];
+				offset += me.rnd[me._mode].mixer[dof][gen] * me.G_output[gen];
 
 			var b = movement_handler.blend;
-			me.offsets[i] = me._lp[i].filter(offset * rnd[me._mode].mixer[dof][3] * level * rnd[me._mode].mixer.s, hp_coeff) * b;
+			me.offsets[i] = me._lp[i].filter(offset * me.rnd[me._mode].mixer[dof][3] * level * me.rnd[me._mode].mixer.s, me.hp_coeff) * b;
 			if ( i > 2 ) me.offsets[i] *= 50;
 
 			i += 1;

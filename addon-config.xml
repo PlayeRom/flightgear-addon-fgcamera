@@ -21,6 +21,14 @@
 				<!-- <camera-name type="string"> -->
 				<!-- <category type="string"> -->
 				<!-- <name type="string">  - name on list in GUI, like e.g. "1. default [0]" -->
+			<!-- <dialog> -->
+				<!-- <camera-settings> -->
+					<!-- ... -->
+				<!-- <RND> -->
+					<!-- <edit-mode> -->
+					<!-- <mixer>-->
+						<!-- <clipboard-empty> -->
+					<!-- <profile> -->
 			<!-- <fgcamera-enabled type="bool"> - If true then FGCamera view is currently working, otherwise FG view is currently working -->
 
 			<enable type="bool">true</enable>

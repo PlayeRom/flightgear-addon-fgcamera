@@ -752,8 +752,8 @@
 				mode = get_mode();
 
 				foreach (var g; ["sine", "resonance", "noise", "LFO1", "LFO2"])
-					forindex (var j; fgcamera.rnd[mode].GEN[g_id][g])
-						setprop(path ~ g ~ "[" ~ j ~ "]", fgcamera.rnd[mode].GEN[g_id][g][j]);
+					forindex (var j; fgcamera.RND_handler.rnd[mode].GEN[g_id][g])
+						setprop(path ~ g ~ "[" ~ j ~ "]", fgcamera.RND_handler.rnd[mode].GEN[g_id][g][j]);
 
 				fgcommand( "dialog-update", props.Node.new( {"dialog-name" : "RND-generator"} ) );
 			}
@@ -774,8 +774,8 @@
 			}
 
 			var set_data = func (key, i) {
-				fgcamera.rnd[mode].GEN[g_id][key][i] = getprop (path ~ key ~ "[" ~ i ~ "]");
-				fgcamera.RND_handler._GEN[g_id].set(fgcamera.rnd[mode].GEN[g_id]);
+				fgcamera.RND_handler.rnd[mode].GEN[g_id][key][i] = getprop (path ~ key ~ "[" ~ i ~ "]");
+				fgcamera.RND_handler._GEN[g_id].set(fgcamera.RND_handler.rnd[mode].GEN[g_id]);
 			}
 
 			var get_mode = func fgcamera.RND_handler._mode;

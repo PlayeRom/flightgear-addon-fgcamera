@@ -92,8 +92,8 @@
 
 				props.copy(io.read_properties(path ~ "/" ~ selection ~ ".xml"), node);
 
-				fgcamera.rnd[mode] = node.getValues();
-				fgcamera.update_rnd_data();
+				fgcamera.RND_handler.rnd[mode] = node.getValues();
+				fgcamera.RND_handler.update_rnd_data();
 				fgcamera.RND_handler._set_generators();
 
 				node.remove();

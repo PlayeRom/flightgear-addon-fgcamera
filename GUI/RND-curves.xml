@@ -163,16 +163,16 @@
 			};
 
 			var getMode = func {
-				var GUI_edit = fgcamera.RND_handler.GUI_edit;
-				var GUI_mode = fgcamera.RND_handler.GUI_mode;
+				if (fgcamera.RND_handler.GUI_edit) {
+					return fgcamera.RND_handler.GUI_mode;
+				}
 
-				if ( GUI_edit ) var mode = GUI_mode;
-				else var mode = fgcamera.RND_handler._mode;
+				return fgcamera.RND_handler._mode;
 			}
 
-			var getData = func (key, i) fgcamera.rnd[ getMode() ].curves[key][i];
+			var getData = func (key, i) fgcamera.RND_handler.rnd[ getMode() ].curves[key][i];
 
-			var setData = func (key, i, d) fgcamera.rnd[ getMode() ].curves[key][i] = d;
+			var setData = func (key, i, d) fgcamera.RND_handler.rnd[ getMode() ].curves[key][i] = d;
 
 		]]></open>
 

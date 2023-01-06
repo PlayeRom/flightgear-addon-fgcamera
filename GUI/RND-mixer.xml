@@ -1019,12 +1019,12 @@
 				foreach (var dof; list2) {
 					var i = 0;
 					foreach (var g; list1) {
-						setprop ( path ~ dof ~ g, fgcamera.rnd[mode].mixer[dof][i] );
+						setprop ( path ~ dof ~ g, fgcamera.RND_handler.rnd[mode].mixer[dof][i] );
 						i += 1;
 					}
 				}
 
-				setprop("/sim/fgcamera/dialogs/RND/mixer/s", fgcamera.rnd[mode].mixer.s);
+				setprop("/sim/fgcamera/dialogs/RND/mixer/s", fgcamera.RND_handler.rnd[mode].mixer.s);
 
 				fgcommand( "dialog-update", props.Node.new( {"dialog-name" : "RND-mixer"} ) );
 			}
@@ -1039,29 +1039,27 @@
 
 			var toggle_edit = func fgcamera.RND_handler.GUI_edit = getprop("/sim/fgcamera/dialogs/RND/edit-mode");
 
-			var set_scale = func fgcamera.rnd[mode].mixer.s = getprop("/sim/fgcamera/dialogs/RND/mixer/s");
+			var set_scale = func fgcamera.RND_handler.rnd[mode].mixer.s = getprop("/sim/fgcamera/dialogs/RND/mixer/s");
 
-			var set_data = func (key, i, scale = 1) fgcamera.rnd[mode].mixer[key][i] = getprop ( path ~ key ~ list1[i] );
+			var set_data = func (key, i, scale = 1) {
+				fgcamera.RND_handler.rnd[mode].mixer[key][i] = getprop(path ~ key ~ list1[i]);
+			}
 
-
-			fgcamera.rnd_effectN = props.Node.new();
+			fgcamera.RND_handler.rndEffectNode = props.Node.new();
 			setprop(path ~ "clipboard-empty", 1);
 
 			var copy_effect = func {
-				fgcamera.rnd_effectN.removeAllChildren();
-				fgcamera.rnd_effectN.setValues(fgcamera.rnd[mode]);
+				fgcamera.RND_handler.rndEffectNode.removeAllChildren();
+				fgcamera.RND_handler.rndEffectNode.setValues(fgcamera.RND_handler.rnd[mode]);
 				setprop(path ~ "clipboard-empty", 0);
 			}
 
 			var paste_effect = func {
-				fgcamera.rnd[mode] = fgcamera.rnd_effectN.getValues();
-				fgcamera.update_rnd_data();
+				fgcamera.RND_handler.rnd[mode] = fgcamera.RND_handler.rndEffectNode.getValues();
+				fgcamera.RND_handler.update_rnd_data();
 				fgcamera.RND_handler._set_generators();
 				update();
 			}
-
-
-
 
 			update();
 		]]> </open>
