@@ -72,7 +72,7 @@ var mouse_look_handler = {
 #--------------------------------------------------
 	_rotate: func {
 		var t = subvec(me._delta, 0, 3);
-		var r = subvec(offsets, 3);
+		var r = subvec(manager.offsets, 3);
 
 		forindex (var i; var c = rotate3d(t, r)) {
 			var _i      = [3, 4, 5][i];
