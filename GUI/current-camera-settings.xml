@@ -429,8 +429,7 @@
 			#	Functions
 			#==================================================
 			var calc_data = func {
-				var id = fgcamera.current[1];
-				var c  = fgcamera.cameras[id];
+				var c  = fgcamera.cameras.getCurrent();
 				return [
 					[ "popup-tip"                   , c.popupTip               ],
 					[ "show-panel"                  , c["panel-show"]          ],
@@ -476,23 +475,21 @@
 			#	Toggle popupTip
 			#==================================================
 			var toggle_popupTip = func {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/popup-tip";
 				var value = getprop(path);
 
-				fgcamera.cameras[id].popupTip = value;
+				fgcamera.cameras.getCurrent().popupTip = value;
 			}
 			#==================================================
 			#	Toggle 2d panel
 			#==================================================
 			var toggle_panel = func {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/show-panel";
 				var value = getprop(path);
 				var selected_type = getprop("/sim/fgcamera/dialogs/camera-settings/show-panel-type") or fgcamera.Panel2D.DEFAULT;
 
-				fgcamera.cameras[id]["panel-show"] = value;
-				fgcamera.cameras[id]["panel-show-type"] = selected_type;
+				fgcamera.cameras.getCurrent()["panel-show"] = value;
+				fgcamera.cameras.getCurrent()["panel-show-type"] = selected_type;
 				if (value) {
 					fgcamera.Panel2D.showPath(selected_type);
 				} else {
@@ -503,11 +500,10 @@
 			#	Toggle dialog
 			#==================================================
 			var toggle_dialog = func {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/show-dialog";
 				var value = getprop(path);
 
-				fgcamera.cameras[id]["dialog-show"] = value;
+				fgcamera.cameras.getCurrent()["dialog-show"] = value;
 				if (value)
 					fgcamera.camGui.showDialog(1);
 				else
@@ -517,17 +513,16 @@
 			#	Dialog name
 			#==================================================
 			var dialog_name = func {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/dialog-name";
 				var path2 = "/sim/fgcamera/dialogs/camera-settings/show-dialog";
 				var value = getprop(path);
 
 				if ( getprop(path2) ) {
 					fgcamera.camGui.closeDialog(1);
-					fgcamera.cameras[id]["dialog-show"] = 0;
+					fgcamera.cameras.getCurrent()["dialog-show"] = 0;
 				}
 
-				fgcamera.cameras[id]["dialog-name"] = value;
+				fgcamera.cameras.getCurrent()["dialog-name"] = value;
 				#fgcamera.camGui.showDialog();
 				update_values();
 			}
@@ -535,17 +530,16 @@
 			#	Apply FOV
 			#==================================================
 			var apply_fov = func () {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/field-of-view";
 				var value = getprop(path);
 				var min   = 10;
 				var max   = 120;
 				if (validate_value(value, min, max) == nil) {
-					value = fgcamera.cameras[id].fov;
+					value = fgcamera.cameras.getCurrent().fov;
 					setprop(path, value);
 					update_values();
 				} else {
-					fgcamera.cameras[id].fov = value;
+					fgcamera.cameras.getCurrent().fov = value;
 					setprop("/sim/current-view/field-of-view", value);
 				}
 			}
@@ -553,123 +547,115 @@
 			#	Apply transition time
 			#==================================================
 			var apply_movement_time = func () {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/movement-transition-time";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
 				if (validate_value(value, min, max) == nil) {
-					value = fgcamera.cameras[id].movement.time;
+					value = fgcamera.cameras.getCurrent().movement.time;
 					setprop(path, value);
 					update_values();
 				} else {
-					fgcamera.cameras[id].movement.time = value;
+					fgcamera.cameras.getCurrent().movement.time = value;
 				}
 			}
 			#==================================================
 			#	Apply linear_velocity
 			#==================================================
 			var apply_adjustment_linear_velocity = func () {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/adjustment-linear-velocity";
 				var value = getprop(path);
 				var min   = 0.001;
 				var max   = 1000;
 				if (validate_value(value, min, max) == nil) {
-					value = fgcamera.cameras[id].adjustment.v[0];
+					value = fgcamera.cameras.getCurrent().adjustment.v[0];
 					setprop(path, value);
 					update_values();
 				} else {
-					fgcamera.cameras[id].adjustment.v[0] = value;
+					fgcamera.cameras.getCurrent().adjustment.v[0] = value;
 				}
 			}
 			#==================================================
 			#	Apply angular_velocity
 			#==================================================
 			var apply_adjustment_angular_velocity = func () {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/adjustment-angular-velocity";
 				var value = getprop(path);
 				var min   = 0.01;
 				var max   = 360;
 				if (validate_value(value, min, max) == nil) {
-					value = fgcamera.cameras[id].adjustment.v[1];
+					value = fgcamera.cameras.getCurrent().adjustment.v[1];
 					setprop(path, value);
 					update_values();
 				} else {
-					fgcamera.cameras[id].adjustment.v[1] = value;
+					fgcamera.cameras.getCurrent().adjustment.v[1] = value;
 				}
 			}
 			#==================================================
 			#	Apply adjustment_filter
 			#==================================================
 			var apply_adjustment_filter = func () {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/adjustment-filter";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
 				if (validate_value(value, min, max) == nil) {
-					value = fgcamera.cameras[id].adjustment.filter;
+					value = fgcamera.cameras.getCurrent().adjustment.filter;
 					setprop(path, value);
 					update_values();
 				} else {
-					fgcamera.cameras[id].adjustment.filter = value;
+					fgcamera.cameras.getCurrent().adjustment.filter = value;
 				}
 			}
 			#==================================================
 			#	Apply mouse_look_sensitivity
 			#==================================================
 			var apply_mlook_sensitivity = func () {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/mlook-sensitivity";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
 				if (validate_value(value, min, max) == nil) {
-					value = fgcamera.cameras[id].mouse_look.sensitivity;
+					value = fgcamera.cameras.getCurrent().mouse_look.sensitivity;
 					setprop(path, value);
 					update_values();
 				} else {
-					fgcamera.cameras[id].mouse_look.sensitivity = value;
+					fgcamera.cameras.getCurrent().mouse_look.sensitivity = value;
 				}
 			}
 			#==================================================
 			#	Apply mouse_look_filter
 			#==================================================
 			var apply_mlook_filter = func () {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/mlook-filter";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
 				if (validate_value(value, min, max) == nil) {
-					value = fgcamera.cameras[id].mouse_look.filter;
+					value = fgcamera.cameras.getCurrent().mouse_look.filter;
 					setprop(path, value);
 					update_values();
 				} else {
-					fgcamera.cameras[id].mouse_look.filter = value;
+					fgcamera.cameras.getCurrent().mouse_look.filter = value;
 				}
 			}
 			#==================================================
 			#	Toggle DHM
 			#==================================================
 			var toggle_DHM = func {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/enable-DHM";
 				var value = getprop(path);
 
-				fgcamera.cameras[id]["enable-DHM"] = value;
+				fgcamera.cameras.getCurrent()["enable-DHM"] = value;
 			}
 			#==================================================
 			#	Toggle RND
 			#==================================================
 			var toggle_RND = func {
-				var id    = fgcamera.current[1];
 				var path  = "/sim/fgcamera/dialogs/camera-settings/enable-RND";
 				var value = getprop(path);
 
-				fgcamera.cameras[id]["enable-RND"] = value;
+				fgcamera.cameras.getCurrent()["enable-RND"] = value;
 			}
 			#==================================================
 			update_values();

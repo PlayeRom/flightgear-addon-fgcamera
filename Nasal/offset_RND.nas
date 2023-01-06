@@ -1,8 +1,10 @@
 # FIXME - remove ?
 #var rnd_effectN = props.Node.new();
-var rnd         = [,,]; # [] - ?
+var rnd = [];
 
-var update_rnd_data = func { rnd = []; rnd = cameras[current[1]].RND }
+var update_rnd_data = func {
+	rnd = cameras.getCurrent().RND;
+};
 
 # FIXME - remove ?
 #rnd[0] = {
@@ -362,12 +364,15 @@ var RND_handler = {
 			setlistener( "/gear/gear/wow",    func { get_wow(0) }, 1, 0 ),
 			setlistener( "/gear/gear[1]/wow", func { get_wow(1) }, 1, 0 ),
 			setlistener( "/gear/gear[2]/wow", func { get_wow(2) }, 1, 0 ),
-			setlistener( "/sim/fgcamera/current-camera/camera-id", func { update_rnd_data(); me._set_generators() } ),
+			setlistener( "/sim/fgcamera/current-camera/camera-id", func {
+				update_rnd_data();
+				me._set_generators();
+			}),
 		];
 	},
 #--------------------------------------------------
 	update: func (dt) {
-		if ( !cameras[current[1]]["enable-RND"] ) {
+		if ( !cameras.getCurrent()["enable-RND"] ) {
 			me.offsets = zeros(6);
 			return;
 		}

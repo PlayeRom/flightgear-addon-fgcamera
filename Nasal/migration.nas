@@ -31,8 +31,8 @@ var Migration = {
 
         foreach (var version; versions) {
             foreach (var item; keys(versionItems[version])) {
-                forindex (var i; cameras) {
-                    cameras[i][item] = versionItems[version][item];
+                forindex (var i; cameras.getVector()) {
+                    cameras.getCamera(i)[item] = versionItems[version][item];
                 }
             }
         }

@@ -118,7 +118,7 @@ var DHM_handler = {
 	_trigger: func {},
 #--------------------------------------------------
 	update: func (dt) {
-		if ( !cameras[current[1]]["enable-DHM"] ) return;
+		if ( !cameras.getCurrent()["enable-DHM"] ) return;
 
 		me.offsets[0] = me.dhm_x.offset(dt);
 		me.offsets[1] = me.dhm_y.offset(dt);

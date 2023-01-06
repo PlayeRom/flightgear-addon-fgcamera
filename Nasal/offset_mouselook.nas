@@ -32,7 +32,7 @@ var mouse_look_handler = {
 
 			mouse.reset();
 
-			var m = cameras[current[1]].mouse_look;
+			var m = cameras.getCurrent().mouse_look;
 			me._sensitivity = m.sensitivity;
 			me._filter      = m.filter;
 

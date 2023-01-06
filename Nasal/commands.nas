@@ -61,7 +61,7 @@ var Commands = {
 
             "fgcamera-reset-view": func {
                 setprop(g_myNodePath ~ "/popupTip", 0);
-                setprop(g_myNodePath ~ "/current-camera/camera-id", current[1]);
+                setprop(g_myNodePath ~ "/current-camera/camera-id", cameras.getCurrentId());
             },
 
             "fgcamera-next-category": func {
@@ -89,13 +89,13 @@ var Commands = {
     # @return void
     #
     _cycleCategoryOnly: func(direction) {
-        var currentCamera   = current[1];
-        var currentCategory = cameras[currentCamera].category;
+        var currentCamera   = cameras.getCurrentId();
+        var currentCategory = cameras.getCurrent().category;
         var cameraId = -1;
 
         if (direction > 0) { # >>
-            forindex (var index; cameras) {
-                if (index > currentCamera and cameras[index].category > currentCategory) {
+            forindex (var index; cameras.getVector()) {
+                if (index > currentCamera and cameras.getCamera(index).category > currentCategory) {
                     cameraId = index;
                     break;
                 }
@@ -104,8 +104,8 @@ var Commands = {
             if (cameraId == -1) {
                 currentCategory = -1;
 
-                forindex (var index; cameras) {
-                    if (cameras[index].category > currentCategory) {
+                forindex (var index; cameras.getVector()) {
+                    if (cameras.getCamera(index).category > currentCategory) {
                         cameraId = index;
                         break;
                     }
@@ -114,12 +114,12 @@ var Commands = {
         }
         else { # <<
             var maxCategory = -1;
-            for (var index = size(cameras) - 1; index >= 0; index -= 1) {
-                if (index < currentCamera and cameras[index].category < currentCategory) {
-                    if (cameras[index].category > maxCategory) {
+            for (var index = cameras.size() - 1; index >= 0; index -= 1) {
+                if (index < currentCamera and cameras.getCamera(index).category < currentCategory) {
+                    if (cameras.getCamera(index).category > maxCategory) {
                         # find the first smaller by 1 and not smaller by 2 or 3,
                         # e.g. we have category 0, 1, 0, 3, we are on 3, and from 3 we have to go to 1 and not to 0
-                        maxCategory = cameras[index].category;
+                        maxCategory = cameras.getCamera(index).category;
                         cameraId = index;
                     }
                 }
@@ -128,8 +128,8 @@ var Commands = {
             if (cameraId == -1) {
                 currentCategory = -1;
 
-                for (var index = size(cameras) - 1; index >= 0; index -= 1) {
-                    if (cameras[index].category > currentCategory) {
+                for (var index = cameras.size() - 1; index >= 0; index -= 1) {
+                    if (cameras.getCamera(index).category > currentCategory) {
                         cameraId = index;
                         break;
                     }
@@ -150,8 +150,8 @@ var Commands = {
     # @return void
     #
     _cycleCameraInCategory: func(direction) {
-        var cameraId        = current[1];
-        var currentCategory = cameras[cameraId].category;
+        var cameraId        = cameras.getCurrentId();
+        var currentCategory = cameras.getCurrent().category;
 
         setprop(g_myNodePath ~ "/popupTip", 1);
 
@@ -163,18 +163,18 @@ var Commands = {
                 cameraId += 1;
 
             if (cameraId < 0)
-                cameraId += size(cameras);
-            elsif (cameraId > (size(cameras) - 1))
+                cameraId += cameras.size();
+            elsif (cameraId > (cameras.size() - 1))
                 cameraId = 0;
 
-            var category = cameras[cameraId].category;
+            var category = cameras.getCamera(cameraId).category;
 
             if (currentCategory == category) {
                 setprop(g_myNodePath ~ "/current-camera/camera-id", cameraId);
                 br = 1;
             }
 
-            if (cameraId == current[1]) {
+            if (cameraId == cameras.getCurrentId()) {
                 br = 1;
             }
         }

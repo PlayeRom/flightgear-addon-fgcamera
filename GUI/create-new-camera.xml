@@ -167,9 +167,7 @@
 			#	Create new camera
 			#==================================================
 			var create_camera = func {
-
-				var current_id = fgcamera.current[1];
-				var current_camera  = fgcamera.cameras[current_id];
+				var current_camera  = fgcamera.cameras.getCurrent();
 
 				var camera   = {};
 				var camera_name = getprop("/sim/fgcamera/dialogs/create-camera/camera-name") or "new camera";
@@ -182,8 +180,8 @@
 					camera.tower = set_tower(camera.tower);
 				}
 
-				append(fgcamera.cameras, camera);
-				setprop("/sim/fgcamera/current-camera/camera-id", size(fgcamera.cameras) - 1);
+				fgcamera.cameras.append(camera);
+				setprop("/sim/fgcamera/current-camera/camera-id", fgcamera.cameras.size() - 1);
 			}
 
 			#==================================================

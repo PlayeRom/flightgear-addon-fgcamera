@@ -39,16 +39,18 @@ var movement_handler = {
 	},
 #--------------------------------------------------
 	_check_world_view: func (id) {
-		if (cameras[id].type == "FGCamera5")
-			return me._set_tower(cameras[id].tower);
-		else return 0;
+		if (cameras.getCamera(id).type == "FGCamera5") {
+			return me._set_tower(cameras.getCamera(id).tower);
+		}
+
+		return 0;
 	},
 #--------------------------------------------------
 	_set_from_to: func (view_id, camera_id) {
-		me._to    = cameras[camera_id].offsets;
+		me._to    = cameras.getCamera(camera_id).offsets;
 		var b_twr = me._check_world_view(camera_id);
 
-		if ( current[0] == view_id ) {
+		if ( cameras.getCurrentViewId() == view_id ) {
 			for (var i = 0; i <= 5; i += 1)
 				me._from[i] = manager.offsets[i] + RND_handler.offsets[i]; # fix (cross-reference)
 
@@ -63,7 +65,8 @@ var movement_handler = {
 			for (var dof = 3; dof <= 5; dof += 1)
 				me[a][dof] = view.normdeg(me[a][dof]);
 
-		current = [view_id, camera_id];
+		cameras.setCurrentId(camera_id);
+		cameras.setCurrentViewId(view_id);
 	},
 #--------------------------------------------------
 	_set_view: func (view_id) {
@@ -74,25 +77,25 @@ var movement_handler = {
 #--------------------------------------------------
 	_trigger: func {
 		var camera_id = getprop ( g_myNodePath ~ "/current-camera/camera-id" );
-		if ( (camera_id + 1) > size(cameras) )
+		if ( (camera_id + 1) > cameras.size() )
 			camera_id = 0;
 
-		var view_id = view.indexof(cameras[camera_id].type);
+		var view_id = view.indexof(cameras.getCamera(camera_id).type);
 
-		# timeF = (cameras[current[1]].category == cameras[camera_id].category);
+		# timeF = (cameras.getCurrent().category == cameras.getCamera(camera_id).category);
 
 		camGui.closeDialog();
 		Panel2D.hide();
 
-		if (getprop(g_myNodePath ~ "/popupTip") * cameras[camera_id].popupTip)
-			gui.popupTip(cameras[camera_id].name, 1);
+		if (getprop(g_myNodePath ~ "/popupTip") * cameras.getCamera(camera_id).popupTip)
+			gui.popupTip(cameras.getCamera(camera_id).name, 1);
 
 		me._set_from_to(view_id, camera_id);
 		me._set_view(view_id);
 		manager._reset();
 
 		me._fromFov = getprop("/sim/current-view/field-of-view");
-		me._toFov = cameras[current[1]].fov;
+		me._toFov = cameras.getCurrent().fov;
 		me._diffFov = math.abs(me._fromFov - me._toFov);
 
 		me._updateF = 1;
@@ -110,7 +113,7 @@ var movement_handler = {
 		if ( !me._updateF ) return;
 
 		me._updateF = 0;
-		var data    = cameras[current[1]].movement;
+		var data    = cameras.getCurrent().movement;
 
 		# FIXME - remove comment ?
 		if ( data.time > 0 ) # and (timeF != 0) )
@@ -126,7 +129,7 @@ var movement_handler = {
 
 			camGui.showDialog();
 			Panel2D.show();
-			setprop("/sim/current-view/field-of-view", cameras[current[1]].fov); # to be sure that finally the fov is correct
+			setprop("/sim/current-view/field-of-view", cameras.getCurrent().fov); # to be sure that finally the fov is correct
 
 		} else {
 			# FIXME - remove comment ?

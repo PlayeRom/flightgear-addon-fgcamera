@@ -57,7 +57,7 @@ var Gui = {
     # @return void
     #
     _createDialogs: func {
-        var dialogs   = [
+        var dialogs = [
             "fgcamera-main",
             "create-new-camera",
             "current-camera-settings",
@@ -123,8 +123,8 @@ var Gui = {
     # @return void
     #
     showDialog: func (show = 0) {
-        if (cameras[current[1]]["dialog-show"] or show) {
-            gui.showDialog(cameras[current[1]]["dialog-name"]);
+        if (cameras.getCurrent()["dialog-show"] or show) {
+            gui.showDialog(cameras.getCurrent()["dialog-name"]);
         }
     },
 
@@ -135,9 +135,9 @@ var Gui = {
     # @return void
     #
     closeDialog: func (close = 0) {
-        if (cameras[current[1]]["dialog-show"] or close) {
+        if (cameras.getCurrent()["dialog-show"] or close) {
             fgcommand("dialog-close", props.Node.new({
-                "dialog-name" : cameras[current[1]]["dialog-name"],
+                "dialog-name" : cameras.getCurrent()["dialog-name"],
             }));
         }
     },

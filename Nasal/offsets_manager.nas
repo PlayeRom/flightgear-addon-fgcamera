@@ -79,7 +79,7 @@ var manager = {
 	},
 #--------------------------------------------------
 	_save_offsets : func {
-		forindex (var i; cameras[current[1]].offsets)
-			cameras[current[1]].offsets[i] = me.offsets[i];
+		forindex (var i; cameras.getCurrent().offsets)
+			cameras.getCurrent().offsets[i] = me.offsets[i];
 	},
 };

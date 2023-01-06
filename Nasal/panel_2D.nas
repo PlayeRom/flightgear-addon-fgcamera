@@ -14,7 +14,7 @@ var Panel2D = {
     # @return void
     #
     show: func {
-        me.showPath(cameras[current[1]]["panel-show-type"]);
+        me.showPath(cameras.getCurrent()["panel-show-type"]);
     },
 
     #
@@ -24,7 +24,7 @@ var Panel2D = {
     # @return void
     #
     showPath: func(path) {
-        if (!cameras[current[1]]["panel-show"]) {
+        if (!cameras.getCurrent()["panel-show"]) {
             return;
         }
 

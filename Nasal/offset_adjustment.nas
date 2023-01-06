@@ -19,7 +19,7 @@ var adjustment_handler = {
 	_trigger : func {
 		forindex (var i; me._list) {
 			var v     = nil;
-			var v_cfg = cameras[current[1]].adjustment.v;
+			var v_cfg = cameras.getCurrent().adjustment.v;
 
 			if (i < 3)
 				v = v_cfg[0];
@@ -43,7 +43,7 @@ var adjustment_handler = {
 		if (me._updateF) {
 			me._updateF = 0;
 
-			var filter  = cameras[current[1]].adjustment.filter;
+			var filter  = cameras.getCurrent().adjustment.filter;
 
 			me._rotate();
 # FIXME - remove ?

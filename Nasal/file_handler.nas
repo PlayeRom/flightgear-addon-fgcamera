@@ -47,10 +47,10 @@ var FileHandler = {
 
         props.copy(io.read_properties(path ~ "/" ~ file), cameraNode);
 
-        cameras = [];
+        cameras.clear();
         var vec = cameraNode.getChildren("camera");
         forindex (var i; vec) {
-            append(cameras, vec[i].getValues());
+            cameras.append(vec[i].getValues());
         }
 
         if (isDefault) {
@@ -72,7 +72,7 @@ var FileHandler = {
         setprop("/sim/fgcamera/" ~ "mini-dialog-type", value);
 
         cameraNode.remove();
-        return size(cameras);
+        return cameras.size();
     },
 
     #
@@ -100,7 +100,7 @@ var FileHandler = {
     #
     _setDefaultOffsets: func {
         forindex (var i; manager._list) {
-            cameras[0].offsets[i] = num(getprop("/sim/view/config/" ~ manager._list[i])) or 0;
+            cameras.getCamera(0).offsets[i] = num(getprop("/sim/view/config/" ~ manager._list[i])) or 0;
         }
     },
 
@@ -117,10 +117,10 @@ var FileHandler = {
         var index    = 0; # default child index
         var create   = 1;
 
-        forindex (var i; cameras) {
-            foreach (var a; keys(cameras[i]) ) {
+        forindex (var i; cameras.getVector()) {
+            foreach (var a; keys(cameras.getCamera(i))) {
                 var data = {};
-                data[a]  = cameras[i][a];
+                data[a]  = cameras.getCamera(i)[a];
 
                 node.getChild("camera", i, create).setValues(data);
             }

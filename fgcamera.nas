@@ -1,9 +1,6 @@
 var g_Addon = nil;
 var g_myNodePath = "/sim/fgcamera";
 
-var cameras      = [];
-var current      = [0, 0]; # [view, camera]
-
 #==================================================
 #	"Objects"
 #==================================================
@@ -11,6 +8,7 @@ var mouse       = nil;
 var camGui      = nil;
 var fileHandler = nil;
 var helicopter  = nil;
+var cameras     = Cameras.new();
 var walker      = Walker.new();
 
 #

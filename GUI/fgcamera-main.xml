@@ -259,7 +259,7 @@
 			var list        = cmdarg().getNode("group[2]/group[1]/list");
 			var dlg_path    = fgcamera.g_myNodePath ~ "/dialogs/fgcamera-main";
 			var names       = [];
-			var listener    = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func{update_list()});
+			var listener    = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func{ update_list() });
 			#==================================================
 			#	Functions
 			#==================================================
@@ -289,10 +289,10 @@
 			var update_list = func {
 				list.removeChildren("value");
 				var i = 0;
-				foreach (var v; fgcamera.cameras) {
+				foreach (var v; fgcamera.cameras.getVector()) {
 					var name = v.name;
 					var select = "";
-					if (i == fgcamera.current[1]) {
+					if (i == fgcamera.cameras.getCurrentId()) {
 						setprop("/sim/fgcamera/current-camera/camera-name", name);
 						setprop("/sim/fgcamera/current-camera/category", v.category);
 						select = " <-";
@@ -315,11 +315,11 @@
 			}
 			var copy_camera = func () {
 				var cameraN = props.Node.new();
-				cameraN.setValues(fgcamera.cameras[fgcamera.current[1]]);
+				cameraN.setValues(fgcamera.cameras.getCurrent());
 				var new_camera = cameraN.getValues();
 				new_camera.name ~= "-copy";
-				append(fgcamera.cameras, new_camera);
-				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", size(fgcamera.cameras) - 1);
+				fgcamera.cameras.append(new_camera);
+				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", fgcamera.cameras.size() - 1);
 				update_list();
 				cameraN.remove();
 			}
@@ -327,15 +327,15 @@
 			#	Up / Down
 			#==================================================
 			var reorder_cameras = func (dir) {
-				var vec = fgcamera.cameras;
-				var id1 = fgcamera.current[1];
+				var vec = fgcamera.cameras.getVector();
+				var id1 = fgcamera.cameras.getCurrentId();
 				var id2 = id1 + math.sgn(dir);
 				if ( (id2 >= 0) and (id2 < size(vec)) ) {
 					var tmp  = vec[id1];
 					vec[id1] = vec[id2];
 					vec[id2] = tmp;
-					fgcamera.cameras = vec;
-					fgcamera.current[1] = id2;
+					fgcamera.cameras.replace(vec);
+					fgcamera.cameras.setCurrentId(id2);
 					update_list();
 				}
 			}
@@ -343,16 +343,14 @@
 			#	Rename camera
 			#==================================================
 			var rename_camera = func {
-				var id = fgcamera.current[1];
-				fgcamera.cameras[id].name = getprop("/sim/fgcamera/current-camera/camera-name");
+				fgcamera.cameras.getCurrent().name = getprop("/sim/fgcamera/current-camera/camera-name");
 				update_list();
 			}
 			#==================================================
 			#	Set category
 			#==================================================
 			var set_category = func {
-				var id = fgcamera.current[1];
-				fgcamera.cameras[id].category = getprop("/sim/fgcamera/current-camera/category");
+				fgcamera.cameras.getCurrent().category = getprop("/sim/fgcamera/current-camera/category");
 				update_list();
 			}
 			#==================================================
@@ -372,20 +370,20 @@
 			#	Delete camera
 			#==================================================
 			var delete_camera = func {
-				var n = size(fgcamera.cameras);
+				var n = fgcamera.cameras.size();
 				if (n == 1) {
 					gui.popupTip("The last camera cannot be deleted");
 					return;
 				}
 
-				var id     = fgcamera.current[1];
+				var id     = fgcamera.cameras.getCurrentId();
 				var new_id = id;
 				if (new_id == (n - 1)) {
 					new_id -= 1;
 				}
-				fgcamera.cameras[id] = nil;
-				fgcamera.cameras     = compress_vector(fgcamera.cameras);
-				fgcamera.current[1]  = new_id;
+				fgcamera.cameras.getVector()[id] = nil;
+				fgcamera.cameras.replace(compress_vector(fgcamera.cameras.getVector()));
+				fgcamera.cameras.setCurrentId(new_id);
 				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", new_id);
 			}
 			#==================================================

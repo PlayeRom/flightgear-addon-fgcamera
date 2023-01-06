@@ -11,7 +11,7 @@ var main = func(addon) {
 	var basePath = addon.basePath;
 
 	var files = [
-		"Nasal/panel_2D",
+		"Nasal/cameras",
 		"Nasal/math",
 		"Nasal/migration",
 		"Nasal/gui",
@@ -28,6 +28,7 @@ var main = func(addon) {
 		"Nasal/offset_adjustment",
 		"Nasal/offset_mouselook",
 		"Nasal/offsets_manager",
+		"Nasal/panel_2D",
 		"Nasal/views",
 		"Nasal/walker",
 		"fgcamera",
