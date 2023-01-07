@@ -13,7 +13,13 @@ var Helicopter = {
             _isHelicopter : 0,
         };
 
-        me.check();
+        var delayTimer = maketimer(2, func {
+            # Check helicopter with delay, the "torque" property is not set so quickly
+            me.check();
+            print("FGCamera: helicopter: ", helicopter.isHelicopter());
+        });
+        delayTimer.singleShot = 1;
+        delayTimer.start();
 
         return me;
     },

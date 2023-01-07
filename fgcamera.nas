@@ -35,10 +35,6 @@ var init = func(addon) {
             var delayTimer = maketimer(2, func {
                 # Delay selecting default camera for fix FOV
                 setprop(g_myNodePath ~ "/current-camera/camera-id", 0);
-
-                # Check helicopter with delay, the "torque" property is not set so quickly
-                helicopter.check();
-                print("FGCamera: helicopter: ", helicopter.isHelicopter());
             });
             delayTimer.singleShot = 1;
             delayTimer.start();
