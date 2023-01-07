@@ -64,7 +64,7 @@ var FileHandler = {
         }
 
         var value = cameraNode.getChild("mini-dialog-type", 0, 1).getValue() or "simple";
-        setprop("/sim/fgcamera/" ~ "mini-dialog-type", value);
+        setprop(g_myNodePath ~ "/mini-dialog-type", value);
 
         me._loadBoolOption(cameraNode, 1, "spring-loaded-mouse", "mouse/spring-loaded");
         me._loadBoolOption(cameraNode, 1, "force-look-around-mode-in-fg", "mouse/force-look-around-mode-in-fg");
@@ -90,8 +90,9 @@ var FileHandler = {
             propName = optionName;
         }
 
-        var value = cameraNode.getChild(optionName, 0, 1).getBoolValue() or defaultValue;
-        setprop("/sim/fgcamera/" ~ propName, value);
+        var node = cameraNode.getChild(optionName);
+        var value = node == nil ? defaultValue : node.getBoolValue();
+        setprop(g_myNodePath ~ "/" ~ propName, value);
     },
 
     #
@@ -128,12 +129,12 @@ var FileHandler = {
         }
 
         node.getChild("version",                      index, create).setValue(me._currentVersion);
-        node.getChild("mini-dialog-type",             index, create).setValue(getprop("/sim/fgcamera/mini-dialog-type"));
-        node.getChild("spring-loaded-mouse",          index, create).setBoolValue(getprop("/sim/fgcamera/mouse/spring-loaded"));
-        node.getChild("force-look-around-mode-in-fg", index, create).setBoolValue(getprop("/sim/fgcamera/mouse/force-look-around-mode-in-fg"));
-        node.getChild("mini-dialog-enable",           index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-enable"));
-        node.getChild("mini-dialog-autohide",         index, create).setBoolValue(getprop("/sim/fgcamera/mini-dialog-autohide"));
-        node.getChild("use-ctrl-with-numkeys",        index, create).setBoolValue(getprop("/sim/fgcamera/use-ctrl-with-numkeys"));
+        node.getChild("mini-dialog-type",             index, create).setValue(getprop(g_myNodePath ~ "/mini-dialog-type"));
+        node.getChild("spring-loaded-mouse",          index, create).setBoolValue(getprop(g_myNodePath ~ "/mouse/spring-loaded"));
+        node.getChild("force-look-around-mode-in-fg", index, create).setBoolValue(getprop(g_myNodePath ~ "/mouse/force-look-around-mode-in-fg"));
+        node.getChild("mini-dialog-enable",           index, create).setBoolValue(getprop(g_myNodePath ~ "/mini-dialog-enable"));
+        node.getChild("mini-dialog-autohide",         index, create).setBoolValue(getprop(g_myNodePath ~ "/mini-dialog-autohide"));
+        node.getChild("use-ctrl-with-numkeys",        index, create).setBoolValue(getprop(g_myNodePath ~ "/use-ctrl-with-numkeys"));
 
         io.write_properties(path ~ "/" ~ file, node);
         node.remove();
