@@ -41,13 +41,13 @@ current mode for each mouse is held in the
 					<condition>
 						<or>
 							<not>
-								<property>/sim/fgcamera/fgcamera-enabled</property>
+								<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 							</not>
 							<and>
 								<not>
-									<property>/sim/fgcamera/mouse/spring-loaded</property>
+									<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/spring-loaded</property>
 								</not>
-								<property>/sim/fgcamera/fgcamera-enabled</property>
+								<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 							</and>
 						</or>
 					</condition>
@@ -69,13 +69,13 @@ current mode for each mouse is held in the
 					<condition>
 						<or>
 							<not>
-								<property>/sim/fgcamera/fgcamera-enabled</property>
+								<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 							</not>
 							<and>
 								<not>
-									<property>/sim/fgcamera/mouse/spring-loaded</property>
+									<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/spring-loaded</property>
 								</not>
-								<property>/sim/fgcamera/fgcamera-enabled</property>
+								<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 							</and>
 						</or>
 					</condition>
@@ -179,15 +179,15 @@ current mode for each mouse is held in the
 			<button n="0">
 				<binding>
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
-						<not><property>/sim/fgcamera/mouse/spring-loaded</property></not>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
+						<not><property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/spring-loaded</property></not>
 					</condition>
 					<command>fgcamera-reset-view</command>
 				</binding>
 				<binding>
 					<condition>
 						<not>
-							<property>/sim/fgcamera/fgcamera-enabled</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						</not>
 					</condition>
 					<command>nasal</command>
@@ -214,13 +214,13 @@ current mode for each mouse is held in the
 					<condition>
 						<or>
 							<not>
-								<property>/sim/fgcamera/fgcamera-enabled</property>
+								<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 							</not>
 							<and>
 								<not>
-									<property>/sim/fgcamera/mouse/spring-loaded</property>
+									<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/spring-loaded</property>
 								</not>
-								<property>/sim/fgcamera/fgcamera-enabled</property>
+								<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 							</and>
 						</or>
 					</condition>
@@ -251,17 +251,17 @@ current mode for each mouse is held in the
 				<!-- No buttons pressed: rotate the view left or right -->
 				<binding>
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						<not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
 					</condition>
 					<command>property-adjust</command>
-					<property>/sim/fgcamera/mouse/heading-offset</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/heading-offset</property>
 					<factor>-100.0</factor>
 				</binding>
 				<binding>
 					<condition>
 						<not>
-							<property>/sim/fgcamera/fgcamera-enabled</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						</not>
 						<not>
 							<property>/devices/status/mice/mouse[0]/button[0]</property>
@@ -294,12 +294,12 @@ current mode for each mouse is held in the
 				<binding>
 					<!-- move view up/down with fgcamera with MMB+RMB -->
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						<property>/devices/status/mice/mouse[0]/button[1]</property>
 						<property>/devices/status/mice/mouse[0]/button[2]</property>
 					</condition>
 					<command>property-adjust</command>
-					<property>/sim/fgcamera/mouse/x-offset</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/x-offset</property>
 					<factor>1.0</factor>
 				</binding>
 			</x-axis>
@@ -310,28 +310,28 @@ current mode for each mouse is held in the
 				<!-- No buttons pressed: tilt the view up and down -->
 				<binding>
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						<not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
 					</condition>
 					<command>property-adjust</command>
-					<property>/sim/fgcamera/mouse/pitch-offset</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/pitch-offset</property>
 					<factor>-100.0</factor>
 				</binding>
 				<binding>
 					<!-- move view up/down with fgcamera with MMB+RMB -->
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						<property>/devices/status/mice/mouse[0]/button[1]</property>
 						<property>/devices/status/mice/mouse[0]/button[2]</property>
 					</condition>
 					<command>property-adjust</command>
-					<property>/sim/fgcamera/mouse/y-offset</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/y-offset</property>
 					<factor>-1.0</factor>
 				</binding>
 				<binding>
 					<condition>
 						<not>
-							<property>/sim/fgcamera/fgcamera-enabled</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						</not>
 						<not>
 							<property>/devices/status/mice/mouse[0]/button[0]</property>
@@ -380,12 +380,12 @@ current mode for each mouse is held in the
 				<binding>
 					<!-- move view forward/backward with fgcamera with MMB+RMB -->
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						<property>/devices/status/mice/mouse[0]/button[1]</property>
 						<property>/devices/status/mice/mouse[0]/button[2]</property>
 					</condition>
 					<command>property-adjust</command>
-					<property>/sim/fgcamera/mouse/z-offset</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/z-offset</property>
 					<factor>1.0</factor>
 				</binding>
 			</y-axis-ctrl>
@@ -402,16 +402,16 @@ current mode for each mouse is held in the
 				<!-- rotate the view left or right -->
 				<binding>
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 					</condition>
 					<command>property-adjust</command>
-					<property>/sim/fgcamera/mouse/heading-offset</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/heading-offset</property>
 					<factor>-100.0</factor>
 				</binding>
 				<binding>
 					<condition>
 						<not>
-							<property>/sim/fgcamera/fgcamera-enabled</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						</not>
 					</condition>
 					<command>property-adjust</command>
@@ -429,17 +429,17 @@ current mode for each mouse is held in the
 				<!-- tilt the view up and down -->
 				<binding>
 					<condition>
-						<property>/sim/fgcamera/fgcamera-enabled</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						<not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
 					</condition>
 					<command>property-adjust</command>
-					<property>/sim/fgcamera/mouse/pitch-offset</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/pitch-offset</property>
 					<factor>-100.0</factor>
 				</binding>
 				<binding>
 					<condition>
 						<not>
-							<property>/sim/fgcamera/fgcamera-enabled</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/fgcamera-enabled</property>
 						</not>
 					</condition>
 					<command>property-adjust</command>

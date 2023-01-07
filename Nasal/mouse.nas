@@ -25,7 +25,7 @@ var Mouse = {
             _previous      : zeros(6),
             _delta         : zeros(6),
             _path          : "/devices/status/mice/mouse/",
-            _pathInternal  : "/sim/fgcamera/mouse/",
+            _pathInternal  : g_myNodePath ~ "/mouse/",
             _controlMode   : 0, # 0 - mouse; 1 - yoke;
             _prevMode      : 0, # prevous mode, before using spring-loaded mode
         };
@@ -129,7 +129,7 @@ var Mouse = {
         me._controlMode = !me._controlMode;
 
         setprop("/devices/status/mice/mouse/mode", me._controlMode);
-        # setprop("/sim/fgcamera/mouse/mouse-yoke", me._controlMode);
+        # setprop(g_myNodePath ~ "/mouse/mouse-yoke", me._controlMode);
     },
 
     #
@@ -139,8 +139,8 @@ var Mouse = {
     # @return void
     #
     _useSpringLoaded: func(node) {
-        if (!getprop("/sim/fgcamera/mouse/spring-loaded") or
-            !getprop("/sim/fgcamera/fgcamera-enabled")
+        if (!getprop(g_myNodePath ~ "/mouse/spring-loaded") or
+            !getprop(g_myNodePath ~ "/fgcamera-enabled")
         ) {
             return;
         }

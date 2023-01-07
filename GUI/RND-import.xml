@@ -38,7 +38,7 @@
 			<valign>fill</valign>
 			<stretch>true</stretch>
 			<padding>6</padding>
-			<property>/sim/fgcamera/dialogs/RND/mixer/import/selected-effect</property>
+			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect</property>
 			<binding>
 				<command>dialog-apply</command>
 			</binding>
@@ -74,7 +74,7 @@
 			var dir      = directory(path);
 			var list     = [];
 			var mode     = nil;
-			var listener = setlistener( "/sim/fgcamera/current-camera/RND-updated", func {update_mode()} );
+			var listener = setlistener( "/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func {update_mode()} );
 
 			var dialog_update = func () {
 				forindex (var i; arg) {
@@ -88,7 +88,7 @@
 
 			var import_effect = func {
 				var node      = props.Node.new();
-				var selection = getprop("/sim/fgcamera/dialogs/RND/mixer/import/selected-effect");
+				var selection = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect");
 
 				props.copy(io.read_properties(path ~ "/" ~ selection ~ ".xml"), node);
 

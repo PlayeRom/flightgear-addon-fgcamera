@@ -1,5 +1,5 @@
 var g_Addon = nil;
-var g_myNodePath = "/sim/fgcamera";
+var g_myNodePath = nil;
 
 #==================================================
 #	"Objects"
@@ -20,6 +20,7 @@ var views       = nil;
 #
 var init = func(addon) {
     g_Addon = addon;
+    g_myNodePath = g_Addon.node.getPath() ~ "/addon-devel";
 
     var fdmInitListener = _setlistener("/sim/signals/fdm-initialized", func {
         removelistener(fdmInitListener);
@@ -31,7 +32,7 @@ var init = func(addon) {
         camGui      = Gui.new(addon);
         views       = Views.new();
 
-        if (getprop("/sim/fgcamera/enable")) {
+        if (getprop(g_myNodePath ~ "/enable")) {
             # setting camera-id
             var delayTimer = maketimer(2, func {
                 # Delay selecting default camera for fix FOV
@@ -42,7 +43,7 @@ var init = func(addon) {
         }
 
         # welcome message
-        if (getprop("/sim/fgcamera/welcome-skip") != 1) {
+        if (getprop(g_myNodePath ~ "/welcome-skip") != 1) {
             fgcommand("dialog-show", props.Node.new({'dialog-name':'fgcamera-welcome'}));
         }
     });

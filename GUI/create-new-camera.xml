@@ -44,7 +44,7 @@
 			<name>camera-types</name>
 			<halign>fill</halign>
 			<stretch>1</stretch>
-			<property>/sim/fgcamera/dialogs/create-camera/camera-type</property>
+			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type</property>
 			<binding>
 				<command>dialog-apply</command>
 				<object-name>camera-types</object-name>
@@ -76,7 +76,7 @@
 			<halign>fill</halign>
 			<stretch>1</stretch>
 			<live>true</live>
-			<property>/sim/fgcamera/dialogs/create-camera/camera-name</property>
+			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-name</property>
 			<binding>
 				<command>dialog-apply</command>
 				<object-name>camera-name</object-name>
@@ -118,8 +118,8 @@
 
 	<nasal>
 		<open> <![CDATA[
-			if (getprop("/sim/fgcamera/dialogs/create-camera/camera-type") == nil) {
-				setprop("/sim/fgcamera/dialogs/create-camera/camera-type", "cockpit");
+			if (getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type") == nil) {
+				setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type", "cockpit");
 			}
 			var cameraN   = props.Node.new();
 			var path      = fgcamera.g_Addon.basePath ~ "/default-cameras.xml";
@@ -149,7 +149,7 @@
 			#	Select camera type
 			#==================================================
 			var select_type = func {
-				var selected = getprop("/sim/fgcamera/dialogs/create-camera/camera-type") or "cockpit";
+				var selected = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type") or "cockpit";
 				var types    = [
 					["cockpit"              , "FGCamera1"],
 					["aircraft (look at)"   , "FGCamera2"],
@@ -170,7 +170,7 @@
 				var current_camera  = fgcamera.cameras.getCurrent();
 
 				var camera   = {};
-				var camera_name = getprop("/sim/fgcamera/dialogs/create-camera/camera-name") or "new camera";
+				var camera_name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-name") or "new camera";
 
 				camera       = cameraN.getChild("camera").getValues();
 				camera.name  = camera_name;
@@ -181,7 +181,7 @@
 				}
 
 				fgcamera.cameras.append(camera);
-				setprop("/sim/fgcamera/current-camera/camera-id", fgcamera.cameras.size() - 1);
+				setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-id", fgcamera.cameras.size() - 1);
 			}
 
 			#==================================================

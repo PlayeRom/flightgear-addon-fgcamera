@@ -95,7 +95,7 @@
 				<valign>fill</valign>
 				<stretch>true</stretch>
 				<padding>6</padding>
-				<property>/sim/fgcamera/current-camera/name</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name</property>
 				<binding>
 					<command>dialog-apply</command>
 					<object-name>camera_list</object-name>
@@ -158,7 +158,7 @@
 			<input>
 				<name>camera_name</name>
 				<halign>left</halign>
-				<property>/sim/fgcamera/current-camera/camera-name</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
 				<pref-width>200</pref-width>
 				<stretch>true</stretch>
 				<live>1</live>
@@ -175,7 +175,7 @@
 			<input>
 				<name>camera_category</name>
 				<halign>left</halign>
-				<property>/sim/fgcamera/current-camera/category</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
 				<pref-width>50</pref-width>
 				<stretch>true</stretch>
 				<live>1</live>
@@ -293,8 +293,8 @@
 					var name = v.name;
 					var select = "";
 					if (i == fgcamera.cameras.getCurrentId()) {
-						setprop("/sim/fgcamera/current-camera/camera-name", name);
-						setprop("/sim/fgcamera/current-camera/category", v.category);
+						setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name", name);
+						setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category", v.category);
 						select = " <-";
 					}
 					list.addChild("value").setValue(sprintf(
@@ -343,21 +343,21 @@
 			#	Rename camera
 			#==================================================
 			var rename_camera = func {
-				fgcamera.cameras.getCurrent().name = getprop("/sim/fgcamera/current-camera/camera-name");
+				fgcamera.cameras.getCurrent().name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name");
 				update_list();
 			}
 			#==================================================
 			#	Set category
 			#==================================================
 			var set_category = func {
-				fgcamera.cameras.getCurrent().category = getprop("/sim/fgcamera/current-camera/category");
+				fgcamera.cameras.getCurrent().category = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category");
 				update_list();
 			}
 			#==================================================
 			#	Select camera
 			#==================================================
 			var select_camera = func {
-				var name = getprop("/sim/fgcamera/current-camera/name");
+				var name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name");
 				var i = 0;
 				foreach (var a; list.getChildren("value")) {
 					if (a.getValue() == name)

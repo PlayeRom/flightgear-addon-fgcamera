@@ -18,7 +18,7 @@ var manager = {
 	},
 #--------------------------------------------------
 	start : func {
-		setprop("/sim/fgcamera/fgcamera-enabled", 1);
+		setprop(g_myNodePath ~ "/fgcamera-enabled", 1);
 		foreach (var h; me.handlers)
 			if ( view.hasmember(h, "start") )
 				h.start();
@@ -58,7 +58,7 @@ var manager = {
 	},
 #--------------------------------------------------
 	stop : func {
-		setprop("/sim/fgcamera/fgcamera-enabled", 0);
+		setprop(g_myNodePath ~ "/fgcamera-enabled", 0);
 		foreach (var h; me.handlers)
 			if ( view.hasmember(h, "stop") )
 				h.stop();

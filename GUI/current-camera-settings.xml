@@ -42,7 +42,7 @@
 				<halign>left</halign>
 				<width>12</width>
 				<height>12</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/popup-tip</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip</property>
 				<label>Show popupTip</label>
 				<binding>
 					<command>dialog-apply</command>
@@ -62,7 +62,7 @@
 				<halign>left</halign>
 				<width>12</width>
 				<height>12</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/show-panel</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel</property>
 				<label>Show 2d panel</label>
 				<binding>
 					<command>dialog-apply</command>
@@ -77,7 +77,7 @@
 				<name>show-panel-type</name>
 				<halign>fill</halign>
 				<stretch>1</stretch>
-				<property>/sim/fgcamera/dialogs/camera-settings/show-panel-type</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type</property>
 				<binding>
 					<command>dialog-apply</command>
 					<object-name>show-panel-type</object-name>
@@ -98,7 +98,7 @@
 				<halign>left</halign>
 				<width>12</width>
 				<height>12</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/show-dialog</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog</property>
 				<label>Show dialog:</label>
 				<binding>
 					<command>dialog-apply</command>
@@ -116,7 +116,7 @@
 				<pref-width>200</pref-width>
 				<height>25</height>
 				<live>1</live>
-				<property>/sim/fgcamera/dialogs/camera-settings/dialog-name</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name</property>
 				<binding>
 					<command>dialog-apply</command>
 					<object-name>dialog-name</object-name>
@@ -148,7 +148,7 @@
 				<halign>left</halign>
 				<pref-width>100</pref-width>
 				<height>25</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/field-of-view</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/field-of-view</property>
 				<label>degrees</label>
 				<live>1</live>
 				<binding>
@@ -182,7 +182,7 @@
 				<halign>left</halign>
 				<pref-width>100</pref-width>
 				<height>25</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/movement-transition-time</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/movement-transition-time</property>
 				<label>Transition time, s</label>
 				<live>1</live>
 				<binding>
@@ -216,7 +216,7 @@
 				<halign>left</halign>
 				<pref-width>100</pref-width>
 				<height>25</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/adjustment-linear-velocity</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-linear-velocity</property>
 				<label>Linear velocity, m/s</label>
 				<live>1</live>
 				<binding>
@@ -233,7 +233,7 @@
 				<halign>left</halign>
 				<pref-width>100</pref-width>
 				<height>25</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/adjustment-angular-velocity</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-angular-velocity</property>
 				<label>Angular velocity, deg/s</label>
 				<live>1</live>
 				<binding>
@@ -250,7 +250,7 @@
 				<halign>left</halign>
 				<pref-width>100</pref-width>
 				<height>25</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/adjustment-filter</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-filter</property>
 				<label>Lowpass filter</label>
 				<live>1</live>
 				<binding>
@@ -283,7 +283,7 @@
 				<halign>left</halign>
 				<pref-width>100</pref-width>
 				<height>25</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/mlook-sensitivity</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-sensitivity</property>
 				<label>Mouse sensitivity</label>
 				<live>1</live>
 				<binding>
@@ -300,7 +300,7 @@
 				<halign>left</halign>
 				<pref-width>100</pref-width>
 				<height>25</height>
-				<property>/sim/fgcamera/dialogs/camera-settings/mlook-filter</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-filter</property>
 				<label>Lowpass filter</label>
 				<live>1</live>
 				<binding>
@@ -327,7 +327,7 @@
 			<halign>left</halign>
 			<width>12</width>
 			<height>12</height>
-			<property>/sim/fgcamera/dialogs/camera-settings/enable-DHM</property>
+			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM</property>
 			<binding>
 				<command>dialog-apply</command>
 			</binding>
@@ -342,7 +342,7 @@
 			<pref-width>70</pref-width>
 			<pref-height>30</pref-height>
 			<enable>
-				<property>/sim/fgcamera/dialogs/camera-settings/enable-DHM</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM</property>
 			</enable>
 			<binding>
 				<command>dialog-show</command>
@@ -361,7 +361,7 @@
 			<halign>left</halign>
 			<width>12</width>
 			<height>12</height>
-			<property>/sim/fgcamera/dialogs/camera-settings/enable-RND</property>
+			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND</property>
 			<binding>
 				<command>dialog-apply</command>
 				<object-name>enable-RND</object-name>
@@ -377,7 +377,7 @@
 			<pref-width>70</pref-width>
 			<pref-height>30</pref-height>
 			<enable>
-				<property>/sim/fgcamera/dialogs/camera-settings/enable-RND</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND</property>
 			</enable>
 			<binding>
 				<command>dialog-show</command>
@@ -450,7 +450,7 @@
 			#--------------------------------------------------
 			var update_values = func {
 				foreach (var a; var data = calc_data()) { #?
-					setprop("/sim/fgcamera/dialogs/camera-settings/" ~ a[0], a[1]);
+					setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/" ~ a[0], a[1]);
 					dialog_update(a[0]);
 				}
 			}
@@ -475,7 +475,7 @@
 			#	Toggle popupTip
 			#==================================================
 			var toggle_popupTip = func {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/popup-tip";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip";
 				var value = getprop(path);
 
 				fgcamera.cameras.getCurrent().popupTip = value;
@@ -484,9 +484,9 @@
 			#	Toggle 2d panel
 			#==================================================
 			var toggle_panel = func {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/show-panel";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel";
 				var value = getprop(path);
-				var selected_type = getprop("/sim/fgcamera/dialogs/camera-settings/show-panel-type") or fgcamera.Panel2D.DEFAULT;
+				var selected_type = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type") or fgcamera.Panel2D.DEFAULT;
 
 				fgcamera.cameras.getCurrent()["panel-show"] = value;
 				fgcamera.cameras.getCurrent()["panel-show-type"] = selected_type;
@@ -500,7 +500,7 @@
 			#	Toggle dialog
 			#==================================================
 			var toggle_dialog = func {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/show-dialog";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
 				var value = getprop(path);
 
 				fgcamera.cameras.getCurrent()["dialog-show"] = value;
@@ -513,8 +513,8 @@
 			#	Dialog name
 			#==================================================
 			var dialog_name = func {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/dialog-name";
-				var path2 = "/sim/fgcamera/dialogs/camera-settings/show-dialog";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name";
+				var path2 = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
 				var value = getprop(path);
 
 				if ( getprop(path2) ) {
@@ -530,7 +530,7 @@
 			#	Apply FOV
 			#==================================================
 			var apply_fov = func () {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/field-of-view";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/field-of-view";
 				var value = getprop(path);
 				var min   = 10;
 				var max   = 120;
@@ -547,7 +547,7 @@
 			#	Apply transition time
 			#==================================================
 			var apply_movement_time = func () {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/movement-transition-time";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/movement-transition-time";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
@@ -563,7 +563,7 @@
 			#	Apply linear_velocity
 			#==================================================
 			var apply_adjustment_linear_velocity = func () {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/adjustment-linear-velocity";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-linear-velocity";
 				var value = getprop(path);
 				var min   = 0.001;
 				var max   = 1000;
@@ -579,7 +579,7 @@
 			#	Apply angular_velocity
 			#==================================================
 			var apply_adjustment_angular_velocity = func () {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/adjustment-angular-velocity";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-angular-velocity";
 				var value = getprop(path);
 				var min   = 0.01;
 				var max   = 360;
@@ -595,7 +595,7 @@
 			#	Apply adjustment_filter
 			#==================================================
 			var apply_adjustment_filter = func () {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/adjustment-filter";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-filter";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
@@ -611,7 +611,7 @@
 			#	Apply mouse_look_sensitivity
 			#==================================================
 			var apply_mlook_sensitivity = func () {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/mlook-sensitivity";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-sensitivity";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
@@ -627,7 +627,7 @@
 			#	Apply mouse_look_filter
 			#==================================================
 			var apply_mlook_filter = func () {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/mlook-filter";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-filter";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
@@ -643,7 +643,7 @@
 			#	Toggle DHM
 			#==================================================
 			var toggle_DHM = func {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/enable-DHM";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM";
 				var value = getprop(path);
 
 				fgcamera.cameras.getCurrent()["enable-DHM"] = value;
@@ -652,7 +652,7 @@
 			#	Toggle RND
 			#==================================================
 			var toggle_RND = func {
-				var path  = "/sim/fgcamera/dialogs/camera-settings/enable-RND";
+				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND";
 				var value = getprop(path);
 
 				fgcamera.cameras.getCurrent()["enable-RND"] = value;

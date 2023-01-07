@@ -21,9 +21,9 @@ var Gui = {
             _addonBasePath : addon.basePath,
 
             # Mini dialog variables
-            _nodeMiniDialogEnable   : globals.props.getNode("/sim/fgcamera/mini-dialog-enable"),
-            _nodeMiniDialogType     : globals.props.getNode("/sim/fgcamera/mini-dialog-type"),
-            _nodeMiniDialogAutoHide : globals.props.getNode("/sim/fgcamera/mini-dialog-autohide"),
+            _nodeMiniDialogEnable   : globals.props.getNode(g_myNodePath ~ "/mini-dialog-enable"),
+            _nodeMiniDialogType     : globals.props.getNode(g_myNodePath ~ "/mini-dialog-type"),
+            _nodeMiniDialogAutoHide : globals.props.getNode(g_myNodePath ~ "/mini-dialog-autohide"),
             _nodeMouseX             : globals.props.getNode("/devices/status/mice/mouse/x"),
             _nodeMouseY             : globals.props.getNode("/devices/status/mice/mouse/y"),
             _nodeSizeY              : globals.props.getNode("/sim/startup/ysize"),

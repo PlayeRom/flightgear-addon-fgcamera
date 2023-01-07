@@ -135,7 +135,7 @@
         <!-- <desc>Move rudder left</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>property-adjust</command>
             <property>/controls/flight/rudder</property>
@@ -145,14 +145,14 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>9</camera-id>
         </binding>
         <mod-ctrl>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <binding>
                 <command>fgcamera-select</command>
@@ -169,7 +169,7 @@
         <!-- <desc>Elevator trim down</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>property-adjust</command>
             <property>/controls/flight/elevator-trim</property>
@@ -179,7 +179,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>0</camera-id>
@@ -189,7 +189,7 @@
             <!-- Default FG bindings -->
             <binding>
                 <condition>
-                    <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                    <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
                 </condition>
                 <command>property-adjust</command>
                 <property>/controls/flight/elevator-trim</property>
@@ -199,7 +199,7 @@
             <!-- FGCamera binding -->
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>0</camera-id>
@@ -215,7 +215,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>1</camera-id>
@@ -231,7 +231,7 @@
         <!-- <desc>Elevator up or increase autopilot altitude</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>nasal</command>
             <script>
@@ -242,7 +242,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>1</camera-id>
@@ -251,7 +251,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>1</camera-id>
@@ -286,7 +286,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>2</camera-id>
@@ -302,7 +302,7 @@
         <!-- <desc>Decrease throttle or autopilot autothrottle</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>nasal</command>
             <script>
@@ -313,7 +313,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>2</camera-id>
@@ -321,7 +321,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>2</camera-id>
@@ -337,7 +337,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>3</camera-id>
@@ -353,7 +353,7 @@
         <!-- <desc>Move aileron left (or adjust AP heading.)</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>nasal</command>
             <script>
@@ -364,7 +364,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>3</camera-id>
@@ -375,7 +375,7 @@
             <!-- <desc>Aileron left trim</desc> -->
             <binding>
                 <condition>
-                    <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                    <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
                 </condition>
                 <command>property-adjust</command>
                 <property>/controls/flight/aileron-trim</property>
@@ -385,7 +385,7 @@
             <!-- FGCamera binding -->
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>3</camera-id>
@@ -401,7 +401,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>4</camera-id>
@@ -417,7 +417,7 @@
         <!-- <desc>Center aileron, elevator, and rudder</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>nasal</command>
             <script>controls.centerFlightControls()</script>
@@ -426,7 +426,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>4</camera-id>
@@ -437,7 +437,7 @@
             <!-- <desc>Clear all trims</desc> -->
             <binding>
                 <condition>
-                    <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                    <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
                 </condition>
                 <command>property-assign</command>
                 <property>/controls/flight/elevator-trim</property>
@@ -445,7 +445,7 @@
             </binding>
             <binding>
                 <condition>
-                    <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                    <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
                 </condition>
                 <command>property-assign</command>
                 <property>/controls/flight/aileron-trim</property>
@@ -453,7 +453,7 @@
             </binding>
             <binding>
                 <condition>
-                    <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                    <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
                 </condition>
                 <command>property-assign</command>
                 <property>/controls/flight/rudder-trim</property>
@@ -463,7 +463,7 @@
             <!-- FGCamera binding -->
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>4</camera-id>
@@ -479,7 +479,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>5</camera-id>
@@ -494,7 +494,7 @@
         <!-- <desc>Move aileron right (or adjust AP heading.)</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>nasal</command>
             <script>
@@ -505,7 +505,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>5</camera-id>
@@ -513,7 +513,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>5</camera-id>
@@ -529,7 +529,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>6</camera-id>
@@ -544,7 +544,7 @@
         <!-- <desc>Elevator trim up</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>property-adjust</command>
             <property>/controls/flight/elevator-trim</property>
@@ -554,7 +554,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>6</camera-id>
@@ -564,7 +564,7 @@
             <!-- <desc>Elevator trim up fast</desc> -->
             <binding>
                 <condition>
-                    <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                    <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
                 </condition>
                 <command>property-adjust</command>
                 <property>/controls/flight/elevator-trim</property>
@@ -574,7 +574,7 @@
             <!-- FGCamera binding -->
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>6</camera-id>
@@ -590,7 +590,7 @@
         <mod-ctrl>
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>7</camera-id>
@@ -605,7 +605,7 @@
         <!-- <desc>Elevator down or decrease autopilot altitude</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>nasal</command>
             <script>
@@ -616,7 +616,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>7</camera-id>
@@ -626,7 +626,7 @@
             <!-- FGCamera binding -->
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>7</camera-id>
@@ -642,7 +642,7 @@
         <!-- <desc>Increase throttle or autopilot autothrottle</desc> -->
         <binding>
             <condition>
-                <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
             </condition>
             <command>nasal</command>
             <script>
@@ -653,7 +653,7 @@
         <!-- FGCamera binding -->
         <binding>
             <condition>
-                <not><property>/sim/fgcamera/use-ctrl-with-numkeys</property></not>
+                <not><property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property></not>
             </condition>
             <command>fgcamera-select</command>
             <camera-id>8</camera-id>
@@ -663,7 +663,7 @@
             <!-- FGCamera binding -->
             <binding>
                 <condition>
-                    <property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
                 </condition>
                 <command>fgcamera-select</command>
                 <camera-id>8</camera-id>

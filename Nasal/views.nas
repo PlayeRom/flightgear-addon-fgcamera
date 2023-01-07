@@ -89,7 +89,7 @@ var Views = {
             return 1;
         }
 
-        if (getprop("/sim/fgcamera/mouse/force-look-around-mode-in-fg")) {
+        if (getprop(g_myNodePath ~ "/mouse/force-look-around-mode-in-fg")) {
             # logprint(LOG_INFO, "FGCamera: mouse mode; stop; option force-look-around-mode-in-fg force = ", (0 ? "cycle" :  "look around"));
             return 0;
         }

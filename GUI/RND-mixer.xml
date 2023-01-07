@@ -46,7 +46,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>property-assign</command>
-				<property>/sim/fgcamera/dialogs/RND/generator/current-generator</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/current-generator</property>
 				<value>0</value>
 			</binding>
 			<binding>
@@ -65,7 +65,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>property-assign</command>
-				<property>/sim/fgcamera/dialogs/RND/generator/current-generator</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/current-generator</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -84,7 +84,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>property-assign</command>
-				<property>/sim/fgcamera/dialogs/RND/generator/current-generator</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/current-generator</property>
 				<value>2</value>
 			</binding>
 			<binding>
@@ -108,7 +108,7 @@
 		<checkbox>
 			<width>15</width>
 			<height>15</height>
-			<property>/sim/fgcamera/dialogs/RND/edit-mode</property>
+			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/edit-mode</property>
 			<binding>
 				<command>dialog-apply</command>
 			</binding>
@@ -123,8 +123,8 @@
 			<pref-width>80</pref-width>
 			<pref-height>30</pref-height>
 			<enable>
-				<property>/sim/fgcamera/dialogs/RND/edit-mode</property>
-				<property>/sim/fgcamera/dialogs/RND/profile</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/edit-mode</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/profile</property>
 			</enable>
 			<binding>
 				<command>nasal</command>
@@ -132,7 +132,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>/sim/fgcamera/dialogs/RND/profile</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/profile</property>
 				<value>0</value>
 			</binding>
 		</button>
@@ -142,9 +142,9 @@
 			<pref-width>50</pref-width>
 			<pref-height>30</pref-height>
 			<enable>
-				<property>/sim/fgcamera/dialogs/RND/edit-mode</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/edit-mode</property>
 				<not>
-					<property>/sim/fgcamera/dialogs/RND/profile</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/profile</property>
 				</not>
 			</enable>
 			<binding>
@@ -153,7 +153,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>/sim/fgcamera/dialogs/RND/profile</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/profile</property>
 				<value>1</value>
 			</binding>
 		</button>
@@ -190,7 +190,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/GEN1</property>
 					<min>0</min>
 					<max>1</max>
 					<binding>
@@ -205,7 +205,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/GEN2</property>
 					<min>0</min>
 					<max>1</max>
 					<binding>
@@ -220,7 +220,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/GEN3</property>
 					<min>0</min>
 					<max>1</max>
 					<binding>
@@ -240,7 +240,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/GEN1</property>
 				</text>
 
 				<text>
@@ -248,7 +248,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/GEN2</property>
 				</text>
 
 				<text>
@@ -256,7 +256,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/GEN3</property>
 				</text>
 			</group>
 
@@ -271,7 +271,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/level</property>
 					<min>-1</min>
 					<max>1</max>
 					<binding>
@@ -288,7 +288,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/x/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/x/level</property>
 				</text>
 			</group>
 
@@ -306,7 +306,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/level</property>
 					<min>-1</min>
 					<max>1</max>
 					<binding>
@@ -323,7 +323,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/level</property>
 				</text>
 			</group>
 
@@ -335,7 +335,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/GEN1</property>
 				</text>
 
 				<text>
@@ -343,7 +343,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/GEN2</property>
 				</text>
 
 				<text>
@@ -351,7 +351,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/GEN3</property>
 				</text>
 			</group>
 
@@ -361,7 +361,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/GEN1</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -374,7 +374,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/GEN2</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -387,7 +387,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/p/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/p/GEN3</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -442,7 +442,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/GEN1</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -455,7 +455,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/GEN2</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -468,7 +468,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/GEN3</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -486,7 +486,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/GEN1</property>
 				</text>
 
 				<text>
@@ -494,7 +494,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/GEN2</property>
 				</text>
 
 				<text>
@@ -502,7 +502,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/GEN3</property>
 				</text>
 			</group>
 
@@ -518,7 +518,7 @@
 					<width>20</width>
 					<wrap>0</wrap>
 					<min>-1</min>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/level</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -533,7 +533,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/y/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/y/level</property>
 				</text>
 			</group>
 
@@ -552,7 +552,7 @@
 					<width>20</width>
 					<wrap>0</wrap>
 					<min>-1</min>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/level</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -567,7 +567,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/level</property>
 				</text>
 			</group>
 
@@ -578,7 +578,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/GEN1</property>
 				</text>
 
 				<text>
@@ -586,7 +586,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/GEN2</property>
 				</text>
 
 				<text>
@@ -594,7 +594,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/GEN3</property>
 				</text>
 			</group>
 
@@ -604,7 +604,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/GEN1</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -617,7 +617,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/GEN2</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -630,7 +630,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/h/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/h/GEN3</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -683,7 +683,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/GEN1</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -696,7 +696,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/GEN2</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -709,7 +709,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/GEN3</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -728,7 +728,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/GEN1</property>
 				</text>
 
 				<text>
@@ -736,7 +736,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/GEN2</property>
 				</text>
 
 				<text>
@@ -744,7 +744,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/GEN3</property>
 				</text>
 			</group>
 
@@ -760,7 +760,7 @@
 					<width>20</width>
 					<wrap>0</wrap>
 					<min>-1</min>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/level</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -775,7 +775,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/z/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/z/level</property>
 				</text>
 			</group>
 
@@ -794,7 +794,7 @@
 					<width>20</width>
 					<wrap>0</wrap>
 					<min>-1</min>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/level</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -809,7 +809,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/level</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/level</property>
 				</text>
 			</group>
 
@@ -821,7 +821,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/GEN1</property>
 				</text>
 
 				<text>
@@ -829,7 +829,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/GEN2</property>
 				</text>
 
 				<text>
@@ -837,7 +837,7 @@
 					<label>1.00</label>
 					<format>%0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/GEN3</property>
 				</text>
 			</group>
 
@@ -847,7 +847,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/GEN1</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/GEN1</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -860,7 +860,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/GEN2</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/GEN2</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -873,7 +873,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/r/GEN3</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/r/GEN3</property>
 					<binding>
 						<command>dialog-apply</command>
 					</binding>
@@ -910,7 +910,7 @@
 				<dial>
 					<width>20</width>
 					<wrap>0</wrap>
-					<property>/sim/fgcamera/dialogs/RND/mixer/s</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s</property>
 					<min>0</min>
 					<max>1</max>
 					<binding>
@@ -927,7 +927,7 @@
 					<label>-1.00</label>
 					<format>%-0.2f</format>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/mixer/s</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s</property>
 				</text>
 
 				<button>
@@ -1007,11 +1007,11 @@
 
 	<nasal>
 		<open> <![CDATA[
-			var path  = "/sim/fgcamera/dialogs/RND/mixer/";
+			var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/";
 			var list1 = ["/GEN1", "/GEN2", "/GEN3", "/level"];
 			var list2 = ["x", "y", "z", "h", "p", "r"];
 			var mode  = nil;
-			var listener1 = setlistener( "/sim/fgcamera/current-camera/RND-updated", func {update()} );
+			var listener1 = setlistener( "/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func {update()} );
 
 			var update = func {
 				mode  = get_mode();
@@ -1024,7 +1024,7 @@
 					}
 				}
 
-				setprop("/sim/fgcamera/dialogs/RND/mixer/s", fgcamera.RND_handler.rnd[mode].mixer.s);
+				setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s", fgcamera.RND_handler.rnd[mode].mixer.s);
 
 				fgcommand( "dialog-update", props.Node.new( {"dialog-name" : "RND-mixer"} ) );
 			}
@@ -1037,9 +1037,9 @@
 				else fgcamera.RND_handler._mode;
 			}
 
-			var toggle_edit = func fgcamera.RND_handler.GUI_edit = getprop("/sim/fgcamera/dialogs/RND/edit-mode");
+			var toggle_edit = func fgcamera.RND_handler.GUI_edit = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/edit-mode");
 
-			var set_scale = func fgcamera.RND_handler.rnd[mode].mixer.s = getprop("/sim/fgcamera/dialogs/RND/mixer/s");
+			var set_scale = func fgcamera.RND_handler.rnd[mode].mixer.s = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s");
 
 			var set_data = func (key, i, scale = 1) {
 				fgcamera.RND_handler.rnd[mode].mixer[key][i] = getprop(path ~ key ~ list1[i]);

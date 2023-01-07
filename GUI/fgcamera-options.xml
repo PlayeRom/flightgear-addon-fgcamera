@@ -48,7 +48,7 @@
 			<checkbox>
 				<halign>left</halign>
 				<label>Press and hold right mouse to look around in FGCameras</label>
-				<property>/sim/fgcamera/mouse/spring-loaded</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/spring-loaded</property>
 				<live>1</live>
 				<binding>
 					<command>dialog-apply</command>
@@ -58,7 +58,7 @@
 			<checkbox>
 				<halign>left</halign>
 				<label>Force "Press and hold right mouse to look around" in FG views</label>
-				<property>/sim/fgcamera/mouse/force-look-around-mode-in-fg</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/mouse/force-look-around-mode-in-fg</property>
 				<live>1</live>
 				<binding>
 					<command>dialog-apply</command>
@@ -83,7 +83,7 @@
 			<checkbox>
 				<halign>left</halign>
 				<label>Enable mini dialog</label>
-				<property>/sim/fgcamera/mini-dialog-enable</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-enable</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -101,16 +101,16 @@
 					<label>Mini dialog type</label>
 					<halign>left</halign>
 					<enable>
-						<property>/sim/fgcamera/mini-dialog-enable</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-enable</property>
 					</enable>
 				</text>
 				<combo>
 					<name>mini-dialog-type</name>
 					<halign>fill</halign>
 					<stretch>1</stretch>
-					<property>/sim/fgcamera/mini-dialog-type</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-type</property>
 					<enable>
-						<property>/sim/fgcamera/mini-dialog-enable</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-enable</property>
 					</enable>
 					<binding>
 						<command>dialog-apply</command>
@@ -130,9 +130,9 @@
 			<checkbox>
 				<halign>left</halign>
 				<label>Autohide mini dialog</label>
-				<property>/sim/fgcamera/mini-dialog-autohide</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-autohide</property>
 				<enable>
-					<property>/sim/fgcamera/mini-dialog-enable</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-enable</property>
 				</enable>
 				<binding>
 					<command>dialog-apply</command>
@@ -163,7 +163,7 @@
 			<checkbox>
 				<halign>left</halign>
 				<label>Use Ctrl with numeric keys</label>
-				<property>/sim/fgcamera/use-ctrl-with-numkeys</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/use-ctrl-with-numkeys</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

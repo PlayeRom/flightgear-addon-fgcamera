@@ -50,7 +50,7 @@
 					<checkbox>
 						<width>15</width>
 						<height>15</height>
-						<property>/sim/fgcamera/dialogs/RND/generator/sine</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/sine</property>
 						<binding>
 							<command>dialog-apply</command>
 						</binding>
@@ -76,7 +76,7 @@
 
 						<dial>
 							<max>6.0</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/sine[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/sine[1]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -90,7 +90,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/sine[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/sine[1]</property>
 						</text>
 
 						<empty>
@@ -103,7 +103,7 @@
 
 						<dial>
 							<width>20</width>
-							<property>/sim/fgcamera/dialogs/RND/generator/sine[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/sine[2]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -117,7 +117,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/sine[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/sine[2]</property>
 						</text>
 					</group>
 
@@ -126,7 +126,7 @@
 						<vertical>true</vertical>
 						<pref-height>150</pref-height>
 						<live>true</live>
-						<property>/sim/fgcamera/dialogs/RND/generator/output[0]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/output[0]</property>
 						<min>-1</min>
 						<max>1</max>
 					</slider>
@@ -152,7 +152,7 @@
 					<checkbox>
 						<width>15</width>
 						<height>15</height>
-						<property>/sim/fgcamera/dialogs/RND/generator/resonance[0]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[0]</property>
 						<binding>
 							<command>dialog-apply</command>
 						</binding>
@@ -180,7 +180,7 @@
 
 						<dial>
 							<max>9</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[1]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -194,7 +194,7 @@
 							<label>0.0</label>
 							<format>%0.1f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[1]</property>
 						</text>
 
 						<empty>
@@ -207,7 +207,7 @@
 
 						<dial>
 							<max>5</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[3]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[3]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -221,7 +221,7 @@
 							<label>0.0</label>
 							<format>%0.1f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[3]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[3]</property>
 						</text>
 					</group>
 
@@ -232,7 +232,7 @@
 
 						<dial>
 							<max>5</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[2]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -246,7 +246,7 @@
 							<label>0.0</label>
 							<format>%0.1f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[2]</property>
 						</text>
 
 						<empty>
@@ -259,7 +259,7 @@
 
 						<dial>
 							<max>5</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[4]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[4]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -273,7 +273,7 @@
 							<label>0.0</label>
 							<format>%0.1f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[4]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[4]</property>
 						</text>
 					</group>
 
@@ -290,7 +290,7 @@
 						</text>
 
 						<dial>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[5]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[5]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -304,7 +304,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/resonance[5]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/resonance[5]</property>
 						</text>
 					</group>
 
@@ -312,7 +312,7 @@
 						<vertical>true</vertical>
 						<pref-height>150</pref-height>
 						<live>true</live>
-						<property>/sim/fgcamera/dialogs/RND/generator/output[1]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/output[1]</property>
 						<min>-1</min>
 						<max>1</max>
 					</slider>
@@ -338,7 +338,7 @@
 					<checkbox>
 						<width>15</width>
 						<height>15</height>
-						<property>/sim/fgcamera/dialogs/RND/generator/noise</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/noise</property>
 						<binding>
 							<command>dialog-apply</command>
 						</binding>
@@ -363,7 +363,7 @@
 
 						<dial>
 							<max>9.0</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/noise[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/noise[1]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -377,14 +377,14 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/noise[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/noise[1]</property>
 						</text>
 						<empty> <pref-height>6</pref-height> </empty>
 						<text><label>level</label></text>
 
 						<dial>
 							<width>20</width>
-							<property>/sim/fgcamera/dialogs/RND/generator/noise[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/noise[2]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -398,7 +398,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/noise[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/noise[2]</property>
 						</text>
 					</group>
 
@@ -406,7 +406,7 @@
 						<vertical>true</vertical>
 						<pref-height>150</pref-height>
 						<live>true</live>
-						<property>/sim/fgcamera/dialogs/RND/generator/output[2]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/output[2]</property>
 						<min>-1</min>
 						<max>1</max>
 					</slider>
@@ -431,7 +431,7 @@
 					<checkbox>
 						<width>15</width>
 						<height>15</height>
-						<property>/sim/fgcamera/dialogs/RND/generator/LFO1[0]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO1[0]</property>
 						<binding>
 							<command>dialog-apply</command>
 						</binding>
@@ -458,7 +458,7 @@
 
 						<dial>
 							<max>2.0</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO1[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO1[2]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -472,7 +472,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO1[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO1[2]</property>
 						</text>
 
 						<empty>
@@ -485,7 +485,7 @@
 
 						<dial>
 							<width>20</width>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO1[3]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO1[3]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -499,7 +499,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO1[3]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO1[3]</property>
 						</text>
 					</group>
 
@@ -511,7 +511,7 @@
 
 						<dial>
 							<max>5</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO1[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO1[1]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -525,7 +525,7 @@
 							<label>0.0</label>
 							<format>%0.1f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO1[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO1[1]</property>
 						</text>
 
 						<empty>
@@ -538,7 +538,7 @@
 						<vertical>true</vertical>
 						<pref-height>150</pref-height>
 						<live>true</live>
-						<property>/sim/fgcamera/dialogs/RND/generator/output[3]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/output[3]</property>
 						<min>-1</min>
 						<max>1</max>
 					</slider>
@@ -564,7 +564,7 @@
 					<checkbox>
 						<width>15</width>
 						<height>15</height>
-						<property>/sim/fgcamera/dialogs/RND/generator/LFO2[0]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO2[0]</property>
 						<binding>
 							<command>dialog-apply</command>
 						</binding>
@@ -596,7 +596,7 @@
 
 						<dial>
 							<max>2.0</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO2[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO2[2]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -610,7 +610,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO2[2]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO2[2]</property>
 						</text>
 
 						<empty>
@@ -623,7 +623,7 @@
 
 						<dial>
 							<width>20</width>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO2[3]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO2[3]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -637,7 +637,7 @@
 							<label>0.00</label>
 							<format>%0.2f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO2[3]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO2[3]</property>
 						</text>
 					</group>
 
@@ -655,7 +655,7 @@
 
 						<dial>
 							<max>5</max>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO2[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO2[1]</property>
 							<binding>
 								<command>dialog-apply</command>
 							</binding>
@@ -669,7 +669,7 @@
 							<label>0.0</label>
 							<format>%0.1f</format>
 							<live>true</live>
-							<property>/sim/fgcamera/dialogs/RND/generator/LFO2[1]</property>
+							<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/LFO2[1]</property>
 						</text>
 
 						<empty>
@@ -685,7 +685,7 @@
 						<vertical>true</vertical>
 						<pref-height>150</pref-height>
 						<live>true</live>
-						<property>/sim/fgcamera/dialogs/RND/generator/output[4]</property>
+						<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/output[4]</property>
 						<min>-1</min>
 						<max>1</max>
 					</slider>
@@ -705,7 +705,7 @@
 					<vertical>true</vertical>
 					<pref-height>150</pref-height>
 					<live>true</live>
-					<property>/sim/fgcamera/dialogs/RND/generator/main-output</property>
+					<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/main-output</property>
 					<min>-1</min>
 					<max>1</max>
 				</slider>
@@ -740,7 +740,7 @@
 
 	<nasal>
 		<open> <![CDATA[
-			var path = "/sim/fgcamera/dialogs/RND/generator/";
+			var path = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/generator/";
 			var g_id = getprop(path ~ "current-generator");
 			var listeners = [
 				setlistener( fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func update() ),

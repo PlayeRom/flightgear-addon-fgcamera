@@ -5,59 +5,66 @@
 		<keyboard include="fgkeyboard.xml" />
 	</input>
 
+	<addons>
+		<by-id>
+			<a.marius.FGCamera>
+				<addon-devel>
+					<!-- Used in Nasal: -->
+					<!-- <controls> -->
+						<!-- <adjust-h> -->
+						<!-- <adjust-p> -->
+						<!-- <adjust-r> -->
+						<!-- <adjust-x> - move camera left-right-->
+						<!-- <adjust-y> - move camera up-dawn -->
+						<!-- <adjust-z> - move cameru forward-backward -->
+					<!-- <current-camera> -->
+						<!-- <RDN-updated type="double"> -->
+						<!-- <camera-id type="double"> -->
+						<!-- <camera-name type="string"> -->
+						<!-- <category type="string"> -->
+						<!-- <name type="string">  - name on list in GUI, like e.g. "1. default [0]" -->
+					<!-- <dialog> -->
+						<!-- <camera-settings> -->
+							<!-- ... -->
+						<!-- <RND> -->
+							<!-- <edit-mode> -->
+							<!-- <mixer>-->
+								<!-- <clipboard-empty> -->
+							<!-- <profile> -->
+					<!-- <fgcamera-enabled type="bool"> - If true then FGCamera view is currently working, otherwise FG view is currently working -->
+
+					<!-- If true then switch to FGCamera view on startup, otherwise stay in FG view -->
+					<enable type="bool">true</enable>
+
+					<!-- Display popupTip with camera name: -->
+					<popupTip type="bool">false</popupTip>
+
+					<mouse>
+						<spring-loaded type="bool" userarchive="y">true</spring-loaded>
+
+						<!-- When you change the camera by V key, you will switch to FG views, and here you may want to look
+							around by press and hold right mouse button. Then set this option on true. -->
+						<force-look-around-mode-in-fg type="bool" userarchive="y">true</force-look-around-mode-in-fg>
+
+						<!-- Used in Nasal: -->
+						<!-- <handling-offset type="double"> -->
+						<!-- <pitch-offset type="double"> -->
+						<!-- <roll-offset type="double"> -->
+						<!-- <x-offset type="double"> -->
+						<!-- <y-offset type="double"> -->
+						<!-- <z-offset type="double"> -->
+					</mouse>
+					<welcome-skip type="bool" userarchive="y">false</welcome-skip>
+					<mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
+					<mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
+					<mini-dialog-type type="string" userarchive="y">simple</mini-dialog-type>
+					<use-ctrl-with-numkeys type="bool" userarchive="y">false</use-ctrl-with-numkeys>
+				</addon-devel>
+			</a.marius.FGCamera>
+		</by-id>
+	</addons>
+
 	<sim>
-		<fgcamera>
-			<!-- Used in Nasal: -->
-			<!-- <controls> -->
-				<!-- <adjust-h> -->
-				<!-- <adjust-p> -->
-				<!-- <adjust-r> -->
-				<!-- <adjust-x> - move camera left-right-->
-				<!-- <adjust-y> - move camera up-dawn -->
-				<!-- <adjust-z> - move cameru forward-backward -->
-			<!-- <current-camera> -->
-				<!-- <RDN-updated type="double"> -->
-				<!-- <camera-id type="double"> -->
-				<!-- <camera-name type="string"> -->
-				<!-- <category type="string"> -->
-				<!-- <name type="string">  - name on list in GUI, like e.g. "1. default [0]" -->
-			<!-- <dialog> -->
-				<!-- <camera-settings> -->
-					<!-- ... -->
-				<!-- <RND> -->
-					<!-- <edit-mode> -->
-					<!-- <mixer>-->
-						<!-- <clipboard-empty> -->
-					<!-- <profile> -->
-			<!-- <fgcamera-enabled type="bool"> - If true then FGCamera view is currently working, otherwise FG view is currently working -->
-
-			<enable type="bool">true</enable>
-
-			<!-- Display popupTip with camera name: -->
-			<popupTip type="bool">false</popupTip>
-
-			<mouse>
-				<spring-loaded type="bool" userarchive="y">true</spring-loaded>
-
-				<!-- When you change the camera by V key, you will switch to FG views, and here you may want to look
-					 around by press and hold right mouse button. Then set this option on true. -->
-				<force-look-around-mode-in-fg type="bool" userarchive="y">true</force-look-around-mode-in-fg>
-
-				<!-- Used in Nasal: -->
-				<!-- <handling-offset type="double"> -->
-				<!-- <pitch-offset type="double"> -->
-				<!-- <roll-offset type="double"> -->
-				<!-- <x-offset type="double"> -->
-				<!-- <y-offset type="double"> -->
-				<!-- <z-offset type="double"> -->
-			</mouse>
-			<welcome-skip type="bool" userarchive="y">false</welcome-skip>
-			<mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
-			<mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
-			<mini-dialog-type type="string" userarchive="y">simple</mini-dialog-type>
-			<use-ctrl-with-numkeys type="bool" userarchive="y">false</use-ctrl-with-numkeys>
-		</fgcamera>
-
 		<panel>
 			<path>/Aircraft/Panels/generic-vfr-panel.xml</path>
 			<visibility archive="y">false</visibility>
@@ -197,12 +204,12 @@
 			<enabled type="bool" userarchive="y">false</enabled>
 			<type>lookfrom</type>
 			<config>
-				<eye-lat-deg-path>/sim/fgcamera/tower/latitude-deg</eye-lat-deg-path>
-				<eye-lon-deg-path>/sim/fgcamera/tower/longitude-deg</eye-lon-deg-path>
-				<eye-alt-ft-path>/sim/fgcamera/tower/altitude-ft</eye-alt-ft-path>
-				<eye-roll-deg-path>/sim/fgcamera/tower/roll-deg</eye-roll-deg-path>
-				<eye-pitch-deg-path>/sim/fgcamera/tower/pitch-deg</eye-pitch-deg-path>
-				<eye-heading-deg-path>/sim/fgcamera/tower/heading-deg</eye-heading-deg-path>
+				<eye-lat-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/latitude-deg</eye-lat-deg-path>
+				<eye-lon-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/longitude-deg</eye-lon-deg-path>
+				<eye-alt-ft-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/altitude-ft</eye-alt-ft-path>
+				<eye-roll-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/roll-deg</eye-roll-deg-path>
+				<eye-pitch-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/pitch-deg</eye-pitch-deg-path>
+				<eye-heading-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/heading-deg</eye-heading-deg-path>
 
 				<at-model type="bool">true</at-model>
 				<at-model-idx type="int">0</at-model-idx>

@@ -48,7 +48,7 @@
 			<empty><stretch>1</stretch></empty>
 			<slider>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/head-mass</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/head-mass</property>
 				<fraction>0.3</fraction>
 				<step>1</step>
 				<min>0</min>
@@ -62,7 +62,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/head-mass</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/head-mass</property>
 			</text>
 		</group>
 
@@ -74,7 +74,7 @@
 			<empty><stretch>1</stretch></empty>
 			<slider>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/g-load-release</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/g-load-release</property>
 				<fraction>0.3</fraction>
 				<step>0.01</step>
 				<min>0</min>
@@ -92,7 +92,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/g-load-release</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/g-load-release</property>
 			</text>
 		</group>
 	</group>
@@ -120,7 +120,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/constant-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/constant-g</property>
 				<min>0</min>
 				<max>2</max>
 				<fraction>0.1</fraction>
@@ -134,7 +134,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/constant-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/constant-g</property>
 			</text>
 		</group>
 
@@ -146,7 +146,7 @@
 			<empty><stretch>1</stretch></empty>
 			<slider>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/impulse-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/impulse-g</property>
 				<fraction>0.1</fraction>
 				<step>0.01</step>
 				<min>0</min>
@@ -160,7 +160,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/impulse-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/impulse-g</property>
 			</text>
 		</group>
 
@@ -172,7 +172,7 @@
 			<empty><stretch>1</stretch></empty>
 			<slider>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/head-bank</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/head-bank</property>
 				<min>0</min>
 				<max>300</max>
 				<fraction>0.1</fraction>
@@ -186,7 +186,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/head-bank</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/head-bank</property>
 			</text>
 		</group>
 
@@ -200,7 +200,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/damping</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/damping</property>
 				<fraction>0.1</fraction>
 				<step>1</step>
 				<min>0</min>
@@ -214,7 +214,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/damping</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/damping</property>
 			</text>
 		</group>
 
@@ -228,7 +228,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/movement-limit</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/movement-limit</property>
 				<min>0</min>
 				<max>0.15</max>
 				<fraction>0.1</fraction>
@@ -243,7 +243,7 @@
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
 				<format>%-0.3f</format>
-				<property>/sim/fgcamera/dialogs/DHM-settings/x-axis/movement-limit</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/x-axis/movement-limit</property>
 			</text>
 		</group>
 	</group>
@@ -271,7 +271,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/constant-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/constant-g</property>
 				<min>0</min>
 				<max>2</max>
 				<fraction>0.1</fraction>
@@ -285,7 +285,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/constant-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/constant-g</property>
 			</text>
 		</group>
 
@@ -299,7 +299,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/impulse-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/impulse-g</property>
 				<fraction>0.1</fraction>
 				<step>0.01</step>
 				<min>0</min>
@@ -313,7 +313,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/impulse-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/impulse-g</property>
 			</text>
 		</group>
 
@@ -327,7 +327,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/head-pitch</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/head-pitch</property>
 				<min>0</min>
 				<max>300</max>
 				<fraction>0.1</fraction>
@@ -341,7 +341,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/head-pitch</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/head-pitch</property>
 			</text>
 		</group>
 
@@ -355,7 +355,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/damping</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/damping</property>
 				<fraction>0.1</fraction>
 				<step>1</step>
 				<min>0</min>
@@ -369,7 +369,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/damping</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/damping</property>
 			</text>
 		</group>
 
@@ -383,7 +383,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/movement-limit</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/movement-limit</property>
 				<min>0</min>
 				<max>0.15</max>
 				<fraction>0.1</fraction>
@@ -398,7 +398,7 @@
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
 				<format>%-0.3f</format>
-				<property>/sim/fgcamera/dialogs/DHM-settings/y-axis/movement-limit</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/y-axis/movement-limit</property>
 			</text>
 		</group>
 	</group>
@@ -426,7 +426,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/constant-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/constant-g</property>
 				<min>0</min>
 				<max>2</max>
 				<fraction>0.1</fraction>
@@ -440,7 +440,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/constant-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/constant-g</property>
 			</text>
 		</group>
 
@@ -454,7 +454,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/impulse-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/impulse-g</property>
 				<fraction>0.1</fraction>
 				<step>0.01</step>
 				<min>0</min>
@@ -468,7 +468,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/impulse-g</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/impulse-g</property>
 			</text>
 		</group>
 
@@ -482,7 +482,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/damping</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/damping</property>
 				<fraction>0.1</fraction>
 				<step>1</step>
 				<min>0</min>
@@ -496,7 +496,7 @@
 			</slider>
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/damping</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/damping</property>
 			</text>
 		</group>
 
@@ -510,7 +510,7 @@
 				<x>10</x>
 				<y>50</y>
 				<pref-width>200</pref-width>
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/movement-limit</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/movement-limit</property>
 				<min>0</min>
 				<max>0.15</max>
 				<fraction>0.1</fraction>
@@ -525,7 +525,7 @@
 			<text>
 				<label>999.9</label> <!-- placeholder for width -->
 				<format>%-0.3f</format>
-				<property>/sim/fgcamera/dialogs/DHM-settings/z-axis/movement-limit</property>
+				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/z-axis/movement-limit</property>
 			</text>
 		</group>
 	</group>
@@ -564,7 +564,7 @@
 	<nasal>
 		<open> <![CDATA[
 			var set_filter = func {
-				var a = getprop("/sim/fgcamera/dialogs/DHM-settings/g-load-release");
+				var a = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/g-load-release");
 				gui.popupTip(fgcamera.RND_handler.hp_coeff = a, 0.5);
 			}
 		]]> </open>

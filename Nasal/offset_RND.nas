@@ -353,7 +353,7 @@ var RND_handler = {
 		for (var i = 0; i <= 2; i += 1)
 			me._GEN[i].set(me.rnd[me._mode].GEN[i]);
 
-		setprop("/sim/fgcamera/current-camera/RND-updated", 1); #trigger GUI update
+		setprop(g_myNodePath ~ "/current-camera/RND-updated", 1); #trigger GUI update
 	},
 #--------------------------------------------------
 	start: func {
@@ -363,7 +363,7 @@ var RND_handler = {
 			setlistener( "/gear/gear/wow",    func { get_wow(0) }, 1, 0 ),
 			setlistener( "/gear/gear[1]/wow", func { get_wow(1) }, 1, 0 ),
 			setlistener( "/gear/gear[2]/wow", func { get_wow(2) }, 1, 0 ),
-			setlistener( "/sim/fgcamera/current-camera/camera-id", func {
+			setlistener( g_myNodePath ~ "/current-camera/camera-id", func {
 				me.update_rnd_data();
 				me._set_generators();
 			}),
