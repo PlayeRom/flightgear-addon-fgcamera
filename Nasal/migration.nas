@@ -25,7 +25,7 @@ var Migration = {
             return;
         }
 
-        print("Upgrading camera data to the newest version");
+        logprint(LOG_INFO, "FGCamera: upgrading camera data to the newest version");
 
         var versionItems = me._getVersionsItems();
 

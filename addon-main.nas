@@ -37,7 +37,7 @@ var main = func(addon) {
 	# load scripts
 	foreach (var file; files) {
 		if (!io.load_nasal(basePath ~ "/" ~ file ~ ".nas", "fgcamera")) {
-			print("FGCamera: add-on module \"", file, "\" loading failed");
+			logprint(LOG_ALERT, "FGCamera: add-on module \"", file, "\" loading failed");
 		}
 	}
 

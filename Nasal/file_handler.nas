@@ -58,7 +58,7 @@ var FileHandler = {
         }
 
         var version = cameraNode.getChild("version", 0, 1).getValue() or "v1.0";
-        print("Loaded cameras version: ", version);
+        logprint(LOG_ALERT, "FGCamera: loaded version: ", version);
         if (version != me._currentVersion) {
             me._migration.upgradeVersion(version);
         }

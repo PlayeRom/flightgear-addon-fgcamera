@@ -33,7 +33,7 @@ var Views = {
             }
 
             Views._rightBtnModeCycle = node.getBoolValue();
-            print("FGCamera: mouse mode; user slected = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
+            # logprint(LOG_INFO, "FGCamera: mouse mode; user slected = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
         });
 
         return me;
@@ -72,7 +72,7 @@ var Views = {
         var path = "/sim/mouse/right-button-mode-cycle-enabled";
         if (Views._rightBtnModeCycle == nil) {
             Views._rightBtnModeCycle = getprop(path);
-            print("FGCamera: mouse mode; initial = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
+            # logprint(LOG_INFO, "FGCamera: mouse mode; initial = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
         }
 
         Views._preventListener = 1;
@@ -85,15 +85,16 @@ var Views = {
     #
     _getRightBtnModeCycle: func(start) {
         if (start) {
-            print("FGCamera: mouse mode; start force = ", (1 ? "cycle" :  "look around"));
+            # logprint(LOG_INFO, "FGCamera: mouse mode; start force = ", (1 ? "cycle" :  "look around"));
             return 1;
         }
-        else if (getprop("/sim/fgcamera/mouse/force-look-around-mode-in-fg")) {
-            print("FGCamera: mouse mode; stop; option force-look-around-mode-in-fg force = ", (0 ? "cycle" :  "look around"));
+
+        if (getprop("/sim/fgcamera/mouse/force-look-around-mode-in-fg")) {
+            # logprint(LOG_INFO, "FGCamera: mouse mode; stop; option force-look-around-mode-in-fg force = ", (0 ? "cycle" :  "look around"));
             return 0;
         }
 
-        print("FGCamera: mouse mode; stop; use previous setting = ", (Views._rightBtnModeCycle ? "cycle" : "look around"));
+        # logprint(LOG_INFO, "FGCamera: mouse mode; stop; use previous setting = ", (Views._rightBtnModeCycle ? "cycle" : "look around"));
         return Views._rightBtnModeCycle;
     },
 

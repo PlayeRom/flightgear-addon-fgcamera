@@ -108,7 +108,7 @@ var Gui = {
         foreach (var item; props.globals.getNode("/sim/menubar/default/menu[1]").getChildren("item")) {
             var name = item.getChild("name");
             if (name != nil and name.getValue() == Gui.MENU_NAME) {
-                print("Menu item FGCamera alredy exists");
+                logprint(LOG_INFO, "Menu item FGCamera alredy exists");
                 return 1;
             }
         }
