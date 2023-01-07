@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <name>confirm-delete-fgcamera</name>
+    <modal>true</modal>
+    <layout>vbox</layout>
+    <default-padding>10</default-padding>
+
+    <text>
+        <label>Are you sure you want to delete the active camera?</label>
+    </text>
+
+    <group>
+        <layout>hbox</layout>
+        <halign>fill</halign>
+
+        <empty><stretch>true</stretch></empty>
+
+        <button>
+            <legend>Delete</legend>
+            <default>true</default>
+            <equal>true</equal>
+            <binding>
+                <command>nasal</command>
+                <script>delete_camera()</script>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>true</stretch></empty>
+
+        <button>
+            <legend>Cancel</legend>
+            <equal>true</equal>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>true</stretch></empty>
+    </group>
+
+    <nasal>
+        <open><![CDATA[
+            #==================================================
+            #	Delete camera
+            #==================================================
+            var delete_camera = func {
+                var n = fgcamera.cameras.size();
+                if (n == 1) {
+                    gui.popupTip("The last camera cannot be deleted");
+                    return;
+                }
+
+                var id     = fgcamera.cameras.getCurrentId();
+                var new_id = id;
+                if (new_id == (n - 1)) {
+                    new_id -= 1;
+                }
+                fgcamera.cameras.getVector()[id] = nil;
+                fgcamera.cameras.replace(compress_vector(fgcamera.cameras.getVector()));
+                fgcamera.cameras.setCurrentId(new_id);
+                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", new_id);
+            }
+            #==================================================
+            #	Functions
+            #==================================================
+            var compress_vector = func (v) {
+                var s = size(v);
+                var new_vector = [];
+                if (s != 0) {
+                    forindex (var i; v) {
+                        if (v[i] != nil) {
+                            append(new_vector, v[i]);
+                        }
+                    }
+                }
+                return new_vector;
+            }
+        ]]></open>
+    </nasal>
+</PropertyList>

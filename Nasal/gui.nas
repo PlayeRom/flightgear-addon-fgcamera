@@ -58,17 +58,18 @@ var Gui = {
     #
     _createDialogs: func {
         var dialogs = [
-            "fgcamera-main",
+            "confirm-delete-fgcamera",
             "create-new-camera",
             "current-camera-settings",
-            "fgcamera-options",
             "DHM-settings",
-            "RND-mixer",
-            "RND-generator",
-            "RND-curves",
-            "RND-import",
             "fgcamera-help",
+            "fgcamera-main",
+            "fgcamera-options",
             "fgcamera-welcome",
+            "RND-curves",
+            "RND-generator",
+            "RND-import",
+            "RND-mixer",
         ];
 
         foreach (var name; dialogs) {
