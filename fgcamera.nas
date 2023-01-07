@@ -39,12 +39,6 @@ var init = func(addon) {
             });
             delayTimer.singleShot = 1;
             delayTimer.start();
-
-            # Disable pilot model in cockpit
-            var is_occupants_models_visible = getprop("/sim/model/occupants");
-            if (is_occupants_models_visible) {
-                setprop("/sim/model/occupants", 0);
-            }
         }
 
         # welcome message

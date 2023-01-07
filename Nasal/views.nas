@@ -2,6 +2,7 @@
 var Views = {
     NAMES              : ["FGCamera1", "FGCamera2", "FGCamera3", "FGCamera4", "FGCamera5"],
     _rightBtnModeCycle : nil,
+    _modelOccupants    : nil,
     _preventListener   : 0,
     _viewHandler       : {
         init   : func { manager.init() },
@@ -50,13 +51,24 @@ var Views = {
     },
 
     #
+    # Changing the FG configuration depending on whether you enable the FGCamera view or the FG view.
+    #
+    # @param bool start - If true then then called on start, otherwise called on stop
+    # return void
+    #
+    configureFG: func (start) {
+        Views._configureRightBtnMode(start);
+        Views._configureModelOccupants(start);
+    },
+
+    #
     # When FGCamera view is going to start then change right mouse button behavior to cycle mode.
     # When FGCamera view is going to stop then bring back previous right button behavior.
     #
     # @param bool start - If true then then called on start, otherwise called on stop
     # return void
     #
-    configureFG: func (start) {
+    _configureRightBtnMode: func(start) {
         var path = "/sim/mouse/right-button-mode-cycle-enabled";
         if (Views._rightBtnModeCycle == nil) {
             Views._rightBtnModeCycle = getprop(path);
@@ -83,5 +95,21 @@ var Views = {
 
         print("FGCamera: mouse mode; stop; use previous setting = ", (Views._rightBtnModeCycle ? "cycle" : "look around"));
         return Views._rightBtnModeCycle;
+    },
+
+    #
+    # When the FGCamera view is launched then remove the models of people in the cockpit.
+    # When the FGCamera view is going to stop then bring back previous setting.
+    #
+    # @param bool start - If true then then called on start, otherwise called on stop
+    # return void
+    #
+    _configureModelOccupants: func(start) {
+        var path = "/sim/model/occupants";
+        if (Views._modelOccupants == nil) {
+            Views._modelOccupants = getprop(path);
+        }
+
+        setprop(path, start ? 0 : Views._modelOccupants);
     },
 };
