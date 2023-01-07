@@ -43,7 +43,7 @@
 				<width>12</width>
 				<height>12</height>
 				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip</property>
-				<label>Show popupTip</label>
+				<label>Show popup tip</label>
 				<binding>
 					<command>dialog-apply</command>
 					<object-name>popup-tip</object-name>
@@ -63,7 +63,7 @@
 				<width>12</width>
 				<height>12</height>
 				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel</property>
-				<label>Show 2d panel</label>
+				<label>Show 2D panel</label>
 				<binding>
 					<command>dialog-apply</command>
 					<object-name>show-panel</object-name>

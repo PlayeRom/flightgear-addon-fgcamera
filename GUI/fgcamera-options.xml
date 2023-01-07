@@ -73,7 +73,7 @@
 			<group>
 				<layout>hbox</layout>
 				<text>
-					<label>Mini dialog</label>
+					<label>Mini-dialog</label>
 					<halign>left</halign>
 				</text>
 
@@ -82,7 +82,7 @@
 
 			<checkbox>
 				<halign>left</halign>
-				<label>Enable mini dialog</label>
+				<label>Enable mini-dialog</label>
 				<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-enable</property>
 				<binding>
 					<command>dialog-apply</command>
@@ -98,7 +98,7 @@
 			<group>
 				<layout>hbox</layout>
 				<text>
-					<label>Mini dialog type</label>
+					<label>Mini-dialog type</label>
 					<halign>left</halign>
 					<enable>
 						<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-enable</property>
@@ -129,7 +129,7 @@
 
 			<checkbox>
 				<halign>left</halign>
-				<label>Autohide mini dialog</label>
+				<label>Auto hide mini-dialog</label>
 				<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-autohide</property>
 				<enable>
 					<property>/addons/by-id/a.marius.FGCamera/addon-devel/mini-dialog-enable</property>
