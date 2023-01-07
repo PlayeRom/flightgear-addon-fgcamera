@@ -33,9 +33,11 @@ var init = func(addon) {
         views       = Views.new();
 
         if (getprop(g_myNodePath ~ "/enable")) {
-            # setting camera-id
-            var delayTimer = maketimer(2, func {
-                # Delay selecting default camera for fix FOV
+            # setting default FGCamera
+            setprop(g_myNodePath ~ "/current-camera/camera-id", 0);
+
+            var delayTimer = maketimer(1, func {
+                # Delay selecting default camera 2nd time for fix FOV and RND effects
                 setprop(g_myNodePath ~ "/current-camera/camera-id", 0);
             });
             delayTimer.singleShot = 1;
