@@ -20,9 +20,7 @@ The example code for the Cessna C182S which opens the door if not open yet.
 # Example to open the door on the C182S/T when getting out or in:
 # (this code should go to the aircraft nasal script)
 #
-if (getprop("/sim/aircraft") == "c182s") {
-    var planeNamespace = globals[getprop("/sim/aircraft")];
-
+if (addons.isAddonLoaded("a.marius.FGCamera")) {
     fgcamera.walker.getOutCallback = func {
         fgcamera.walker.getOutTime = getprop("/sim/model/door-positions/DoorL/opened") == 0 ? 2 : 0;
         c182s.DoorL.open();
