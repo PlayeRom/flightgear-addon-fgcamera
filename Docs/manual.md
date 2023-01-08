@@ -72,7 +72,7 @@ Clicking 'Options...' button you can define behavior of following options:
   option is disable.
 * Key
   * `Use Ctrl with numeric key` - By default, FGCamera overrides the default
-  number key assignments, 0 to 1, using them to switch between cameras. This
+  number key assignments, 0 to 9, using them to switch between cameras. This
   means you won't be able to use the number keys to control the aircraft, such
   as the 5 key to return the controls to neutral position, etc. Then you can
   enable this option to make FGCamera override the number keys with the Ctrl key
@@ -128,8 +128,8 @@ Camera types are as follows:
 ![alt camera-type](images/camera-type.png "Camera type")
 
 After selecting camera type and its name, the new camera is created. By default
-it has view coordination as current user view. Thus you can select view using
-Ctrl+{controls} keys and next create camera, which would have this view as
+it has camera coordination as current user camera. Thus you can select camera using
+Ctrl+{controls} keys and next create camera, which would have this camera as
 predefined.
 
 ## Camera settings
@@ -170,9 +170,9 @@ On the 'Current camera settings' dialog, there are two buttons at the bottom
 
 ## Dynamic Head Movement
 
-When selecting 'DHM' on the view setting dialog, user is moved to the options
+When selecting 'DHM' on the camera setting dialog, user is moved to the options
 regarding dynamic head movement. There you can define various options regarding
-this effect. When enabled and configured the view will move according to
+this effect. When enabled and configured the camera will move according to
 defined options the same as normally would move the head of the pilot in the
 aircraft.
 
