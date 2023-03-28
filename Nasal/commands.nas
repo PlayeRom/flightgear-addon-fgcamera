@@ -89,57 +89,86 @@ var Commands = {
     # @return void
     #
     _cycleCategoryOnly: func(direction) {
-        var currentCamera   = cameras.getCurrentId();
-        var currentCategory = cameras.getCurrent().category;
-        var cameraId = -1;
+        var maxCategory = -999999;
+        var minCategory = 999999;
 
-        if (direction > 0) { # >>
-            forindex (var index; cameras.getVector()) {
-                if (index > currentCamera and cameras.getCamera(index).category > currentCategory) {
-                    cameraId = index;
+        # Prepare sorting structure without category duplicates
+        var camerasToSort = std.Vector.new();
+        forindex (var index; cameras.getVector()) {
+            var category = cameras.getCamera(index).category;
+
+            # is category already included
+            var exist = 0;
+            forindex (var i; camerasToSort.vector) {
+                if (camerasToSort.vector[i].category == category) {
+                    exist = 1;
                     break;
                 }
             }
 
-            if (cameraId == -1) {
-                currentCategory = -1;
-
-                forindex (var index; cameras.getVector()) {
-                    if (cameras.getCamera(index).category > currentCategory) {
-                        cameraId = index;
-                        break;
-                    }
+            if (!exist) {
+                if (category > maxCategory) {
+                    maxCategory = category;
                 }
+
+                if (category < minCategory) {
+                    minCategory = category;
+                }
+
+                camerasToSort.append({
+                    'id': index,
+                    'category': category,
+                });
             }
         }
-        else { # <<
-            var maxCategory = -1;
-            for (var index = cameras.size() - 1; index >= 0; index -= 1) {
-                if (index < currentCamera and cameras.getCamera(index).category < currentCategory) {
-                    if (cameras.getCamera(index).category > maxCategory) {
-                        # find the first smaller by 1 and not smaller by 2 or 3,
-                        # e.g. we have category 0, 1, 0, 3, we are on 3, and from 3 we have to go to 1 and not to 0
-                        maxCategory = cameras.getCamera(index).category;
-                        cameraId = index;
-                    }
-                }
-            }
 
-            if (cameraId == -1) {
-                currentCategory = -1;
+        # Sorting by category
+        var size = camerasToSort.size();
+        forindex (var i; camerasToSort.vector) {
+            for (var j = 0; j < size - 1; j += 1) {
+                if (camerasToSort.vector[i].category < camerasToSort.vector[j].category) {
+                    # swap position
+                    var id       = camerasToSort.vector[i].id;
+                    var category = camerasToSort.vector[i].category;
 
-                for (var index = cameras.size() - 1; index >= 0; index -= 1) {
-                    if (cameras.getCamera(index).category > currentCategory) {
-                        cameraId = index;
-                        break;
-                    }
+                    camerasToSort.vector[i].id       = camerasToSort.vector[j].id;
+                    camerasToSort.vector[i].category = camerasToSort.vector[j].category;
+
+                    camerasToSort.vector[j].id       = id;
+                    camerasToSort.vector[j].category = category;
                 }
             }
         }
 
-        if (cameraId > -1) {
-            setprop(g_myNodePath ~ "/popupTip", 1);
-            setprop(g_myNodePath ~ "/current-camera/camera-id", cameraId);
+        var categoryIterator = cameras.getCurrent().category;
+        var br = 0;
+        while (!br) {
+            if (direction > 0) { # Button [>>]
+                categoryIterator += 1;
+            }
+            else { # Button [<<]
+                categoryIterator -= 1;
+            }
+
+            # protect against overreach
+            if (categoryIterator < 0) {
+                categoryIterator = maxCategory;
+            }
+            elsif (categoryIterator > maxCategory) {
+                categoryIterator = minCategory;
+            }
+
+            # find matching category
+            forindex (var i; camerasToSort.vector) {
+                var camera = camerasToSort.vector[i];
+                if (camera.category == categoryIterator) {
+                    # found it
+                    setprop(g_myNodePath ~ "/popupTip", 1);
+                    setprop(g_myNodePath ~ "/current-camera/camera-id", camera.id);
+                    br = 1;
+                    break;
+                }
+            }
         }
     },
 
@@ -157,15 +186,19 @@ var Commands = {
 
         var br = 0;
         while (!br) {
-            if (direction < 0)
+            if (direction < 0) { # Button [<]
                 cameraId -= 1;
-            else
+            }
+            else { # Button [>]
                 cameraId += 1;
+            }
 
-            if (cameraId < 0)
-                cameraId += cameras.size();
-            elsif (cameraId > (cameras.size() - 1))
+            if (cameraId < 0) {
+                cameraId = cameras.size() - 1;
+            }
+            elsif (cameraId > (cameras.size() - 1)) {
                 cameraId = 0;
+            }
 
             var category = cameras.getCamera(cameraId).category;
 
