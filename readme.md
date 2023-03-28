@@ -45,6 +45,8 @@ More documents can be found in the Docs folder.
     * fix selecting default FGCamera on startup,
     * fix inputs for save changes immediately after click save/store button without the needed for change focus first,
     * others small GUI improvements,
+- 1.2.5:
+    * Fix iterate through camera categories in mini-dialog
 
 # Planned (branch next)
 
