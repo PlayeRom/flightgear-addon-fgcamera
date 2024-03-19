@@ -180,6 +180,9 @@
 			<enabled type="bool" userarchive="y">false</enabled>
 			<type>lookat</type>
 			<config>
+				<eye-fixed type="bool">true</eye-fixed>
+				<from-model type="bool">false</from-model>
+
 				<eye-lat-deg-path>/sim/tower/latitude-deg</eye-lat-deg-path>
 				<eye-lon-deg-path>/sim/tower/longitude-deg</eye-lon-deg-path>
 				<eye-alt-ft-path>/sim/tower/altitude-ft</eye-alt-ft-path>
