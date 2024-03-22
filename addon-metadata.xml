@@ -9,7 +9,7 @@
     <addon>
         <identifier type="string">a.marius.FGCamera</identifier>
         <name type="string">FGCamera</name>
-        <version type="string">1.2.5</version>
+        <version type="string">1.2.6</version>
 
         <authors>
             <author>
@@ -22,13 +22,18 @@
                 <email type="string">slawek.mikula@gmail.com</email>
                 <url type="string"></url>
             </author>
+            <author>
+                <name type="string">Roman Ludwicki</name>
+                <email type="string">kontakt@flightgear.org.pl</email>
+                <url type="string">https://flightgear.org.pl</url>
+            </author>
         </authors>
 
         <maintainers>
             <maintainer>
-                <name type="string">slawekmikula from the FlightGear forum</name>
-                <email type="string">slawek.mikula@gmail.com</email>
-                <url type="string"></url>
+                <name type="string">Roman Ludwicki</name>
+                <email type="string">kontakt@flightgear.org.pl</email>
+                <url type="string">https://github.com/PlayeRom/flightgear-addon-fgcamera</url>
             </maintainer>
         </maintainers>
 
@@ -53,9 +58,9 @@
 
         <urls>
             <home-page type="string">http://wiki.flightgear.org/FGCamera</home-page>
-            <download type="string">https://github.com/slawekmikula/flightgear-addon-fgcamera/downloads</download>
+            <download type="string">https://github.com/PlayeRom/flightgear-addon-fgcamera/releases</download>
             <support type="string"><![CDATA[ https://forum.flightgear.org/viewtopic.php?f=6&t=21685 ]]></support>
-            <code-repository type="string">https://github.com/slawekmikula/flightgear-addon-fgcamera</code-repository>
+            <code-repository type="string">https://github.com/PlayeRom/flightgear-addon-fgcamera</code-repository>
         </urls>
 
         <tags>

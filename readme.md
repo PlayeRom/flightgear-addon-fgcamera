@@ -26,7 +26,7 @@ More documents can be found in the Docs folder.
 # History
 
 - 1.0-1.2 - versions published on the FlightGear forum
-- 1.2.1 - addon compatiblity + small fixes
+- 1.2.1 - addon compatibility + small fixes
 - 1.2.2
     * #5 (reverse mouse controls - the same as in FG),
     * #3 disable space keyboard mapping,
@@ -47,8 +47,10 @@ More documents can be found in the Docs folder.
     * others small GUI improvements,
 - 1.2.5:
     * Fix iterate through camera categories in mini-dialog
+- 1.2.6:
+    * Restore the "world (look at)" camera which positions itself in the tower position and the view always follows the aircraft.
 
-# Planned (branch next)
+# Planned by Marius_A (branch next)
 
 - 2.x
   - new GUI for configuration
@@ -57,7 +59,7 @@ More documents can be found in the Docs folder.
 # Authors
 
 - Marius_A - concept, coding
-- Slawek Mikula - addon compatiblity
+- Slawek Mikula - addon compatibility
 - Roman Ludwicki (PlayeRom) - fixes and improvements
 
 # Links
