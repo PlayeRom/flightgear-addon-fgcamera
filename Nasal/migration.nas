@@ -14,10 +14,10 @@ var Migration = {
     },
 
     #
-    # Upgrade cameras from given version to currect one
+    # Upgrade cameras from given version to current one
     #
     # @param string oldVersion
-    # @retrun void
+    # @return void
     #
     upgradeVersion: func (oldVersion) {
         var versions = me._getVersionsVector(oldVersion);
@@ -42,7 +42,7 @@ var Migration = {
     # Get vector of versions according to given version
     #
     # @param string version
-    # @retrun vector
+    # @return vector
     #
     _getVersionsVector: func (version) {
         if (version == "1.0") return ["v1.0", "v1.1", "v1.2.1"];
@@ -55,7 +55,7 @@ var Migration = {
     #
     # Get hash of versions with new items
     #
-    # @retrun hash
+    # @return hash
     #
     _getVersionsItems: func {
         return {

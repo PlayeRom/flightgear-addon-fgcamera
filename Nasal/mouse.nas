@@ -1,5 +1,5 @@
 #==================================================
-#   fgcamera.mouse raoutines
+#   fgcamera.mouse routines
 #
 #   getXY()      - ... returns [x, y],
 #   get_dxdy()   - ... returns [dx, dy],
@@ -27,7 +27,7 @@ var Mouse = {
             _path          : "/devices/status/mice/mouse/",
             _pathInternal  : g_myNodePath ~ "/mouse/",
             _controlMode   : 0, # 0 - mouse; 1 - yoke;
-            _prevMode      : 0, # prevous mode, before using spring-loaded mode
+            _prevMode      : 0, # previous mode, before using spring-loaded mode
         };
 
         me.init();
@@ -91,7 +91,7 @@ var Mouse = {
     #
     # Get current mouse mode
     #
-    # @retrun int - 0 - pointer mode, 1 - control mode, 2 - look around mode
+    # @return int - 0 - pointer mode, 1 - control mode, 2 - look around mode
     #
     getMode: func {
         getprop(me._path ~ "mode");

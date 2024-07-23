@@ -1,5 +1,5 @@
 #
-# Save/Load camers for current aircraft
+# Save/Load cameras for current aircraft
 #
 var FileHandler = {
     #

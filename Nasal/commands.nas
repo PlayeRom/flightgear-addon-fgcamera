@@ -31,7 +31,7 @@ var Commands = {
     # @return void
     #
     _addCommands: func {
-        var commands = me._getCommansHash();
+        var commands = me._getCommandsHash();
         foreach (var name; keys(commands)) {
             addcommand(name, commands[name]);
         }
@@ -42,7 +42,7 @@ var Commands = {
     #
     # @return hash
     #
-    _getCommansHash: func {
+    _getCommandsHash: func {
         return {
             "fgcamera-select": func {
                 var data = cmdarg().getValues();

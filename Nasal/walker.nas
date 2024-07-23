@@ -16,7 +16,7 @@ var Walker = {
         var me = {
             parents       : [Walker],
 
-            # The following variables define the behaviour and may be overriden by aircraft (for example to open the door before going out)
+            # The following variables define the behavior and may be overridden by aircraft (for example to open the door before going out)
             # (See examples below)
             getOutTime     : 0.0,      # wait time after the getOutCallback executed
             getInTime      : 0.0,      # wait time after the getInCallback executed

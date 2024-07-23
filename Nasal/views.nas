@@ -33,7 +33,7 @@ var Views = {
             }
 
             Views._rightBtnModeCycle = node.getBoolValue();
-            # logprint(LOG_INFO, "FGCamera: mouse mode; user slected = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
+            # logprint(LOG_INFO, "FGCamera: mouse mode; user selected = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
         });
 
         return me;
@@ -42,7 +42,7 @@ var Views = {
     #
     # Register FGCamera views to FG
     #
-    # @retrun void
+    # @return void
     #
     register: func {
         foreach (var name; me.NAMES) {
@@ -54,7 +54,7 @@ var Views = {
     # Changing the FG configuration depending on whether you enable the FGCamera view or the FG view.
     #
     # @param bool start - If true then then called on start, otherwise called on stop
-    # return void
+    # @return void
     #
     configureFG: func (start) {
         Views._configureRightBtnMode(start);
@@ -66,7 +66,7 @@ var Views = {
     # When FGCamera view is going to stop then bring back previous right button behavior.
     #
     # @param bool start - If true then then called on start, otherwise called on stop
-    # return void
+    # @return void
     #
     _configureRightBtnMode: func(start) {
         var path = "/sim/mouse/right-button-mode-cycle-enabled";
@@ -103,7 +103,7 @@ var Views = {
     # When the FGCamera view is going to stop then bring back previous setting.
     #
     # @param bool start - If true then then called on start, otherwise called on stop
-    # return void
+    # @return void
     #
     _configureModelOccupants: func(start) {
         var path = "/sim/model/occupants";

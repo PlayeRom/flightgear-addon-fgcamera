@@ -25,7 +25,7 @@ var Helicopter = {
     },
 
     #
-    # @return bool - Return true if currect aircraft was recognized as helicopter
+    # @return bool - Return true if current aircraft was recognized as helicopter
     #
     isHelicopter: func {
         return me._isHelicopter;
@@ -34,7 +34,7 @@ var Helicopter = {
     #
     # Check if the aircraft is a helicopter
     #
-    # @return bool - Return true if currect aircraft was recognized as helicopter
+    # @return bool - Return true if current aircraft was recognized as helicopter
     #
     check: func {
         me._isHelicopter = props.globals.getNode("/rotors/main/torque", 0, 0) != nil;
