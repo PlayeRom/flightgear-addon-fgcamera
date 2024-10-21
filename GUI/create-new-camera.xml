@@ -51,7 +51,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>select_type()</script>
+				<script>selectCameraType()</script>
 			</binding>
 			<value>cockpit</value>
 			<value>aircraft (look at)</value>
@@ -98,7 +98,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>nasal</command>
-				<script>create_camera()</script>
+				<script>createCamera()</script>
 			</binding>
 			<binding>
 				<command>dialog-close</command>
@@ -129,7 +129,7 @@
 			#==================================================
 			#	Functions
 			#==================================================
-			var set_tower = func (twr) {
+			var setTower = func (twr) {
 				var list = [
 					"latitude-deg",
 					"longitude-deg",
@@ -148,7 +148,7 @@
 			#==================================================
 			#	Select camera type
 			#==================================================
-			var select_type = func {
+			var selectCameraType = func {
 				var selected = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type") or "cockpit";
 				var types    = [
 					["cockpit"              , "FGCamera1"],
@@ -157,7 +157,7 @@
 					["world (look at)"      , "FGCamera4"],
 					["world (look from)"    , "FGCamera5"],
 				];
-				foreach(var a; types) {
+				foreach (var a; types) {
 					if (selected == a[0]) {
 						(type = a[1]) and break;
 					}
@@ -166,18 +166,18 @@
 			#==================================================
 			#	Create new camera
 			#==================================================
-			var create_camera = func {
-				var current_camera  = fgcamera.cameras.getCurrent();
+			var createCamera = func {
+				var currentCamera  = fgcamera.cameras.getCurrent();
 
 				var camera   = {};
-				var camera_name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-name") or "new camera";
+				var cameraName = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-name") or "new camera";
 
 				camera       = cameraN.getChild("camera").getValues();
-				camera.name  = camera_name;
+				camera.name  = cameraName;
 				camera.type  = type;
-				camera.offsets = current_camera.offsets[0:];
+				camera.offsets = currentCamera.offsets[0:];
 				if (type == "FGCamera5") {
-					camera.tower = set_tower(camera.tower);
+					camera.tower = setTower(camera.tower);
 				}
 
 				fgcamera.cameras.append(camera);
@@ -185,7 +185,7 @@
 			}
 
 			#==================================================
-			select_type();
+			selectCameraType();
 		]]> </open>
 	</nasal>
 </PropertyList>

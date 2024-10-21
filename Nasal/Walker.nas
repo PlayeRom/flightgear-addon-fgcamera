@@ -20,8 +20,8 @@ var Walker = {
             # (See examples below)
             getOutTime     : 0.0,      # wait time after the getOutCallback executed
             getInTime      : 0.0,      # wait time after the getInCallback executed
-            getOutCallback : func{0},  # callback when getting out
-            getInCallback  : func{0},  # callback when getting in
+            getOutCallback : func {0}, # callback when getting out
+            getInCallback  : func {0}, # callback when getting in
             lastCamera     : nil,      # here we store what view we were in when the walker exits
         };
 

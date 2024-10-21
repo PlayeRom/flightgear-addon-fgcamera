@@ -9,7 +9,8 @@ var Mouse = {
     #
     # Constants
     #
-    MODE_LOOK_AROUND : 2,
+    MODE_LOOK_AROUND: 2,
+    COORD_ARRAY     : ["x-offset", "y-offset", "z-offset", "heading-offset", "pitch-offset", "roll-offset"],
 
     #
     # Constructor
@@ -21,14 +22,23 @@ var Mouse = {
         var me = {
             parents        : [Mouse],
             _addonBasePath : addon.basePath,
-            _current       : zeros(6),
-            _previous      : zeros(6),
-            _delta         : zeros(6),
-            _path          : "/devices/status/mice/mouse/",
+            _current       : zeros(size(Mouse.COORD_ARRAY)),
+            _previous      : zeros(size(Mouse.COORD_ARRAY)),
+            _delta         : zeros(size(Mouse.COORD_ARRAY)),
+            _path          : "/devices/status/mice/mouse[0]/",
             _pathInternal  : g_myNodePath ~ "/mouse/",
             _controlMode   : 0, # 0 - mouse; 1 - yoke;
             _prevMode      : 0, # previous mode, before using spring-loaded mode
+            _modeNode      : props.globals.getNode('/devices/status/mice/mouse[0]/mode'),
         };
+
+        me._coordNodes = [];
+        foreach (var name; Mouse.COORD_ARRAY) {
+            var node = props.globals.getNode(me._pathInternal ~ name, 1);
+            node.setDoubleValue(0);
+
+            append(me._coordNodes, node);
+        }
 
         me.init();
 
@@ -51,7 +61,6 @@ var Mouse = {
         return fgcommand("reinit", props.Node.new({"subsystem": "input"}));
     },
 
-    #--------------------------------------------------
     getXY: func {
         foreach (var a; [[0, "x"], [1, "y"]] ) {
             var i   = a[0];
@@ -64,13 +73,11 @@ var Mouse = {
         return me._current;
     },
 
-    #--------------------------------------------------
     getDelta: func {
         var i = 0;
-        foreach (var a; ["x-offset", "y-offset", "z-offset", "heading-offset", "pitch-offset", "roll-offset"]) {
+        foreach (var node; me._coordNodes) {
             me._previous[i] = me._current[i];
-            me._current[i]  = getprop(me._pathInternal ~ a) or 0;
-
+            me._current[i]  = node.getDoubleValue();
             me._delta[i]    = me._current[i] - me._previous[i];
 
             i += 1;
@@ -85,7 +92,7 @@ var Mouse = {
     # @return void
     #
     setMode: func(mode) {
-        setprop(me._path ~ "mode", mode);
+        me._modeNode.setIntValue(mode);
     },
 
     #
@@ -94,7 +101,7 @@ var Mouse = {
     # @return int - 0 - pointer mode, 1 - control mode, 2 - look around mode
     #
     getMode: func {
-        getprop(me._path ~ "mode");
+        me._modeNode.getIntValue();
     },
 
     #
@@ -107,15 +114,14 @@ var Mouse = {
         getprop(me._path ~ "button[" ~ n ~ "]") or 0;
     },
 
-    #--------------------------------------------------
     reset: func {
         var i = 0;
-        foreach (var a; ["x-offset", "y-offset", "z-offset", "heading-offset", "pitch-offset", "roll-offset"]) {
+        foreach (var node; me._coordNodes) {
             me._previous[i] = 0;
             me._current[i]  = 0;
             me._delta[i]    = 0;
 
-            setprop(me._pathInternal ~ a, 0);
+            node.setDoubleValue(0);
             i += 1;
         }
     },
@@ -128,8 +134,7 @@ var Mouse = {
     toggleYoke: func {
         me._controlMode = !me._controlMode;
 
-        setprop("/devices/status/mice/mouse/mode", me._controlMode);
-        # setprop(g_myNodePath ~ "/mouse/mouse-yoke", me._controlMode);
+        me.setMode(me._controlMode);
     },
 
     #
@@ -147,9 +152,10 @@ var Mouse = {
 
         var rightButton = node.getIntValue();
         if (rightButton) {
-            me._prevMode = mouse.getMode();
+            me._prevMode = me.getMode();
             me.setMode(Mouse.MODE_LOOK_AROUND); # set "look around" mode
-        } else {
+        }
+        else {
             me.setMode(me._prevMode);
         }
     }

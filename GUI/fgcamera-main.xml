@@ -49,7 +49,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>nasal</command>
-				<script>copy_camera()</script>
+				<script>copyCamera()</script>
 			</binding>
 		</button>
 
@@ -102,7 +102,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>select_camera()</script>
+					<script>selectCamera()</script>
 				</binding>
 				<value>...</value>
 			</list>
@@ -119,7 +119,7 @@
 					<pref-height>30</pref-height>
 					<binding>
 						<command>nasal</command>
-						<script>reorder_cameras(-1)</script>
+						<script>reorderCameras(-1)</script>
 					</binding>
 				</button>
 
@@ -130,7 +130,7 @@
 					<pref-height>30</pref-height>
 					<binding>
 						<command>nasal</command>
-						<script>reorder_cameras(1)</script>
+						<script>reorderCameras(1)</script>
 					</binding>
 				</button>
 
@@ -168,7 +168,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>rename_camera()</script>
+					<script>renameCamera()</script>
 				</binding>
 			</input>
 
@@ -185,7 +185,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>set_category()</script>
+					<script>setCategory()</script>
 				</binding>
 			</input>
 
@@ -256,24 +256,26 @@
 
 	<nasal>
 		<open> <![CDATA[
-			var list        = cmdarg().getNode("group[2]/group[1]/list");
-			var dlg_path    = fgcamera.g_myNodePath ~ "/dialogs/fgcamera-main";
-			var names       = [];
-			var listener    = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func{ update_list() });
+			var list     = cmdarg().getNode("group[2]/group[1]/list");
+			# var dlgPath = fgcamera.g_myNodePath ~ "/dialogs/fgcamera-main";
+			var names    = [];
+			var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateList() });
+
 			#==================================================
 			#	Functions
 			#==================================================
-			var dialog_update = func () {
+			var dialogUpdate = func () {
 				forindex (var i; arg) {
 					var hash = {
 						"object-name" : arg[i],
 						"dialog-name" : "fgcamera-main"
 					};
-					fgcommand( "dialog-update", props.Node.new(hash) );
+
+					fgcommand("dialog-update", props.Node.new(hash));
 				}
 			}
-			#--------------------------------------------------
-			var update_list = func {
+
+			var updateList = func {
 				list.removeChildren("value");
 				var i = 0;
 				foreach (var v; fgcamera.cameras.getVector()) {
@@ -290,76 +292,89 @@
 					));
 					i += 1;
 				}
-				dialog_update("camera_list", "camera_name", "camera_category");
+				dialogUpdate("camera_list", "camera_name", "camera_category");
 				#print("updating list");
 			}
+
 			#==================================================
 			#	Copy camera
 			#==================================================
-			var return_new_camera = func(c) {
+			var returnNewCamera = func(c) {
 				c.name ~= "-copy";
 				return c;
 			}
-			var copy_camera = func () {
+
+			var copyCamera = func () {
 				var cameraN = props.Node.new();
 				cameraN.setValues(fgcamera.cameras.getCurrent());
-				var new_camera = cameraN.getValues();
-				new_camera.name ~= "-copy";
-				fgcamera.cameras.append(new_camera);
+				var newCamera = cameraN.getValues();
+				newCamera.name ~= "-copy";
+				fgcamera.cameras.append(newCamera);
+
 				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", fgcamera.cameras.size() - 1);
-				update_list();
+
+				updateList();
+
 				cameraN.remove();
 			}
+
 			#==================================================
 			#	Up / Down
 			#==================================================
-			var reorder_cameras = func (dir) {
+			var reorderCameras = func (dir) {
 				var vec = fgcamera.cameras.getVector();
 				var id1 = fgcamera.cameras.getCurrentId();
 				var id2 = id1 + math.sgn(dir);
-				if ( (id2 >= 0) and (id2 < size(vec)) ) {
+				if (id2 >= 0 and id2 < size(vec)) {
 					var tmp  = vec[id1];
 					vec[id1] = vec[id2];
 					vec[id2] = tmp;
+
 					fgcamera.cameras.replace(vec);
 					fgcamera.cameras.setCurrentId(id2);
-					update_list();
+
+					updateList();
 				}
 			}
+
 			#==================================================
 			#	Rename camera
 			#==================================================
-			var rename_camera = func {
+			var renameCamera = func {
 				fgcamera.cameras.getCurrent().name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name");
-				update_list();
+				updateList();
 			}
+
 			#==================================================
 			#	Set category
 			#==================================================
-			var set_category = func {
+			var setCategory = func {
 				fgcamera.cameras.getCurrent().category = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category");
-				update_list();
+				updateList();
 			}
+
 			#==================================================
 			#	Select camera
 			#==================================================
-			var select_camera = func {
+			var selectCamera = func {
 				var name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name");
 				var i = 0;
 				foreach (var a; list.getChildren("value")) {
-					if (a.getValue() == name)
+					if (a.getValue() == name) {
 						setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", i) and return;
+					}
 					i += 1;
 				}
 				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", 0);
 			}
+
 			#==================================================
-			update_list();
+			updateList();
 		]]> </open>
 
-		<close>
+		<close> <![CDATA[
 			removelistener(listener);
-		</close>
+		]]> </close>
 	</nasal>
 
 </PropertyList>

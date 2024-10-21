@@ -5,10 +5,10 @@ var Views = {
     _modelOccupants    : nil,
     _preventListener   : 0,
     _viewHandler       : {
-        init   : func { manager.init() },
-        start  : func { manager.start(); Views.configureFG(1) },
-        update : func { return manager.update() },
-        stop   : func { manager.stop(); Views.configureFG(0) },
+        init   : func { offsetsManager.init() },
+        start  : func { offsetsManager.start(); Views.configureFG(1) },
+        update : func { return offsetsManager.update() },
+        stop   : func { offsetsManager.stop(); Views.configureFG(0) },
     },
 
     #

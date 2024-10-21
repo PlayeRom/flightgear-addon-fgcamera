@@ -21,7 +21,7 @@
             <equal>true</equal>
             <binding>
                 <command>nasal</command>
-                <script>delete_camera()</script>
+                <script>deleteCamera()</script>
             </binding>
             <binding>
                 <command>dialog-close</command>
@@ -47,37 +47,38 @@
             #==================================================
             #	Delete camera
             #==================================================
-            var delete_camera = func {
+            var deleteCamera = func {
                 var n = fgcamera.cameras.size();
                 if (n == 1) {
                     gui.popupTip("The last camera cannot be deleted");
                     return;
                 }
 
-                var id     = fgcamera.cameras.getCurrentId();
-                var new_id = id;
-                if (new_id == (n - 1)) {
-                    new_id -= 1;
+                var id = fgcamera.cameras.getCurrentId();
+                var newId = id;
+                if (newId == (n - 1)) {
+                    newId -= 1;
                 }
                 fgcamera.cameras.getVector()[id] = nil;
-                fgcamera.cameras.replace(compress_vector(fgcamera.cameras.getVector()));
-                fgcamera.cameras.setCurrentId(new_id);
-                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", new_id);
+                fgcamera.cameras.replace(compressVector(fgcamera.cameras.getVector()));
+                fgcamera.cameras.setCurrentId(newId);
+                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", newId);
             }
+
             #==================================================
             #	Functions
             #==================================================
-            var compress_vector = func (v) {
+            var compressVector = func (v) {
                 var s = size(v);
-                var new_vector = [];
+                var newVector = [];
                 if (s != 0) {
                     forindex (var i; v) {
                         if (v[i] != nil) {
-                            append(new_vector, v[i]);
+                            append(newVector, v[i]);
                         }
                     }
                 }
-                return new_vector;
+                return newVector;
             }
         ]]></open>
     </nasal>

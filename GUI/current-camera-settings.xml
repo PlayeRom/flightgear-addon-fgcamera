@@ -50,7 +50,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>toggle_popupTip()</script>
+					<script>togglePopupTip()</script>
 				</binding>
 			</checkbox>
 		</group>
@@ -70,7 +70,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>toggle_panel()</script>
+					<script>toggle2DPanel()</script>
 				</binding>
 			</checkbox>
 			<combo>
@@ -84,7 +84,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>toggle_panel()</script>
+					<script>toggle2DPanel()</script>
 				</binding>
 				<value>generic-vfr-panel</value>
 				<value>controls-vfr-panel</value>
@@ -106,7 +106,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>toggle_dialog()</script>
+					<script>toggleDialog()</script>
 				</binding>
 			</checkbox>
 
@@ -123,7 +123,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>dialog_name()</script>
+					<script>dialogName()</script>
 				</binding>
 			</input>
 		</group>
@@ -157,7 +157,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>apply_fov()</script>
+					<script>applyFov()</script>
 				</binding>
 			</input>
 		</group>
@@ -191,7 +191,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>apply_movement_time()</script>
+					<script>applyMovementTime()</script>
 				</binding>
 			</input>
 		</group>
@@ -225,7 +225,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>apply_adjustment_linear_velocity()</script>
+					<script>applyAdjustmentLinearVelocity()</script>
 				</binding>
 			</input>
 			<input>
@@ -242,7 +242,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>apply_adjustment_angular_velocity()</script>
+					<script>applyAdjustmentAangularVelocity()</script>
 				</binding>
 			</input>
 			<input>
@@ -259,7 +259,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>apply_adjustment_filter()</script>
+					<script>applyAdjustmentFilter()</script>
 				</binding>
 			</input>
 		</group>
@@ -292,7 +292,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>apply_mlook_sensitivity()</script>
+					<script>applyMouseLookSensitivity()</script>
 				</binding>
 			</input>
 			<input>
@@ -309,7 +309,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>apply_mlook_filter()</script>
+					<script>applyMouseLookFilter()</script>
 				</binding>
 			</input>
 		</group>
@@ -333,7 +333,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>toggle_DHM()</script>
+				<script>toggleDHM()</script>
 			</binding>
 		</checkbox>
 
@@ -368,7 +368,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>toggle_RND()</script>
+				<script>toggleRND()</script>
 			</binding>
 		</checkbox>
 
@@ -406,7 +406,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>nasal</command>
-				<script>fgcamera.manager._save_offsets()</script>
+				<script>fgcamera.offsetsManager.save()</script>
 			</binding>
 		</button>
 
@@ -424,11 +424,11 @@
 
 	<nasal>
 		<open> <![CDATA[
-			var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func{update_values()});
+			var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateValues() });
 			#==================================================
 			#	Functions
 			#==================================================
-			var calc_data = func {
+			var calcData = func {
 				var c  = fgcamera.cameras.getCurrent();
 				return [
 					[ "popup-tip"                   , c.popupTip               ],
@@ -447,43 +447,46 @@
 					[ "mlook-filter"                , c.mouse_look.filter      ],
 				];
 			}
-			#--------------------------------------------------
-			var update_values = func {
-				foreach (var a; var data = calc_data()) { #?
+
+			var updateValues = func {
+				foreach (var a; var data = calcData()) { #?
 					setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/" ~ a[0], a[1]);
-					dialog_update(a[0]);
+					dialogUpdate(a[0]);
 				}
 			}
-			#--------------------------------------------------
-			var dialog_update = func (dlg_obj = nil) {
+
+			var dialogUpdate = func (dlgObj = nil) {
 				var hash = {
-					"object-name" : dlg_obj,
+					"object-name" : dlgObj,
 					"dialog-name" : "current-camera-settings"
 				};
-				fgcommand( "dialog-update", props.Node.new(hash) );
+				fgcommand("dialog-update", props.Node.new(hash));
 			}
-			#--------------------------------------------------
-			var validate_value = func(value, min, max) {
+
+			var validateValue = func(value, min, max) {
 				var v = num(value);
 				if (v != nil) {
-					if ( (v < min) or (v > max) )
+					if (v < min or v > max) {
 						return nil;
+					}
 				}
 				return v;
 			}
+
 			#==================================================
 			#	Toggle popupTip
 			#==================================================
-			var toggle_popupTip = func {
+			var togglePopupTip = func {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip";
 				var value = getprop(path);
 
 				fgcamera.cameras.getCurrent().popupTip = value;
 			}
+
 			#==================================================
 			#	Toggle 2d panel
 			#==================================================
-			var toggle_panel = func {
+			var toggle2DPanel = func {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel";
 				var value = getprop(path);
 				var selected_type = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type") or fgcamera.Panel2D.DEFAULT;
@@ -496,10 +499,11 @@
 					fgcamera.Panel2D.hide();
 				}
 			}
+
 			#==================================================
 			#	Toggle dialog
 			#==================================================
-			var toggle_dialog = func {
+			var toggleDialog = func {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
 				var value = getprop(path);
 
@@ -509,156 +513,167 @@
 				else
 					fgcamera.camGui.closeDialog(1);
 			}
+
 			#==================================================
 			#	Dialog name
 			#==================================================
-			var dialog_name = func {
+			var dialogName = func {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name";
 				var path2 = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
 				var value = getprop(path);
 
-				if ( getprop(path2) ) {
+				if (getprop(path2)) {
 					fgcamera.camGui.closeDialog(1);
 					fgcamera.cameras.getCurrent()["dialog-show"] = 0;
 				}
 
 				fgcamera.cameras.getCurrent()["dialog-name"] = value;
 				#fgcamera.camGui.showDialog();
-				update_values();
+				updateValues();
 			}
+
 			#==================================================
 			#	Apply FOV
 			#==================================================
-			var apply_fov = func () {
+			var applyFov = func () {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/field-of-view";
 				var value = getprop(path);
 				var min   = 10;
 				var max   = 120;
-				if (validate_value(value, min, max) == nil) {
+				if (validateValue(value, min, max) == nil) {
 					value = fgcamera.cameras.getCurrent().fov;
 					setprop(path, value);
-					update_values();
+					updateValues();
 				} else {
 					fgcamera.cameras.getCurrent().fov = value;
 					setprop("/sim/current-view/field-of-view", value);
 				}
 			}
+
 			#==================================================
 			#	Apply transition time
 			#==================================================
-			var apply_movement_time = func () {
+			var applyMovementTime = func () {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/movement-transition-time";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
-				if (validate_value(value, min, max) == nil) {
+				if (validateValue(value, min, max) == nil) {
 					value = fgcamera.cameras.getCurrent().movement.time;
 					setprop(path, value);
-					update_values();
+					updateValues();
 				} else {
 					fgcamera.cameras.getCurrent().movement.time = value;
 				}
 			}
+
 			#==================================================
 			#	Apply linear_velocity
 			#==================================================
-			var apply_adjustment_linear_velocity = func () {
+			var applyAdjustmentLinearVelocity = func () {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-linear-velocity";
 				var value = getprop(path);
 				var min   = 0.001;
 				var max   = 1000;
-				if (validate_value(value, min, max) == nil) {
+				if (validateValue(value, min, max) == nil) {
 					value = fgcamera.cameras.getCurrent().adjustment.v[0];
 					setprop(path, value);
-					update_values();
+					updateValues();
 				} else {
 					fgcamera.cameras.getCurrent().adjustment.v[0] = value;
 				}
 			}
+
 			#==================================================
 			#	Apply angular_velocity
 			#==================================================
-			var apply_adjustment_angular_velocity = func () {
+			var applyAdjustmentAangularVelocity = func () {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-angular-velocity";
 				var value = getprop(path);
 				var min   = 0.01;
 				var max   = 360;
-				if (validate_value(value, min, max) == nil) {
+				if (validateValue(value, min, max) == nil) {
 					value = fgcamera.cameras.getCurrent().adjustment.v[1];
 					setprop(path, value);
-					update_values();
+					updateValues();
 				} else {
 					fgcamera.cameras.getCurrent().adjustment.v[1] = value;
 				}
 			}
+
 			#==================================================
 			#	Apply adjustment_filter
 			#==================================================
-			var apply_adjustment_filter = func () {
+			var applyAdjustmentFilter = func () {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-filter";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
-				if (validate_value(value, min, max) == nil) {
+				if (validateValue(value, min, max) == nil) {
 					value = fgcamera.cameras.getCurrent().adjustment.filter;
 					setprop(path, value);
-					update_values();
+					updateValues();
 				} else {
 					fgcamera.cameras.getCurrent().adjustment.filter = value;
 				}
 			}
+
 			#==================================================
 			#	Apply mouse_look_sensitivity
 			#==================================================
-			var apply_mlook_sensitivity = func () {
+			var applyMouseLookSensitivity = func () {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-sensitivity";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
-				if (validate_value(value, min, max) == nil) {
+				if (validateValue(value, min, max) == nil) {
 					value = fgcamera.cameras.getCurrent().mouse_look.sensitivity;
 					setprop(path, value);
-					update_values();
+					updateValues();
 				} else {
 					fgcamera.cameras.getCurrent().mouse_look.sensitivity = value;
 				}
 			}
+
 			#==================================================
 			#	Apply mouse_look_filter
 			#==================================================
-			var apply_mlook_filter = func () {
+			var applyMouseLookFilter = func () {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-filter";
 				var value = getprop(path);
 				var min   = 0;
 				var max   = 10;
-				if (validate_value(value, min, max) == nil) {
+				if (validateValue(value, min, max) == nil) {
 					value = fgcamera.cameras.getCurrent().mouse_look.filter;
 					setprop(path, value);
-					update_values();
+					updateValues();
 				} else {
 					fgcamera.cameras.getCurrent().mouse_look.filter = value;
 				}
 			}
+
 			#==================================================
 			#	Toggle DHM
 			#==================================================
-			var toggle_DHM = func {
+			var toggleDHM = func {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM";
 				var value = getprop(path);
 
 				fgcamera.cameras.getCurrent()["enable-DHM"] = value;
 			}
+
 			#==================================================
 			#	Toggle RND
 			#==================================================
-			var toggle_RND = func {
+			var toggleRND = func {
 				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND";
 				var value = getprop(path);
 
 				fgcamera.cameras.getCurrent()["enable-RND"] = value;
 			}
+
 			#==================================================
-			update_values();
+			updateValues();
 		]]> </open>
 		<close>
 			removelistener(listener);

@@ -4,13 +4,14 @@ var g_myNodePath = nil;
 #==================================================
 #	"Objects"
 #==================================================
-var mouse       = nil;
-var camGui      = nil;
-var fileHandler = nil;
-var helicopter  = nil;
-var cameras     = Cameras.new();
-var walker      = Walker.new();
-var views       = nil;
+var offsetsManager = OffsetsManager.new();
+var mouse          = nil;
+var camGui         = nil;
+var fileHandler    = nil;
+var helicopter     = nil;
+var cameras        = Cameras.new();
+var walker         = Walker.new();
+var views          = nil;
 
 #
 # Initialize FGCamera

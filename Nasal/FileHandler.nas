@@ -101,8 +101,8 @@ var FileHandler = {
     # @return void
     #
     _setDefaultOffsets: func {
-        forindex (var i; manager._list) {
-            cameras.getCamera(0).offsets[i] = num(getprop("/sim/view/config/" ~ manager._list[i])) or 0;
+        forindex (var i; offsetsManager.coords) {
+            cameras.getCamera(0).offsets[i] = num(getprop("/sim/view/config/" ~ offsetsManager.coords[i])) or 0;
         }
     },
 

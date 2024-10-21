@@ -44,7 +44,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>import_effect()</script>
+				<script>importEffect()</script>
 			</binding>
 			<value>...</value>
 		</list>
@@ -74,53 +74,59 @@
 			var dir      = directory(path);
 			var list     = [];
 			var mode     = nil;
-			var listener = setlistener( "/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func {update_mode()} );
+			var listener = setlistener("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func { updateMode() });
 
-			var dialog_update = func () {
+			var dialogUpdate = func () {
 				forindex (var i; arg) {
 					var hash = {
 						"object-name" : arg[i],
 						"dialog-name" : "RND-import"
 					};
-					fgcommand( "dialog-update", props.Node.new(hash) );
+					fgcommand("dialog-update", props.Node.new(hash));
 				}
 			}
 
-			var import_effect = func {
+			var importEffect = func {
 				var node      = props.Node.new();
 				var selection = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect");
 
 				props.copy(io.read_properties(path ~ "/" ~ selection ~ ".xml"), node);
 
-				fgcamera.RND_handler.rnd[mode] = node.getValues();
-				fgcamera.RND_handler.update_rnd_data();
-				fgcamera.RND_handler._set_generators();
+				fgcamera.RNDHandler.rnd[mode] = node.getValues();
+				fgcamera.RNDHandler.updateRndData();
+				fgcamera.RNDHandler._setGenerators();
 
 				node.remove();
 			}
 
-			foreach(var file; sort(dir, cmp))
-				if(size(file) > 4 and substr(file, -4) == ".xml")
+			foreach (var file; sort(dir, cmp)) {
+				if (size(file) > 4 and substr(file, -4) == ".xml") {
 					append(list, split(".", file)[0]);
+				}
+			}
 
 			listN.removeChildren("value");
 
-			forindex (var i; list)
+			forindex (var i; list) {
 				listN.addChild("value").setValue(list[i]);
-
-			dialog_update("file-list");
-
-			var update_mode = func mode = get_mode();
-
-			var get_mode = func {
-				var GUI_edit = fgcamera.RND_handler.GUI_edit;
-				var GUI_mode = fgcamera.RND_handler.GUI_mode;
-
-				if ( GUI_edit ) GUI_mode;
-				else fgcamera.RND_handler._mode;
 			}
 
-			update_mode();
+			dialogUpdate("file-list");
+
+			var updateMode = func mode = getMode();
+
+			var getMode = func {
+				var guiEdit = fgcamera.RNDHandler.guiEdit;
+				var guiMode = fgcamera.RNDHandler.guiMode;
+
+				if (guiEdit) {
+					return guiMode;
+				}
+
+				return fgcamera.RNDHandler._mode;
+			}
+
+			updateMode();
 		]]> </open>
 
 		<close> <![CDATA[

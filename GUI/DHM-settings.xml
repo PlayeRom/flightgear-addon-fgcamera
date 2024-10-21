@@ -565,7 +565,7 @@
 		<open> <![CDATA[
 			var set_filter = func {
 				var a = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/g-load-release");
-				gui.popupTip(fgcamera.RND_handler.hp_coeff = a, 0.5);
+				gui.popupTip(fgcamera.RNDHandler.hpCoeff = a, 0.5);
 			}
 		]]> </open>
 	</nasal>

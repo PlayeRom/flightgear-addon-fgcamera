@@ -114,7 +114,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>toggle_edit()</script>
+				<script>toggleEdit()</script>
 			</binding>
 		</checkbox>
 
@@ -128,7 +128,7 @@
 			</enable>
 			<binding>
 				<command>nasal</command>
-				<script>fgcamera.RND_handler.GUI_mode = 0; update()</script>
+				<script>fgcamera.RNDHandler.guiMode = 0; update()</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -149,7 +149,7 @@
 			</enable>
 			<binding>
 				<command>nasal</command>
-				<script>fgcamera.RND_handler.GUI_mode = 1; update()</script>
+				<script>fgcamera.RNDHandler.guiMode = 1; update()</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -198,7 +198,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("x", 0)</script>
+						<script>setData("x", 0)</script>
 					</binding>
 				</dial>
 
@@ -213,7 +213,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("x", 1)</script>
+						<script>setData("x", 1)</script>
 					</binding>
 				</dial>
 
@@ -228,7 +228,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("x", 2)</script>
+						<script>setData("x", 2)</script>
 					</binding>
 				</dial>
 			</group>
@@ -279,7 +279,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("x", 3)</script>
+						<script>setData("x", 3)</script>
 					</binding>
 				</dial>
 
@@ -314,7 +314,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("p", 3, 10)</script>
+						<script>setData("p", 3, 10)</script>
 					</binding>
 				</dial>
 
@@ -367,7 +367,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("p", 0, 10)</script>
+						<script>setData("p", 0, 10)</script>
 					</binding>
 				</dial>
 
@@ -380,7 +380,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("p", 1, 10)</script>
+						<script>setData("p", 1, 10)</script>
 					</binding>
 				</dial>
 
@@ -393,7 +393,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("p", 2, 10)</script>
+						<script>setData("p", 2, 10)</script>
 					</binding>
 				</dial>
 			</group>
@@ -448,7 +448,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("y", 0)</script>
+						<script>setData("y", 0)</script>
 					</binding>
 				</dial>
 
@@ -461,7 +461,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("y", 1)</script>
+						<script>setData("y", 1)</script>
 					</binding>
 				</dial>
 
@@ -474,7 +474,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("y", 2)</script>
+						<script>setData("y", 2)</script>
 					</binding>
 				</dial>
 			</group>
@@ -524,7 +524,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("y", 3)</script>
+						<script>setData("y", 3)</script>
 					</binding>
 				</dial>
 
@@ -558,7 +558,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("h", 3, 10)</script>
+						<script>setData("h", 3, 10)</script>
 					</binding>
 				</dial>
 
@@ -610,7 +610,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("h", 0, 10)</script>
+						<script>setData("h", 0, 10)</script>
 					</binding>
 				</dial>
 
@@ -623,7 +623,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("h", 1, 10)</script>
+						<script>setData("h", 1, 10)</script>
 					</binding>
 				</dial>
 
@@ -636,7 +636,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("h", 2, 10)</script>
+						<script>setData("h", 2, 10)</script>
 					</binding>
 				</dial>
 			</group>
@@ -689,7 +689,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("z", 0)</script>
+						<script>setData("z", 0)</script>
 					</binding>
 				</dial>
 
@@ -702,7 +702,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("z", 1)</script>
+						<script>setData("z", 1)</script>
 					</binding>
 				</dial>
 
@@ -715,7 +715,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("z", 2)</script>
+						<script>setData("z", 2)</script>
 					</binding>
 				</dial>
 			</group>
@@ -766,7 +766,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("z", 3)</script>
+						<script>setData("z", 3)</script>
 					</binding>
 				</dial>
 
@@ -800,7 +800,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("r", 3, 10)</script>
+						<script>setData("r", 3, 10)</script>
 					</binding>
 				</dial>
 
@@ -853,7 +853,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("r", 0, 10)</script>
+						<script>setData("r", 0, 10)</script>
 					</binding>
 				</dial>
 
@@ -866,7 +866,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("r", 1, 10)</script>
+						<script>setData("r", 1, 10)</script>
 					</binding>
 				</dial>
 
@@ -879,7 +879,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_data("r", 2, 10)</script>
+						<script>setData("r", 2, 10)</script>
 					</binding>
 				</dial>
 			</group>
@@ -918,7 +918,7 @@
 					</binding>
 					<binding>
 						<command>nasal</command>
-						<script>set_scale()</script>
+						<script>setScale()</script>
 					</binding>
 				</dial>
 
@@ -964,7 +964,7 @@
 			<pref-height>30</pref-height>
 			<binding>
 				<command>nasal</command>
-				<script>copy_effect()</script>
+				<script>copyEffect()</script>
 			</binding>
 		</button>
 
@@ -977,7 +977,7 @@
 			</enable>
 			<binding>
 				<command>nasal</command>
-				<script>paste_effect()</script>
+				<script>pasteEffect()</script>
 			</binding>
 		</button>
 
@@ -1000,7 +1000,7 @@
 			</enable>
 			<!--binding>
 				<command>nasal</command>
-				<script>copy_effect()</script>
+				<script>copyEffect()</script>
 			</binding-->
 		</button>
 	</group>
@@ -1011,60 +1011,63 @@
 			var list1 = ["/GEN1", "/GEN2", "/GEN3", "/level"];
 			var list2 = ["x", "y", "z", "h", "p", "r"];
 			var mode  = nil;
-			var listener1 = setlistener( "/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func {update()} );
+			var listener1 = setlistener("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func { update() });
 
 			var update = func {
-				mode  = get_mode();
+				mode  = getMode();
 
 				foreach (var dof; list2) {
 					var i = 0;
 					foreach (var g; list1) {
-						setprop ( path ~ dof ~ g, fgcamera.RND_handler.rnd[mode].mixer[dof][i] );
+						setprop(path ~ dof ~ g, fgcamera.RNDHandler.rnd[mode].mixer[dof][i]);
 						i += 1;
 					}
 				}
 
-				setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s", fgcamera.RND_handler.rnd[mode].mixer.s);
+				setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s", fgcamera.RNDHandler.rnd[mode].mixer.s);
 
-				fgcommand( "dialog-update", props.Node.new( {"dialog-name" : "RND-mixer"} ) );
+				fgcommand("dialog-update", props.Node.new({ "dialog-name": "RND-mixer" }));
 			}
 
-			var get_mode = func  {
-				var GUI_edit = fgcamera.RND_handler.GUI_edit;
-				var GUI_mode = fgcamera.RND_handler.GUI_mode;
+			var getMode = func  {
+				var guiEdit = fgcamera.RNDHandler.guiEdit;
+				var guiMode = fgcamera.RNDHandler.guiMode;
 
-				if ( GUI_edit ) GUI_mode;
-				else fgcamera.RND_handler._mode;
+				if (guiEdit) {
+					return guiMode;
+				}
+
+				return fgcamera.RNDHandler._mode;
 			}
 
-			var toggle_edit = func fgcamera.RND_handler.GUI_edit = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/edit-mode");
+			var toggleEdit = func fgcamera.RNDHandler.guiEdit = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/edit-mode");
 
-			var set_scale = func fgcamera.RND_handler.rnd[mode].mixer.s = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s");
+			var setScale = func fgcamera.RNDHandler.rnd[mode].mixer.s = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s");
 
-			var set_data = func (key, i, scale = 1) {
-				fgcamera.RND_handler.rnd[mode].mixer[key][i] = getprop(path ~ key ~ list1[i]);
+			var setData = func (key, i, scale = 1) {
+				fgcamera.RNDHandler.rnd[mode].mixer[key][i] = getprop(path ~ key ~ list1[i]);
 			}
 
-			fgcamera.RND_handler.rndEffectNode = props.Node.new();
+			fgcamera.RNDHandler.rndEffectNode = props.Node.new();
 			setprop(path ~ "clipboard-empty", 1);
 
-			var copy_effect = func {
-				fgcamera.RND_handler.rndEffectNode.removeAllChildren();
-				fgcamera.RND_handler.rndEffectNode.setValues(fgcamera.RND_handler.rnd[mode]);
+			var copyEffect = func {
+				fgcamera.RNDHandler.rndEffectNode.removeAllChildren();
+				fgcamera.RNDHandler.rndEffectNode.setValues(fgcamera.RNDHandler.rnd[mode]);
 				setprop(path ~ "clipboard-empty", 0);
 			}
 
-			var paste_effect = func {
-				fgcamera.RND_handler.rnd[mode] = fgcamera.RND_handler.rndEffectNode.getValues();
-				fgcamera.RND_handler.update_rnd_data();
-				fgcamera.RND_handler._set_generators();
+			var pasteEffect = func {
+				fgcamera.RNDHandler.rnd[mode] = fgcamera.RNDHandler.rndEffectNode.getValues();
+				fgcamera.RNDHandler.updateRndData();
+				fgcamera.RNDHandler._setGenerators();
 				update();
 			}
 
 			update();
 		]]> </open>
-		<close>
+		<close> <![CDATA[
 			removelistener(listener1);
-		</close>
+		]]> </close>
 	</nasal>
 </PropertyList>
