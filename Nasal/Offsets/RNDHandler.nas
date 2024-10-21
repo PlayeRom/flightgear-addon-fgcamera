@@ -403,17 +403,13 @@ var RNDHandler = {
 		else {
 			me._mode = me._checkMode();
 
-			if (!helicopter.isHelicopter()) {
-				var v = getprop("/velocities/groundspeed-kt");
-			}
-			else {
-				var v = getprop("/rotors/main/rpm");
-				if (v == nil) {
-					v = 0;
-				}
-			}
+			var v = getprop(
+				helicopter.isHelicopter()
+					? "/rotors/main/rpm"
+					: "/velocities/groundspeed-kt"
+			);
 
-			if (v < 0) {
+			if (v == nil or v < 0) {
 				v = 0;
 			}
 

@@ -162,13 +162,27 @@ var OffsetsManager = {
 	#
 	_callHandlersFunction: func (funcName, nagativeCallback = nil) {
 		foreach (var handler; me.handlers) {
-			if (view.hasmember(handler, funcName)) {
-				# Calling the funcName function, without parameters, in a handler context
-				call(handler[funcName], [], handler);
-			}
-			elsif (nagativeCallback != nil) {
+			var called = me._callHandlerFunction(handler, funcName);
+			if (!called and nagativeCallback != nil) {
 				nagativeCallback(handler);
 			}
 		}
 	},
+
+	#
+	# Call for handler the given function name if the function exists.
+	#
+	# @param  hash  handler  Object of handler
+	# @param  string  funcName  The neme of function to call
+	# @return bool  Return true if function was called, otherwise return false
+	#
+	_callHandlerFunction: func (handler, funcName) {
+		if (view.hasmember(handler, funcName)) {
+			# Calling the funcName function, without parameters, in a handler context
+			call(handler[funcName], [], handler);
+			return 1;
+		}
+
+		return 0;
+	}
 };
