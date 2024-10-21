@@ -73,6 +73,10 @@ var MouseLookHandler = {
 		}
 	},
 
+	stop: func {
+		call(TemplateHandler.stop, [], me);
+	},
+
 	_rotate: func {
 		var t = subvec(me._delta, 0, 3); # take the first 3 values from the _delta vector
 		var r = subvec(offsetsManager.offsets, 3); # take the last 3 values from the offsetsManager.offsets vector

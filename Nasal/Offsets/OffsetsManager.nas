@@ -177,7 +177,7 @@ var OffsetsManager = {
 	# @return bool  Return true if function was called, otherwise return false
 	#
 	_callHandlerFunction: func (handler, funcName) {
-		if (view.hasmember(handler, funcName)) {
+		if (view.hasmember(handler, funcName) and typeof(handler[funcName]) == "func") {
 			# Calling the funcName function, without parameters, in a handler context
 			call(handler[funcName], [], handler);
 			return 1;

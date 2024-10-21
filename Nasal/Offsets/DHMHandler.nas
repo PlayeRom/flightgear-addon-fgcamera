@@ -139,4 +139,8 @@ var DHMHandler = {
 		me.offsets[4] = me.dhmY.pitch();
 		me.offsets[5] = me.dhmX.bank();
 	},
+
+	stop: func {
+		call(TemplateHandler.stop, [], me);
+	},
 };

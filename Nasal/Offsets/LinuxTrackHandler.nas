@@ -39,6 +39,10 @@ var LinuxTrackHandler = {
 		}
 	},
 
+	stop: func {
+		call(TemplateHandler.stop, [], me);
+	},
+
 	_getPropPathByIndex: func (index) {
 			 if (index == 0) return "/sim/linuxtrack/track-x";
 		else if (index == 1) return "/sim/linuxtrack/track-y";

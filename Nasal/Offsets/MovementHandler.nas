@@ -127,8 +127,6 @@ var MovementHandler = {
 		Bezier3.generate([0.47, 0.01], [0.39, 0.98]); #[0.52, 0.05], [0.27, 0.97]
 	},
 
-	stop: func,
-
 	update: func (dt) {
 		if (!me._updateF) {
 			return;
@@ -187,4 +185,9 @@ var MovementHandler = {
 			me._updateF = 1;
 		}
 	},
+
+	#
+	# Override stop of parent (TemplateHandler) so it doesn't get called out
+	#
+	stop: func,
 };

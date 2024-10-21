@@ -65,6 +65,10 @@ var AdjustmentHandler = {
 		}
 	},
 
+	stop: func {
+		call(TemplateHandler.stop, [], me);
+	},
+
 	_rotate: func {
 		var t = subvec(me._v, 0, 3);
 		var r = subvec(offsetsManager.offsets, 3);

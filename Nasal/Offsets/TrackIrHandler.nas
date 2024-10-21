@@ -35,6 +35,10 @@ var TrackIrHandler = {
 		}
 	},
 
+	stop: func {
+		call(TemplateHandler.stop, [], me);
+	},
+
 	_rotate: func {
 		var a = offsetsManager.offsets[3] * D2R; #math.pi / 180;
 		var c = math.cos(a);

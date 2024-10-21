@@ -445,6 +445,10 @@ var RNDHandler = {
 		}
 	},
 
+	stop: func {
+		call(TemplateHandler.stop, [], me);
+	},
+
 	_findValue: func (x_vector, y_vector, x_value) {
 		for (var i = 0; 1; i += 1)
 			if (x_value <= x_vector[i]) {
