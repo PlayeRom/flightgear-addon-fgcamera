@@ -29,7 +29,8 @@ var main = func(addon) {
 		"Nasal/Offsets/MouseLookHandler",
 		"Nasal/Offsets/OffsetsManager",
 		"Nasal/Panel2D",
-		"Nasal/Views",
+		"Nasal/ViewHandler",
+		"Nasal/ViewsManager",
 		"Nasal/Walker",
 		"FGCamera",
 	];

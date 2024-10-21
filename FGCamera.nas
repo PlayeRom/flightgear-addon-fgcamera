@@ -31,7 +31,7 @@ var init = func(addon) {
         mouse       = Mouse.new(addon);
         fileHandler = FileHandler.new(addon);
         camGui      = Gui.new(addon);
-        views       = Views.new();
+        views       = ViewsManager.new();
 
         if (getprop(g_myNodePath ~ "/enable")) {
             # setting default FGCamera

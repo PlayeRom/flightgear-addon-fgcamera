@@ -1,15 +1,9 @@
 
-var Views = {
-    NAMES              : ["FGCamera1", "FGCamera2", "FGCamera3", "FGCamera4", "FGCamera5"],
-    _rightBtnModeCycle : nil,
-    _modelOccupants    : nil,
-    _preventListener   : 0,
-    _viewHandler       : {
-        init   : func { offsetsManager.init() },
-        start  : func { offsetsManager.start(); Views.configureFG(1) },
-        update : func { return offsetsManager.update() },
-        stop   : func { offsetsManager.stop(); Views.configureFG(0) },
-    },
+var ViewsManager = {
+    #
+    # Constants:
+    #
+    NAMES: ["FGCamera1", "FGCamera2", "FGCamera3", "FGCamera4", "FGCamera5"],
 
     #
     # Constructor
@@ -18,22 +12,25 @@ var Views = {
     #
     new: func {
         var me = {
-            parents : [Views],
+            parents : [ViewsManager],
+            _rightBtnModeCycle : nil,
+            _modelOccupants    : nil,
+            _preventListener   : 0,
         };
 
         me.register();
 
         setlistener("/sim/mouse/right-button-mode-cycle-enabled", func(node) {
-            if (Views._preventListener) {
+            if (me._preventListener) {
                 # It's internal state change by changing the view from FGCamera to FG and vice versa.
                 # And in this listener we want to capture the change of the option only when the user chooses
                 # the one from the menu.
-                Views._preventListener = 0;
+                me._preventListener = 0;
                 return;
             }
 
-            Views._rightBtnModeCycle = node.getBoolValue();
-            # logprint(LOG_INFO, "FGCamera: mouse mode; user selected = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
+            me._rightBtnModeCycle = node.getBoolValue();
+            # logprint(LOG_INFO, "FGCamera: mouse mode; user selected = ", (me._rightBtnModeCycle ? "cycle" :  "look around"));
         });
 
         return me;
@@ -45,8 +42,8 @@ var Views = {
     # @return void
     #
     register: func {
-        foreach (var name; me.NAMES) {
-            view.manager.register(name, me._viewHandler);
+        foreach (var name; ViewsManager.NAMES) {
+            view.manager.register(name, ViewHandler.new(me));
         }
     },
 
@@ -57,8 +54,8 @@ var Views = {
     # @return void
     #
     configureFG: func (start) {
-        Views._configureRightBtnMode(start);
-        Views._configureModelOccupants(start);
+        me._configureRightBtnMode(start);
+        me._configureModelOccupants(start);
     },
 
     #
@@ -70,13 +67,13 @@ var Views = {
     #
     _configureRightBtnMode: func(start) {
         var path = "/sim/mouse/right-button-mode-cycle-enabled";
-        if (Views._rightBtnModeCycle == nil) {
-            Views._rightBtnModeCycle = getprop(path);
-            # logprint(LOG_INFO, "FGCamera: mouse mode; initial = ", (Views._rightBtnModeCycle ? "cycle" :  "look around"));
+        if (me._rightBtnModeCycle == nil) {
+            me._rightBtnModeCycle = getprop(path);
+            # logprint(LOG_INFO, "FGCamera: mouse mode; initial = ", (me._rightBtnModeCycle ? "cycle" :  "look around"));
         }
 
-        Views._preventListener = 1;
-        setprop(path, Views._getRightBtnModeCycle(start));
+        me._preventListener = 1;
+        setprop(path, me._getRightBtnModeCycle(start));
     },
 
     #
@@ -94,8 +91,8 @@ var Views = {
             return 0;
         }
 
-        # logprint(LOG_INFO, "FGCamera: mouse mode; stop; use previous setting = ", (Views._rightBtnModeCycle ? "cycle" : "look around"));
-        return Views._rightBtnModeCycle;
+        # logprint(LOG_INFO, "FGCamera: mouse mode; stop; use previous setting = ", (me._rightBtnModeCycle ? "cycle" : "look around"));
+        return me._rightBtnModeCycle;
     },
 
     #
@@ -107,10 +104,10 @@ var Views = {
     #
     _configureModelOccupants: func(start) {
         var path = "/sim/model/occupants";
-        if (Views._modelOccupants == nil) {
-            Views._modelOccupants = getprop(path);
+        if (me._modelOccupants == nil) {
+            me._modelOccupants = getprop(path);
         }
 
-        setprop(path, start ? 0 : Views._modelOccupants);
+        setprop(path, start ? 0 : me._modelOccupants);
     },
 };
