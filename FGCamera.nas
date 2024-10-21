@@ -2,7 +2,7 @@ var g_Addon = nil;
 var g_myNodePath = nil;
 
 #==================================================
-#	"Objects"
+#   "Objects"
 #==================================================
 var offsetsManager = OffsetsManager.new();
 var mouse          = nil;

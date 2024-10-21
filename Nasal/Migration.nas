@@ -72,7 +72,7 @@ var Migration = {
             },
 
             "v1.2.1": {
-                "panel-show-type"	: "",
+                "panel-show-type" : "",
             },
         };
     },

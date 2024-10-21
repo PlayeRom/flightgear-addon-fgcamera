@@ -1,109 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
+    <name>fgcamera-help</name>
+    <layout>vbox</layout>
 
-	<name>fgcamera-help</name>
-	<layout>vbox</layout>
+    <group>
+        <layout>hbox</layout>
 
-	<group>
-		<layout>hbox</layout>
+        <empty><stretch>1</stretch></empty>
+        <text>
+            <halign>left</halign>
+            <label>FGCamera quick help</label>
+        </text>
+        <empty><stretch>1</stretch></empty>
+        <button>
+            <halign>right</halign>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <legend> </legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
 
-		<empty><stretch>1</stretch></empty>
-		<text>
-			<halign>left</halign>
-			<label>FGCamera quick help</label>
-		</text>
-		<empty><stretch>1</stretch></empty>
-		<button>
-			<halign>right</halign>
-			<pref-width>16</pref-width>
-			<pref-height>16</pref-height>
-			<legend> </legend>
-			<key>Esc</key>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <text>
+            <halign>center</halign>
+            <label>FGCamera modifies the keyboard and mouse handling.</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label></label>
+        </text>
 
-		<text>
-			<halign>center</halign>
-			<label>FGCamera modifies the keyboard and mouse handling.</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label></label>
-		</text>
+        <text>
+            <halign>center</halign>
+            <label>Keys 0-9 switches between defined camera views.</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label>If you need numeric keys to control the aircraft, you can enable</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label>"User Ctrl with numeric keys" option and use Ctrl-0 to Ctrl-9.</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label></label>
+        </text>
 
-		<text>
-			<halign>center</halign>
-			<label>Keys 0-9 switches between defined camera views.</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label>If you need numeric keys to control the aircraft, you can enable</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label>"User Ctrl with numeric keys" option and use Ctrl-0 to Ctrl-9.</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label></label>
-		</text>
+        <text>
+            <halign>center</halign>
+            <label>Ctrl-PgUp, Ctrl-PgDn, Ctrl-Up, Ctrl-Down, Ctrl-Right, Ctrl-Left</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label>modifies current camera position and view. You can use also mouseview</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label>to define specific angle/view. Remember to store the settings</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label>after modify the camera position!</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label></label>
+        </text>
 
-		<text>
-			<halign>center</halign>
-			<label>Ctrl+PgUp, Ctrl+PgDown, Ctrl+Up, Ctrl+Down, Ctrl+Right, Ctrl+Left</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label>modifies current camera position and view. You can use also mouseview</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label>to define specific angle/view. Remember to store the settings</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label>after modify the camera position!</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label></label>
-		</text>
+        <text>
+            <halign>center</halign>
+            <label>Always look at the View -&gt; FGCamera dialog to configure</label>
+        </text>
+        <text>
+            <halign>center</halign>
+            <label>your views/camera position and set other settings.</label>
+        </text>
 
-		<text>
-			<halign>center</halign>
-			<label>Always look at the View -> FGCamera dialog to configure</label>
-		</text>
-		<text>
-			<halign>center</halign>
-			<label>your views/camera position and set other settings.</label>
-		</text>
+    </group>
 
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>hbox</layout>
-		<padding>6</padding>
-
-		<button>
-			<halign>center</halign>
-			<legend>Close</legend>
-			<pref-width>210</pref-width>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
-	</group>
-
+        <button>
+            <halign>center</halign>
+            <legend>Close</legend>
+            <pref-width>210</pref-width>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
 </PropertyList>
