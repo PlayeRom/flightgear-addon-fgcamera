@@ -45,7 +45,7 @@
     <nasal>
         <open><![CDATA[
             #==================================================
-            #	Delete camera
+            #   Delete camera
             #==================================================
             var deleteCamera = func {
                 var n = fgcamera.cameras.size();
@@ -66,7 +66,7 @@
             }
 
             #==================================================
-            #	Functions
+            #   Functions
             #==================================================
             var compressVector = func (v) {
                 var s = size(v);

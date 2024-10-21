@@ -8,39 +8,39 @@
 # Slawek Mikula, October 2017
 
 var main = func(addon) {
-	var basePath = addon.basePath;
+    var basePath = addon.basePath;
 
-	var files = [
-		"Nasal/math",
-		"Nasal/Cameras",
-		"Nasal/Migration",
-		"Nasal/Gui",
-		"Nasal/Helicopter",
-		"Nasal/Commands",
-		"Nasal/FileHandler",
-		"Nasal/Mouse",
-		"Nasal/Offsets/TemplateHandler",
-		"Nasal/Offsets/MovementHandler",
-		"Nasal/Offsets/DHMHandler",
-		"Nasal/Offsets/RNDHandler",
-		"Nasal/Offsets/TrackIrHandler",
-		"Nasal/Offsets/LinuxTrackHandler",
-		"Nasal/Offsets/AdjustmentHandler",
-		"Nasal/Offsets/MouseLookHandler",
-		"Nasal/Offsets/OffsetsManager",
-		"Nasal/Panel2D",
-		"Nasal/ViewHandler",
-		"Nasal/ViewsManager",
-		"Nasal/Walker",
-		"FGCamera",
-	];
+    var files = [
+        "Nasal/math",
+        "Nasal/Cameras",
+        "Nasal/Migration",
+        "Nasal/Gui",
+        "Nasal/Helicopter",
+        "Nasal/Commands",
+        "Nasal/FileHandler",
+        "Nasal/Mouse",
+        "Nasal/Offsets/TemplateHandler",
+        "Nasal/Offsets/MovementHandler",
+        "Nasal/Offsets/DHMHandler",
+        "Nasal/Offsets/RNDHandler",
+        "Nasal/Offsets/TrackIrHandler",
+        "Nasal/Offsets/LinuxTrackHandler",
+        "Nasal/Offsets/AdjustmentHandler",
+        "Nasal/Offsets/MouseLookHandler",
+        "Nasal/Offsets/OffsetsManager",
+        "Nasal/Panel2D",
+        "Nasal/ViewHandler",
+        "Nasal/ViewsManager",
+        "Nasal/Walker",
+        "FGCamera",
+    ];
 
-	# load scripts
-	foreach (var file; files) {
-		if (!io.load_nasal(basePath ~ "/" ~ file ~ ".nas", "fgcamera")) {
-			logprint(LOG_ALERT, "FGCamera: add-on module \"", file, "\" loading failed");
-		}
-	}
+    # load scripts
+    foreach (var file; files) {
+        if (!io.load_nasal(basePath ~ "/" ~ file ~ ".nas", "fgcamera")) {
+            logprint(LOG_ALERT, "FGCamera: add-on module \"", file, "\" loading failed");
+        }
+    }
 
-	fgcamera.init(addon);
+    fgcamera.init(addon);
 }

@@ -1,380 +1,378 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-	<name>fgcamera-main</name>
-	<layout>vbox</layout>
-	<x>-20</x>
-	<y>-20</y>
+    <name>fgcamera-main</name>
+    <layout>vbox</layout>
+    <x>-20</x>
+    <y>-20</y>
 
-	<group>
-		<layout>hbox</layout>
+    <group>
+        <layout>hbox</layout>
 
-		<empty><stretch>1</stretch></empty>
+        <empty><stretch>1</stretch></empty>
 
-		<text>
-			<label>FGCamera</label>
-		</text>
+        <text>
+            <label>FGCamera</label>
+        </text>
 
-		<empty><stretch>1</stretch></empty>
+        <empty><stretch>1</stretch></empty>
 
-		<button>
-			<legend> </legend>
-			<key>Esc</key>
-			<pref-width>16</pref-width>
-			<pref-height>16</pref-height>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
+        <button>
+            <legend> </legend>
+            <key>Esc</key>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
 
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>hbox</layout>
-		<padding>6</padding>
+        <button>
+            <legend>Options...</legend>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>fgcamera-options</dialog-name>
+            </binding>
+        </button>
 
-		<button>
-			<legend>Options...</legend>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>dialog-show</command>
-				<dialog-name>fgcamera-options</dialog-name>
-			</binding>
-		</button>
+        <button>
+            <legend>Copy camera</legend>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>nasal</command>
+                <script>copyCamera()</script>
+            </binding>
+        </button>
 
-		<button>
-			<legend>Copy camera</legend>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>nasal</command>
-				<script>copyCamera()</script>
-			</binding>
-		</button>
+        <button>
+            <legend>Create new camera...</legend>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>create-new-camera</dialog-name>
+            </binding>
+        </button>
 
-		<button>
-			<legend>Create new camera...</legend>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>dialog-show</command>
-				<dialog-name>create-new-camera</dialog-name>
-			</binding>
-		</button>
+        <button>
+            <legend>?</legend>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>fgcamera-help</dialog-name>
+            </binding>
+        </button>
+    </group>
 
-		<button>
-			<legend>?</legend>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>dialog-show</command>
-				<dialog-name>fgcamera-help</dialog-name>
-			</binding>
-		</button>
-	</group>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>List of cameras</label>
+                <halign>left</halign>
+            </text>
 
-		<group>
-			<layout>hbox</layout>
-			<text>
-				<label>List of cameras</label>
-				<halign>left</halign>
-			</text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
 
-			<hrule><stretch>true</stretch></hrule>
-		</group>
+        <group>
+            <layout>hbox</layout>
+            <list>
+                <name>camera_list</name>
+                <pref-height>250</pref-height>
+                <halign>fill</halign>
+                <valign>fill</valign>
+                <stretch>true</stretch>
+                <padding>6</padding>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name</property>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>camera_list</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>selectCamera()</script>
+                </binding>
+                <value>...</value>
+            </list>
 
-		<group>
-			<layout>hbox</layout>
-			<list>
-				<name>camera_list</name>
-				<pref-height>250</pref-height>
-				<halign>fill</halign>
-				<valign>fill</valign>
-				<stretch>true</stretch>
-				<padding>6</padding>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name</property>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>camera_list</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>selectCamera()</script>
-				</binding>
-				<value>...</value>
-			</list>
+            <group>
+                <layout>vbox</layout>
 
-			<group>
-				<layout>vbox</layout>
+                <empty><stretch>1</stretch></empty>
 
-				<empty><stretch>1</stretch></empty>
+                <button>
+                    <legend>Up</legend>
+                    <key>Esc</key>
+                    <pref-width>50</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>reorderCameras(-1)</script>
+                    </binding>
+                </button>
 
-				<button>
-					<legend>Up</legend>
-					<key>Esc</key>
-					<pref-width>50</pref-width>
-					<pref-height>30</pref-height>
-					<binding>
-						<command>nasal</command>
-						<script>reorderCameras(-1)</script>
-					</binding>
-				</button>
+                <button>
+                    <legend>Down</legend>
+                    <key>Esc</key>
+                    <pref-width>50</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>reorderCameras(1)</script>
+                    </binding>
+                </button>
 
-				<button>
-					<legend>Down</legend>
-					<key>Esc</key>
-					<pref-width>50</pref-width>
-					<pref-height>30</pref-height>
-					<binding>
-						<command>nasal</command>
-						<script>reorderCameras(1)</script>
-					</binding>
-				</button>
+                <empty><stretch>1</stretch></empty>
+            </group>
+        </group>
+    </group>
 
-				<empty><stretch>1</stretch></empty>
-			</group>
-		</group>
-	</group>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>Current camera</label>
+                <halign>left</halign>
+            </text>
 
-		<group>
-			<layout>hbox</layout>
-			<text>
-				<label>Current camera</label>
-				<halign>left</halign>
-			</text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
 
-			<hrule><stretch>true</stretch></hrule>
-		</group>
+        <group>
+            <layout>hbox</layout>
+            <input>
+                <name>camera_name</name>
+                <halign>left</halign>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
+                <pref-width>200</pref-width>
+                <stretch>true</stretch>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>camera_name</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>renameCamera()</script>
+                </binding>
+            </input>
 
-		<group>
-			<layout>hbox</layout>
-			<input>
-				<name>camera_name</name>
-				<halign>left</halign>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
-				<pref-width>200</pref-width>
-				<stretch>true</stretch>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>camera_name</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>renameCamera()</script>
-				</binding>
-			</input>
+            <input>
+                <name>camera_category</name>
+                <halign>left</halign>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
+                <pref-width>50</pref-width>
+                <stretch>true</stretch>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>camera_category</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setCategory()</script>
+                </binding>
+            </input>
 
-			<input>
-				<name>camera_category</name>
-				<halign>left</halign>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
-				<pref-width>50</pref-width>
-				<stretch>true</stretch>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>camera_category</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>setCategory()</script>
-				</binding>
-			</input>
+            <empty><stretch>1</stretch></empty>
 
-			<empty><stretch>1</stretch></empty>
+            <button>
+                <legend>Config...</legend>
+                <pref-height>30</pref-height>
+                <binding>
+                    <command>dialog-show</command>
+                    <dialog-name>current-camera-settings</dialog-name>
+                </binding>
+            </button>
 
-			<button>
-				<legend>Config...</legend>
-				<pref-height>30</pref-height>
-				<binding>
-					<command>dialog-show</command>
-					<dialog-name>current-camera-settings</dialog-name>
-				</binding>
-			</button>
+            <button>
+                <legend>Delete</legend>
+                <pref-height>30</pref-height>
+                <binding>
+                    <command>dialog-show</command>
+                    <dialog-name>confirm-delete-fgcamera</dialog-name>
+                </binding>
+            </button>
+        </group>
+    </group>
 
-			<button>
-				<legend>Delete</legend>
-				<pref-height>30</pref-height>
-				<binding>
-					<command>dialog-show</command>
-					<dialog-name>confirm-delete-fgcamera</dialog-name>
-				</binding>
-			</button>
-		</group>
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>hbox</layout>
-		<padding>6</padding>
+        <empty><stretch>1</stretch></empty>
 
-		<empty><stretch>1</stretch></empty>
+        <button>
+            <legend>OK</legend>
+            <equal>true</equal>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>nasal</command>
+                <script>fgcamera.fileHandler.saveCameras()</script>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
 
-		<button>
-			<legend>OK</legend>
-			<equal>true</equal>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>nasal</command>
-				<script>fgcamera.fileHandler.saveCameras()</script>
-			</binding>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
+        <button>
+            <legend>Apply</legend>
+            <equal>true</equal>
+            <binding>
+                <command>nasal</command>
+                <script>fgcamera.fileHandler.saveCameras()</script>
+            </binding>
+        </button>
 
-		<button>
-			<legend>Apply</legend>
-			<equal>true</equal>
-			<binding>
-				<command>nasal</command>
-				<script>fgcamera.fileHandler.saveCameras()</script>
-			</binding>
-		</button>
+        <button>
+            <legend>Close</legend>
+            <key>Esc</key>
+            <equal>true</equal>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
 
-		<button>
-			<legend>Close</legend>
-			<key>Esc</key>
-			<equal>true</equal>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
+        <empty><stretch>1</stretch></empty>
+    </group>
 
-		<empty><stretch>1</stretch></empty>
-	</group>
+    <nasal>
+        <open> <![CDATA[
+            var list     = cmdarg().getNode("group[2]/group[1]/list");
+            # var dlgPath = fgcamera.g_myNodePath ~ "/dialogs/fgcamera-main";
+            var names    = [];
+            var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateList() });
 
-	<nasal>
-		<open> <![CDATA[
-			var list     = cmdarg().getNode("group[2]/group[1]/list");
-			# var dlgPath = fgcamera.g_myNodePath ~ "/dialogs/fgcamera-main";
-			var names    = [];
-			var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateList() });
+            #==================================================
+            #   Functions
+            #==================================================
+            var dialogUpdate = func () {
+                forindex (var i; arg) {
+                    var hash = {
+                        "object-name" : arg[i],
+                        "dialog-name" : "fgcamera-main"
+                    };
 
-			#==================================================
-			#	Functions
-			#==================================================
-			var dialogUpdate = func () {
-				forindex (var i; arg) {
-					var hash = {
-						"object-name" : arg[i],
-						"dialog-name" : "fgcamera-main"
-					};
+                    fgcommand("dialog-update", props.Node.new(hash));
+                }
+            }
 
-					fgcommand("dialog-update", props.Node.new(hash));
-				}
-			}
+            var updateList = func {
+                list.removeChildren("value");
+                var i = 0;
+                foreach (var v; fgcamera.cameras.getVector()) {
+                    var name = v.name;
+                    var select = "";
+                    if (i == fgcamera.cameras.getCurrentId()) {
+                        setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name", name);
+                        setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category", v.category);
+                        select = " <-";
+                    }
+                    list.addChild("value").setValue(sprintf(
+                        "%d. %s [%d] %s",
+                        (i + 1), name, v.category, select
+                    ));
+                    i += 1;
+                }
+                dialogUpdate("camera_list", "camera_name", "camera_category");
+                #print("updating list");
+            }
 
-			var updateList = func {
-				list.removeChildren("value");
-				var i = 0;
-				foreach (var v; fgcamera.cameras.getVector()) {
-					var name = v.name;
-					var select = "";
-					if (i == fgcamera.cameras.getCurrentId()) {
-						setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name", name);
-						setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category", v.category);
-						select = " <-";
-					}
-					list.addChild("value").setValue(sprintf(
-						"%d. %s [%d] %s",
-						(i + 1), name, v.category, select
-					));
-					i += 1;
-				}
-				dialogUpdate("camera_list", "camera_name", "camera_category");
-				#print("updating list");
-			}
+            #==================================================
+            #   Copy camera
+            #==================================================
+            var returnNewCamera = func(c) {
+                c.name ~= "-copy";
+                return c;
+            }
 
-			#==================================================
-			#	Copy camera
-			#==================================================
-			var returnNewCamera = func(c) {
-				c.name ~= "-copy";
-				return c;
-			}
+            var copyCamera = func () {
+                var cameraN = props.Node.new();
+                cameraN.setValues(fgcamera.cameras.getCurrent());
+                var newCamera = cameraN.getValues();
+                newCamera.name ~= "-copy";
+                fgcamera.cameras.append(newCamera);
 
-			var copyCamera = func () {
-				var cameraN = props.Node.new();
-				cameraN.setValues(fgcamera.cameras.getCurrent());
-				var newCamera = cameraN.getValues();
-				newCamera.name ~= "-copy";
-				fgcamera.cameras.append(newCamera);
+                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", fgcamera.cameras.size() - 1);
 
-				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", fgcamera.cameras.size() - 1);
+                updateList();
 
-				updateList();
+                cameraN.remove();
+            }
 
-				cameraN.remove();
-			}
+            #==================================================
+            #   Up / Down
+            #==================================================
+            var reorderCameras = func (dir) {
+                var vec = fgcamera.cameras.getVector();
+                var id1 = fgcamera.cameras.getCurrentId();
+                var id2 = id1 + math.sgn(dir);
+                if (id2 >= 0 and id2 < size(vec)) {
+                    var tmp  = vec[id1];
+                    vec[id1] = vec[id2];
+                    vec[id2] = tmp;
 
-			#==================================================
-			#	Up / Down
-			#==================================================
-			var reorderCameras = func (dir) {
-				var vec = fgcamera.cameras.getVector();
-				var id1 = fgcamera.cameras.getCurrentId();
-				var id2 = id1 + math.sgn(dir);
-				if (id2 >= 0 and id2 < size(vec)) {
-					var tmp  = vec[id1];
-					vec[id1] = vec[id2];
-					vec[id2] = tmp;
+                    fgcamera.cameras.replace(vec);
+                    fgcamera.cameras.setCurrentId(id2);
 
-					fgcamera.cameras.replace(vec);
-					fgcamera.cameras.setCurrentId(id2);
+                    updateList();
+                }
+            }
 
-					updateList();
-				}
-			}
+            #==================================================
+            #   Rename camera
+            #==================================================
+            var renameCamera = func {
+                fgcamera.cameras.getCurrent().name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name");
+                updateList();
+            }
 
-			#==================================================
-			#	Rename camera
-			#==================================================
-			var renameCamera = func {
-				fgcamera.cameras.getCurrent().name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name");
-				updateList();
-			}
+            #==================================================
+            #   Set category
+            #==================================================
+            var setCategory = func {
+                fgcamera.cameras.getCurrent().category = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category");
+                updateList();
+            }
 
-			#==================================================
-			#	Set category
-			#==================================================
-			var setCategory = func {
-				fgcamera.cameras.getCurrent().category = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category");
-				updateList();
-			}
+            #==================================================
+            #   Select camera
+            #==================================================
+            var selectCamera = func {
+                var name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name");
+                var i = 0;
+                foreach (var a; list.getChildren("value")) {
+                    if (a.getValue() == name) {
+                        setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", i) and return;
+                    }
+                    i += 1;
+                }
+                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", 0);
+            }
 
-			#==================================================
-			#	Select camera
-			#==================================================
-			var selectCamera = func {
-				var name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name");
-				var i = 0;
-				foreach (var a; list.getChildren("value")) {
-					if (a.getValue() == name) {
-						setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", i) and return;
-					}
-					i += 1;
-				}
-				setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", 0);
-			}
+            #==================================================
+            updateList();
+        ]]> </open>
 
-			#==================================================
-			updateList();
-		]]> </open>
-
-		<close> <![CDATA[
-			removelistener(listener);
-		]]> </close>
-	</nasal>
-
+        <close> <![CDATA[
+            removelistener(listener);
+        ]]> </close>
+    </nasal>
 </PropertyList>

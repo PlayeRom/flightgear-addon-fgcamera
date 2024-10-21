@@ -1,229 +1,229 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <PropertyList>
-	<input>
-		<keyboard include="fgkeyboard.xml" />
-	</input>
+    <input>
+        <keyboard include="fgkeyboard.xml" />
+    </input>
 
-	<addons>
-		<by-id>
-			<a.marius.FGCamera>
-				<addon-devel>
-					<!-- Used in Nasal: -->
-					<!-- <controls> -->
-						<!-- <adjust-h> -->
-						<!-- <adjust-p> -->
-						<!-- <adjust-r> -->
-						<!-- <adjust-x> - move camera left-right-->
-						<!-- <adjust-y> - move camera up-dawn -->
-						<!-- <adjust-z> - move cameru forward-backward -->
-					<!-- <current-camera> -->
-						<!-- <RDN-updated type="double"> -->
-						<!-- <camera-id type="double"> -->
-						<!-- <camera-name type="string"> -->
-						<!-- <category type="string"> -->
-						<!-- <name type="string">  - name on list in GUI, like e.g. "1. default [0]" -->
-					<!-- <dialog> -->
-						<!-- <camera-settings> -->
-							<!-- ... -->
-						<!-- <RND> -->
-							<!-- <edit-mode> -->
-							<!-- <mixer>-->
-								<!-- <clipboard-empty> -->
-							<!-- <profile> -->
-					<!-- <fgcamera-enabled type="bool"> - If true then FGCamera view is currently working, otherwise FG view is currently working -->
+    <addons>
+        <by-id>
+            <a.marius.FGCamera>
+                <addon-devel>
+                    <!-- Used in Nasal: -->
+                    <!-- <controls> -->
+                        <!-- <adjust-h> -->
+                        <!-- <adjust-p> -->
+                        <!-- <adjust-r> -->
+                        <!-- <adjust-x> - move camera left-right-->
+                        <!-- <adjust-y> - move camera up-dawn -->
+                        <!-- <adjust-z> - move cameru forward-backward -->
+                    <!-- <current-camera> -->
+                        <!-- <RDN-updated type="double"> -->
+                        <!-- <camera-id type="double"> -->
+                        <!-- <camera-name type="string"> -->
+                        <!-- <category type="string"> -->
+                        <!-- <name type="string">  - name on list in GUI, like e.g. "1. default [0]" -->
+                    <!-- <dialog> -->
+                        <!-- <camera-settings> -->
+                            <!-- ... -->
+                        <!-- <RND> -->
+                            <!-- <edit-mode> -->
+                            <!-- <mixer>-->
+                                <!-- <clipboard-empty> -->
+                            <!-- <profile> -->
+                    <!-- <fgcamera-enabled type="bool"> - If true then FGCamera view is currently working, otherwise FG view is currently working -->
 
-					<!-- If true then switch to FGCamera view on startup, otherwise stay in FG view -->
-					<enable type="bool">true</enable>
+                    <!-- If true then switch to FGCamera view on startup, otherwise stay in FG view -->
+                    <enable type="bool">true</enable>
 
-					<!-- Display popupTip with camera name: -->
-					<popupTip type="bool">false</popupTip>
+                    <!-- Display popupTip with camera name: -->
+                    <popupTip type="bool">false</popupTip>
 
-					<mouse>
-						<spring-loaded type="bool" userarchive="y">true</spring-loaded>
+                    <mouse>
+                        <spring-loaded type="bool" userarchive="y">true</spring-loaded>
 
-						<!-- When you change the camera by V key, you will switch to FG views, and here you may want to look
-							around by press and hold right mouse button. Then set this option on true. -->
-						<force-look-around-mode-in-fg type="bool" userarchive="y">true</force-look-around-mode-in-fg>
+                        <!-- When you change the camera by V key, you will switch to FG views, and here you may want to look
+                            around by press and hold right mouse button. Then set this option on true. -->
+                        <force-look-around-mode-in-fg type="bool" userarchive="y">true</force-look-around-mode-in-fg>
 
-						<!-- Used in Nasal: -->
-						<!-- <handling-offset type="double"> -->
-						<!-- <pitch-offset type="double"> -->
-						<!-- <roll-offset type="double"> -->
-						<!-- <x-offset type="double"> -->
-						<!-- <y-offset type="double"> -->
-						<!-- <z-offset type="double"> -->
-					</mouse>
-					<welcome-skip type="bool" userarchive="y">false</welcome-skip>
-					<mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
-					<mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
-					<mini-dialog-type type="string" userarchive="y">simple</mini-dialog-type>
-					<use-ctrl-with-numkeys type="bool" userarchive="y">false</use-ctrl-with-numkeys>
-				</addon-devel>
-			</a.marius.FGCamera>
-		</by-id>
-	</addons>
+                        <!-- Used in Nasal: -->
+                        <!-- <handling-offset type="double"> -->
+                        <!-- <pitch-offset type="double"> -->
+                        <!-- <roll-offset type="double"> -->
+                        <!-- <x-offset type="double"> -->
+                        <!-- <y-offset type="double"> -->
+                        <!-- <z-offset type="double"> -->
+                    </mouse>
+                    <welcome-skip type="bool" userarchive="y">false</welcome-skip>
+                    <mini-dialog-enable type="bool" userarchive="y">true</mini-dialog-enable>
+                    <mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
+                    <mini-dialog-type type="string" userarchive="y">simple</mini-dialog-type>
+                    <use-ctrl-with-numkeys type="bool" userarchive="y">false</use-ctrl-with-numkeys>
+                </addon-devel>
+            </a.marius.FGCamera>
+        </by-id>
+    </addons>
 
-	<sim>
-		<panel>
-			<path>/Aircraft/Panels/generic-vfr-panel.xml</path>
-			<visibility archive="y">false</visibility>
-			<hide-nonzero-heading-offset type="bool">false</hide-nonzero-heading-offset>
-			<hide-nonzero-view type="bool">false</hide-nonzero-view>
-		</panel>
+    <sim>
+        <panel>
+            <path>/Aircraft/Panels/generic-vfr-panel.xml</path>
+            <visibility archive="y">false</visibility>
+            <hide-nonzero-heading-offset type="bool">false</hide-nonzero-heading-offset>
+            <hide-nonzero-view type="bool">false</hide-nonzero-view>
+        </panel>
 
-		<panel>
-			<path>/Aircraft/Panels/controls-vfr-panel.xml</path>
-			<visibility archive="y">false</visibility>
-			<hide-nonzero-heading-offset type="bool">false</hide-nonzero-heading-offset>
-			<hide-nonzero-view type="bool">false</hide-nonzero-view>
-		</panel>
+        <panel>
+            <path>/Aircraft/Panels/controls-vfr-panel.xml</path>
+            <visibility archive="y">false</visibility>
+            <hide-nonzero-heading-offset type="bool">false</hide-nonzero-heading-offset>
+            <hide-nonzero-view type="bool">false</hide-nonzero-view>
+        </panel>
 
-		<!--rotorgear
-			max-power-engine="557"
-			max-power-rotor-brake="100"
-			rotorgear-friction="2.6"
-			engine-prop-factor="0.015"
-			engine-accel-limit="100"
-			yasimdragfactor="19"
-			yasimliftfactor="18"/-->
+        <!--rotorgear
+            max-power-engine="557"
+            max-power-rotor-brake="100"
+            rotorgear-friction="2.6"
+            engine-prop-factor="0.015"
+            engine-accel-limit="100"
+            yasimdragfactor="19"
+            yasimliftfactor="18"/-->
 
-		<!-- systems>
-			<property-rule n="100">
-				<path>/Aircraft/ec135/filtrai/filtras1.xml</path>
-			</property-rule>
-		</systems -->
+        <!-- systems>
+            <property-rule n="100">
+                <path>/Aircraft/ec135/filtrai/filtras1.xml</path>
+            </property-rule>
+        </systems -->
 
-		<view n="120">
-			<name>FGCamera1</name>
-			<enabled type="bool" userarchive="y">false</enabled>
-			<type>lookfrom</type>
-			<internal type="bool">true</internal>
-			<config>
-				<from-model type="bool">true</from-model>
-				<from-model-idx type="int">0</from-model-idx>
-				<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-				<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
-				<default-pitch-deg type="double">0</default-pitch-deg>
-				<default-heading-deg type="double">0</default-heading-deg>
-				<front-direction-deg type="double">0</front-direction-deg>
-				<front-left-direction-deg type="double">45</front-left-direction-deg>
-				<left-direction-deg type="double">90</left-direction-deg>
-				<back-left-direction-deg type="double">135</back-left-direction-deg>
-				<back-direction-deg type="double">180</back-direction-deg>
-				<back-right-direction-deg type="double">225</back-right-direction-deg>
-				<right-direction-deg type="double">270</right-direction-deg>
-				<front-right-direction-deg type="double">315</front-right-direction-deg>
-				<dynamic-view type="bool">true</dynamic-view>
+        <view n="120">
+            <name>FGCamera1</name>
+            <enabled type="bool" userarchive="y">false</enabled>
+            <type>lookfrom</type>
+            <internal type="bool">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <from-model-idx type="int">0</from-model-idx>
+                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+                <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+                <default-pitch-deg type="double">0</default-pitch-deg>
+                <default-heading-deg type="double">0</default-heading-deg>
+                <front-direction-deg type="double">0</front-direction-deg>
+                <front-left-direction-deg type="double">45</front-left-direction-deg>
+                <left-direction-deg type="double">90</left-direction-deg>
+                <back-left-direction-deg type="double">135</back-left-direction-deg>
+                <back-direction-deg type="double">180</back-direction-deg>
+                <back-right-direction-deg type="double">225</back-right-direction-deg>
+                <right-direction-deg type="double">270</right-direction-deg>
+                <front-right-direction-deg type="double">315</front-right-direction-deg>
+                <dynamic-view type="bool">true</dynamic-view>
 
-				<x-offset-m archive="y">0</x-offset-m>
-				<y-offset-m archive="y">-0.15</y-offset-m>
-				<z-offset-m archive="y">0.6</z-offset-m>
-				<pitch-offset-deg>-8</pitch-offset-deg>
-			</config>
-		</view>
+                <x-offset-m archive="y">0</x-offset-m>
+                <y-offset-m archive="y">-0.15</y-offset-m>
+                <z-offset-m archive="y">0.6</z-offset-m>
+                <pitch-offset-deg>-8</pitch-offset-deg>
+            </config>
+        </view>
 
-		<view n="121">
-			<name>FGCamera2</name>
-			<enabled type="bool" userarchive="y">false</enabled>
-			<type>lookat</type>
-			<config>
-				<from-model type="bool">false</from-model>
-				<from-model-idx type="int">0</from-model-idx>
-				<eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
-				<eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
-				<eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
-				<eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path>
+        <view n="121">
+            <name>FGCamera2</name>
+            <enabled type="bool" userarchive="y">false</enabled>
+            <type>lookat</type>
+            <config>
+                <from-model type="bool">false</from-model>
+                <from-model-idx type="int">0</from-model-idx>
+                <eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
+                <eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
+                <eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
+                <eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path>
 
-				<at-model type="bool">true</at-model>
-				<at-model-idx type="int">0</at-model-idx>
-				<at-model-heading-damping type="double">0.0</at-model-heading-damping>
-				<target-z-offset-m type="double">0</target-z-offset-m>
+                <at-model type="bool">true</at-model>
+                <at-model-idx type="int">0</at-model-idx>
+                <at-model-heading-damping type="double">0.0</at-model-heading-damping>
+                <target-z-offset-m type="double">0</target-z-offset-m>
 
-				<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-				<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+                <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
 
-				<x-offset-m type="double">0</x-offset-m>
-				<y-offset-m type="double">0</y-offset-m>
-				<z-offset-m alias="/sim/chase-distance-m"/>
-			</config>
-		</view>
+                <x-offset-m type="double">0</x-offset-m>
+                <y-offset-m type="double">0</y-offset-m>
+                <z-offset-m alias="/sim/chase-distance-m"/>
+            </config>
+        </view>
 
-		<view n="122">
-			<name>FGCamera3</name>
-			<enabled type="bool" userarchive="y">false</enabled>
-			<type>lookfrom</type>
-			<config>
-				<from-model type="bool">true</from-model>
-				<from-model-idx type="int">0</from-model-idx>
-				<!-- eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
-				<eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
-				<eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
-				<eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path -->
+        <view n="122">
+            <name>FGCamera3</name>
+            <enabled type="bool" userarchive="y">false</enabled>
+            <type>lookfrom</type>
+            <config>
+                <from-model type="bool">true</from-model>
+                <from-model-idx type="int">0</from-model-idx>
+                <!-- eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
+                <eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
+                <eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
+                <eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path -->
 
-				<at-model type="bool">true</at-model>
-				<at-model-idx type="int">0</at-model-idx>
-				<at-model-heading-damping type="double">0.0</at-model-heading-damping>
-				<target-z-offset-m type="double">0</target-z-offset-m>
+                <at-model type="bool">true</at-model>
+                <at-model-idx type="int">0</at-model-idx>
+                <at-model-heading-damping type="double">0.0</at-model-heading-damping>
+                <target-z-offset-m type="double">0</target-z-offset-m>
 
-				<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-				<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+                <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
 
-				<x-offset-m type="double">0</x-offset-m>
-				<y-offset-m type="double">0</y-offset-m>
-				<z-offset-m alias="/sim/chase-distance-m"/>
-			</config>
-		</view>
+                <x-offset-m type="double">0</x-offset-m>
+                <y-offset-m type="double">0</y-offset-m>
+                <z-offset-m alias="/sim/chase-distance-m"/>
+            </config>
+        </view>
 
-		<view n="123">
-			<name>FGCamera4</name>
-			<enabled type="bool" userarchive="y">false</enabled>
-			<type>lookat</type>
-			<config>
-				<eye-fixed type="bool">true</eye-fixed>
-				<from-model type="bool">false</from-model>
+        <view n="123">
+            <name>FGCamera4</name>
+            <enabled type="bool" userarchive="y">false</enabled>
+            <type>lookat</type>
+            <config>
+                <eye-fixed type="bool">true</eye-fixed>
+                <from-model type="bool">false</from-model>
 
-				<eye-lat-deg-path>/sim/tower/latitude-deg</eye-lat-deg-path>
-				<eye-lon-deg-path>/sim/tower/longitude-deg</eye-lon-deg-path>
-				<eye-alt-ft-path>/sim/tower/altitude-ft</eye-alt-ft-path>
-				<eye-roll-deg-path>/sim/tower/roll-deg</eye-roll-deg-path>
-				<eye-pitch-deg-path>/sim/tower/pitch-deg</eye-pitch-deg-path>
-				<eye-heading-deg-path>/sim/tower/heading-deg</eye-heading-deg-path>
+                <eye-lat-deg-path>/sim/tower/latitude-deg</eye-lat-deg-path>
+                <eye-lon-deg-path>/sim/tower/longitude-deg</eye-lon-deg-path>
+                <eye-alt-ft-path>/sim/tower/altitude-ft</eye-alt-ft-path>
+                <eye-roll-deg-path>/sim/tower/roll-deg</eye-roll-deg-path>
+                <eye-pitch-deg-path>/sim/tower/pitch-deg</eye-pitch-deg-path>
+                <eye-heading-deg-path>/sim/tower/heading-deg</eye-heading-deg-path>
 
-				<at-model type="bool">true</at-model>
-				<at-model-idx type="int">0</at-model-idx>
+                <at-model type="bool">true</at-model>
+                <at-model-idx type="int">0</at-model-idx>
 
-				<ground-level-nearplane-m type="double">10.0f</ground-level-nearplane-m>
-				<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+                <ground-level-nearplane-m type="double">10.0f</ground-level-nearplane-m>
+                <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
 
-				<x-offset-m type="double">0</x-offset-m>
-				<y-offset-m type="double">0</y-offset-m>
-				<z-offset-m type="double">0</z-offset-m>
-			</config>
-		</view>
+                <x-offset-m type="double">0</x-offset-m>
+                <y-offset-m type="double">0</y-offset-m>
+                <z-offset-m type="double">0</z-offset-m>
+            </config>
+        </view>
 
-		<view n="124">
-			<name>FGCamera5</name>
-			<enabled type="bool" userarchive="y">false</enabled>
-			<type>lookfrom</type>
-			<config>
-				<eye-lat-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/latitude-deg</eye-lat-deg-path>
-				<eye-lon-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/longitude-deg</eye-lon-deg-path>
-				<eye-alt-ft-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/altitude-ft</eye-alt-ft-path>
-				<eye-roll-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/roll-deg</eye-roll-deg-path>
-				<eye-pitch-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/pitch-deg</eye-pitch-deg-path>
-				<eye-heading-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/heading-deg</eye-heading-deg-path>
+        <view n="124">
+            <name>FGCamera5</name>
+            <enabled type="bool" userarchive="y">false</enabled>
+            <type>lookfrom</type>
+            <config>
+                <eye-lat-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/latitude-deg</eye-lat-deg-path>
+                <eye-lon-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/longitude-deg</eye-lon-deg-path>
+                <eye-alt-ft-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/altitude-ft</eye-alt-ft-path>
+                <eye-roll-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/roll-deg</eye-roll-deg-path>
+                <eye-pitch-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/pitch-deg</eye-pitch-deg-path>
+                <eye-heading-deg-path>/addons/by-id/a.marius.FGCamera/addon-devel/tower/heading-deg</eye-heading-deg-path>
 
-				<at-model type="bool">true</at-model>
-				<at-model-idx type="int">0</at-model-idx>
+                <at-model type="bool">true</at-model>
+                <at-model-idx type="int">0</at-model-idx>
 
-				<ground-level-nearplane-m type="double">10.0f</ground-level-nearplane-m>
-				<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+                <ground-level-nearplane-m type="double">10.0f</ground-level-nearplane-m>
+                <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
 
-				<x-offset-m type="double">0</x-offset-m>
-				<y-offset-m type="double">0</y-offset-m>
-				<z-offset-m type="double">0</z-offset-m>
-			</config>
-		</view>
-	</sim>
+                <x-offset-m type="double">0</x-offset-m>
+                <y-offset-m type="double">0</y-offset-m>
+                <z-offset-m type="double">0</z-offset-m>
+            </config>
+        </view>
+    </sim>
 </PropertyList>

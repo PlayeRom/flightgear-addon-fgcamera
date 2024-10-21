@@ -1,682 +1,681 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-	<name>current-camera-settings</name>
-	<layout>vbox</layout>
-	<x>20</x>
-	<y>-50</y>
+    <name>current-camera-settings</name>
+    <layout>vbox</layout>
+    <x>20</x>
+    <y>-50</y>
 
-	<group>
-		<layout>hbox</layout>
+    <group>
+        <layout>hbox</layout>
 
-		<empty><stretch>1</stretch></empty>
+        <empty><stretch>1</stretch></empty>
 
-		<text>
-			<label>Current camera settings</label>
-		</text>
+        <text>
+            <label>Current camera settings</label>
+        </text>
 
-		<empty><stretch>1</stretch></empty>
+        <empty><stretch>1</stretch></empty>
 
-		<button>
-			<legend> </legend>
-			<key>Esc</key>
-			<pref-width>16</pref-width>
-			<pref-height>16</pref-height>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
+        <button>
+            <legend> </legend>
+            <key>Esc</key>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
 
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <group>
+            <layout>vbox</layout>
+            <checkbox>
+                <name>popup-tip</name>
+                <halign>left</halign>
+                <width>12</width>
+                <height>12</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip</property>
+                <label>Show popup tip</label>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>popup-tip</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>togglePopupTip()</script>
+                </binding>
+            </checkbox>
+        </group>
 
-		<group>
-			<layout>vbox</layout>
-			<checkbox>
-				<name>popup-tip</name>
-				<halign>left</halign>
-				<width>12</width>
-				<height>12</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip</property>
-				<label>Show popup tip</label>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>popup-tip</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>togglePopupTip()</script>
-				</binding>
-			</checkbox>
-		</group>
+        <group>
+            <layout>hbox</layout>
+            <checkbox>
+                <name>show-panel</name>
+                <halign>left</halign>
+                <width>12</width>
+                <height>12</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel</property>
+                <label>Show 2D panel</label>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>show-panel</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>toggle2DPanel()</script>
+                </binding>
+            </checkbox>
+            <combo>
+                <name>show-panel-type</name>
+                <halign>fill</halign>
+                <stretch>1</stretch>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type</property>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>show-panel-type</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>toggle2DPanel()</script>
+                </binding>
+                <value>generic-vfr-panel</value>
+                <value>controls-vfr-panel</value>
+            </combo>
+        </group>
 
-		<group>
-			<layout>hbox</layout>
-			<checkbox>
-				<name>show-panel</name>
-				<halign>left</halign>
-				<width>12</width>
-				<height>12</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel</property>
-				<label>Show 2D panel</label>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>show-panel</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>toggle2DPanel()</script>
-				</binding>
-			</checkbox>
-			<combo>
-				<name>show-panel-type</name>
-				<halign>fill</halign>
-				<stretch>1</stretch>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type</property>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>show-panel-type</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>toggle2DPanel()</script>
-				</binding>
-				<value>generic-vfr-panel</value>
-				<value>controls-vfr-panel</value>
-			</combo>
-		</group>
+        <group>
+            <layout>hbox</layout>
+            <checkbox>
+                <name>show-dialog</name>
+                <halign>left</halign>
+                <width>12</width>
+                <height>12</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog</property>
+                <label>Show dialog:</label>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>show-dialog</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>toggleDialog()</script>
+                </binding>
+            </checkbox>
 
-		<group>
-			<layout>hbox</layout>
-			<checkbox>
-				<name>show-dialog</name>
-				<halign>left</halign>
-				<width>12</width>
-				<height>12</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog</property>
-				<label>Show dialog:</label>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>show-dialog</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>toggleDialog()</script>
-				</binding>
-			</checkbox>
+            <input>
+                <name>dialog-name</name>
+                <halign>right</halign>
+                <pref-width>200</pref-width>
+                <height>25</height>
+                <live>1</live>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name</property>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>dialog-name</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>dialogName()</script>
+                </binding>
+            </input>
+        </group>
+    </group>
 
-			<input>
-				<name>dialog-name</name>
-				<halign>right</halign>
-				<pref-width>200</pref-width>
-				<height>25</height>
-				<live>1</live>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name</property>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>dialog-name</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>dialogName()</script>
-				</binding>
-			</input>
-		</group>
-	</group>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>Filed of view</label>
+            </text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
 
-		<group>
-			<layout>hbox</layout>
-			<text>
-				<label>Filed of view</label>
-			</text>
-			<hrule><stretch>true</stretch></hrule>
-		</group>
+        <group>
+            <layout>hbox</layout>
+            <input>
+                <name>field-of-view</name>
+                <halign>left</halign>
+                <pref-width>100</pref-width>
+                <height>25</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/field-of-view</property>
+                <label>degrees</label>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>field-of-view</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>applyFov()</script>
+                </binding>
+            </input>
+        </group>
+    </group>
 
-		<group>
-			<layout>hbox</layout>
-			<input>
-				<name>field-of-view</name>
-				<halign>left</halign>
-				<pref-width>100</pref-width>
-				<height>25</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/field-of-view</property>
-				<label>degrees</label>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>field-of-view</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>applyFov()</script>
-				</binding>
-			</input>
-		</group>
-	</group>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>View movement</label>
+            </text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
 
-		<group>
-			<layout>hbox</layout>
-			<text>
-				<label>View movement</label>
-			</text>
-			<hrule><stretch>true</stretch></hrule>
-		</group>
+        <group>
+            <layout>hbox</layout>
+            <input>
+                <name>movement-transition-time</name>
+                <halign>left</halign>
+                <pref-width>100</pref-width>
+                <height>25</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/movement-transition-time</property>
+                <label>Transition time, s</label>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>movement-transition-time</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>applyMovementTime()</script>
+                </binding>
+            </input>
+        </group>
+    </group>
 
-		<group>
-			<layout>hbox</layout>
-			<input>
-				<name>movement-transition-time</name>
-				<halign>left</halign>
-				<pref-width>100</pref-width>
-				<height>25</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/movement-transition-time</property>
-				<label>Transition time, s</label>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>movement-transition-time</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>applyMovementTime()</script>
-				</binding>
-			</input>
-		</group>
-	</group>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>View adjustment</label>
+            </text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
 
-		<group>
-			<layout>hbox</layout>
-			<text>
-				<label>View adjustment</label>
-			</text>
-			<hrule><stretch>true</stretch></hrule>
-		</group>
+        <group>
+            <layout>vbox</layout>
+            <input>
+                <name>adjustment-linear-velocity</name>
+                <halign>left</halign>
+                <pref-width>100</pref-width>
+                <height>25</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-linear-velocity</property>
+                <label>Linear velocity, m/s</label>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>adjustment-linear-velocity</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>applyAdjustmentLinearVelocity()</script>
+                </binding>
+            </input>
+            <input>
+                <name>adjustment-angular-velocity</name>
+                <halign>left</halign>
+                <pref-width>100</pref-width>
+                <height>25</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-angular-velocity</property>
+                <label>Angular velocity, deg/s</label>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>adjustment-angular-velocity</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>applyAdjustmentAangularVelocity()</script>
+                </binding>
+            </input>
+            <input>
+                <name>adjustment-filter</name>
+                <halign>left</halign>
+                <pref-width>100</pref-width>
+                <height>25</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-filter</property>
+                <label>Lowpass filter</label>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>adjustment-filter</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>applyAdjustmentFilter()</script>
+                </binding>
+            </input>
+        </group>
+    </group>
 
-		<group>
-			<layout>vbox</layout>
-			<input>
-				<name>adjustment-linear-velocity</name>
-				<halign>left</halign>
-				<pref-width>100</pref-width>
-				<height>25</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-linear-velocity</property>
-				<label>Linear velocity, m/s</label>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>adjustment-linear-velocity</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>applyAdjustmentLinearVelocity()</script>
-				</binding>
-			</input>
-			<input>
-				<name>adjustment-angular-velocity</name>
-				<halign>left</halign>
-				<pref-width>100</pref-width>
-				<height>25</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-angular-velocity</property>
-				<label>Angular velocity, deg/s</label>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>adjustment-angular-velocity</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>applyAdjustmentAangularVelocity()</script>
-				</binding>
-			</input>
-			<input>
-				<name>adjustment-filter</name>
-				<halign>left</halign>
-				<pref-width>100</pref-width>
-				<height>25</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-filter</property>
-				<label>Lowpass filter</label>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>adjustment-filter</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>applyAdjustmentFilter()</script>
-				</binding>
-			</input>
-		</group>
-	</group>
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>vbox</layout>
-		<padding>6</padding>
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>Mouse look</label>
+            </text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
+        <group>
+            <layout>vbox</layout>
+            <input>
+                <name>mlook-sensitivity</name>
+                <halign>left</halign>
+                <pref-width>100</pref-width>
+                <height>25</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-sensitivity</property>
+                <label>Mouse sensitivity</label>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>mlook-sensitivity</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>applyMouseLookSensitivity()</script>
+                </binding>
+            </input>
+            <input>
+                <name>mlook-filter</name>
+                <halign>left</halign>
+                <pref-width>100</pref-width>
+                <height>25</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-filter</property>
+                <label>Lowpass filter</label>
+                <live>1</live>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>mlook-filter</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>applyMouseLookFilter()</script>
+                </binding>
+            </input>
+        </group>
+    </group>
 
-		<group>
-			<layout>hbox</layout>
-			<text>
-				<label>Mouse look</label>
-			</text>
-			<hrule><stretch>true</stretch></hrule>
-		</group>
-		<group>
-			<layout>vbox</layout>
-			<input>
-				<name>mlook-sensitivity</name>
-				<halign>left</halign>
-				<pref-width>100</pref-width>
-				<height>25</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-sensitivity</property>
-				<label>Mouse sensitivity</label>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>mlook-sensitivity</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>applyMouseLookSensitivity()</script>
-				</binding>
-			</input>
-			<input>
-				<name>mlook-filter</name>
-				<halign>left</halign>
-				<pref-width>100</pref-width>
-				<height>25</height>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-filter</property>
-				<label>Lowpass filter</label>
-				<live>1</live>
-				<binding>
-					<command>dialog-apply</command>
-					<object-name>mlook-filter</object-name>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>applyMouseLookFilter()</script>
-				</binding>
-			</input>
-		</group>
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>hbox</layout>
-		<padding>6</padding>
+        <empty><stretch>1</stretch></empty>
+        <checkbox>
+            <name>enable-DHM</name>
+            <halign>left</halign>
+            <width>12</width>
+            <height>12</height>
+            <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM</property>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>toggleDHM()</script>
+            </binding>
+        </checkbox>
 
-		<empty><stretch>1</stretch></empty>
-		<checkbox>
-			<name>enable-DHM</name>
-			<halign>left</halign>
-			<width>12</width>
-			<height>12</height>
-			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM</property>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>toggleDHM()</script>
-			</binding>
-		</checkbox>
+        <button>
+            <legend>DHM...</legend>
+            <pref-width>70</pref-width>
+            <pref-height>30</pref-height>
+            <enable>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM</property>
+            </enable>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>DHM-settings</dialog-name>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
+                <dialog-name>current-camera-settings</dialog-name>
+            </binding>
+        </button>
 
-		<button>
-			<legend>DHM...</legend>
-			<pref-width>70</pref-width>
-			<pref-height>30</pref-height>
-			<enable>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM</property>
-			</enable>
-			<binding>
-				<command>dialog-show</command>
-				<dialog-name>DHM-settings</dialog-name>
-			</binding>
-			<binding>
-				<command>dialog-close</command>
-				<dialog-name>current-camera-settings</dialog-name>
-			</binding>
-		</button>
+        <empty><stretch>1</stretch></empty>
 
-		<empty><stretch>1</stretch></empty>
+        <checkbox>
+            <name>enable-RND</name>
+            <halign>left</halign>
+            <width>12</width>
+            <height>12</height>
+            <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND</property>
+            <binding>
+                <command>dialog-apply</command>
+                <object-name>enable-RND</object-name>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>toggleRND()</script>
+            </binding>
+        </checkbox>
 
-		<checkbox>
-			<name>enable-RND</name>
-			<halign>left</halign>
-			<width>12</width>
-			<height>12</height>
-			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND</property>
-			<binding>
-				<command>dialog-apply</command>
-				<object-name>enable-RND</object-name>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>toggleRND()</script>
-			</binding>
-		</checkbox>
+        <button>
+            <legend>RND...</legend>
+            <pref-width>70</pref-width>
+            <pref-height>30</pref-height>
+            <enable>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND</property>
+            </enable>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>RND-mixer</dialog-name>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
+                <dialog-name>current-camera-settings</dialog-name>
+            </binding>
+        </button>
 
-		<button>
-			<legend>RND...</legend>
-			<pref-width>70</pref-width>
-			<pref-height>30</pref-height>
-			<enable>
-				<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND</property>
-			</enable>
-			<binding>
-				<command>dialog-show</command>
-				<dialog-name>RND-mixer</dialog-name>
-			</binding>
-			<binding>
-				<command>dialog-close</command>
-				<dialog-name>current-camera-settings</dialog-name>
-			</binding>
-		</button>
+        <empty><stretch>1</stretch></empty>
+    </group>
 
-		<empty><stretch>1</stretch></empty>
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
 
-	<group>
-		<layout>hbox</layout>
-		<padding>6</padding>
+        <empty><stretch>1</stretch></empty>
 
-		<empty><stretch>1</stretch></empty>
+        <button>
+            <legend>Store position</legend>
+            <pref-width>130</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>nasal</command>
+                <script>fgcamera.offsetsManager.save()</script>
+            </binding>
+        </button>
 
-		<button>
-			<legend>Store position</legend>
-			<pref-width>130</pref-width>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>nasal</command>
-				<script>fgcamera.offsetsManager.save()</script>
-			</binding>
-		</button>
+        <button>
+            <legend>Close</legend>
+            <pref-width>90</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
 
-		<button>
-			<legend>Close</legend>
-			<pref-width>90</pref-width>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
+        <empty><stretch>1</stretch></empty>
+    </group>
 
-		<empty><stretch>1</stretch></empty>
-	</group>
+    <nasal>
+        <open> <![CDATA[
+            var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateValues() });
+            #==================================================
+            #   Functions
+            #==================================================
+            var calcData = func {
+                var c  = fgcamera.cameras.getCurrent();
+                return [
+                    [ "popup-tip"                   , c.popupTip               ],
+                    [ "show-panel"                  , c["panel-show"]          ],
+                    [ "show-panel-type"             , c["panel-show-type"]     ],
+                    [ "show-dialog"                 , c["dialog-show"]         ],
+                    [ "dialog-name"                 , c["dialog-name"]         ],
+                    [ "enable-RND"                  , c["enable-RND"]          ],
+                    [ "enable-DHM"                  , c["enable-DHM"]          ],
+                    [ "field-of-view"               , c.fov                    ],
+                    [ "movement-transition-time"    , c.movement.time          ],
+                    [ "adjustment-linear-velocity"  , c.adjustment.v[0]        ],
+                    [ "adjustment-angular-velocity" , c.adjustment.v[1]        ],
+                    [ "adjustment-filter"           , c.adjustment.filter      ],
+                    [ "mlook-sensitivity"           , c.mouse_look.sensitivity ],
+                    [ "mlook-filter"                , c.mouse_look.filter      ],
+                ];
+            }
 
-	<nasal>
-		<open> <![CDATA[
-			var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateValues() });
-			#==================================================
-			#	Functions
-			#==================================================
-			var calcData = func {
-				var c  = fgcamera.cameras.getCurrent();
-				return [
-					[ "popup-tip"                   , c.popupTip               ],
-					[ "show-panel"                  , c["panel-show"]          ],
-					[ "show-panel-type"             , c["panel-show-type"]     ],
-					[ "show-dialog"                 , c["dialog-show"]         ],
-					[ "dialog-name"                 , c["dialog-name"]         ],
-					[ "enable-RND"                  , c["enable-RND"]          ],
-					[ "enable-DHM"                  , c["enable-DHM"]          ],
-					[ "field-of-view"               , c.fov                    ],
-					[ "movement-transition-time"    , c.movement.time          ],
-					[ "adjustment-linear-velocity"  , c.adjustment.v[0]        ],
-					[ "adjustment-angular-velocity" , c.adjustment.v[1]        ],
-					[ "adjustment-filter"           , c.adjustment.filter      ],
-					[ "mlook-sensitivity"           , c.mouse_look.sensitivity ],
-					[ "mlook-filter"                , c.mouse_look.filter      ],
-				];
-			}
+            var updateValues = func {
+                foreach (var a; var data = calcData()) { #?
+                    setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/" ~ a[0], a[1]);
+                    dialogUpdate(a[0]);
+                }
+            }
 
-			var updateValues = func {
-				foreach (var a; var data = calcData()) { #?
-					setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/" ~ a[0], a[1]);
-					dialogUpdate(a[0]);
-				}
-			}
+            var dialogUpdate = func (dlgObj = nil) {
+                var hash = {
+                    "object-name" : dlgObj,
+                    "dialog-name" : "current-camera-settings"
+                };
+                fgcommand("dialog-update", props.Node.new(hash));
+            }
 
-			var dialogUpdate = func (dlgObj = nil) {
-				var hash = {
-					"object-name" : dlgObj,
-					"dialog-name" : "current-camera-settings"
-				};
-				fgcommand("dialog-update", props.Node.new(hash));
-			}
+            var validateValue = func(value, min, max) {
+                var v = num(value);
+                if (v != nil) {
+                    if (v < min or v > max) {
+                        return nil;
+                    }
+                }
+                return v;
+            }
 
-			var validateValue = func(value, min, max) {
-				var v = num(value);
-				if (v != nil) {
-					if (v < min or v > max) {
-						return nil;
-					}
-				}
-				return v;
-			}
+            #==================================================
+            #   Toggle popupTip
+            #==================================================
+            var togglePopupTip = func {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip";
+                var value = getprop(path);
 
-			#==================================================
-			#	Toggle popupTip
-			#==================================================
-			var togglePopupTip = func {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip";
-				var value = getprop(path);
+                fgcamera.cameras.getCurrent().popupTip = value;
+            }
 
-				fgcamera.cameras.getCurrent().popupTip = value;
-			}
+            #==================================================
+            #   Toggle 2d panel
+            #==================================================
+            var toggle2DPanel = func {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel";
+                var value = getprop(path);
+                var selected_type = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type") or fgcamera.Panel2D.DEFAULT;
 
-			#==================================================
-			#	Toggle 2d panel
-			#==================================================
-			var toggle2DPanel = func {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel";
-				var value = getprop(path);
-				var selected_type = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type") or fgcamera.Panel2D.DEFAULT;
+                fgcamera.cameras.getCurrent()["panel-show"] = value;
+                fgcamera.cameras.getCurrent()["panel-show-type"] = selected_type;
+                if (value) {
+                    fgcamera.Panel2D.showPath(selected_type);
+                } else {
+                    fgcamera.Panel2D.hide();
+                }
+            }
 
-				fgcamera.cameras.getCurrent()["panel-show"] = value;
-				fgcamera.cameras.getCurrent()["panel-show-type"] = selected_type;
-				if (value) {
-					fgcamera.Panel2D.showPath(selected_type);
-				} else {
-					fgcamera.Panel2D.hide();
-				}
-			}
+            #==================================================
+            #   Toggle dialog
+            #==================================================
+            var toggleDialog = func {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
+                var value = getprop(path);
 
-			#==================================================
-			#	Toggle dialog
-			#==================================================
-			var toggleDialog = func {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
-				var value = getprop(path);
+                fgcamera.cameras.getCurrent()["dialog-show"] = value;
+                if (value)
+                    fgcamera.camGui.showDialog(1);
+                else
+                    fgcamera.camGui.closeDialog(1);
+            }
 
-				fgcamera.cameras.getCurrent()["dialog-show"] = value;
-				if (value)
-					fgcamera.camGui.showDialog(1);
-				else
-					fgcamera.camGui.closeDialog(1);
-			}
+            #==================================================
+            #   Dialog name
+            #==================================================
+            var dialogName = func {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name";
+                var path2 = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
+                var value = getprop(path);
 
-			#==================================================
-			#	Dialog name
-			#==================================================
-			var dialogName = func {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name";
-				var path2 = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog";
-				var value = getprop(path);
+                if (getprop(path2)) {
+                    fgcamera.camGui.closeDialog(1);
+                    fgcamera.cameras.getCurrent()["dialog-show"] = 0;
+                }
 
-				if (getprop(path2)) {
-					fgcamera.camGui.closeDialog(1);
-					fgcamera.cameras.getCurrent()["dialog-show"] = 0;
-				}
+                fgcamera.cameras.getCurrent()["dialog-name"] = value;
+                #fgcamera.camGui.showDialog();
+                updateValues();
+            }
 
-				fgcamera.cameras.getCurrent()["dialog-name"] = value;
-				#fgcamera.camGui.showDialog();
-				updateValues();
-			}
+            #==================================================
+            #   Apply FOV
+            #==================================================
+            var applyFov = func () {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/field-of-view";
+                var value = getprop(path);
+                var min   = 10;
+                var max   = 120;
+                if (validateValue(value, min, max) == nil) {
+                    value = fgcamera.cameras.getCurrent().fov;
+                    setprop(path, value);
+                    updateValues();
+                } else {
+                    fgcamera.cameras.getCurrent().fov = value;
+                    setprop("/sim/current-view/field-of-view", value);
+                }
+            }
 
-			#==================================================
-			#	Apply FOV
-			#==================================================
-			var applyFov = func () {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/field-of-view";
-				var value = getprop(path);
-				var min   = 10;
-				var max   = 120;
-				if (validateValue(value, min, max) == nil) {
-					value = fgcamera.cameras.getCurrent().fov;
-					setprop(path, value);
-					updateValues();
-				} else {
-					fgcamera.cameras.getCurrent().fov = value;
-					setprop("/sim/current-view/field-of-view", value);
-				}
-			}
+            #==================================================
+            #   Apply transition time
+            #==================================================
+            var applyMovementTime = func () {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/movement-transition-time";
+                var value = getprop(path);
+                var min   = 0;
+                var max   = 10;
+                if (validateValue(value, min, max) == nil) {
+                    value = fgcamera.cameras.getCurrent().movement.time;
+                    setprop(path, value);
+                    updateValues();
+                } else {
+                    fgcamera.cameras.getCurrent().movement.time = value;
+                }
+            }
 
-			#==================================================
-			#	Apply transition time
-			#==================================================
-			var applyMovementTime = func () {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/movement-transition-time";
-				var value = getprop(path);
-				var min   = 0;
-				var max   = 10;
-				if (validateValue(value, min, max) == nil) {
-					value = fgcamera.cameras.getCurrent().movement.time;
-					setprop(path, value);
-					updateValues();
-				} else {
-					fgcamera.cameras.getCurrent().movement.time = value;
-				}
-			}
+            #==================================================
+            #   Apply linear_velocity
+            #==================================================
+            var applyAdjustmentLinearVelocity = func () {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-linear-velocity";
+                var value = getprop(path);
+                var min   = 0.001;
+                var max   = 1000;
+                if (validateValue(value, min, max) == nil) {
+                    value = fgcamera.cameras.getCurrent().adjustment.v[0];
+                    setprop(path, value);
+                    updateValues();
+                } else {
+                    fgcamera.cameras.getCurrent().adjustment.v[0] = value;
+                }
+            }
 
-			#==================================================
-			#	Apply linear_velocity
-			#==================================================
-			var applyAdjustmentLinearVelocity = func () {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-linear-velocity";
-				var value = getprop(path);
-				var min   = 0.001;
-				var max   = 1000;
-				if (validateValue(value, min, max) == nil) {
-					value = fgcamera.cameras.getCurrent().adjustment.v[0];
-					setprop(path, value);
-					updateValues();
-				} else {
-					fgcamera.cameras.getCurrent().adjustment.v[0] = value;
-				}
-			}
+            #==================================================
+            #   Apply angular_velocity
+            #==================================================
+            var applyAdjustmentAangularVelocity = func () {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-angular-velocity";
+                var value = getprop(path);
+                var min   = 0.01;
+                var max   = 360;
+                if (validateValue(value, min, max) == nil) {
+                    value = fgcamera.cameras.getCurrent().adjustment.v[1];
+                    setprop(path, value);
+                    updateValues();
+                } else {
+                    fgcamera.cameras.getCurrent().adjustment.v[1] = value;
+                }
+            }
 
-			#==================================================
-			#	Apply angular_velocity
-			#==================================================
-			var applyAdjustmentAangularVelocity = func () {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-angular-velocity";
-				var value = getprop(path);
-				var min   = 0.01;
-				var max   = 360;
-				if (validateValue(value, min, max) == nil) {
-					value = fgcamera.cameras.getCurrent().adjustment.v[1];
-					setprop(path, value);
-					updateValues();
-				} else {
-					fgcamera.cameras.getCurrent().adjustment.v[1] = value;
-				}
-			}
+            #==================================================
+            #   Apply adjustment_filter
+            #==================================================
+            var applyAdjustmentFilter = func () {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-filter";
+                var value = getprop(path);
+                var min   = 0;
+                var max   = 10;
+                if (validateValue(value, min, max) == nil) {
+                    value = fgcamera.cameras.getCurrent().adjustment.filter;
+                    setprop(path, value);
+                    updateValues();
+                } else {
+                    fgcamera.cameras.getCurrent().adjustment.filter = value;
+                }
+            }
 
-			#==================================================
-			#	Apply adjustment_filter
-			#==================================================
-			var applyAdjustmentFilter = func () {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/adjustment-filter";
-				var value = getprop(path);
-				var min   = 0;
-				var max   = 10;
-				if (validateValue(value, min, max) == nil) {
-					value = fgcamera.cameras.getCurrent().adjustment.filter;
-					setprop(path, value);
-					updateValues();
-				} else {
-					fgcamera.cameras.getCurrent().adjustment.filter = value;
-				}
-			}
+            #==================================================
+            #   Apply mouse_look_sensitivity
+            #==================================================
+            var applyMouseLookSensitivity = func () {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-sensitivity";
+                var value = getprop(path);
+                var min   = 0;
+                var max   = 10;
+                if (validateValue(value, min, max) == nil) {
+                    value = fgcamera.cameras.getCurrent().mouse_look.sensitivity;
+                    setprop(path, value);
+                    updateValues();
+                } else {
+                    fgcamera.cameras.getCurrent().mouse_look.sensitivity = value;
+                }
+            }
 
-			#==================================================
-			#	Apply mouse_look_sensitivity
-			#==================================================
-			var applyMouseLookSensitivity = func () {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-sensitivity";
-				var value = getprop(path);
-				var min   = 0;
-				var max   = 10;
-				if (validateValue(value, min, max) == nil) {
-					value = fgcamera.cameras.getCurrent().mouse_look.sensitivity;
-					setprop(path, value);
-					updateValues();
-				} else {
-					fgcamera.cameras.getCurrent().mouse_look.sensitivity = value;
-				}
-			}
+            #==================================================
+            #   Apply mouse_look_filter
+            #==================================================
+            var applyMouseLookFilter = func () {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-filter";
+                var value = getprop(path);
+                var min   = 0;
+                var max   = 10;
+                if (validateValue(value, min, max) == nil) {
+                    value = fgcamera.cameras.getCurrent().mouse_look.filter;
+                    setprop(path, value);
+                    updateValues();
+                } else {
+                    fgcamera.cameras.getCurrent().mouse_look.filter = value;
+                }
+            }
 
-			#==================================================
-			#	Apply mouse_look_filter
-			#==================================================
-			var applyMouseLookFilter = func () {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/mlook-filter";
-				var value = getprop(path);
-				var min   = 0;
-				var max   = 10;
-				if (validateValue(value, min, max) == nil) {
-					value = fgcamera.cameras.getCurrent().mouse_look.filter;
-					setprop(path, value);
-					updateValues();
-				} else {
-					fgcamera.cameras.getCurrent().mouse_look.filter = value;
-				}
-			}
+            #==================================================
+            #   Toggle DHM
+            #==================================================
+            var toggleDHM = func {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM";
+                var value = getprop(path);
 
-			#==================================================
-			#	Toggle DHM
-			#==================================================
-			var toggleDHM = func {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-DHM";
-				var value = getprop(path);
+                fgcamera.cameras.getCurrent()["enable-DHM"] = value;
+            }
 
-				fgcamera.cameras.getCurrent()["enable-DHM"] = value;
-			}
+            #==================================================
+            #   Toggle RND
+            #==================================================
+            var toggleRND = func {
+                var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND";
+                var value = getprop(path);
 
-			#==================================================
-			#	Toggle RND
-			#==================================================
-			var toggleRND = func {
-				var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-RND";
-				var value = getprop(path);
+                fgcamera.cameras.getCurrent()["enable-RND"] = value;
+            }
 
-				fgcamera.cameras.getCurrent()["enable-RND"] = value;
-			}
-
-			#==================================================
-			updateValues();
-		]]> </open>
-		<close>
-			removelistener(listener);
-		</close>
-	</nasal>
+            #==================================================
+            updateValues();
+        ]]> </open>
+        <close> <![CDATA[
+            removelistener(listener);
+        ]]> </close>
+    </nasal>
 </PropertyList>

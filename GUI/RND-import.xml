@@ -1,136 +1,135 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-	<name>RND-import</name>
-	<layout>vbox</layout>
-	<group>
-		<layout>hbox</layout>
+    <name>RND-import</name>
+    <layout>vbox</layout>
+    <group>
+        <layout>hbox</layout>
 
-		<empty><stretch>1</stretch></empty>
+        <empty><stretch>1</stretch></empty>
 
-		<text>
-			<label>Import effect</label>
-		</text>
+        <text>
+            <label>Import effect</label>
+        </text>
 
-		<empty><stretch>1</stretch></empty>
+        <empty><stretch>1</stretch></empty>
 
-		<button>
-			<legend> </legend>
-			<key>Esc</key>
-			<pref-width>16</pref-width>
-			<pref-height>16</pref-height>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
+        <button>
+            <legend> </legend>
+            <key>Esc</key>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
 
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>vbox</layout>
+        <list>
+            <name>file-list</name>
+            <pref-height>250</pref-height>
+            <pref-width>300</pref-width>
+            <halign>fill</halign>
+            <valign>fill</valign>
+            <stretch>true</stretch>
+            <padding>6</padding>
+            <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect</property>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>importEffect()</script>
+            </binding>
+            <value>...</value>
+        </list>
+    </group>
 
-	<group>
-		<layout>vbox</layout>
-		<list>
-			<name>file-list</name>
-			<pref-height>250</pref-height>
-			<pref-width>300</pref-width>
-			<halign>fill</halign>
-			<valign>fill</valign>
-			<stretch>true</stretch>
-			<padding>6</padding>
-			<property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect</property>
-			<binding>
-				<command>dialog-apply</command>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>importEffect()</script>
-			</binding>
-			<value>...</value>
-		</list>
-	</group>
+    <hrule/>
 
-	<hrule/>
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
+        <empty><stretch>1</stretch></empty>
+        <button>
+            <legend>Close</legend>
+            <pref-width>90</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+        <empty><stretch>1</stretch></empty>
+    </group>
 
-	<group>
-		<layout>hbox</layout>
-		<padding>6</padding>
-		<empty><stretch>1</stretch></empty>
-		<button>
-			<legend>Close</legend>
-			<pref-width>90</pref-width>
-			<pref-height>30</pref-height>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
-		<empty><stretch>1</stretch></empty>
-	</group>
+    <nasal>
+        <open> <![CDATA[
+            var listN    = cmdarg().getNode("group[1]/list");
+            var path     = fgcamera.g_Addon.basePath ~ "/Effects/RND";
+            var dir      = directory(path);
+            var list     = [];
+            var mode     = nil;
+            var listener = setlistener("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func { updateMode() });
 
-	<nasal>
-		<open> <![CDATA[
-			var listN    = cmdarg().getNode("group[1]/list");
-			var path     = fgcamera.g_Addon.basePath ~ "/Effects/RND";
-			var dir      = directory(path);
-			var list     = [];
-			var mode     = nil;
-			var listener = setlistener("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func { updateMode() });
+            var dialogUpdate = func () {
+                forindex (var i; arg) {
+                    var hash = {
+                        "object-name" : arg[i],
+                        "dialog-name" : "RND-import"
+                    };
+                    fgcommand("dialog-update", props.Node.new(hash));
+                }
+            }
 
-			var dialogUpdate = func () {
-				forindex (var i; arg) {
-					var hash = {
-						"object-name" : arg[i],
-						"dialog-name" : "RND-import"
-					};
-					fgcommand("dialog-update", props.Node.new(hash));
-				}
-			}
+            var importEffect = func {
+                var node      = props.Node.new();
+                var selection = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect");
 
-			var importEffect = func {
-				var node      = props.Node.new();
-				var selection = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect");
+                props.copy(io.read_properties(path ~ "/" ~ selection ~ ".xml"), node);
 
-				props.copy(io.read_properties(path ~ "/" ~ selection ~ ".xml"), node);
+                fgcamera.RNDHandler.rnd[mode] = node.getValues();
+                fgcamera.RNDHandler.updateRndData();
+                fgcamera.RNDHandler._setGenerators();
 
-				fgcamera.RNDHandler.rnd[mode] = node.getValues();
-				fgcamera.RNDHandler.updateRndData();
-				fgcamera.RNDHandler._setGenerators();
+                node.remove();
+            }
 
-				node.remove();
-			}
+            foreach (var file; sort(dir, cmp)) {
+                if (size(file) > 4 and substr(file, -4) == ".xml") {
+                    append(list, split(".", file)[0]);
+                }
+            }
 
-			foreach (var file; sort(dir, cmp)) {
-				if (size(file) > 4 and substr(file, -4) == ".xml") {
-					append(list, split(".", file)[0]);
-				}
-			}
+            listN.removeChildren("value");
 
-			listN.removeChildren("value");
+            forindex (var i; list) {
+                listN.addChild("value").setValue(list[i]);
+            }
 
-			forindex (var i; list) {
-				listN.addChild("value").setValue(list[i]);
-			}
+            dialogUpdate("file-list");
 
-			dialogUpdate("file-list");
+            var updateMode = func mode = getMode();
 
-			var updateMode = func mode = getMode();
+            var getMode = func {
+                var guiEdit = fgcamera.RNDHandler.guiEdit;
+                var guiMode = fgcamera.RNDHandler.guiMode;
 
-			var getMode = func {
-				var guiEdit = fgcamera.RNDHandler.guiEdit;
-				var guiMode = fgcamera.RNDHandler.guiMode;
+                if (guiEdit) {
+                    return guiMode;
+                }
 
-				if (guiEdit) {
-					return guiMode;
-				}
+                return fgcamera.RNDHandler._mode;
+            }
 
-				return fgcamera.RNDHandler._mode;
-			}
+            updateMode();
+        ]]> </open>
 
-			updateMode();
-		]]> </open>
-
-		<close> <![CDATA[
-			removelistener(listener);
-		]]> </close>
-	</nasal>
+        <close> <![CDATA[
+            removelistener(listener);
+        ]]> </close>
+    </nasal>
 </PropertyList>
