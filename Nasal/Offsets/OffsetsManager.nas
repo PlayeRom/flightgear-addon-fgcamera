@@ -28,6 +28,7 @@ var OffsetsManager = {
 				TrackIrHandler,
 				LinuxTrackHandler,
 			],
+			_deltaTimeNode: props.globals.getNode("/sim/time/delta-sec"),
 		};
 
 		me.offsets  = zeros(TemplateHandler.COORD_SIZE);
@@ -41,60 +42,66 @@ var OffsetsManager = {
 		return me;
 	},
 
+	#
+	# Callback function form ViewHandler, called only once at startup
+	#
+	# @return void
+	#
 	init: func {
 		if (me._initialized) {
 			return;
 		}
 
-		foreach (var h; me.handlers) {
-			if (view.hasmember(h, "init")) {
-				h.init();
-			}
-		}
+		me._callHandlersFunction("init");
 
 		me._initialized = 1;
 	},
 
+	#
+	# Callback function form ViewHandler, called when view is switched to our view
+	#
+	# @return void
+	#
 	start: func {
 		setprop(g_myNodePath ~ "/fgcamera-enabled", 1);
 
-		foreach (var h; me.handlers) {
-			if (view.hasmember(h, "start")) {
-				h.start();
-			}
-		}
+		me._callHandlersFunction("start");
 	},
 
-	update: func (dt = nil) {
-		if (dt == nil) {
-			dt = getprop("/sim/time/delta-sec");
-		}
+	#
+	# Callback function form ViewHandler, called iteratively.
+	#
+	# @return double  Interval in seconds until next invocation.
+	#
+	update: func () {
+		var dt = me._deltaTimeNode.getDoubleValue();
 
 		var updateF  = 0;
 		var offsets  = zeros(TemplateHandler.COORD_SIZE);
 		var offsets2 = zeros(TemplateHandler.COORD_SIZE);
 
-		foreach (var h; me.handlers) {
-			if (h._updateF) {
+		foreach (var handler; me.handlers) {
+			if (handler._updateF) {
 				updateF = 1;
 			}
 
-			h.update(dt);
+			handler.update(dt);
 
-			if (h._effect) {
-				forindex (var i; h.offsets) {
-					offsets2[i] += h.offsets[i];
+			if (handler._effect) {
+				forindex (var i; handler.offsets) {
+					offsets2[i] += handler.offsets[i];
 				}
 			}
 			else {
-				forindex (var i; h.offsets) {
-					offsets[i] += h.offsets[i];
+				forindex (var i; handler.offsets) {
+					offsets[i] += handler.offsets[i];
 				}
 			}
 		}
 
 		me.offsets  = offsets;
 		me.offsets2 = offsets2;
+
 		if (updateF) {
 			me._apply();
 		}
@@ -103,34 +110,28 @@ var OffsetsManager = {
 	},
 
 	reset: func {
-		foreach (var h; me.handlers) {
-			if (view.hasmember(h, "reset")) {
-				h.reset();
-			}
-		}
+		me._callHandlersFunction("reset");
 	},
 
+	#
+	# Callback function form ViewHandler, called when view is switched away from our view
+	#
+	# @return void
+	#
 	stop: func {
 		setprop(g_myNodePath ~ "/fgcamera-enabled", 0);
 
-		foreach (var h; me.handlers) {
-			if (view.hasmember(h, "stop")) {
-				h.stop();
-			}
-		}
+		me._callHandlersFunction("stop");
 	},
 
 	_reset: func {
-		foreach (var h; me.handlers) {
-			if (view.hasmember(h, "_reset")) {
-				h._reset();
-			}
-			elsif (!h.free) {
-				forindex (var i; h.offsets) {
-					h.offsets[i] = 0;
+		me._callHandlersFunction("_reset", func (handler) {
+			if (!handler.free) {
+				forindex (var i; handler.offsets) {
+					handler.offsets[i] = 0;
 				}
 			}
-		}
+		});
 	},
 
 	#
@@ -148,6 +149,26 @@ var OffsetsManager = {
 	save: func {
 		forindex (var i; cameras.getCurrent().offsets) {
 			cameras.getCurrent().offsets[i] = me.offsets[i];
+		}
+	},
+
+	#
+	# Call for all handlers the given function name if the function exists,
+	# if not then call the callback function
+	#
+	# @param  string  funcName  The neme of function to call
+	# @param  func  nagativeCallback  The function that will be called if the handler does not have the function specified in the name
+	# @return void
+	#
+	_callHandlersFunction: func (funcName, nagativeCallback = nil) {
+		foreach (var handler; me.handlers) {
+			if (view.hasmember(handler, funcName)) {
+				# Calling the funcName function, without parameters, in a handler context
+				call(handler[funcName], [], handler);
+			}
+			elsif (nagativeCallback != nil) {
+				nagativeCallback(handler);
+			}
 		}
 	},
 };

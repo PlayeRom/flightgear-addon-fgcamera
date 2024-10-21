@@ -1,5 +1,6 @@
 #==================================================
 #	View adjustment handler
+#   Used to move the camera with the Up/Down/Left/Right/PgUp/PgDn keys.
 #==================================================
 
 var AdjustmentHandler = {
@@ -8,14 +9,14 @@ var AdjustmentHandler = {
 	_v      : zeros(TemplateHandler.COORD_SIZE),
 	_vT     : zeros(TemplateHandler.COORD_SIZE), # transformed
 
-	_reset : func {
+	_reset: func {
 		forindex (var i; me.offsets) {
 			me.offsets[i] = me._offsetsRaw[i] = 0;
 			me._lp[i].set(0);
 		}
 	},
 
-	_trigger : func {
+	_trigger: func {
 		forindex (var i; me._coords) {
 			var vCfg = cameras.getCurrent().adjustment.v;
 			var v = vCfg[i < 3 ? 0 : 1];
