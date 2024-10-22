@@ -6,6 +6,7 @@
 var AdjustmentHandler = {
     parents : [ TemplateHandler.new() ],
 
+    name    : "AdjustmentHandler",
     _v      : zeros(TemplateHandler.COORD_SIZE),
     _vT     : zeros(TemplateHandler.COORD_SIZE), # transformed
 

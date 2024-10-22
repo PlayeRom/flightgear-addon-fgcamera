@@ -5,8 +5,8 @@
 var MovementHandler = {
     parents : [ TemplateHandler.new() ],
 
+    name    : "MovementHandler",
     _free   : true,
-
     blend   : 0.0,
     _b      : 0,
     _from   : zeros(TemplateHandler.COORD_SIZE),

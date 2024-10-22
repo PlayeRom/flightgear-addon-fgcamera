@@ -168,6 +168,39 @@
                 </binding>
             </checkbox>
         </group>
+
+        <group>
+            <layout>vbox</layout>
+            <padding>6</padding>
+
+            <group>
+                <layout>hbox</layout>
+                <text>
+                    <label>Extra handlers</label>
+                    <halign>left</halign>
+                </text>
+
+                <hrule><stretch>true</stretch></hrule>
+            </group>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Linux Track</label>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/handlers/linux-track</property>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>TrackIR</label>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/handlers/track-ir</property>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </checkbox>
+        </group>
     </group>
 
     <hrule/>

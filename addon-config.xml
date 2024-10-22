@@ -59,6 +59,12 @@
                     <mini-dialog-autohide type="bool" userarchive="y">false</mini-dialog-autohide>
                     <mini-dialog-type type="string" userarchive="y">simple</mini-dialog-type>
                     <use-ctrl-with-numkeys type="bool" userarchive="y">false</use-ctrl-with-numkeys>
+
+                    <!-- optional extra handlers -->
+                    <handlers>
+                        <linux-track type="bool" userarchive="y">false</linux-track>
+                        <track-ir type="bool" userarchive="y">false</track-ir>
+                    </handlers>
                 </addon-devel>
             </a.marius.FGCamera>
         </by-id>

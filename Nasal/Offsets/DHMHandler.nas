@@ -93,8 +93,8 @@ var DHM = {
 var DHMHandler = {
     parents : [ TemplateHandler.new() ],
 
-    _free     : true,
-
+    name     : "DHMHandler",
+    _free    : true,
     _effect  : true,
     _updateF : true,
 

@@ -336,6 +336,7 @@ var generator = {
 var RNDHandler = {
     parents  : [ TemplateHandler.new() ],
 
+    name    : "RNDHandler",
     _free    : true,
     guiEdit  : false,
     guiMode  : 0, # 0 - ground; 1 - air;

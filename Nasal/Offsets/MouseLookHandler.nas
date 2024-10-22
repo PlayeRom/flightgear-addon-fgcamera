@@ -5,6 +5,7 @@
 var MouseLookHandler = {
     parents      : [ TemplateHandler.new() ],
 
+    name         : "MouseLookHandler",
     _delta       : zeros(TemplateHandler.COORD_SIZE),
     _deltaT      : zeros(TemplateHandler.COORD_SIZE),
     _path        : "/devices/status/mice/mouse/",

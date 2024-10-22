@@ -9,6 +9,7 @@ var LinuxTrackHandler = {
 
     parents  : [ TemplateHandler.new() ],
 
+    name     : "LinuxTrackHandler",
     _free    : true,
     _updateF : true,
     _effect  : true,

@@ -19,15 +19,13 @@ var OffsetsManager = {
                 "pitch-offset-deg",
                 "roll-offset-deg",
             ],
-            handlers     : [
+            handlers: std.Vector.new([
                 MovementHandler,
                 AdjustmentHandler,
                 MouseLookHandler,
                 DHMHandler,
                 RNDHandler,
-                TrackIrHandler,
-                LinuxTrackHandler,
-            ],
+            ]),
             _deltaTimeNode: props.globals.getNode("/sim/time/delta-sec"),
         };
 
@@ -39,7 +37,74 @@ var OffsetsManager = {
             append(me._nodes, props.globals.getNode("/sim/current-view/" ~ name, 1));
         }
 
+        # Adding LinuxTrackHandler depending on options
+        setlistener(g_myNodePath ~ "/handlers/linux-track", func(node) {
+            if (node.getBoolValue()) {
+                me._add(LinuxTrackHandler);
+            }
+            else {
+                me._remove(LinuxTrackHandler);
+            }
+        }, true, 0);
+
+        # Adding TrackIrHandler depending on options
+        setlistener(g_myNodePath ~ "/handlers/track-ir", func(node) {
+            if (node.getBoolValue()) {
+                me._add(TrackIrHandler);
+            }
+            else {
+                me._remove(TrackIrHandler);
+            }
+        }, true, 0);
+
         return me;
+    },
+
+    #
+    # Check if the specified handler has already been added to use
+    #
+    # @return bool
+    #
+    _isAdded: func (handler) {
+        foreach (var item; me.handlers.vector) {
+            if (item.name == handler.name) {
+                return true;
+            }
+        }
+
+        return false;
+    },
+
+    #
+    # Add given handler to use
+    #
+    # @param  hash handler  Handler object to add
+    # @return bool
+    #
+    _add: func (handler) {
+        if (me._isAdded(handler)) {
+            return false;
+        }
+
+        me._callHandlerFunction(handler, "init");
+        me.handlers.append(handler);
+        return true;
+    },
+
+    #
+    # Remove given handler from use
+    #
+    # @param  hash handler  Handler object to remove
+    # @return bool
+    #
+    _remove: func (handler) {
+        if (!me._isAdded(handler)) {
+            return false;
+        }
+
+        me.handlers.remove(handler);
+        me._callHandlerFunction(handler, "stop");
+        return true;
     },
 
     #
@@ -80,7 +145,7 @@ var OffsetsManager = {
         var offsets  = zeros(TemplateHandler.COORD_SIZE);
         var offsets2 = zeros(TemplateHandler.COORD_SIZE);
 
-        foreach (var handler; me.handlers) {
+        foreach (var handler; me.handlers.vector) {
             if (handler._updateF) {
                 updateF = true;
             }
@@ -161,7 +226,7 @@ var OffsetsManager = {
     # @return void
     #
     _callHandlersFunction: func (funcName, nagativeCallback = nil) {
-        foreach (var handler; me.handlers) {
+        foreach (var handler; me.handlers.vector) {
             var called = me._callHandlerFunction(handler, funcName);
             if (!called and nagativeCallback != nil) {
                 nagativeCallback(handler);

@@ -10,8 +10,8 @@ var TrackIrHandler = {
 
     parents  : [ TemplateHandler.new() ],
 
+    name    : "TrackIrHandler",
     _free    : true,
-
     _updateF : true,
     _effect  : true,
 

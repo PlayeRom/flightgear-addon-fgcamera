@@ -4,7 +4,7 @@ var g_myNodePath = nil;
 #==================================================
 #   "Objects"
 #==================================================
-var offsetsManager = OffsetsManager.new();
+var offsetsManager = nil;
 var mouse          = nil;
 var camGui         = nil;
 var fileHandler    = nil;
@@ -22,6 +22,8 @@ var views          = nil;
 var init = func(addon) {
     g_Addon = addon;
     g_myNodePath = g_Addon.node.getPath() ~ "/addon-devel";
+
+    offsetsManager = OffsetsManager.new();
 
     var fdmInitListener = _setlistener("/sim/signals/fdm-initialized", func {
         removelistener(fdmInitListener);

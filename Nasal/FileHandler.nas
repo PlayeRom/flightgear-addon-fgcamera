@@ -66,11 +66,13 @@ var FileHandler = {
         var value = cameraNode.getChild("mini-dialog-type", 0, 1).getValue() or "simple";
         setprop(g_myNodePath ~ "/mini-dialog-type", value);
 
-        me._loadBoolOption(cameraNode, 1, "spring-loaded-mouse", "mouse/spring-loaded");
-        me._loadBoolOption(cameraNode, 1, "force-look-around-mode-in-fg", "mouse/force-look-around-mode-in-fg");
-        me._loadBoolOption(cameraNode, 1, "mini-dialog-enable");
-        me._loadBoolOption(cameraNode, 0, "mini-dialog-autohide");
-        me._loadBoolOption(cameraNode, 0, "use-ctrl-with-numkeys");
+        me._loadBoolOption(cameraNode, true,  "spring-loaded-mouse", "mouse/spring-loaded");
+        me._loadBoolOption(cameraNode, true,  "force-look-around-mode-in-fg", "mouse/force-look-around-mode-in-fg");
+        me._loadBoolOption(cameraNode, true,  "mini-dialog-enable");
+        me._loadBoolOption(cameraNode, false, "mini-dialog-autohide");
+        me._loadBoolOption(cameraNode, false, "use-ctrl-with-numkeys");
+        me._loadBoolOption(cameraNode, false, "linux-track-handler", "handlers/linux-track");
+        me._loadBoolOption(cameraNode, false, "track-ir-handler", "handlers/track-ir");
 
         cameraNode.remove();
         return cameras.size();
@@ -135,6 +137,8 @@ var FileHandler = {
         node.getChild("mini-dialog-enable",           index, create).setBoolValue(getprop(g_myNodePath ~ "/mini-dialog-enable"));
         node.getChild("mini-dialog-autohide",         index, create).setBoolValue(getprop(g_myNodePath ~ "/mini-dialog-autohide"));
         node.getChild("use-ctrl-with-numkeys",        index, create).setBoolValue(getprop(g_myNodePath ~ "/use-ctrl-with-numkeys"));
+        node.getChild("linux-track-handler",          index, create).setBoolValue(getprop(g_myNodePath ~ "/handlers/linux-track"));
+        node.getChild("track-ir-handler",             index, create).setBoolValue(getprop(g_myNodePath ~ "/handlers/track-ir"));
 
         io.write_properties(path ~ "/" ~ file, node);
         node.remove();
