@@ -15,6 +15,7 @@ movement generator which can simulate any aircraft type (GA, Airliner etc).
 - add path to the addon in the Launcher application in 'Add-On' section **OR**
   run FlightGear with `--addon` option with path to FGCamera like
   `--addon="/myfolder/addons/fgcamera"`.
+
 # FlightGear configuration
 
 Start FlightGear. Go to menu `View -> FGCamera`. FGCamera default configuration
@@ -71,7 +72,7 @@ Clicking 'Options...' button you can define behavior of following options:
   left corner of the screen will display the mini-dialog. By default, this
   option is disable.
 * Key
-  * `Use Ctrl with numeric key` - By default, FGCamera overrides the default
+  * `Use Ctrl with numeric key` - by default, FGCamera overrides the default
   number key assignments, 0 to 9, using them to switch between cameras. This
   means you won't be able to use the number keys to control the aircraft, such
   as the 5 key to return the controls to neutral position, etc. Then you can
@@ -79,6 +80,10 @@ Clicking 'Options...' button you can define behavior of following options:
   held down. Then FlightGear's default number keys will work, and switching
   between cameras will be done with Ctrl-0 to Ctrl-9. By default, this option is
   disabled.
+* Extra handlers - these handlers are optional and most users don't need them,
+  so they are disabled by default. However, you can always enable them as needed.
+  * `Linux Track` - enable/disable Linux Track handler.
+  * `TrackIR` - enable/disable TrackIR handler.
 
 ## Mini-dialogs
 
