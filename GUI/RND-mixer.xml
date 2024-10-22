@@ -314,7 +314,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("p", 3, 10)</script>
+                        <script>setData("p", 3)</script>
                     </binding>
                 </dial>
 
@@ -367,7 +367,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("p", 0, 10)</script>
+                        <script>setData("p", 0)</script>
                     </binding>
                 </dial>
 
@@ -380,7 +380,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("p", 1, 10)</script>
+                        <script>setData("p", 1)</script>
                     </binding>
                 </dial>
 
@@ -393,7 +393,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("p", 2, 10)</script>
+                        <script>setData("p", 2)</script>
                     </binding>
                 </dial>
             </group>
@@ -558,7 +558,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("h", 3, 10)</script>
+                        <script>setData("h", 3)</script>
                     </binding>
                 </dial>
 
@@ -610,7 +610,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("h", 0, 10)</script>
+                        <script>setData("h", 0)</script>
                     </binding>
                 </dial>
 
@@ -623,7 +623,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("h", 1, 10)</script>
+                        <script>setData("h", 1)</script>
                     </binding>
                 </dial>
 
@@ -636,7 +636,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("h", 2, 10)</script>
+                        <script>setData("h", 2)</script>
                     </binding>
                 </dial>
             </group>
@@ -800,7 +800,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("r", 3, 10)</script>
+                        <script>setData("r", 3)</script>
                     </binding>
                 </dial>
 
@@ -853,7 +853,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("r", 0, 10)</script>
+                        <script>setData("r", 0)</script>
                     </binding>
                 </dial>
 
@@ -866,7 +866,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("r", 1, 10)</script>
+                        <script>setData("r", 1)</script>
                     </binding>
                 </dial>
 
@@ -879,7 +879,7 @@
                     </binding>
                     <binding>
                         <command>nasal</command>
-                        <script>setData("r", 2, 10)</script>
+                        <script>setData("r", 2)</script>
                     </binding>
                 </dial>
             </group>
@@ -1043,7 +1043,7 @@
 
             var setScale = func fgcamera.RNDHandler.rnd[mode].mixer.s = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s");
 
-            var setData = func (key, i, scale = 1) {
+            var setData = func (key, i) {
                 fgcamera.RNDHandler.rnd[mode].mixer[key][i] = getprop(path ~ key ~ list1[i]);
             }
 
