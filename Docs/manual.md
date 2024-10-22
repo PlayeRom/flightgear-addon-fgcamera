@@ -84,6 +84,9 @@ Clicking 'Options...' button you can define behavior of following options:
   so they are disabled by default. However, you can always enable them as needed.
   * `Linux Track` - enable/disable Linux Track handler.
   * `TrackIR` - enable/disable TrackIR handler.
+* Buttons
+  * 'Save' - save all camera options and settings to a file and close the window.
+  * 'Close' - just close the window (without saving on disk).
 
 ## Mini-dialogs
 
@@ -187,7 +190,7 @@ aircraft.
 
 When selecting 'RND' on the camera settings dialog, one is moved to the Random
 View Generator dialog. There you can define predefined random movement. This
-option can simulate various aircrafts and situations. When selecting 'Import'
+option can simulate various aircraft and situations. When selecting 'Import'
 button, you can import predefined Random setting according to plane types e.g.
 for General Aircraft (GA) type. Using Ground/Air buttons you can define different
 random generator according to the aircraft state (in Air/on the Ground).
@@ -217,7 +220,7 @@ Settings regarding each aircraft are stored in
 * See `aircraft-integration.md` file for additional API for integration with the
 aircraft code in order to get more precise control e.g. walker bypass options
 * See `headtracker-integration.md` file for information how to integrate additional
-head-tracker interfaces (beside linuxtrack and irtrack)
+head-tracker interfaces (beside Linux Track and TrackIR.)
 
 Have fun using this addon!
 
