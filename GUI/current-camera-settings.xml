@@ -523,7 +523,7 @@
 
                 if (getprop(path2)) {
                     fgcamera.camGui.closeDialog(1);
-                    fgcamera.cameras.getCurrent()["dialog-show"] = 0;
+                    fgcamera.cameras.getCurrent()["dialog-show"] = false;
                 }
 
                 fgcamera.cameras.getCurrent()["dialog-name"] = value;

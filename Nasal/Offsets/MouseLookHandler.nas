@@ -10,7 +10,7 @@ var MouseLookHandler = {
     _path        : "/devices/status/mice/mouse/",
     _sensitivity : 2.0,
     _filter      : 0.1,
-    _mlook       : 0,
+    _mlook       : false,
 
     _reset: func {
         me.offsets      = zeros(TemplateHandler.COORD_SIZE);
@@ -28,7 +28,7 @@ var MouseLookHandler = {
         var mode = mouse.getMode();
 
         if (mode == Mouse.MODE_LOOK_AROUND or mode == 3) { # TODO: what is mode 3?
-            me._mlook = 1;
+            me._mlook = true;
 
             mouse.reset();
 
@@ -36,10 +36,10 @@ var MouseLookHandler = {
             me._sensitivity = m.sensitivity;
             me._filter      = m.filter;
 
-            me._updateF = 1;
+            me._updateF = true;
         }
         else {
-            me._mlook   = 0;
+            me._mlook   = false;
         }
     },
 
@@ -63,10 +63,10 @@ var MouseLookHandler = {
         var i = 0;
         forindex (var i; me._deltaT) {
             me._offsetsRaw[i] += me._deltaT[i] * me._sensitivity;
-            me.offsets[i]       = me._lp[i].filter(me._offsetsRaw[i], me._filter);
+            me.offsets[i]      = me._lp[i].filter(me._offsetsRaw[i], me._filter);
 
             if (me.offsets[i] != me._offsetsRaw[i]) {
-                me._updateF = 1;
+                me._updateF = true;
             }
 
             i += 1;

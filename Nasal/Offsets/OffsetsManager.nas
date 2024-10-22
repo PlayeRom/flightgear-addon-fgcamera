@@ -10,7 +10,7 @@ var OffsetsManager = {
     new: func() {
         var me = {
             parents      : [OffsetsManager],
-            _initialized : 0,
+            _initialized : false,
             coords       : [
                 "x-offset-m",
                 "y-offset-m",
@@ -54,7 +54,7 @@ var OffsetsManager = {
 
         me._callHandlersFunction("init");
 
-        me._initialized = 1;
+        me._initialized = true;
     },
 
     #
@@ -76,13 +76,13 @@ var OffsetsManager = {
     update: func () {
         var dt = me._deltaTimeNode.getDoubleValue();
 
-        var updateF  = 0;
+        var updateF  = false;
         var offsets  = zeros(TemplateHandler.COORD_SIZE);
         var offsets2 = zeros(TemplateHandler.COORD_SIZE);
 
         foreach (var handler; me.handlers) {
             if (handler._updateF) {
-                updateF = 1;
+                updateF = true;
             }
 
             handler.update(dt);
@@ -126,7 +126,7 @@ var OffsetsManager = {
 
     _reset: func {
         me._callHandlersFunction("_reset", func (handler) {
-            if (!handler.free) {
+            if (!handler._free) {
                 forindex (var i; handler.offsets) {
                     handler.offsets[i] = 0;
                 }
@@ -180,9 +180,9 @@ var OffsetsManager = {
         if (view.hasmember(handler, funcName) and typeof(handler[funcName]) == "func") {
             # Calling the funcName function, without parameters, in a handler context
             call(handler[funcName], [], handler);
-            return 1;
+            return true;
         }
 
-        return 0;
+        return false;
     }
 };

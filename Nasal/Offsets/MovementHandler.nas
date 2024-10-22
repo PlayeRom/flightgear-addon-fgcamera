@@ -5,15 +5,15 @@
 var MovementHandler = {
     parents : [ TemplateHandler.new() ],
 
-    free    : 1,
+    _free   : true,
 
-    blend   : 0,
+    blend   : 0.0,
     _b      : 0,
     _from   : zeros(TemplateHandler.COORD_SIZE),
     _to     : [],
     _fromFov: getprop("/sim/current-view/field-of-view"),
     _toFov  : getprop("/sim/current-view/field-of-view"),
-    _diffFov: 0,
+    _diffFov: 0.0,
 
     _dlg    : nil,
     # timeF   : 0,
@@ -31,12 +31,12 @@ var MovementHandler = {
             "roll-deg",
         ];
 
-        var nextTwr = 0;
+        var nextTwr = false;
         foreach (var a; list) {
             var path = g_myNodePath ~ "/tower/" ~ a;
             if (getprop(path) != twr[a]) {
                 setprop(path, twr[a]);
-                nextTwr = 1;
+                nextTwr = true;
             }
         }
 
@@ -51,11 +51,11 @@ var MovementHandler = {
             return me._setTower(cameras.getCamera(id).tower);
         }
 
-        return 0;
+        return false;
     },
 
     _setFromTo: func (view_id, camera_id) {
-        me._to    = cameras.getCamera(camera_id).offsets;
+        me._to   = cameras.getCamera(camera_id).offsets;
         var bTwr = me._checkWorldView(camera_id);
 
         if (cameras.getCurrentViewId() == view_id) {
@@ -115,7 +115,7 @@ var MovementHandler = {
         me._toFov = cameras.getCurrent().fov;
         me._diffFov = math.abs(me._fromFov - me._toFov);
 
-        me._updateF = 1;
+        me._updateF = true;
     },
 
     init: func {
@@ -132,7 +132,7 @@ var MovementHandler = {
             return;
         }
 
-        me._updateF = 0;
+        me._updateF = false;
         var data    = cameras.getCurrent().movement;
 
         # FIXME - remove comment ?
@@ -182,7 +182,7 @@ var MovementHandler = {
                 setprop("/sim/current-view/field-of-view", fov);
             }
 
-            me._updateF = 1;
+            me._updateF = true;
         }
     },
 

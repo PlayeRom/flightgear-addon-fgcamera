@@ -9,9 +9,9 @@ var LinuxTrackHandler = {
 
     parents  : [ TemplateHandler.new() ],
 
-    free     : 1,
-    _updateF : 1,
-    _effect  : 1,
+    _free    : true,
+    _updateF : true,
+    _effect  : true,
 
     init: func {
         var i = 0;
@@ -44,7 +44,7 @@ var LinuxTrackHandler = {
     },
 
     _getPropPathByIndex: func (index) {
-                if (index == 0) return "/sim/linuxtrack/track-x";
+             if (index == 0) return "/sim/linuxtrack/track-x";
         else if (index == 1) return "/sim/linuxtrack/track-y";
         else if (index == 2) return "/sim/linuxtrack/track-z";
 

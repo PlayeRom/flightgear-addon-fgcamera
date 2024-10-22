@@ -13,9 +13,9 @@ var TemplateHandler = {
         me._offsetsRaw = zeros(TemplateHandler.COORD_SIZE);
         me._lp         = [];
         me._listeners  = [];
-        me._free       = 0;
-        me._effect     = 0;
-        me._updateF    = 0;
+        me._free       = false;
+        me._effect     = false;
+        me._updateF    = false;
 
         forindex (var i; me.offsets) {
             append(me._lp, lowPass.new(0));

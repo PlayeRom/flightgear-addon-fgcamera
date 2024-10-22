@@ -336,12 +336,12 @@ var generator = {
 var RNDHandler = {
     parents  : [ TemplateHandler.new() ],
 
-    free     : 1,
-    guiEdit  : 0, # 0 / 1
+    _free    : true,
+    guiEdit  : false,
     guiMode  : 0, # 0 - ground; 1 - air;
     G_output : [,,,],
-    _effect  : 1,
-    _updateF : 1,
+    _effect  : true,
+    _updateF : true,
     _wow     : [1, 1, 1],
     _gnd     : 0,
     _mode    : 0, # 0 - ground; 1 - air;
@@ -394,10 +394,10 @@ var RNDHandler = {
         }
 
         var prev_mode = me._mode;
+        var level = 1;
 
         if (me.guiEdit) {
             me.hpCoeff = 0;
-            var level  = 1;
             me._mode   = me.guiMode;
         }
         else {
@@ -414,7 +414,7 @@ var RNDHandler = {
             }
 
             me.hpCoeff = me._findValue(me.rnd[me._mode].curves.v2, me.rnd[me._mode].curves.filter, v);
-            var level  = me._findValue(me.rnd[me._mode].curves.v2, me.rnd[me._mode].curves.level,  v);
+            level      = me._findValue(me.rnd[me._mode].curves.v2, me.rnd[me._mode].curves.level,  v);
         }
 
         if (prev_mode != me._mode) {
@@ -472,11 +472,11 @@ var RNDHandler = {
     _checkMode: func { # 0 - ground; 1 - air
         foreach (var a; me._wow) {
             if (a) {
-                return 0;
+                return 0; # ground
             }
         }
 
-        return 1;
+        return 1; # air
     },
 };
 #end

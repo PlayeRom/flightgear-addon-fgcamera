@@ -35,6 +35,12 @@ var main = func(addon) {
         "FGCamera",
     ];
 
+    if (!isFG2024Version()) {
+        # Nasal in 2024.x version is support `true` and `false` keywords but previous FG versions not,
+        # so for them add Boolean.nas file
+        files = ["Boolean"] ~ files;
+    }
+
     # load scripts
     foreach (var file; files) {
         if (!io.load_nasal(basePath ~ "/" ~ file ~ ".nas", "fgcamera")) {
@@ -43,4 +49,13 @@ var main = func(addon) {
     }
 
     fgcamera.init(addon);
+}
+
+#
+# @return bool  Return true if running on FG version 2024.x and later
+#
+var isFG2024Version = func() {
+    var fgversion = getprop("/sim/version/flightgear");
+    var (major, minor, patch) = split(".", fgversion);
+    return major >= 2024;
 }

@@ -110,11 +110,11 @@ var Gui = {
             var name = item.getChild("name");
             if (name != nil and name.getValue() == Gui.MENU_NAME) {
                 logprint(LOG_INFO, "Menu item FGCamera already exists");
-                return 1;
+                return true;
             }
         }
 
-        return 0;
+        return false;
     },
 
     #

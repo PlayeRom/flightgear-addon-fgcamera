@@ -41,12 +41,12 @@ var init = func(addon) {
                 # Delay selecting default camera 2nd time for fix FOV and RND effects
                 setprop(g_myNodePath ~ "/current-camera/camera-id", 0);
             });
-            delayTimer.singleShot = 1;
+            delayTimer.singleShot = true;
             delayTimer.start();
         }
 
         # welcome message
-        if (getprop(g_myNodePath ~ "/welcome-skip") != 1) {
+        if (getprop(g_myNodePath ~ "/welcome-skip") != true) {
             fgcommand("dialog-show", props.Node.new({'dialog-name':'fgcamera-welcome'}));
         }
     });

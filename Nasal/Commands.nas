@@ -98,10 +98,10 @@ var Commands = {
             var category = cameras.getCamera(index).category;
 
             # is category already included
-            var exist = 0;
+            var exist = false;
             forindex (var i; camerasToSort.vector) {
                 if (camerasToSort.vector[i].category == category) {
-                    exist = 1;
+                    exist = true;
                     break;
                 }
             }
@@ -141,7 +141,7 @@ var Commands = {
         }
 
         var categoryIterator = cameras.getCurrent().category;
-        var br = 0;
+        var br = false;
         while (!br) {
             if (direction > 0) { # Button [>>]
                 categoryIterator += 1;
@@ -165,7 +165,7 @@ var Commands = {
                     # found it
                     setprop(g_myNodePath ~ "/popupTip", 1);
                     setprop(g_myNodePath ~ "/current-camera/camera-id", camera.id);
-                    br = 1;
+                    br = true;
                     break;
                 }
             }
@@ -184,7 +184,7 @@ var Commands = {
 
         setprop(g_myNodePath ~ "/popupTip", 1);
 
-        var br = 0;
+        var br = false;
         while (!br) {
             if (direction < 0) { # Button [<]
                 cameraId -= 1;
@@ -204,11 +204,11 @@ var Commands = {
 
             if (currentCategory == category) {
                 setprop(g_myNodePath ~ "/current-camera/camera-id", cameraId);
-                br = 1;
+                br = true;
             }
 
             if (cameraId == cameras.getCurrentId()) {
-                br = 1;
+                br = true;
             }
         }
     },

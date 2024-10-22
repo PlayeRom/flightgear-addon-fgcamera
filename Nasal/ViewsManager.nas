@@ -15,7 +15,7 @@ var ViewsManager = {
             parents : [ViewsManager],
             _rightBtnModeCycle : nil,
             _modelOccupants    : nil,
-            _preventListener   : 0,
+            _preventListener   : false,
         };
 
         me.register();
@@ -25,7 +25,7 @@ var ViewsManager = {
                 # It's internal state change by changing the view from FGCamera to FG and vice versa.
                 # And in this listener we want to capture the change of the option only when the user chooses
                 # the one from the menu.
-                me._preventListener = 0;
+                me._preventListener = true;
                 return;
             }
 
@@ -72,7 +72,7 @@ var ViewsManager = {
             # logprint(LOG_INFO, "FGCamera: mouse mode; initial = ", (me._rightBtnModeCycle ? "cycle" :  "look around"));
         }
 
-        me._preventListener = 1;
+        me._preventListener = true;
         setprop(path, me._getRightBtnModeCycle(start));
     },
 
@@ -83,12 +83,12 @@ var ViewsManager = {
     _getRightBtnModeCycle: func(start) {
         if (start) {
             # logprint(LOG_INFO, "FGCamera: mouse mode; start force = ", (1 ? "cycle" :  "look around"));
-            return 1;
+            return true;
         }
 
         if (getprop(g_myNodePath ~ "/mouse/force-look-around-mode-in-fg")) {
             # logprint(LOG_INFO, "FGCamera: mouse mode; stop; option force-look-around-mode-in-fg force = ", (0 ? "cycle" :  "look around"));
-            return 0;
+            return false;
         }
 
         # logprint(LOG_INFO, "FGCamera: mouse mode; stop; use previous setting = ", (me._rightBtnModeCycle ? "cycle" : "look around"));

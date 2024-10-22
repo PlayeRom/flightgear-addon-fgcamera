@@ -93,11 +93,10 @@ var DHM = {
 var DHMHandler = {
     parents : [ TemplateHandler.new() ],
 
-    free     : 1,
+    _free     : true,
 
-    _effect  : 1,
-    _time    : 0,
-    _updateF : 1,
+    _effect  : true,
+    _updateF : true,
 
     init: func {
         me.dhmY = DHM.new("/accelerations/pilot/z-accel-fps_sec");

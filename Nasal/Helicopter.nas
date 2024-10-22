@@ -18,7 +18,7 @@ var Helicopter = {
             me.check();
             logprint(LOG_INFO, "FGCamera: helicopter: ", helicopter.isHelicopter());
         });
-        delayTimer.singleShot = 1;
+        delayTimer.singleShot = true;
         delayTimer.start();
 
         return me;

@@ -44,7 +44,7 @@ var Walker = {
                     me.lastCamera = nil;
                 });
             }
-            timer.singleShot = 1; # timer will only be run once
+            timer.singleShot = true; # timer will only be run once
             timer.start();
         });
 

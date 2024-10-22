@@ -23,7 +23,7 @@ var AdjustmentHandler = {
 
             me._v[i] = getprop(g_myNodePath ~ "/controls/adjust-" ~ me._coords[i]) or 0;
             if ((me._v[i] *= v) != 0) {
-                me._updateF = 1;
+                me._updateF = true;
             }
         }
     },
@@ -37,7 +37,7 @@ var AdjustmentHandler = {
 
     update: func (dt) {
         if (me._updateF) {
-            me._updateF = 0;
+            me._updateF = false;
 
             var filter  = cameras.getCurrent().adjustment.filter;
 
@@ -49,7 +49,7 @@ var AdjustmentHandler = {
             #     me.offsets[dof]       = me._lp[dof].filter(me._offsetsRaw[dof], filter);
 
             #     if (me.offsets[dof] != me._offsetsRaw[dof] or me._v[dof] != 0)
-            #         me._updateF = 1;
+            #         me._updateF = true;
             # }
 
             forindex (var dof; me.offsets) {
@@ -59,7 +59,7 @@ var AdjustmentHandler = {
                 # me.offsets[dof] = me._lp[dof].filter(me._offsetsRaw[dof], filter);
 
                 if (v != 0) {
-                    me._updateF = 1;
+                    me._updateF = true;
                 }
             }
         }

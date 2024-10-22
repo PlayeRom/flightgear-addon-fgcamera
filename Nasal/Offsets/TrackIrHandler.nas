@@ -10,10 +10,10 @@ var TrackIrHandler = {
 
     parents  : [ TemplateHandler.new() ],
 
-    free     : 1,
+    _free    : true,
 
-    _updateF : 1,
-    _effect  : 1,
+    _updateF : true,
+    _effect  : true,
 
     init: func {
         var i = 0;

@@ -30,7 +30,7 @@ var FileHandler = {
         var aircraft  = getprop("/sim/aircraft");
         var file = aircraft ~ ".xml";
         var cameraNode = props.Node.new();
-        var isDefault = 0;
+        var isDefault = false;
 
         # search for user defined configuration (in fg-home)
         var path = getprop("/sim/fg-home") ~ "/aircraft-data/FGCamera/" ~ aircraft;
@@ -41,7 +41,7 @@ var FileHandler = {
                 # default configuration
                 path = me._addonBasePath;
                 file = "default-cameras.xml";
-                isDefault = 1;
+                isDefault = true;
             }
         }
 
