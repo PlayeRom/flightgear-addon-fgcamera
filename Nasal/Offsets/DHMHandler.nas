@@ -88,7 +88,7 @@ var DHM = {
 };
 
 #==================================================
-#   DHM effect handler
+#   Dynamic Head Movement effect handler
 #==================================================
 var DHMHandler = {
     parents : [ TemplateHandler.new() ],

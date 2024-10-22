@@ -331,7 +331,7 @@ var generator = {
 };
 
 #==================================================
-#   RND effects handler
+#   Random effects handler
 #==================================================
 var RNDHandler = {
     parents  : [ TemplateHandler.new() ],
@@ -344,7 +344,6 @@ var RNDHandler = {
     _effect  : true,
     _updateF : true,
     _wow     : [1, 1, 1],
-    _gnd     : 0,
     _mode    : 0, # 0 - ground; 1 - air;
     _GEN     : [],
 
