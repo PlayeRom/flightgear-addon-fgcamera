@@ -19,7 +19,7 @@ var OffsetsManager = {
                 "pitch-offset-deg",
                 "roll-offset-deg",
             ],
-            handlers: std.Vector.new([
+            _handlers: std.Vector.new([
                 MovementHandler,
                 AdjustmentHandler,
                 MouseLookHandler,
@@ -66,7 +66,7 @@ var OffsetsManager = {
     # @return bool
     #
     _isAdded: func (handler) {
-        foreach (var item; me.handlers.vector) {
+        foreach (var item; me._handlers.vector) {
             if (item.name == handler.name) {
                 return true;
             }
@@ -87,7 +87,7 @@ var OffsetsManager = {
         }
 
         me._callHandlerFunction(handler, "init");
-        me.handlers.append(handler);
+        me._handlers.append(handler);
         return true;
     },
 
@@ -102,7 +102,7 @@ var OffsetsManager = {
             return false;
         }
 
-        me.handlers.remove(handler);
+        me._handlers.remove(handler);
         me._callHandlerFunction(handler, "stop");
         return true;
     },
@@ -145,7 +145,7 @@ var OffsetsManager = {
         var offsets  = zeros(TemplateHandler.COORD_SIZE);
         var offsets2 = zeros(TemplateHandler.COORD_SIZE);
 
-        foreach (var handler; me.handlers.vector) {
+        foreach (var handler; me._handlers.vector) {
             if (handler._updateF) {
                 updateF = true;
             }
@@ -226,7 +226,7 @@ var OffsetsManager = {
     # @return void
     #
     _callHandlersFunction: func (funcName, nagativeCallback = nil) {
-        foreach (var handler; me.handlers.vector) {
+        foreach (var handler; me._handlers.vector) {
             var called = me._callHandlerFunction(handler, funcName);
             if (!called and nagativeCallback != nil) {
                 nagativeCallback(handler);
