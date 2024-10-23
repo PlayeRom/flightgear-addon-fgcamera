@@ -98,7 +98,7 @@ camera' section of the 'FGCamera' main window.
 
 ## General options
 
-Clicking 'Options...' button you can define behavior of following options:
+Clicking '**Options...**' button you can define behavior of following options:
 
 ![alt options](images/options.png "Options")
 
@@ -108,7 +108,7 @@ Clicking 'Options...' button you can define behavior of following options:
   (see `File -> Mouse Configuration`). Therefore, check this option if you want
   to look around while holding down the right mouse button. By default, this
   option is enabled.
-  * '**Force "Press and hold right mouse to look around" in FG views*'* - Using
+  * '**Force "Press and hold right mouse to look around" in FG views**' - Using
   FGCamera, you can always switch to FlightGear's default views using the v/V
   key. Check this option if you would like to look around in this mode by
   holding  down the right mouse button. By default, this option is enabled.
