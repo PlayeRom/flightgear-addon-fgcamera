@@ -9,10 +9,12 @@
     <group>
         <layout>hbox</layout>
 
-        <empty><stretch>1</stretch></empty>
-
         <text>
             <label>Current camera settings</label>
+            <halign>left</halign>
+            <format>%s</format>
+            <live>true</live>
+            <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/label-bar</property>
         </text>
 
         <empty><stretch>1</stretch></empty>
@@ -421,6 +423,7 @@
     <nasal>
         <open> <![CDATA[
             var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateValues() });
+
             #==================================================
             #   Functions
             #==================================================
@@ -441,6 +444,7 @@
                     [ "adjustment-filter"           , c.adjustment.filter      ],
                     [ "mlook-sensitivity"           , c.mouse_look.sensitivity ],
                     [ "mlook-filter"                , c.mouse_look.filter      ],
+                    [ "label-bar"                   , "\"" ~ c.name ~ "\" settings" ],
                 ];
             }
 
