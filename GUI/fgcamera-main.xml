@@ -18,7 +18,7 @@
         <empty><stretch>1</stretch></empty>
 
         <button>
-            <legend> </legend>
+            <legend>X</legend>
             <key>Esc</key>
             <pref-width>16</pref-width>
             <pref-height>16</pref-height>
@@ -53,7 +53,7 @@
         </button>
 
         <button>
-            <legend>Create new camera...</legend>
+            <legend>New camera...</legend>
             <pref-height>30</pref-height>
             <binding>
                 <command>dialog-show</command>
@@ -113,7 +113,6 @@
 
                 <button>
                     <legend>Up</legend>
-                    <key>Esc</key>
                     <pref-width>50</pref-width>
                     <pref-height>30</pref-height>
                     <binding>
@@ -124,7 +123,6 @@
 
                 <button>
                     <legend>Down</legend>
-                    <key>Esc</key>
                     <pref-width>50</pref-width>
                     <pref-height>30</pref-height>
                     <binding>
@@ -158,7 +156,7 @@
                 <name>camera_name</name>
                 <halign>left</halign>
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
-                <pref-width>200</pref-width>
+                <pref-width>150</pref-width>
                 <stretch>true</stretch>
                 <live>1</live>
                 <binding>
