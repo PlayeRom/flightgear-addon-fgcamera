@@ -36,12 +36,12 @@
         <padding>6</padding>
 
         <button>
-            <legend>Options...</legend>
-            <pref-width>80</pref-width>
+            <legend>Load...</legend>
+            <pref-width>70</pref-width>
             <pref-height>30</pref-height>
             <binding>
                 <command>dialog-show</command>
-                <dialog-name>fgcamera-options</dialog-name>
+                <dialog-name>fgcamera-presets</dialog-name>
             </binding>
         </button>
 
@@ -52,6 +52,16 @@
             <binding>
                 <command>dialog-show</command>
                 <dialog-name>create-new-camera</dialog-name>
+            </binding>
+        </button>
+
+        <button>
+            <legend>Options...</legend>
+            <pref-width>80</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>fgcamera-options</dialog-name>
             </binding>
         </button>
 
@@ -301,8 +311,7 @@
 
     <nasal>
         <open> <![CDATA[
-            var list     = cmdarg().getNode("group[2]/group[1]/list");
-            # var dlgPath = fgcamera.g_myNodePath ~ "/dialogs/fgcamera-main";
+            var list = gui.findElementByName(cmdarg(), "camera_list");
             var names    = [];
             var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func { updateList() });
 

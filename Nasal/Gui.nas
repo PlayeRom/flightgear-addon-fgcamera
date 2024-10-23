@@ -66,6 +66,7 @@ var Gui = {
             "fgcamera-main",
             "fgcamera-options",
             "fgcamera-welcome",
+            'fgcamera-presets',
             "RND-curves",
             "RND-generator",
             "RND-import",

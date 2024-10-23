@@ -1,0 +1,2041 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <camera>
+    <tower>
+      <roll-deg type="string">0</roll-deg>
+      <heading-deg type="string">0</heading-deg>
+      <pitch-deg type="string">0</pitch-deg>
+      <altitude-ft type="string">0</altitude-ft>
+      <latitude-deg type="string">0</latitude-deg>
+      <longitude-deg type="string">0</longitude-deg>
+    </tower>
+    <type type="string">FGCamera1</type>
+    <popupTip type="string">1</popupTip>
+    <name type="string">Pilot</name>
+    <panel-show-type type="string">generic-vfr-panel</panel-show-type>
+    <mouse_look>
+      <filter type="string">0.1</filter>
+      <sensitivity type="string">2.0</sensitivity>
+    </mouse_look>
+    <adjustment>
+      <filter type="string">0.2</filter>
+      <v type="string">0.1</v>
+      <v n="1" type="string">30.0</v>
+    </adjustment>
+    <enable-RND type="string">1</enable-RND>
+    <panel-show type="string">0</panel-show>
+    <dialog-name type="string"></dialog-name>
+    <fov type="string">70</fov>
+    <DHM>
+      <z-axis>
+        <damping type="double">50</damping>
+        <impulse-g type="double">0</impulse-g>
+        <movement-limit type="double">0.05</movement-limit>
+        <constant-g type="double">0.25</constant-g>
+      </z-axis>
+      <g-load-release type="double">0</g-load-release>
+      <y-axis>
+        <constant-g type="double">0.05</constant-g>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.2</impulse-g>
+        <head-pitch type="double">50</head-pitch>
+        <movement-limit type="double">0.025</movement-limit>
+      </y-axis>
+      <head-mass type="double">10</head-mass>
+      <x-axis>
+        <head-bank type="double">50</head-bank>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.4</impulse-g>
+        <constant-g type="double">0.5</constant-g>
+        <movement-limit type="double">0.05</movement-limit>
+      </x-axis>
+    </DHM>
+    <dialog-show type="string">0</dialog-show>
+    <head-tracker type="string">0</head-tracker>
+    <enable-DHM type="string">1</enable-DHM>
+    <movement>
+      <time type="string">1</time>
+    </movement>
+    <RND>
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0.299028</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0.401944</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0.313427</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0.452607</x>
+        <s type="string">0.615649</s>
+        <r type="string">0.267612</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0.362781</r>
+        <r n="3" type="string">0.38764</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">1</LFO2>
+        <LFO2 n="1" type="string">1.11858</LFO2>
+        <LFO2 n="2" type="string">0.105698</LFO2>
+        <LFO2 n="3" type="string">0.148932</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">1</noise>
+        <noise n="1" type="string">2.05587</noise>
+        <noise n="2" type="string">0.131363</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">1</resonance>
+        <resonance n="1" type="string">4.14909</resonance>
+        <resonance n="2" type="string">1.34142</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.221464</resonance>
+        <resonance n="5" type="string">0.0980867</resonance>
+        <LFO1 type="string">1</LFO1>
+        <LFO1 n="1" type="string">0.836877</LFO1>
+        <LFO1 n="2" type="string">0.169885</LFO1>
+        <LFO1 n="3" type="string">0.118085</LFO1>
+        <noise type="string">1</noise>
+        <noise n="1" type="string">3.81118</noise>
+        <noise n="2" type="string">0.0665625</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">1</resonance>
+        <resonance n="1" type="string">3.70431</resonance>
+        <resonance n="2" type="string">1.45307</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0.5</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">1</noise>
+        <noise n="1" type="string">3.64049</noise>
+        <noise n="2" type="string">0.290614</noise>
+      </GEN>
+      <curves>
+        <filter type="double">1.014</filter>
+        <filter n="1" type="double">0.846</filter>
+        <filter n="2" type="double">0.636</filter>
+        <filter n="3" type="double">0.45</filter>
+        <filter n="4" type="double">0.312</filter>
+        <filter n="5" type="double">0.216</filter>
+        <filter n="6" type="double">0.144</filter>
+        <filter n="7" type="double">0.108</filter>
+        <filter n="8" type="double">0.072</filter>
+        <filter n="9" type="double">0</filter>
+        <level type="double">0</level>
+        <level n="1" type="double">0.396</level>
+        <level n="2" type="double">0.66</level>
+        <level n="3" type="double">0.822</level>
+        <level n="4" type="double">0.876</level>
+        <level n="5" type="double">0.864</level>
+        <level n="6" type="double">0.792</level>
+        <level n="7" type="double">0.72</level>
+        <level n="8" type="double">0.63</level>
+        <level n="9" type="double">0.594</level>
+        <v1 type="double">0</v1>
+        <v1 n="1" type="double">0.9</v1>
+        <v1 n="2" type="double">2.8</v1>
+        <v1 n="3" type="double">5.7</v1>
+        <v1 n="4" type="double">9.3</v1>
+        <v1 n="5" type="double">16.1</v1>
+        <v1 n="6" type="double">26</v1>
+        <v1 n="7" type="double">42</v1>
+        <v1 n="8" type="double">72.6</v1>
+        <v1 n="9" type="double">127.4</v1>
+        <v2 type="double">0</v2>
+        <v2 n="1" type="double">1.4</v2>
+        <v2 n="2" type="double">2.9</v2>
+        <v2 n="3" type="double">5.2</v2>
+        <v2 n="4" type="double">9.8</v2>
+        <v2 n="5" type="double">15</v2>
+        <v2 n="6" type="double">27</v2>
+        <v2 n="7" type="double">39.7</v2>
+        <v2 n="8" type="double">54</v2>
+        <v2 n="9" type="double">80.1</v2>
+      </curves>
+    </RND>
+    <RND n="1">
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <offsets type="double">-0.21</offsets>
+    <offsets n="1" type="double">0.2987665525</offsets>
+    <offsets n="2" type="double">0.36</offsets>
+    <offsets n="3" type="double">0.1042752868</offsets>
+    <offsets n="4" type="double">-14.96296296</offsets>
+    <offsets n="5" type="double">0</offsets>
+    <category type="string">0</category>
+  </camera>
+  <camera n="1">
+    <dialog-show type="string">0</dialog-show>
+    <tower>
+      <roll-deg type="string">0</roll-deg>
+      <heading-deg type="string">0</heading-deg>
+      <pitch-deg type="string">0</pitch-deg>
+      <altitude-ft type="string">0</altitude-ft>
+      <latitude-deg type="string">0</latitude-deg>
+      <longitude-deg type="string">0</longitude-deg>
+    </tower>
+    <type type="string">FGCamera1</type>
+    <popupTip type="string">1</popupTip>
+    <panel-show-type type="string">controls-vfr-panel</panel-show-type>
+    <mouse_look>
+      <filter type="string">0.1</filter>
+      <sensitivity type="string">2.0</sensitivity>
+    </mouse_look>
+    <adjustment>
+      <filter type="string">0.2</filter>
+      <v type="string">0.1</v>
+      <v n="1" type="string">30.0</v>
+    </adjustment>
+    <enable-RND type="string">1</enable-RND>
+    <panel-show type="string">1</panel-show>
+    <dialog-name type="string"></dialog-name>
+    <fov type="string">70</fov>
+    <DHM>
+      <z-axis>
+        <damping type="double">50</damping>
+        <impulse-g type="double">0</impulse-g>
+        <movement-limit type="double">0.05</movement-limit>
+        <constant-g type="double">0.25</constant-g>
+      </z-axis>
+      <g-load-release type="double">0</g-load-release>
+      <y-axis>
+        <constant-g type="double">0.05</constant-g>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.2</impulse-g>
+        <head-pitch type="double">50</head-pitch>
+        <movement-limit type="double">0.025</movement-limit>
+      </y-axis>
+      <head-mass type="double">10</head-mass>
+      <x-axis>
+        <head-bank type="double">50</head-bank>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.4</impulse-g>
+        <constant-g type="double">0.5</constant-g>
+        <movement-limit type="double">0.05</movement-limit>
+      </x-axis>
+    </DHM>
+    <name type="string">Panel</name>
+    <head-tracker type="string">0</head-tracker>
+    <enable-DHM type="string">1</enable-DHM>
+    <movement>
+      <time type="string">1.0</time>
+    </movement>
+    <RND>
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <RND n="1">
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <offsets type="double">-0.2106187817</offsets>
+    <offsets n="1" type="double">0.06373694886</offsets>
+    <offsets n="2" type="double">0.02000056308</offsets>
+    <offsets n="3" type="double">-1.387778781e-17</offsets>
+    <offsets n="4" type="double">-10.88888889</offsets>
+    <offsets n="5" type="double">0</offsets>
+    <category type="string">3</category>
+  </camera>
+  <camera n="2">
+    <dialog-show type="string">1</dialog-show>
+    <tower>
+      <roll-deg type="string">0</roll-deg>
+      <heading-deg type="string">0</heading-deg>
+      <pitch-deg type="string">0</pitch-deg>
+      <altitude-ft type="string">0</altitude-ft>
+      <latitude-deg type="string">0</latitude-deg>
+      <longitude-deg type="string">0</longitude-deg>
+    </tower>
+    <type type="string">FGCamera1</type>
+    <popupTip type="string">1</popupTip>
+    <panel-show-type type="string">generic-vfr-panel</panel-show-type>
+    <mouse_look>
+      <filter type="string">0.1</filter>
+      <sensitivity type="string">2.0</sensitivity>
+    </mouse_look>
+    <adjustment>
+      <filter type="string">0.2</filter>
+      <v type="string">0.1</v>
+      <v n="1" type="string">30.0</v>
+    </adjustment>
+    <enable-RND type="string">1</enable-RND>
+    <panel-show type="string">0</panel-show>
+    <dialog-name type="string">map</dialog-name>
+    <fov type="string">70</fov>
+    <DHM>
+      <z-axis>
+        <damping type="double">50</damping>
+        <impulse-g type="double">0</impulse-g>
+        <movement-limit type="double">0.05</movement-limit>
+        <constant-g type="double">0.25</constant-g>
+      </z-axis>
+      <g-load-release type="double">0</g-load-release>
+      <y-axis>
+        <constant-g type="double">0.05</constant-g>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.2</impulse-g>
+        <head-pitch type="double">50</head-pitch>
+        <movement-limit type="double">0.025</movement-limit>
+      </y-axis>
+      <head-mass type="double">10</head-mass>
+      <x-axis>
+        <head-bank type="double">50</head-bank>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.4</impulse-g>
+        <constant-g type="double">0.5</constant-g>
+        <movement-limit type="double">0.05</movement-limit>
+      </x-axis>
+    </DHM>
+    <name type="string">Radio</name>
+    <head-tracker type="string">0</head-tracker>
+    <enable-DHM type="string">1</enable-DHM>
+    <movement>
+      <time type="string">1.0</time>
+    </movement>
+    <RND>
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <RND n="1">
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <offsets type="double">-0.1321108308</offsets>
+    <offsets n="1" type="double">0.1076264289</offsets>
+    <offsets n="2" type="double">0.02903976035</offsets>
+    <offsets n="3" type="double">-13.76433785</offsets>
+    <offsets n="4" type="double">-15.51851852</offsets>
+    <offsets n="5" type="double">0</offsets>
+    <category type="string">3</category>
+  </camera>
+  <camera n="3">
+    <dialog-show type="string">0</dialog-show>
+    <tower>
+      <roll-deg type="string">0</roll-deg>
+      <heading-deg type="string">0</heading-deg>
+      <pitch-deg type="string">0</pitch-deg>
+      <altitude-ft type="string">0</altitude-ft>
+      <latitude-deg type="string">0</latitude-deg>
+      <longitude-deg type="string">0</longitude-deg>
+    </tower>
+    <type type="string">FGCamera1</type>
+    <popupTip type="string">1</popupTip>
+    <panel-show-type type="string">controls-vfr-panel</panel-show-type>
+    <mouse_look>
+      <filter type="string">0.1</filter>
+      <sensitivity type="string">2.0</sensitivity>
+    </mouse_look>
+    <adjustment>
+      <filter type="string">0.2</filter>
+      <v type="string">0.1</v>
+      <v n="1" type="string">30.0</v>
+    </adjustment>
+    <enable-RND type="string">1</enable-RND>
+    <panel-show type="string">1</panel-show>
+    <dialog-name type="string"></dialog-name>
+    <fov type="string">70</fov>
+    <DHM>
+      <z-axis>
+        <damping type="double">50</damping>
+        <impulse-g type="double">0</impulse-g>
+        <movement-limit type="double">0.05</movement-limit>
+        <constant-g type="double">0.25</constant-g>
+      </z-axis>
+      <g-load-release type="double">0</g-load-release>
+      <y-axis>
+        <constant-g type="double">0.05</constant-g>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.2</impulse-g>
+        <head-pitch type="double">50</head-pitch>
+        <movement-limit type="double">0.025</movement-limit>
+      </y-axis>
+      <head-mass type="double">10</head-mass>
+      <x-axis>
+        <head-bank type="double">50</head-bank>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.4</impulse-g>
+        <constant-g type="double">0.5</constant-g>
+        <movement-limit type="double">0.05</movement-limit>
+      </x-axis>
+    </DHM>
+    <name type="string">Bottom panel</name>
+    <head-tracker type="string">0</head-tracker>
+    <enable-DHM type="string">1</enable-DHM>
+    <movement>
+      <time type="string">1.0</time>
+    </movement>
+    <RND>
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <RND n="1">
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <offsets type="double">-0.208471252</offsets>
+    <offsets n="1" type="double">-0.1831535505</offsets>
+    <offsets n="2" type="double">0.08000417337</offsets>
+    <offsets n="3" type="double">-0.3128258603</offsets>
+    <offsets n="4" type="double">-9.037037037</offsets>
+    <offsets n="5" type="double">0</offsets>
+    <category type="string">3</category>
+  </camera>
+  <camera n="4">
+    <tower>
+      <roll-deg type="double">0</roll-deg>
+      <heading-deg type="double">0</heading-deg>
+      <pitch-deg type="double">0</pitch-deg>
+      <altitude-ft type="double">289</altitude-ft>
+      <latitude-deg type="double">52.30753254</latitude-deg>
+      <longitude-deg type="double">4.76253725</longitude-deg>
+    </tower>
+    <type type="string">FGCamera4</type>
+    <popupTip type="string">1</popupTip>
+    <name type="string">world look at</name>
+    <panel-show-type type="string">generic-vfr-panel</panel-show-type>
+    <mouse_look>
+      <filter type="string">0.1</filter>
+      <sensitivity type="string">2.0</sensitivity>
+    </mouse_look>
+    <adjustment>
+      <filter type="string">0.2</filter>
+      <v type="string">0.1</v>
+      <v n="1" type="string">30.0</v>
+    </adjustment>
+    <enable-RND type="string">1</enable-RND>
+    <panel-show type="string">0</panel-show>
+    <dialog-name type="string"></dialog-name>
+    <fov type="string">65</fov>
+    <DHM>
+      <z-axis>
+        <damping type="double">50</damping>
+        <impulse-g type="double">0</impulse-g>
+        <movement-limit type="double">0.05</movement-limit>
+        <constant-g type="double">0.25</constant-g>
+      </z-axis>
+      <g-load-release type="double">0</g-load-release>
+      <y-axis>
+        <constant-g type="double">0.05</constant-g>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.2</impulse-g>
+        <head-pitch type="double">50</head-pitch>
+        <movement-limit type="double">0.025</movement-limit>
+      </y-axis>
+      <head-mass type="double">10</head-mass>
+      <x-axis>
+        <head-bank type="double">50</head-bank>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.4</impulse-g>
+        <constant-g type="double">0.5</constant-g>
+        <movement-limit type="double">0.05</movement-limit>
+      </x-axis>
+    </DHM>
+    <dialog-show type="string">0</dialog-show>
+    <head-tracker type="string">0</head-tracker>
+    <enable-DHM type="string">1</enable-DHM>
+    <movement>
+      <time type="string">1.0</time>
+    </movement>
+    <RND>
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <RND n="1">
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <offsets type="double">-0.21</offsets>
+    <offsets n="1" type="double">0.2987665525</offsets>
+    <offsets n="2" type="double">0.36</offsets>
+    <offsets n="3" type="double">0.1042752868</offsets>
+    <offsets n="4" type="double">-14.96296296</offsets>
+    <offsets n="5" type="double">0</offsets>
+    <category type="string">1</category>
+  </camera>
+  <camera n="5">
+    <tower>
+      <roll-deg type="string">0</roll-deg>
+      <heading-deg type="string">0</heading-deg>
+      <pitch-deg type="string">0</pitch-deg>
+      <altitude-ft type="string">0</altitude-ft>
+      <latitude-deg type="string">0</latitude-deg>
+      <longitude-deg type="string">0</longitude-deg>
+    </tower>
+    <type type="string">FGCamera4</type>
+    <popupTip type="string">1</popupTip>
+    <name type="string">world look at zoom in</name>
+    <panel-show-type type="string">generic-vfr-panel</panel-show-type>
+    <mouse_look>
+      <filter type="string">0.1</filter>
+      <sensitivity type="string">2.0</sensitivity>
+    </mouse_look>
+    <adjustment>
+      <filter type="string">0.2</filter>
+      <v type="string">0.1</v>
+      <v n="1" type="string">30.0</v>
+    </adjustment>
+    <enable-RND type="string">1</enable-RND>
+    <panel-show type="string">0</panel-show>
+    <dialog-name type="string"></dialog-name>
+    <fov type="string">10</fov>
+    <DHM>
+      <z-axis>
+        <damping type="double">50</damping>
+        <impulse-g type="double">0</impulse-g>
+        <movement-limit type="double">0.05</movement-limit>
+        <constant-g type="double">0.25</constant-g>
+      </z-axis>
+      <g-load-release type="double">0</g-load-release>
+      <y-axis>
+        <constant-g type="double">0.05</constant-g>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.2</impulse-g>
+        <head-pitch type="double">50</head-pitch>
+        <movement-limit type="double">0.025</movement-limit>
+      </y-axis>
+      <head-mass type="double">10</head-mass>
+      <x-axis>
+        <head-bank type="double">50</head-bank>
+        <damping type="double">30</damping>
+        <impulse-g type="double">0.4</impulse-g>
+        <constant-g type="double">0.5</constant-g>
+        <movement-limit type="double">0.05</movement-limit>
+      </x-axis>
+    </DHM>
+    <dialog-show type="string">0</dialog-show>
+    <head-tracker type="string">0</head-tracker>
+    <enable-DHM type="string">1</enable-DHM>
+    <movement>
+      <time type="string">1</time>
+    </movement>
+    <RND>
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <RND n="1">
+      <mixer>
+        <z type="string">0</z>
+        <z n="1" type="string">0</z>
+        <z n="2" type="string">0</z>
+        <z n="3" type="string">0</z>
+        <y type="string">0</y>
+        <y n="1" type="string">0</y>
+        <y n="2" type="string">0</y>
+        <y n="3" type="string">0</y>
+        <h type="string">0</h>
+        <h n="1" type="string">0</h>
+        <h n="2" type="string">0</h>
+        <h n="3" type="string">0</h>
+        <p type="string">0</p>
+        <p n="1" type="string">0</p>
+        <p n="2" type="string">0</p>
+        <p n="3" type="string">0</p>
+        <x type="string">0</x>
+        <x n="1" type="string">0</x>
+        <x n="2" type="string">0</x>
+        <x n="3" type="string">0</x>
+        <s type="string">1</s>
+        <r type="string">0</r>
+        <r n="1" type="string">0</r>
+        <r n="2" type="string">0</r>
+        <r n="3" type="string">0</r>
+      </mixer>
+      <GEN>
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="1">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <GEN n="2">
+        <sine type="string">0</sine>
+        <sine n="1" type="string">0</sine>
+        <sine n="2" type="string">0</sine>
+        <LFO2 type="string">0</LFO2>
+        <LFO2 n="1" type="string">0</LFO2>
+        <LFO2 n="2" type="string">0</LFO2>
+        <LFO2 n="3" type="string">0</LFO2>
+        <resonance type="string">0</resonance>
+        <resonance n="1" type="string">0</resonance>
+        <resonance n="2" type="string">0</resonance>
+        <resonance n="3" type="string">0.1</resonance>
+        <resonance n="4" type="string">0.1</resonance>
+        <resonance n="5" type="string">0</resonance>
+        <LFO1 type="string">0</LFO1>
+        <LFO1 n="1" type="string">0</LFO1>
+        <LFO1 n="2" type="string">0</LFO1>
+        <LFO1 n="3" type="string">0</LFO1>
+        <noise type="string">0</noise>
+        <noise n="1" type="string">0</noise>
+        <noise n="2" type="string">0</noise>
+      </GEN>
+      <curves>
+        <filter type="string">0</filter>
+        <filter n="1" type="string">0</filter>
+        <filter n="2" type="string">0</filter>
+        <filter n="3" type="string">0</filter>
+        <filter n="4" type="string">0</filter>
+        <filter n="5" type="string">0</filter>
+        <filter n="6" type="string">0</filter>
+        <filter n="7" type="string">0</filter>
+        <filter n="8" type="string">0</filter>
+        <filter n="9" type="string">0</filter>
+        <level type="string">0</level>
+        <level n="1" type="string">0</level>
+        <level n="2" type="string">0</level>
+        <level n="3" type="string">0</level>
+        <level n="4" type="string">0</level>
+        <level n="5" type="string">0</level>
+        <level n="6" type="string">0</level>
+        <level n="7" type="string">0</level>
+        <level n="8" type="string">0</level>
+        <level n="9" type="string">0</level>
+        <v1 type="string">0</v1>
+        <v1 n="1" type="string">10</v1>
+        <v1 n="2" type="string">20</v1>
+        <v1 n="3" type="string">30</v1>
+        <v1 n="4" type="string">40</v1>
+        <v1 n="5" type="string">50</v1>
+        <v1 n="6" type="string">60</v1>
+        <v1 n="7" type="string">70</v1>
+        <v1 n="8" type="string">80</v1>
+        <v1 n="9" type="string">90</v1>
+        <v2 type="string">0</v2>
+        <v2 n="1" type="string">10</v2>
+        <v2 n="2" type="string">20</v2>
+        <v2 n="3" type="string">30</v2>
+        <v2 n="4" type="string">40</v2>
+        <v2 n="5" type="string">50</v2>
+        <v2 n="6" type="string">60</v2>
+        <v2 n="7" type="string">70</v2>
+        <v2 n="8" type="string">80</v2>
+        <v2 n="9" type="string">90</v2>
+      </curves>
+    </RND>
+    <offsets type="double">-0.21</offsets>
+    <offsets n="1" type="double">-3.450481025</offsets>
+    <offsets n="2" type="double">0.36</offsets>
+    <offsets n="3" type="double">0.1042752868</offsets>
+    <offsets n="4" type="double">-14.96296296</offsets>
+    <offsets n="5" type="double">0</offsets>
+    <category type="string">1</category>
+  </camera>
+  <version type="string">1.2.7</version>
+  <mini-dialog-type type="string">simple</mini-dialog-type>
+  <spring-loaded-mouse type="bool">true</spring-loaded-mouse>
+  <force-look-around-mode-in-fg type="bool">true</force-look-around-mode-in-fg>
+  <mini-dialog-enable type="bool">true</mini-dialog-enable>
+  <mini-dialog-autohide type="bool">true</mini-dialog-autohide>
+  <use-ctrl-with-numkeys type="bool">false</use-ctrl-with-numkeys>
+  <linux-track-handler type="bool">false</linux-track-handler>
+  <track-ir-handler type="bool">false</track-ir-handler>
+</PropertyList>

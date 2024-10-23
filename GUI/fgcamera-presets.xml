@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>fgcamera-presets</name>
+    <layout>vbox</layout>
+    <resizable>true</resizable>
+
+    <group>
+        <layout>hbox</layout>
+
+        <empty><stretch>1</stretch></empty>
+
+        <text>
+            <label>Camera Presets</label>
+        </text>
+
+        <empty><stretch>1</stretch></empty>
+
+        <button>
+            <legend>X</legend>
+            <key>Esc</key>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+
+    <hrule/>
+
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
+        <halign>fill</halign>
+        <valign>fill</valign>
+        <stretch>true</stretch>
+
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>Select and load one of the ready-made presets for your aircraft</label>
+                <halign>left</halign>
+            </text>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>List of presets</label>
+                <halign>left</halign>
+            </text>
+
+            <hrule><stretch>true</stretch></hrule>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+            <halign>fill</halign>
+            <valign>fill</valign>
+            <stretch>true</stretch>
+
+            <list>
+                <name>presets-list</name>
+                <pref-height>210</pref-height>
+                <halign>fill</halign>
+                <valign>fill</valign>
+                <stretch>true</stretch>
+                <padding>6</padding>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/presets/list</property>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>presets-list</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>selectPreset()</script>
+                </binding>
+                <value>...</value>
+            </list>
+        </group>
+    </group>
+
+    <hrule/>
+
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
+
+        <empty><stretch>1</stretch></empty>
+
+        <button>
+            <legend>Load selected</legend>
+            <pref-height>30</pref-height>
+            <enable>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/presets/selected</property>
+            </enable>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>loadPreset()</script>
+            </binding>
+        </button>
+
+        <button>
+            <legend>Cancel</legend>
+            <key>Esc</key>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>1</stretch></empty>
+    </group>
+
+    <nasal>
+        <open> <![CDATA[
+            var dlgRoot = cmdarg();
+            var list = gui.findElementByName(dlgRoot, "presets-list");
+
+            var updateList = func {
+                list.removeChildren("value");
+
+                var path = fgcamera.g_Addon.basePath ~ "/Presets";
+                var files = directory(path);
+
+                foreach (var file; files) {
+                    if (io.is_regular_file(path ~ "/" ~ file)) {
+                        file = substr(file, 0, size(file) - size(".xml"));
+                        list.addChild("value").setValue(file);
+                    }
+                }
+
+                dialogUpdate("presets-list");
+            };
+
+            var selectPreset = func {
+                var name = getprop(fgcamera.g_myNodePath ~ "/dialogs/presets/list");
+
+                foreach (var item; list.getChildren("value")) {
+                    if (item.getValue() == name) {
+                        setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", fgcamera.true) and return;
+                    }
+                }
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", fgcamera.false);
+            };
+
+            var loadPreset = func {
+                var path = fgcamera.g_Addon.basePath ~ "/Presets";
+                var file = getprop(fgcamera.g_myNodePath ~ "/dialogs/presets/list") ~ ".xml";
+
+                fgcamera.fileHandler.loadCameras(path, file);
+
+                # Restart main dialog
+                fgcommand("dialog-close", props.Node.new({ "dialog-name" : "fgcamera-main" }));
+                fgcommand("dialog-show",  props.Node.new({ "dialog-name" : "fgcamera-main" }));
+
+                # Select first camera
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id" : 0 }));
+            };
+
+            var dialogUpdate = func () {
+                forindex (var i; arg) {
+                    var hash = {
+                        "object-name" : arg[i],
+                        "dialog-name" : "fgcamera-presets"
+                    };
+
+                    fgcommand("dialog-update", props.Node.new(hash));
+                }
+            };
+
+            updateList();
+        ]]> </open>
+
+        <close> <![CDATA[
+            setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", fgcamera.false);
+        ]]> </close>
+    </nasal>
+</PropertyList>

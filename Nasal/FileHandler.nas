@@ -16,7 +16,13 @@ var FileHandler = {
             _addonBasePath  : addon.basePath,
         };
 
-        me._loadCameras();
+        var aircraft = getprop("/sim/aircraft");
+        var file = aircraft ~ ".xml";
+
+        # search for user defined configuration (in fg-home)
+        var path = getprop("/sim/fg-home") ~ "/aircraft-data/FGCamera/" ~ aircraft;
+
+        me.loadCameras(path, file);
 
         return me;
     },
@@ -24,16 +30,14 @@ var FileHandler = {
     #
     # Load cameras from the file for the current aircraft
     #
+    # @param  string  path  Path where the camera file is located
+    # @param  string  file  XML file name with the camera
     # @return int - Number of loaded cameras
     #
-    _loadCameras: func {
-        var aircraft  = getprop("/sim/aircraft");
-        var file = aircraft ~ ".xml";
+    loadCameras: func (path, file) {
         var cameraNode = props.Node.new();
         var isDefault = false;
 
-        # search for user defined configuration (in fg-home)
-        var path = getprop("/sim/fg-home") ~ "/aircraft-data/FGCamera/" ~ aircraft;
         if (call(io.readfile, [path ~ "/" ~ file], nil, nil, var err = []) == nil) {
             # search in aircraft directory
             path = getprop("/sim/aircraft-dir") ~ "/FGCamera/";

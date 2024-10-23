@@ -23,7 +23,11 @@
                         <!-- <camera-name type="string"> -->
                         <!-- <category type="string"> -->
                         <!-- <name type="string">  - name on list in GUI, like e.g. "1. default [0]" -->
-                    <!-- <dialog> -->
+                    <dialogs>
+                        <presets>
+                            <list type="string"></list> <!-- selected text on camera presets list -->
+                            <selected type="bool">false</selected> <!-- true when usre selcted some preset -->
+                        </presets>
                         <!-- <camera-settings> -->
                             <!-- ... -->
                         <!-- <RND> -->
@@ -31,6 +35,7 @@
                             <!-- <mixer>-->
                                 <!-- <clipboard-empty> -->
                             <!-- <profile> -->
+                    </dialogs>
                     <!-- <fgcamera-enabled type="bool"> - If true then FGCamera view is currently working, otherwise FG view is currently working -->
 
                     <!-- If true then switch to FGCamera view on startup, otherwise stay in FG view -->
