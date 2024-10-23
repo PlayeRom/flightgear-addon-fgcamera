@@ -106,7 +106,7 @@
 
                 <button>
                     <legend>Up</legend>
-                    <pref-width>50</pref-width>
+                    <pref-width>30</pref-width>
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
@@ -115,8 +115,8 @@
                 </button>
 
                 <button>
-                    <legend>Down</legend>
-                    <pref-width>50</pref-width>
+                    <legend>Dn</legend>
+                    <pref-width>30</pref-width>
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
