@@ -96,11 +96,11 @@
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/presets/selected</property>
             </enable>
             <binding>
-                <command>dialog-close</command>
-            </binding>
-            <binding>
                 <command>nasal</command>
                 <script>loadPreset()</script>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
             </binding>
         </button>
 
