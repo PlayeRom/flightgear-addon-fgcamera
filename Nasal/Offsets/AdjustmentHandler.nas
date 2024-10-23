@@ -31,7 +31,7 @@ var AdjustmentHandler = {
 
     start: func {
         foreach (var a; me._coords) {
-            var listener = setlistener(g_myNodePath ~ "/controls/adjust-" ~ a, func { me._trigger() }, 0, 0);
+            var listener = setlistener(g_myNodePath ~ "/controls/adjust-" ~ a, func { me._trigger() }, false, 0);
             append(me._listeners, listener);
         }
     },

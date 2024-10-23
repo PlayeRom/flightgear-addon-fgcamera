@@ -377,9 +377,9 @@ var RNDHandler = {
         var getWow = func (i) me._wow[i] = getprop("/gear/gear[" ~ i ~ "]/wow");
 
         me._listeners = [
-            setlistener("/gear/gear[0]/wow", func { getWow(0) }, 1, 0),
-            setlistener("/gear/gear[1]/wow", func { getWow(1) }, 1, 0),
-            setlistener("/gear/gear[2]/wow", func { getWow(2) }, 1, 0),
+            setlistener("/gear/gear[0]/wow", func { getWow(0) }, true, 0),
+            setlistener("/gear/gear[1]/wow", func { getWow(1) }, true, 0),
+            setlistener("/gear/gear[2]/wow", func { getWow(2) }, true, 0),
             setlistener(g_myNodePath ~ "/current-camera/camera-id", func {
                 me.updateRndData();
                 me._setGenerators();
