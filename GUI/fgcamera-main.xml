@@ -3,6 +3,7 @@
 <PropertyList>
     <name>fgcamera-main</name>
     <layout>vbox</layout>
+    <resizable>true</resizable>
     <x>-20</x>
     <y>-20</y>
 
@@ -36,6 +37,7 @@
 
         <button>
             <legend>Options...</legend>
+            <pref-width>80</pref-width>
             <pref-height>30</pref-height>
             <binding>
                 <command>dialog-show</command>
@@ -45,6 +47,7 @@
 
         <button>
             <legend>New camera...</legend>
+            <pref-width>110</pref-width>
             <pref-height>30</pref-height>
             <binding>
                 <command>dialog-show</command>
@@ -56,6 +59,7 @@
 
         <button>
             <legend>?</legend>
+            <pref-width>30</pref-width>
             <pref-height>30</pref-height>
             <binding>
                 <command>dialog-show</command>
@@ -67,6 +71,9 @@
     <group>
         <layout>vbox</layout>
         <padding>6</padding>
+        <halign>fill</halign>
+        <valign>fill</valign>
+        <stretch>true</stretch>
 
         <group>
             <layout>hbox</layout>
@@ -80,9 +87,13 @@
 
         <group>
             <layout>hbox</layout>
+            <halign>fill</halign>
+            <valign>fill</valign>
+            <stretch>true</stretch>
+
             <list>
                 <name>camera_list</name>
-                <pref-height>250</pref-height>
+                <pref-height>210</pref-height>
                 <halign>fill</halign>
                 <valign>fill</valign>
                 <stretch>true</stretch>
@@ -145,54 +156,57 @@
 
         <group>
             <layout>hbox</layout>
-            <input>
-                <name>camera_name</name>
-                <halign>left</halign>
-                <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
-                <pref-width>180</pref-width>
-                <stretch>true</stretch>
-                <live>1</live>
-                <binding>
-                    <command>dialog-apply</command>
-                    <object-name>camera_name</object-name>
-                </binding>
-                <binding>
-                    <command>nasal</command>
-                    <script>renameCamera()</script>
-                </binding>
-            </input>
 
-            <combo>
-                <name>camera_category</name>
-                <halign>left</halign>
-                <stretch>true</stretch>
-                <pref-width>50</pref-width>
-                <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
-                <live>1</live>
-                <binding>
-                    <command>dialog-apply</command>
-                    <object-name>camera_category</object-name>
-                </binding>
-                <binding>
-                    <command>nasal</command>
-                    <script>setCategory()</script>
-                </binding>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value>
-                <value>3</value>
-                <value>4</value>
-                <value>5</value>
-                <value>6</value>
-                <value>7</value>
-                <value>8</value>
-                <value>9</value>
-            </combo>
+            <group>
+                <layout>hbox</layout>
+                <input>
+                    <name>camera_name</name>
+                    <halign>left</halign>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
+                    <pref-width>175</pref-width>
+                    <live>1</live>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>camera_name</object-name>
+                    </binding>
+                    <binding>
+                        <command>nasal</command>
+                        <script>renameCamera()</script>
+                    </binding>
+                </input>
+
+                <combo>
+                    <name>camera_category</name>
+                    <halign>left</halign>
+                    <pref-width>50</pref-width>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
+                    <live>1</live>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>camera_category</object-name>
+                    </binding>
+                    <binding>
+                        <command>nasal</command>
+                        <script>setCategory()</script>
+                    </binding>
+                    <value>0</value>
+                    <value>1</value>
+                    <value>2</value>
+                    <value>3</value>
+                    <value>4</value>
+                    <value>5</value>
+                    <value>6</value>
+                    <value>7</value>
+                    <value>8</value>
+                    <value>9</value>
+                </combo>
+            </group>
 
             <empty><stretch>1</stretch></empty>
 
             <button>
                 <legend>Config...</legend>
+                <pref-width>75</pref-width>
                 <pref-height>30</pref-height>
                 <binding>
                     <command>dialog-show</command>
@@ -206,6 +220,7 @@
 
             <button>
                 <legend>Copy camera</legend>
+                <pref-width>105</pref-width>
                 <pref-height>30</pref-height>
                 <binding>
                     <command>nasal</command>
@@ -215,6 +230,7 @@
 
             <button>
                 <legend>Confirm position</legend>
+                <pref-width>120</pref-width>
                 <pref-height>30</pref-height>
                 <binding>
                     <command>nasal</command>
@@ -226,6 +242,7 @@
 
             <button>
                 <legend>Delete...</legend>
+                <pref-width>75</pref-width>
                 <pref-height>30</pref-height>
                 <binding>
                     <command>dialog-show</command>
@@ -257,6 +274,7 @@
 
         <button>
             <legend>Save</legend>
+            <pref-height>30</pref-height>
             <binding>
                 <command>nasal</command>
                 <script>fgcamera.fileHandler.saveCameras()</script>
