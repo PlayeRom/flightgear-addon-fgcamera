@@ -9,7 +9,7 @@
     <addon>
         <identifier type="string">a.marius.FGCamera</identifier>
         <name type="string">FGCamera</name>
-        <version type="string">1.2.6</version>
+        <version type="string">1.2.7</version>
 
         <authors>
             <author>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <PropertyList>
-    <version>v1.2</version>
+    <version>v1.2.7</version>
 
     <camera>
         <name>default</name>
@@ -48,7 +48,7 @@
             <roll-deg>0</roll-deg>
         </tower>
 
-        <RND>
+        <RND> <!-- ground-->
             <GEN>
                 <sine>0</sine> <!-- enabled -->
                 <sine>0</sine> <!-- frequency -->
@@ -211,7 +211,7 @@
             </curves>
         </RND>
 
-        <RND n="1">
+        <RND n="1"> <!-- air -->
             <GEN>
                 <sine>0</sine> <!-- enabled -->
                 <sine>0</sine> <!-- frequency -->
@@ -373,5 +373,30 @@
                 <filter>0</filter>
             </curves>
         </RND>
+
+        <DHM>
+            <head-mass type="int">10</head-mass>
+            <g-load-release type="double">0</g-load-release>
+            <x-axis>
+                <constant-g type="double">0.5</constant-g>
+                <impulse-g type="double">0.4</impulse-g>
+                <head-bank type="int">50</head-bank>
+                <damping type="int">30</damping>
+                <movement-limit type="double">0.05</movement-limit>
+            </x-axis>
+            <y-axis>
+                <constant-g type="double">0.05</constant-g>
+                <impulse-g type="double">0.2</impulse-g>
+                <head-pitch type="int">50</head-pitch>
+                <damping type="int">30</damping>
+                <movement-limit type="double">0.025</movement-limit>
+            </y-axis>
+            <z-axis>
+                <constant-g type="double">0.25</constant-g>
+                <impulse-g type="double">0</impulse-g>
+                <damping type="int">50</damping>
+                <movement-limit type="double">0.05</movement-limit>
+            </z-axis>
+        </DHM>
     </camera>
 </PropertyList>

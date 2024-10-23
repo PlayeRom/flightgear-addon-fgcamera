@@ -81,7 +81,7 @@ var DHM = {
     setBank        : func { me._bank        = arg[0]; me },
     setPitch       : func { me._pitch       = arg[0]; me },
     setFilter      : func { me.outputFilter = arg[0]; me },
-    setDefault_acc : func { me.defaultAcc   = arg[0]; me },
+    setDefaultAcc  : func { me.defaultAcc   = arg[0]; me },
     setCorrection  : func { me.correction   = arg[0]; me },
     setImpulseG    : func { me.impulseG     = arg[0]; me },
     setConstantG   : func { me.constantG    = arg[0]; me },
@@ -99,30 +99,50 @@ var DHMHandler = {
     _updateF : true,
 
     init: func {
-        me.dhmY = DHM.new("/accelerations/pilot/z-accel-fps_sec");
-        me.dhmY.setMass(10)
-            .setDamping(30)
-            .setLimit(0.025)
-            .setDefault_acc(32.18516)
-            .setCorrection(9.81)
-            .setConstantG(0.05)
-            .setImpulseG(0.2)
-            .setPitch(50);
-
         me.dhmX = DHM.new("/accelerations/pilot/y-accel-fps_sec");
-        me.dhmX.setMass(10)
-            .setDamping(30)
-            .setLimit(0.05)
-            .setBank(50)
-            .setImpulseG(0.4)
-            .setConstantG(0.5);
-
+        me.dhmY = DHM.new("/accelerations/pilot/z-accel-fps_sec");
         me.dhmZ = DHM.new("/accelerations/pilot/x-accel-fps_sec");
-        me.dhmZ.setMass(10)
-            .setDamping(30)
-            .setLimit(0.05)
-            .setImpulseG(0)
-            .setConstantG(0.25);
+
+        me.updateValues();
+    },
+
+    start: func {
+        append(me._listeners, setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func {
+            me.updateValues();
+        }, false, 0));
+    },
+
+    updateValues: func {
+        var dhm = cameras.getCurrent().DHM;
+        var headMass = dhm["head-mass"];
+        var x = dhm["x-axis"];
+        var y = dhm["y-axis"];
+        var z = dhm["z-axis"];
+
+        me.dhmX
+            .setMass(headMass)
+            .setConstantG(x["constant-g"])
+            .setImpulseG(x["impulse-g"])
+            .setBank(x["head-bank"])
+            .setDamping(x["damping"])
+            .setLimit(x["movement-limit"]);
+
+        me.dhmY
+            .setMass(headMass)
+            .setConstantG(y["constant-g"])
+            .setImpulseG(y["impulse-g"])
+            .setPitch(y["head-pitch"])
+            .setDamping(y["damping"])
+            .setLimit(y["movement-limit"])
+            .setDefaultAcc(32.18516)
+            .setCorrection(9.81);
+
+        me.dhmZ
+            .setMass(headMass)
+            .setConstantG(z["constant-g"])
+            .setImpulseG(z["impulse-g"])
+            .setDamping(z["damping"])
+            .setLimit(z["movement-limit"]);
     },
 
     _trigger: func {},
@@ -132,11 +152,11 @@ var DHMHandler = {
             return;
         }
 
-        me.offsets[0] = me.dhmX.offset(dt);
-        me.offsets[1] = me.dhmY.offset(dt);
-        me.offsets[2] = me.dhmZ.offset(dt);
-        me.offsets[4] = me.dhmY.pitch();
-        me.offsets[5] = me.dhmX.bank();
+        me.offsets[0] = me.dhmX.offset(dt); # x
+        me.offsets[1] = me.dhmY.offset(dt); # y
+        me.offsets[2] = me.dhmZ.offset(dt); # z
+        me.offsets[4] = me.dhmY.pitch();    # pitch
+        me.offsets[5] = me.dhmX.bank();     # roll
     },
 
     stop: func {

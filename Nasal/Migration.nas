@@ -32,10 +32,30 @@ var Migration = {
         foreach (var version; versions) {
             foreach (var item; keys(versionItems[version])) {
                 forindex (var i; cameras.getVector()) {
-                    cameras.getCamera(i)[item] = versionItems[version][item];
+                    cameras.getCamera(i)[item] = me.deepHashCopy(versionItems[version][item]);
                 }
             }
         }
+    },
+
+    #
+    # Get copy of the given hash
+    #
+    # @param  hash  hash Hash to copy
+    # @retrun hash  New instance of hash
+    #
+    deepHashCopy: func (hash) {
+        var newHash = {};
+        foreach (var key; keys(hash)) {
+            if (typeof(hash[key]) == "hash") {
+                newHash[key] = me.deepHashCopy(hash[key]);
+            }
+            else {
+                newHash[key] = hash[key];
+            }
+        }
+
+        return newHash;
     },
 
     #
@@ -48,6 +68,15 @@ var Migration = {
         if (version == "1.0") return ["v1.0", "v1.1", "v1.2.1"];
         if (version == "1.1") return ["v1.1", "v1.2.1"];
         if (version == "1.2") return ["v1.2.1"];
+        if (version == "1.2.1"
+            or version == "1.2.2"
+            or version == "1.2.3"
+            or version == "1.2.4"
+            or version == "1.2.5"
+            or version == "1.2.6"
+        ) {
+            return ["v1.2.7"];
+        }
 
         return [];
     },
@@ -73,6 +102,33 @@ var Migration = {
 
             "v1.2.1": {
                 "panel-show-type" : "",
+            },
+
+            "v1.2.7": {
+                "DHM": {
+                    "head-mass"         : 10,
+                    "g-load-release"    : 0,
+                    "x-axis": {
+                        "constant-g"    : 0.5,
+                        "impulse-g"     : 0.4,
+                        "head-bank"     : 50,
+                        "damping"       : 30,
+                        "movement-limit": 0.05,
+                    },
+                    "y-axis": {
+                        "constant-g"    : 0.05,
+                        "impulse-g"     : 0.2,
+                        "head-pitch"    : 50,
+                        "damping"       : 30,
+                        "movement-limit": 0.025,
+                    },
+                    "z-axis": {
+                        "constant-g"    : 0.25,
+                        "impulse-g"     : 0,
+                        "damping"       : 50,
+                        "movement-limit": 0.05,
+                    },
+                },
             },
         };
     },

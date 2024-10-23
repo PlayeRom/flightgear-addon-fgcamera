@@ -51,13 +51,20 @@
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/head-mass</property>
                 <fraction>0.3</fraction>
                 <step>1</step>
-                <min>0</min>
+                <min>1</min>
                 <max>30</max>
                 <binding>
                     <command>dialog-apply</command>
                 </binding>
                 <binding>
                     <command>dialog-update</command>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script><![CDATA[
+                        fgcamera.cameras.getCurrent().DHM["head-mass"] = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass") or 10;
+                        fgcamera.DHMHandler.updateValues();
+                    ]]></script>
                 </binding>
             </slider>
             <text>
@@ -87,7 +94,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>set_filter()</script>
+                    <script>setFilter()</script>
                 </binding>
             </slider>
             <text>
@@ -131,6 +138,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("x-axis", "constant-g")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -157,6 +168,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("x-axis", "impulse-g")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -182,6 +197,10 @@
                 </binding>
                 <binding>
                     <command>dialog-update</command>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("x-axis", "head-bank")</script>
                 </binding>
             </slider>
             <text>
@@ -211,6 +230,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("x-axis", "damping")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -238,6 +261,10 @@
                 </binding>
                 <binding>
                     <command>dialog-update</command>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("x-axis", "movement-limit")</script>
                 </binding>
             </slider>
             <text>
@@ -282,6 +309,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("y-axis", "constant-g")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -309,6 +340,10 @@
                 </binding>
                 <binding>
                     <command>dialog-update</command>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("y-axis", "impulse-g")</script>
                 </binding>
             </slider>
             <text>
@@ -338,6 +373,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("y-axis", "head-pitch")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -366,6 +405,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("y-axis", "damping")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -393,6 +436,10 @@
                 </binding>
                 <binding>
                     <command>dialog-update</command>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("y-axis", "movement-limit")</script>
                 </binding>
             </slider>
             <text>
@@ -437,6 +484,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("z-axis", "constant-g")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -464,6 +515,10 @@
                 </binding>
                 <binding>
                     <command>dialog-update</command>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("z-axis", "impulse-g")</script>
                 </binding>
             </slider>
             <text>
@@ -493,6 +548,10 @@
                 <binding>
                     <command>dialog-update</command>
                 </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("z-axis", "damping")</script>
+                </binding>
             </slider>
             <text>
                 <label>999.9</label> <!-- placeholder for width -->
@@ -520,6 +579,10 @@
                 </binding>
                 <binding>
                     <command>dialog-update</command>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>setData("z-axis", "movement-limit")</script>
                 </binding>
             </slider>
             <text>
@@ -563,10 +626,74 @@
 
     <nasal>
         <open> <![CDATA[
-            var set_filter = func {
-                var a = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/DHM-settings/g-load-release");
-                gui.popupTip(fgcamera.RNDHandler.hpCoeff = a, 0.5);
-            }
+            var listeners = [
+                setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func update(), 0, 0),
+            ];
+
+            # Update dialog props from current camera object
+            var update = func {
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass", fgcamera.cameras.getCurrent().DHM["head-mass"]);
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/g-load-release", fgcamera.cameras.getCurrent().DHM["g-load-release"]);
+
+                initProp("y-axis", "constant-g");
+                initProp("y-axis", "impulse-g");
+                initProp("y-axis", "head-pitch");
+                initProp("y-axis", "damping");
+                initProp("y-axis", "movement-limit");
+
+                initProp("x-axis", "constant-g");
+                initProp("x-axis", "impulse-g");
+                initProp("x-axis", "head-bank");
+                initProp("x-axis", "damping");
+                initProp("x-axis", "movement-limit");
+
+                initProp("z-axis", "impulse-g");
+                initProp("z-axis", "constant-g");
+                initProp("z-axis", "damping");
+                initProp("z-axis", "movement-limit");
+
+                fgcommand("dialog-update", props.Node.new({ "dialog-name": "DHM-settings" }));
+            };
+
+            #
+            # Assign the value from the camera object to the dialog property
+            #
+            # @param  string  axis  Propery axis name
+            # @param  string  name  Proprty name
+            # @return void
+            #
+            var initProp = func(axis, name) {
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/" ~ axis ~ "/" ~ name, fgcamera.cameras.getCurrent().DHM[axis][name]);
+            };
+
+            #
+            # Assign the value from the dialog property to the camera object
+            #
+            # @param  string  axis  Propery axis name
+            # @param  string  name  Proprty name
+            # @return void
+            #
+            var setData = func(axis, name) {
+                var value = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/" ~ axis ~ "/" ~ name);
+                fgcamera.cameras.getCurrent().DHM[axis][name] = value;
+
+                fgcamera.DHMHandler.updateValues();
+            };
+
+            var setFilter = func {
+                var value = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/g-load-release");
+                fgcamera.cameras.getCurrent().DHM["g-load-release"] = value;
+                fgcamera.RNDHandler.hpCoeff = value;
+
+                gui.popupTip("RND hpCoeff = " ~ value, 0.5);
+            };
+
+            update();
         ]]> </open>
+        <close> <![CDATA[
+            foreach (var l; listeners) {
+                removelistener(l);
+            }
+        ]]> </close>
     </nasal>
 </PropertyList>
