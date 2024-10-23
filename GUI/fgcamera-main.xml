@@ -169,12 +169,12 @@
                 </binding>
             </input>
 
-            <input>
+            <combo>
                 <name>camera_category</name>
                 <halign>left</halign>
-                <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
-                <pref-width>50</pref-width>
                 <stretch>true</stretch>
+                <pref-width>50</pref-width>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
                 <live>1</live>
                 <binding>
                     <command>dialog-apply</command>
@@ -184,7 +184,17 @@
                     <command>nasal</command>
                     <script>setCategory()</script>
                 </binding>
-            </input>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+                <value>5</value>
+                <value>6</value>
+                <value>7</value>
+                <value>8</value>
+                <value>9</value>
+            </combo>
 
             <empty><stretch>1</stretch></empty>
 
