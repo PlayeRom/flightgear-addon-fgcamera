@@ -29,7 +29,7 @@ var OffsetsManager = {
             _deltaTimeNode: props.globals.getNode("/sim/time/delta-sec"),
         };
 
-        me.offsets  = zeros(TemplateHandler.COORD_SIZE);
+        me.offsets  = zeros(TemplateHandler.COORD_SIZE); # position (x, y, z) and rotation (h, p, r) of the camera
         me.offsets2 = zeros(TemplateHandler.COORD_SIZE);
 
         me._nodes = [];
