@@ -62,7 +62,8 @@
                 fgcamera.cameras.getVector()[id] = nil;
                 fgcamera.cameras.replace(compressVector(fgcamera.cameras.getVector()));
                 fgcamera.cameras.setCurrentId(newId);
-                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", newId);
+
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": newId }));
             }
 
             #==================================================

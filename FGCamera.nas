@@ -37,11 +37,11 @@ var init = func(addon) {
 
         if (getprop(g_myNodePath ~ "/enable")) {
             # setting default FGCamera
-            setprop(g_myNodePath ~ "/current-camera/camera-id", 0);
+            fgcommand("fgcamera-select", props.Node.new({ "camera-id": 0 }));
 
             var delayTimer = maketimer(1, func {
                 # Delay selecting default camera 2nd time for fix FOV and RND effects
-                setprop(g_myNodePath ~ "/current-camera/camera-id", 0);
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": 0 }));
             });
             delayTimer.singleShot = true;
             delayTimer.start();

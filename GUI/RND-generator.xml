@@ -743,7 +743,6 @@
             var g_id = getprop(path ~ "current-generator");
             var listeners = [
                 setlistener(fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func update()),
-                # setlistener(fgcamera.g_myNodePath ~ "/current-camera/camera-id", func update()),
             ];
             var mode = nil;
 

@@ -159,12 +159,10 @@ var Commands = {
             }
 
             # find matching category
-            forindex (var i; camerasToSort.vector) {
-                var camera = camerasToSort.vector[i];
+            foreach (var camera; camerasToSort.vector) {
                 if (camera.category == categoryIterator) {
                     # found it
-                    setprop(g_myNodePath ~ "/popupTip", 1);
-                    setprop(g_myNodePath ~ "/current-camera/camera-id", camera.id);
+                    fgcommand("fgcamera-select", props.Node.new({ "camera-id": camera.id }));
                     br = true;
                     break;
                 }
@@ -182,8 +180,6 @@ var Commands = {
         var cameraId        = cameras.getCurrentId();
         var currentCategory = cameras.getCurrent().category;
 
-        setprop(g_myNodePath ~ "/popupTip", 1);
-
         var br = false;
         while (!br) {
             if (direction < 0) { # Button [<]
@@ -200,14 +196,13 @@ var Commands = {
                 cameraId = 0;
             }
 
-            var category = cameras.getCamera(cameraId).category;
+            var category = num(cameras.getCamera(cameraId).category);
 
             if (currentCategory == category) {
-                setprop(g_myNodePath ~ "/current-camera/camera-id", cameraId);
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": cameraId }));
                 br = true;
             }
-
-            if (cameraId == cameras.getCurrentId()) {
+            elsif (cameraId == cameras.getCurrentId()) {
                 br = true;
             }
         }

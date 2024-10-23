@@ -183,7 +183,8 @@
                 }
 
                 fgcamera.cameras.append(camera);
-                setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-id", fgcamera.cameras.size() - 1);
+
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": fgcamera.cameras.size() - 1 }));
             }
 
             #==================================================

@@ -54,11 +54,11 @@ var MovementHandler = {
         return false;
     },
 
-    _setFromTo: func (view_id, camera_id) {
-        me._to   = cameras.getCamera(camera_id).offsets;
-        var bTwr = me._checkWorldView(camera_id);
+    _setFromTo: func (viewId, cameraId) {
+        me._to   = cameras.getCamera(cameraId).offsets;
+        var bTwr = me._checkWorldView(cameraId);
 
-        if (cameras.getCurrentViewId() == view_id) {
+        if (cameras.getCurrentViewId() == viewId) {
             for (var i = 0; i <= 5; i += 1) {
                 me._from[i] = offsetsManager.offsets[i] + RNDHandler.offsets[i]; # fix (cross-reference)
             }
@@ -79,36 +79,36 @@ var MovementHandler = {
             }
         }
 
-        cameras.setCurrentId(camera_id);
-        cameras.setCurrentViewId(view_id);
+        cameras.setCurrentId(cameraId);
+        cameras.setCurrentViewId(viewId);
     },
 
-    _setView: func (view_id) {
+    _setView: func (viewId) {
         var path = "/sim/current-view/view-number";
-        if (getprop(path) != view_id) {
-            setprop(path, view_id);
+        if (getprop(path) != viewId) {
+            setprop(path, viewId);
         }
     },
 
     _trigger: func {
-        var camera_id = getprop(g_myNodePath ~ "/current-camera/camera-id");
-        if (camera_id + 1 > cameras.size()) {
-            camera_id = 0;
+        var cameraId = getprop(g_myNodePath ~ "/current-camera/camera-id");
+        if (cameraId + 1 > cameras.size()) {
+            cameraId = 0;
         }
 
-        var view_id = view.indexof(cameras.getCamera(camera_id).type);
+        var viewId = view.indexof(cameras.getCamera(cameraId).type);
 
-        # timeF = (cameras.getCurrent().category == cameras.getCamera(camera_id).category);
+        # timeF = (cameras.getCurrent().category == cameras.getCamera(cameraId).category);
 
         camGui.closeDialog();
         Panel2D.hide();
 
-        if (getprop(g_myNodePath ~ "/popupTip") * cameras.getCamera(camera_id).popupTip) {
-            gui.popupTip(cameras.getCamera(camera_id).name, 1);
+        if (getprop(g_myNodePath ~ "/popupTip") and cameras.getCamera(cameraId).popupTip) {
+            gui.popupTip(cameras.getCamera(cameraId).name, 1);
         }
 
-        me._setFromTo(view_id, camera_id);
-        me._setView(view_id);
+        me._setFromTo(viewId, cameraId);
+        me._setView(viewId);
         offsetsManager._reset();
 
         me._fromFov = getprop("/sim/current-view/field-of-view");

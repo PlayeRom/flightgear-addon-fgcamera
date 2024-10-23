@@ -205,16 +205,16 @@
                         <command>nasal</command>
                         <script>setCategory()</script>
                     </binding>
-                    <value>0</value>
-                    <value>1</value>
-                    <value>2</value>
-                    <value>3</value>
-                    <value>4</value>
-                    <value>5</value>
-                    <value>6</value>
-                    <value>7</value>
-                    <value>8</value>
-                    <value>9</value>
+                    <value type="int">0</value>
+                    <value type="int">1</value>
+                    <value type="int">2</value>
+                    <value type="int">3</value>
+                    <value type="int">4</value>
+                    <value type="int">5</value>
+                    <value type="int">6</value>
+                    <value type="int">7</value>
+                    <value type="int">8</value>
+                    <value type="int">9</value>
                 </combo>
             </group>
 
@@ -332,18 +332,21 @@
             var updateList = func {
                 list.removeChildren("value");
                 var i = 0;
-                foreach (var v; fgcamera.cameras.getVector()) {
-                    var name = v.name;
+                foreach (var camera; fgcamera.cameras.getVector()) {
+                    var name = camera.name;
                     var select = "";
+
                     if (i == fgcamera.cameras.getCurrentId()) {
                         setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name", name);
-                        setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category", v.category);
+                        setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category", camera.category);
                         select = " <-";
                     }
+
                     list.addChild("value").setValue(sprintf(
                         "%d. %s [%d] %s",
-                        (i + 1), name, v.category, select
+                        (i + 1), name, camera.category, select
                     ));
+
                     i += 1;
                 }
 
@@ -365,7 +368,7 @@
                 newCamera.name ~= "-copy";
                 fgcamera.cameras.append(newCamera);
 
-                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", fgcamera.cameras.size() - 1);
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": fgcamera.cameras.size() - 1 }));
 
                 updateList();
 
@@ -413,13 +416,16 @@
             var selectCamera = func {
                 var name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name");
                 var i = 0;
-                foreach (var a; list.getChildren("value")) {
-                    if (a.getValue() == name) {
-                        setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", i) and return;
+                foreach (var item; list.getChildren("value")) {
+                    if (item.getValue() == name) {
+                        fgcommand("fgcamera-select", props.Node.new({ "camera-id": i }));
+                        return;
                     }
+
                     i += 1;
                 }
-                setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-id", 0);
+
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": 0 }));
             }
 
             #==================================================
