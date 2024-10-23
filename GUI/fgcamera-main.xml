@@ -346,8 +346,8 @@
                     ));
                     i += 1;
                 }
-                dialogUpdate("camera_list", "camera_name", "camera_category");
-                #print("updating list");
+
+                dialogUpdate("camera_list");
             }
 
             #==================================================
