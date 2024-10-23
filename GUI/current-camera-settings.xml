@@ -10,7 +10,7 @@
         <layout>hbox</layout>
 
         <text>
-            <label>Current camera settings</label>
+            <label>Current Camera Configuration</label>
             <halign>left</halign>
             <format>%s</format>
             <live>true</live>
@@ -444,7 +444,7 @@
                     [ "adjustment-filter"           , c.adjustment.filter      ],
                     [ "mlook-sensitivity"           , c.mouse_look.sensitivity ],
                     [ "mlook-filter"                , c.mouse_look.filter      ],
-                    [ "label-bar"                   , "\"" ~ c.name ~ "\" settings" ],
+                    [ "label-bar"                   , "\"" ~ c.name ~ "\" Config" ],
                 ];
             }
 
