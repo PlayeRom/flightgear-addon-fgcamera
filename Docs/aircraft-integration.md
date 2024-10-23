@@ -5,12 +5,12 @@ This file documents some integration API for your aircraft nasal code.
 
 ## Walker compatibility callbacks
 
-|Callback / Variable|Description|
-|-----------------------|---------------|
-|`fgcamera.walker.getOutTime`|wait time in seconds after the `getOutCallback` executed|
-|`fgcamera.walker.getInTime`|wait time in seconds after the `getInCallback` executed|
-|`fgcamera.walker.getOutCallback()`|callback  when getting out|
-|`fgcamera.walker.getInCallback()`|callback when getting in|
+| Callback / Variable               | Description                                              |
+|-----------------------------------|----------------------------------------------------------|
+|`fgcamera.walker.getOutTime`       | wait time in seconds after the `getOutCallback` executed |
+|`fgcamera.walker.getInTime`        | wait time in seconds after the `getInCallback` executed  |
+|`fgcamera.walker.getOutCallback()` | callback  when getting out                               |
+|`fgcamera.walker.getInCallback()`  | callback when getting in                                 |
 
 
 The example code for the Cessna C182S which opens the door if not open yet.
