@@ -6,7 +6,7 @@
     <default-padding>10</default-padding>
 
     <text>
-        <label>Are you sure you want to delete the active camera?</label>
+        <label>Are you sure you want to delete the current camera?</label>
     </text>
 
     <group>

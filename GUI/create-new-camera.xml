@@ -25,7 +25,6 @@
                 <command>dialog-close</command>
             </binding>
         </button>
-
     </group>
 
     <hrule/>
@@ -37,13 +36,14 @@
         <text>
             <label>Camera type:</label>
             <valign>fill</valign>
-            <halign>left</halign>
+            <halign>right</halign>
+            <stretch>1</stretch>
         </text>
 
         <combo>
             <name>camera-types</name>
-            <halign>fill</halign>
-            <stretch>1</stretch>
+            <halign>right</halign>
+            <pref-width>200</pref-width>
             <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type</property>
             <binding>
                 <command>dialog-apply</command>
@@ -68,13 +68,14 @@
         <text>
             <label>Camera name:</label>
             <valign>fill</valign>
-            <halign>left</halign>
+            <halign>right</halign>
+            <stretch>1</stretch>
         </text>
 
         <input>
             <name>camera-name</name>
-            <halign>fill</halign>
-            <stretch>1</stretch>
+            <halign>right</halign>
+            <pref-width>200</pref-width>
             <live>true</live>
             <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-name</property>
             <binding>
@@ -82,7 +83,6 @@
                 <object-name>camera-name</object-name>
             </binding>
         </input>
-
     </group>
 
     <hrule/>

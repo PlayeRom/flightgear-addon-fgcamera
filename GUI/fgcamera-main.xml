@@ -44,15 +44,6 @@
         </button>
 
         <button>
-            <legend>Copy camera</legend>
-            <pref-height>30</pref-height>
-            <binding>
-                <command>nasal</command>
-                <script>copyCamera()</script>
-            </binding>
-        </button>
-
-        <button>
             <legend>New camera...</legend>
             <pref-height>30</pref-height>
             <binding>
@@ -60,6 +51,8 @@
                 <dialog-name>create-new-camera</dialog-name>
             </binding>
         </button>
+
+        <empty><stretch>1</stretch></empty>
 
         <button>
             <legend>?</legend>
@@ -156,7 +149,7 @@
                 <name>camera_name</name>
                 <halign>left</halign>
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
-                <pref-width>150</pref-width>
+                <pref-width>180</pref-width>
                 <stretch>true</stretch>
                 <live>1</live>
                 <binding>
@@ -206,9 +199,33 @@
                     <dialog-name>current-camera-settings</dialog-name>
                 </binding>
             </button>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
 
             <button>
-                <legend>Delete</legend>
+                <legend>Copy camera</legend>
+                <pref-height>30</pref-height>
+                <binding>
+                    <command>nasal</command>
+                    <script>copyCamera()</script>
+                </binding>
+            </button>
+
+            <button>
+                <legend>Confirm position</legend>
+                <pref-height>30</pref-height>
+                <binding>
+                    <command>nasal</command>
+                    <script>fgcamera.offsetsManager.save()</script>
+                </binding>
+            </button>
+
+            <empty><stretch>1</stretch></empty>
+
+            <button>
+                <legend>Delete...</legend>
                 <pref-height>30</pref-height>
                 <binding>
                     <command>dialog-show</command>
@@ -227,8 +244,7 @@
         <empty><stretch>1</stretch></empty>
 
         <button>
-            <legend>OK</legend>
-            <equal>true</equal>
+            <legend>Save &amp; close</legend>
             <pref-height>30</pref-height>
             <binding>
                 <command>nasal</command>
@@ -240,8 +256,7 @@
         </button>
 
         <button>
-            <legend>Apply</legend>
-            <equal>true</equal>
+            <legend>Save</legend>
             <binding>
                 <command>nasal</command>
                 <script>fgcamera.fileHandler.saveCameras()</script>
@@ -251,7 +266,6 @@
         <button>
             <legend>Close</legend>
             <key>Esc</key>
-            <equal>true</equal>
             <pref-height>30</pref-height>
             <binding>
                 <command>dialog-close</command>

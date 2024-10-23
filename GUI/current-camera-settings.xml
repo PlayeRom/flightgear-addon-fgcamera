@@ -42,7 +42,7 @@
                 <width>12</width>
                 <height>12</height>
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/popup-tip</property>
-                <label>Show popup tip</label>
+                <label>Show popup tip with camera name</label>
                 <binding>
                     <command>dialog-apply</command>
                     <object-name>popup-tip</object-name>
@@ -76,7 +76,11 @@
                 <name>show-panel-type</name>
                 <halign>fill</halign>
                 <stretch>1</stretch>
+                <pref-width>180</pref-width>
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel-type</property>
+                <enable>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-panel</property>
+                </enable>
                 <binding>
                     <command>dialog-apply</command>
                     <object-name>show-panel-type</object-name>
@@ -112,10 +116,13 @@
             <input>
                 <name>dialog-name</name>
                 <halign>right</halign>
-                <pref-width>200</pref-width>
+                <pref-width>180</pref-width>
                 <height>25</height>
                 <live>1</live>
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name</property>
+                <enable>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/show-dialog</property>
+                </enable>
                 <binding>
                     <command>dialog-apply</command>
                     <object-name>dialog-name</object-name>
@@ -398,16 +405,6 @@
         <padding>6</padding>
 
         <empty><stretch>1</stretch></empty>
-
-        <button>
-            <legend>Store position</legend>
-            <pref-width>130</pref-width>
-            <pref-height>30</pref-height>
-            <binding>
-                <command>nasal</command>
-                <script>fgcamera.offsetsManager.save()</script>
-            </binding>
-        </button>
 
         <button>
             <legend>Close</legend>
