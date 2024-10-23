@@ -159,11 +159,16 @@
 
             <group>
                 <layout>hbox</layout>
+                <halign>fill</halign>
+                <stretch>true</stretch>
+
                 <input>
                     <name>camera_name</name>
-                    <halign>left</halign>
+                    <halign>fill</halign>
                     <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name</property>
                     <pref-width>175</pref-width>
+                    <pref-height>30</pref-height>
+                    <stretch>true</stretch>
                     <live>1</live>
                     <binding>
                         <command>dialog-apply</command>
@@ -179,6 +184,7 @@
                     <name>camera_category</name>
                     <halign>left</halign>
                     <pref-width>50</pref-width>
+                    <pref-height>30</pref-height>
                     <property>/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category</property>
                     <live>1</live>
                     <binding>
