@@ -13,6 +13,9 @@ var cameras        = Cameras.new();
 var walker         = Walker.new();
 var views          = nil;
 
+# Scripts for dialogs
+var currentCameraSettings = CurrentCameraSettings.new();
+
 #
 # Initialize FGCamera
 #

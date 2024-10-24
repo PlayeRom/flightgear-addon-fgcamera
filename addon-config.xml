@@ -28,6 +28,10 @@
                             <list type="string"></list> <!-- selected text on camera presets list -->
                             <selected type="bool">false</selected> <!-- true when usre selcted some preset -->
                         </presets>
+                        <browse-dialog-names> <!-- helper to select dialog name-->
+                            <list type="string"></list> <!-- selected text on dialog-name presets list -->
+                            <description type="string">The following list contains the dialogs available in FlightGear, but remember that your aircraft may have additional dialogs defined. To find out what they are named, search the aircraft source code for the keyword "dialog-name".</description>
+                        </browse-dialog-names>
                         <!-- <camera-settings> -->
                             <!-- ... -->
                         <!-- <RND> -->

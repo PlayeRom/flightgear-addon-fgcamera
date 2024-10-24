@@ -71,6 +71,7 @@ var Gui = {
             "RND-generator",
             "RND-import",
             "RND-mixer",
+            'browse-dialog-names',
         ];
 
         foreach (var name; dialogs) {

@@ -32,6 +32,7 @@ var main = func(addon) {
         "Nasal/ViewHandler",
         "Nasal/ViewsManager",
         "Nasal/Walker",
+        "Nasal/Gui/CurrentCameraSettings",
         "FGCamera",
     ];
 

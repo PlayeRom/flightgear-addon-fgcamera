@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>browse-dialog-names</name>
+    <layout>vbox</layout>
+    <resizable>true</resizable>
+
+    <group>
+        <layout>hbox</layout>
+
+        <empty><stretch>1</stretch></empty>
+
+        <text>
+            <label>Browse Dialog Names</label>
+        </text>
+
+        <empty><stretch>1</stretch></empty>
+
+        <button>
+            <legend>X</legend>
+            <key>Esc</key>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+
+    <hrule/>
+
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
+        <halign>fill</halign>
+        <valign>fill</valign>
+        <stretch>true</stretch>
+
+        <group>
+            <layout>vbox</layout>
+            <textbox>
+                <halign>fill</halign>
+                <valign>fill</valign>
+                <stretch>true</stretch>
+                <pref-width>450</pref-width>
+                <pref-height>100</pref-height>
+                <editable>false</editable>
+                <wrap>true</wrap>
+                <top-line>0</top-line>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/browse-dialog-names/description</property>
+            </textbox>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>List of FlightGear dialogs</label>
+                <halign>left</halign>
+            </text>
+
+            <hrule><stretch>true</stretch></hrule>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+            <halign>fill</halign>
+            <valign>fill</valign>
+            <stretch>true</stretch>
+
+            <list>
+                <name>dialog-names-list</name>
+                <pref-height>210</pref-height>
+                <halign>fill</halign>
+                <valign>fill</valign>
+                <stretch>true</stretch>
+                <padding>6</padding>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/browse-dialog-names/list</property>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>dialog-names-list</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>selectItemList()</script>
+                </binding>
+
+                <value>about (About)</value>
+                <value>ai-objects (AI Objcts)</value>
+                <value>airports (Select Airport)</value>
+                <value>als-filters (ASL Filter Effects)</value>
+                <value>atc-freq-search (ATC Services in Range)</value>
+                <value>autopilot (Autopilot Settings)</value>
+                <value>chat-full (Chat Dialog)</value>
+                <value>chat-menu (Chat Menu)</value>
+                <value>checklist (Aircraft Checklists)</value>
+                <value>cockpit-view (Cockpit View Options)</value>
+                <value>devel-extensions (Configure Development Extensions)</value>
+                <value>doc-browser (Documentation Browser)</value>
+                <value>earthview (Earthview orbital rendering)</value>
+                <value>environment-settings (Environment Settings)</value>
+                <value>exit (Quit)</value>
+                <value>fgcom (FGComm Settings)</value>
+                <value>flight-recorder-control (Flight Recorder Control, min v.2024.1)</value>
+                <value>flight-recorder-load (Load Flight Recorder Tape)</value>
+                <value>flight-recorder-save (Save Flight Recorder Tape)</value>
+                <value>formation (Wingman Controls)</value>
+                <value>gps (GPS Settings)</value>
+                <value>highlighting (Highlighting, min v.2024.1)</value>
+                <value>hud (Adjust HUD Position)</value>
+                <value>input-config (Mouse Configuration, max v.2020.3)</value>
+                <value>input-config-select (Config Variant Selector, min v.2024.1)</value>
+                <value>input-systems (Input Devices, min v.2024.1)</value>
+                <value>instrument-failures (Instrument Failures)</value>
+                <value>instruments (Instrument Settings)</value>
+                <value>jetways (Jetway Settings)</value>
+                <value>joystick-config (Joystick Config)</value>
+                <value>lag-adjust (Lag Settings)</value>
+                <value>light-switches (Light Switches, min v.2024.1)</value>
+                <value>location-in-air (Position Aircraft In Air)</value>
+                <value>location-of-tower (Tower Position)</value>
+                <value>logging (Logging)</value>
+                <value>map (Map)</value>
+                <value>map-canvas (Map Canvas)</value>
+                <value>mouse-config (Mouse Config, min v.2024.1)</value>
+                <value>multiplayer (Multiplayer Settings)</value>
+                <value>nasal-console (Nasal Console)</value>
+                <value>pilot_offset (Adjust View Position)</value>
+                <value>radios (Radio Settings)</value>
+                <value>random-failures (Random Failures)</value>
+                <value>rendering (Rendering Options)</value>
+                <value>replay (Instant Replay)</value>
+                <value>route-manager (Route Manager)</value>
+                <value>scenario (Traffic and Scenario Settings)</value>
+                <value>scenery-sources (Scenery Sources)</value>
+                <value>sound-dialog (Sound Configuration)</value>
+                <value>static-lod (Adjust LOD Ranges)</value>
+                <value>stereoscopic-view-options (Stereoscopic View Options)</value>
+                <value>stopwatch-dialog (Stopwatch)</value>
+                <value>swift_connection (Swift Connection)</value>
+                <value>system-failures (System Failures)</value>
+                <value>tanker (Tanker Control)</value>
+                <value>terrasync (Scenery Download)</value>
+                <value>time-mode (Time Mode)</value>
+                <value>timeofday (Time Settings)</value>
+                <value>tutorial (Tutorials)</value>
+                <value>video-control (View Control, min v.2024.1)</value>
+                <value>view (View Options)</value>
+                <value>volcanoes (Volcanoes)</value>
+                <value>vr-options (VR Options, min v.2024.1)</value>
+                <value>weather (Weather)</value>
+            </list>
+        </group>
+    </group>
+
+    <hrule/>
+
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
+
+        <empty><stretch>1</stretch></empty>
+
+        <button>
+            <legend>Close</legend>
+            <key>Esc</key>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>1</stretch></empty>
+    </group>
+
+    <nasal>
+        <open><![CDATA[
+            var selectItemList = func {
+                var name = getprop(fgcamera.g_myNodePath ~ "/dialogs/browse-dialog-names/list");
+                var vector = split(" ", name);
+                var dialogName = vector[0];
+
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/camera-settings/dialog-name", dialogName);
+
+                fgcamera.currentCameraSettings.dialogName();
+            };
+        ]]></open>
+
+        <close><![CDATA[
+        ]]></close>
+    </nasal>
+</PropertyList>
