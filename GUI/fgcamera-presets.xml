@@ -142,10 +142,10 @@
 
                 foreach (var item; list.getChildren("value")) {
                     if (item.getValue() == name) {
-                        setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", fgcamera.true) and return;
+                        setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", 1) and return;
                     }
                 }
-                setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", fgcamera.false);
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", 0);
             };
 
             var loadPreset = func {
@@ -177,7 +177,7 @@
         ]]> </open>
 
         <close> <![CDATA[
-            setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", fgcamera.false);
+            setprop(fgcamera.g_myNodePath ~ "/dialogs/presets/selected", 0);
         ]]> </close>
     </nasal>
 </PropertyList>
