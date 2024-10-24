@@ -64,6 +64,10 @@ var Cameras = {
     # @return hash
     #
     getCamera: func(index) {
+        if (index < 0 or index >= me.size()) {
+            index = 0;
+        }
+
         return me._cameras.vector[index];
     },
 
