@@ -25,7 +25,7 @@ window will appear.
 
 First top section has following buttons:
 
-* '**Load...**' button allows you to load a camera preset for a specific aircraft.
+* '**Import...**' button allows you to load a camera preset for a specific aircraft.
 This is a good option for a start, where you don't have to create cameras from
 scratch, and you can always modify the loaded set. More in the
 [Camera Presets](#camera-presets) section.
@@ -58,7 +58,7 @@ want to change the camera position and not that you were just looking around**.
 ## Camera Presets
 
 FGCamera contains a list of ready-made cameras for different aircraft. If you do
-not want to create a camera set from scratch, you can click the 'Load...'
+not want to create a camera set from scratch, you can click the 'Import...'
 button. A new window will appear with a list of available cameras for different
 aircraft. Find your current aircraft, select it by clicking on it and click the
 '**Load selected**' button. The list of cameras in your main window will be

@@ -36,8 +36,8 @@
         <padding>6</padding>
 
         <button>
-            <legend>Load...</legend>
-            <pref-width>70</pref-width>
+            <legend>Import...</legend>
+            <pref-width>75</pref-width>
             <pref-height>30</pref-height>
             <binding>
                 <command>dialog-show</command>
