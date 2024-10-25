@@ -9,12 +9,14 @@ var mouse          = nil;
 var camGui         = nil;
 var fileHandler    = nil;
 var helicopter     = nil;
+var views          = nil;
 var cameras        = Cameras.new();
 var walker         = Walker.new();
-var views          = nil;
+var nasal          = Nasal.new();
 
 # Scripts for dialogs
-var currentCameraSettings = CurrentCameraSettings.new();
+var currentCameraSettings = nil;
+var nasalConfig           = nil;
 
 #
 # Initialize FGCamera
@@ -27,6 +29,10 @@ var init = func(addon) {
     g_myNodePath = g_Addon.node.getPath() ~ "/addon-devel";
 
     offsetsManager = OffsetsManager.new();
+
+    # Scripts for dialogs
+    currentCameraSettings = CurrentCameraSettings.new();
+    nasalConfig           = NasalConfig.new();
 
     var fdmInitListener = _setlistener("/sim/signals/fdm-initialized", func {
         removelistener(fdmInitListener);

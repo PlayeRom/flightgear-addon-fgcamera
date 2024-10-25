@@ -91,23 +91,33 @@ var MovementHandler = {
     },
 
     _trigger: func {
+        # ID of the camera we will switch to
         var cameraId = getprop(g_myNodePath ~ "/current-camera/camera-id");
         if (cameraId + 1 > cameras.size()) {
             cameraId = 0;
         }
 
-        var viewId = view.indexof(cameras.getCamera(cameraId).type);
+        var currentCamera  = cameras.getCurrent();
+        var incomingCamera = cameras.getCamera(cameraId);
 
-        # timeF = (cameras.getCurrent().category == cameras.getCamera(cameraId).category);
+        var viewId = view.indexof(incomingCamera.type);
 
-        camGui.closeDialog();
+        # timeF = (currentCamera.category == incomingCamera.category);
+
+        camGui.closeDialog(); # close dialog for cameras.getCurrent();
         Panel2D.hide();
 
-        if (getprop(g_myNodePath ~ "/popupTip") and cameras.getCamera(cameraId).popupTip) {
-            gui.popupTip(cameras.getCamera(cameraId).name, 1);
+        # Execute leave nasal script if it's set for previous camera
+        if (currentCamera["enable-exec-nasal"]) {
+            var script = currentCamera["script-for-leave"];
+            nasal.exec(script);
         }
 
-        me._setFromTo(viewId, cameraId);
+        if (getprop(g_myNodePath ~ "/popupTip") and incomingCamera.popupTip) {
+            gui.popupTip(incomingCamera.name, 1);
+        }
+
+        me._setFromTo(viewId, cameraId); # <- this function change cameras.getCurrent();
         me._setView(viewId);
         offsetsManager._reset();
 
@@ -153,6 +163,12 @@ var MovementHandler = {
             camGui.showDialog();
             Panel2D.show();
             setprop("/sim/current-view/field-of-view", cameras.getCurrent().fov); # to be sure that finally the fov is correct
+
+            # Execute entry nasal script if it's set
+            if (cameras.getCurrent()["enable-exec-nasal"]) {
+                var script = cameras.getCurrent()["script-for-entry"];
+                nasal.exec(script);
+            }
         }
         else {
             # FIXME - remove comment ?

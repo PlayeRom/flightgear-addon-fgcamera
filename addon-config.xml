@@ -28,12 +28,38 @@
                             <list type="string"></list> <!-- selected text on camera presets list -->
                             <selected type="bool">false</selected> <!-- true when usre selcted some preset -->
                         </presets>
+
                         <browse-dialog-names> <!-- helper to select dialog name-->
                             <list type="string"></list> <!-- selected text on dialog-name presets list -->
                             <description type="string">The following list contains the dialogs available in FlightGear, but remember that your aircraft may have additional dialogs defined. To find out what they are named, search the aircraft source code for the keyword "dialog-name".</description>
                         </browse-dialog-names>
-                        <!-- <camera-settings> -->
-                            <!-- ... -->
+
+                        <camera-settings>
+                            <label-bar>Current Camera Config</label-bar>
+
+                            <popup-tip type="bool">true</popup-tip>
+
+                            <show-panel type="bool">false</show-panel>
+                            <show-panel-type>generic-vfr-panel</show-panel-type>
+
+                            <show-dialog type="bool">false</show-dialog>
+                            <dialog-name></dialog-name>
+
+                            <enable-exec-nasal type="bool">false</enable-exec-nasal>
+                            <script-for-entry></script-for-entry>
+                            <script-for-leave></script-for-leave>
+
+                            <field-of-view type="double">65</field-of-view>
+                            <movement-transition-time type="double">1.0</movement-transition-time>
+                            <adjustment-linear-velocity type="double">0.1</adjustment-linear-velocity>
+                            <adjustment-angular-velocity type="double">30.0</adjustment-angular-velocity>
+                            <adjustment-filter type="double">30.0</adjustment-filter>
+                            <mlook-sensitivity type="double">2.0</mlook-sensitivity>
+                            <mlook-filter type="double">0.1</mlook-filter>
+
+                            <enable-DHM type="bool">true</enable-DHM>
+                            <enable-RND type="bool">true</enable-RND>
+                        </camera-settings>
                         <!-- <RND> -->
                             <!-- <edit-mode> -->
                             <!-- <mixer>-->

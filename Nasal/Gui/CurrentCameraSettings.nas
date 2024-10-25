@@ -1,5 +1,5 @@
 #
-# Nasal for GUI current-camera-config.xml
+# Class for GUI current-camera-config.xml
 #
 var CurrentCameraSettings = {
     #
@@ -34,40 +34,46 @@ var CurrentCameraSettings = {
         }
     },
 
-    calcData: func {
+    #
+    # Geat data used in current-camera-config dialog
+    #
+    # @return vector  Vector of hash
+    #
+    cameraData: func {
         var camera = cameras.getCurrent();
         return [
-            [ "popup-tip"                  , camera.popupTip                  ],
-            [ "show-panel"                 , camera["panel-show"]             ],
-            [ "show-panel-type"            , camera["panel-show-type"]        ],
-            [ "show-dialog"                , camera["dialog-show"]            ],
-            [ "dialog-name"                , camera["dialog-name"]            ],
-            [ "enable-RND"                 , camera["enable-RND"]             ],
-            [ "enable-DHM"                 , camera["enable-DHM"]             ],
-            [ "field-of-view"              , camera.fov                       ],
-            [ "movement-transition-time"   , camera.movement.time             ],
-            [ "adjustment-linear-velocity" , camera.adjustment.v[0]           ],
-            [ "adjustment-angular-velocity", camera.adjustment.v[1]           ],
-            [ "adjustment-filter"          , camera.adjustment.filter         ],
-            [ "mlook-sensitivity"          , camera.mouse_look.sensitivity    ],
-            [ "mlook-filter"               , camera.mouse_look.filter         ],
-            [ "label-bar"                  , "\"" ~ camera.name ~ "\" Config" ],
+            { name: "popup-tip",                   value: camera.popupTip },
+            { name: "show-panel",                  value: camera["panel-show"] },
+            { name: "show-panel-type",             value: camera["panel-show-type"] },
+            { name: "show-dialog",                 value: camera["dialog-show"] },
+            { name: "dialog-name",                 value: camera["dialog-name"] },
+            { name: "enable-exec-nasal",           value: camera["enable-exec-nasal"] },
+            { name: "enable-RND",                  value: camera["enable-RND"] },
+            { name: "enable-DHM",                  value: camera["enable-DHM"] },
+            { name: "field-of-view",               value: camera.fov },
+            { name: "movement-transition-time",    value: camera.movement.time },
+            { name: "adjustment-linear-velocity",  value: camera.adjustment.v[0] },
+            { name: "adjustment-angular-velocity", value: camera.adjustment.v[1] },
+            { name: "adjustment-filter",           value: camera.adjustment.filter },
+            { name: "mlook-sensitivity",           value: camera.mouse_look.sensitivity },
+            { name: "mlook-filter",                value: camera.mouse_look.filter },
+            { name: "label-bar",                   value: "\"" ~ camera.name ~ "\" Config" },
         ];
     },
 
     updateValues: func {
-        foreach (var a; var data = me.calcData()) { #?
-            setprop(g_myNodePath ~ "/dialogs/camera-settings/" ~ a[0], a[1]);
-            me.dialogUpdate(a[0]);
+        foreach (var item; me.cameraData()) {
+            setprop(g_myNodePath ~ "/dialogs/camera-settings/" ~ item.name, item.value);
+
+            me.dialogUpdate(item.name);
         }
     },
 
-    dialogUpdate: func (dlgObj = nil) {
-        var hash = {
-            "object-name" : dlgObj,
-            "dialog-name" : "current-camera-config"
-        };
-        fgcommand("dialog-update", props.Node.new(hash));
+    dialogUpdate: func (objName) {
+        fgcommand("dialog-update", props.Node.new({
+            "object-name": objName,
+            "dialog-name": "current-camera-config",
+        }));
     },
 
     validateValue: func(value, min, max) {
@@ -100,16 +106,21 @@ var CurrentCameraSettings = {
         cameras.getCurrent()["panel-show-type"] = selected_type;
         if (value) {
             Panel2D.showPath(selected_type);
-        } else {
+        }
+        else {
             Panel2D.hide();
         }
+    },
+
+    isShowDialogEnabled: func {
+        return getprop(g_myNodePath ~ "/dialogs/camera-settings/show-dialog");
     },
 
     #==================================================
     #   Toggle dialog
     #==================================================
     toggleDialog: func {
-        var value = getprop(g_myNodePath ~ "/dialogs/camera-settings/show-dialog");
+        var value = me.isShowDialogEnabled();
 
         cameras.getCurrent()["dialog-show"] = value;
         if (value) {
@@ -126,14 +137,30 @@ var CurrentCameraSettings = {
     dialogName: func {
         var dialogName = getprop(g_myNodePath ~ "/dialogs/camera-settings/dialog-name");
 
-        if (getprop(g_myNodePath ~ "/dialogs/camera-settings/show-dialog")) {
+        if (me.isShowDialogEnabled()) {
             camGui.closeDialog(1);
             cameras.getCurrent()["dialog-show"] = false;
         }
 
         cameras.getCurrent()["dialog-name"] = dialogName;
-        #camGui.showDialog();
         me.updateValues();
+    },
+
+    isExecNasalEnabled: func {
+        return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-exec-nasal");
+    },
+
+    #==================================================
+    #   Toggle Exec Nasal
+    #==================================================
+    toggleExecNasal: func {
+        var enabled = me.isExecNasalEnabled();
+
+        cameras.getCurrent()["enable-exec-nasal"] = enabled;
+        nasal.exec(enabled
+            ? nasalConfig.getEntryScript()
+            : nasalConfig.getLeaveScript()
+        );
     },
 
     #==================================================

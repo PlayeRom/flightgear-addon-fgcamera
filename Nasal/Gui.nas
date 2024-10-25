@@ -68,6 +68,7 @@ var Gui = {
             { name: 'fgcamera-presets',        path: "/GUI/Main/" },
             { name: 'browse-dialog-names',     path: "/GUI/Main/CurrentCameraConfig/" },
             { name: "DHM-settings",            path: "/GUI/Main/CurrentCameraConfig/" },
+            { name: "nasal-config",            path: "/GUI/Main/CurrentCameraConfig/" },
             { name: "RND-curves",              path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
             { name: "RND-generator",           path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
             { name: "RND-import",              path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
@@ -126,8 +127,10 @@ var Gui = {
     # @return void
     #
     showDialog: func (show = 0) {
-        if (cameras.getCurrent()["dialog-show"] or show) {
-            gui.showDialog(cameras.getCurrent()["dialog-name"]);
+        var camera = cameras.getCurrent();
+
+        if (camera["dialog-show"] or show) {
+            gui.showDialog(camera["dialog-name"]);
         }
     },
 
@@ -138,9 +141,11 @@ var Gui = {
     # @return void
     #
     closeDialog: func (close = 0) {
-        if (cameras.getCurrent()["dialog-show"] or close) {
+        var camera = cameras.getCurrent();
+
+        if (camera["dialog-show"] or close) {
             fgcommand("dialog-close", props.Node.new({
-                "dialog-name" : cameras.getCurrent()["dialog-name"],
+                "dialog-name": camera["dialog-name"],
             }));
         }
     },

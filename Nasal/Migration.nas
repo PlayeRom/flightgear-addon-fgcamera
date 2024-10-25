@@ -31,6 +31,7 @@ var Migration = {
 
         foreach (var version; versions) {
             foreach (var item; keys(versionItems[version])) {
+                # items = "DHM", "enable-exec-nasal", etc.
                 forindex (var i; cameras.getVector()) {
                     cameras.getCamera(i)[item] = me.deepHashCopy(versionItems[version][item]);
                 }
@@ -41,10 +42,14 @@ var Migration = {
     #
     # Get copy of the given hash
     #
-    # @param  hash  hash Hash to copy
+    # @param  hash|string|double|int  hash  Hash to copy (or any value)
     # @retrun hash  New instance of hash
     #
     deepHashCopy: func (hash) {
+        if (typeof(hash) != "hash") {
+            return hash;
+        }
+
         var newHash = {};
         foreach (var key; keys(hash)) {
             if (typeof(hash[key]) == "hash") {
@@ -105,6 +110,9 @@ var Migration = {
             },
 
             "v1.2.7": {
+                "enable-exec-nasal": 0,
+                "script-for-entry": "",
+                "script-for-leave": "",
                 "DHM": {
                     "head-mass"         : 10,
                     "g-load-release"    : 0,

@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>nasal-config</name>
+    <layout>vbox</layout>
+    <x>20</x>
+    <y>-50</y>
+    <resizable>true</resizable>
+
+    <group>
+        <layout>hbox</layout>
+
+        <empty><stretch>1</stretch></empty>
+
+        <text>
+            <label>Execute Nasal Scripts</label>
+        </text>
+
+        <empty><stretch>1</stretch></empty>
+
+        <button>
+            <legend>X</legend>
+            <key>Esc</key>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+
+    <hrule/>
+
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
+
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>Nasal script for camera entry action</label>
+            </text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+
+            <textbox>
+                <name>script-for-entry</name>
+                <halign>fill</halign>
+                <valign>fill</valign>
+                <stretch>true</stretch>
+                <pref-width>500</pref-width>
+                <pref-height>100</pref-height>
+                <editable>true</editable>
+                <wrap>false</wrap>
+                <font>
+                    <property>sim/gui/selected-style/fonts/nasal-editor</property>
+                </font>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-entry</property>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>script-for-entry</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>fgcamera.nasalConfig.updateScriptForEntry()</script>
+                </binding>
+            </textbox>
+
+            <group>
+                <layout>vbox</layout>
+
+                <empty><stretch>1</stretch></empty>
+
+                <button>
+                    <legend>Copy</legend>
+                    <pref-width>60</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.nasalConfig.copyEntryScript()</script>
+                    </binding>
+                </button>
+
+                <button>
+                    <legend>Paste</legend>
+                    <pref-width>60</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.nasalConfig.pasteEntryScript()</script>
+                    </binding>
+                </button>
+
+                <button>
+                    <legend>Clear</legend>
+                    <pref-width>60</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.nasalConfig.clearEntryScript()</script>
+                    </binding>
+                </button>
+
+                <empty><stretch>1</stretch></empty>
+            </group>
+        </group>
+    </group>
+
+    <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
+
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>Nasal script for camera leave action</label>
+            </text>
+            <hrule><stretch>true</stretch></hrule>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+
+            <textbox>
+                <name>script-for-leave</name>
+                <halign>fill</halign>
+                <valign>fill</valign>
+                <stretch>true</stretch>
+                <pref-width>500</pref-width>
+                <pref-height>100</pref-height>
+                <editable>true</editable>
+                <wrap>false</wrap>
+                <font>
+                    <property>sim/gui/selected-style/fonts/nasal-editor</property>
+                </font>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-leave</property>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>script-for-leave</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>fgcamera.nasalConfig.updateScriptForLeave()</script>
+                </binding>
+            </textbox>
+
+            <group>
+                <layout>vbox</layout>
+
+                <empty><stretch>1</stretch></empty>
+
+                <button>
+                    <legend>Copy</legend>
+                    <pref-width>60</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.nasalConfig.copyLeaveScript()</script>
+                    </binding>
+                </button>
+
+                <button>
+                    <legend>Paste</legend>
+                    <pref-width>60</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.nasalConfig.pasteLeaveScript()</script>
+                    </binding>
+                </button>
+
+                <button>
+                    <legend>Clear</legend>
+                    <pref-width>60</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.nasalConfig.clearLeaveScript()</script>
+                    </binding>
+                </button>
+
+                <empty><stretch>1</stretch></empty>
+            </group>
+        </group>
+    </group>
+
+    <hrule/>
+
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
+        <empty><stretch>1</stretch></empty>
+        <button>
+            <legend>Back</legend>
+            <pref-width>90</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>current-camera-config</dialog-name>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
+                <dialog-name>nasal-config</dialog-name>
+            </binding>
+        </button>
+
+        <button>
+            <legend>Close</legend>
+            <pref-width>90</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+        <empty><stretch>1</stretch></empty>
+    </group>
+
+    <nasal>
+        <open><![CDATA[
+            fgcamera.nasalConfig.open();
+        ]]></open>
+        <close><![CDATA[
+            fgcamera.nasalConfig.close();
+        ]]></close>
+    </nasal>
+</PropertyList>

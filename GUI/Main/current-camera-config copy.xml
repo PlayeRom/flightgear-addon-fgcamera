@@ -115,9 +115,9 @@
             <input>
                 <name>dialog-name</name>
                 <halign>right</halign>
-                <pref-width>180</pref-width>
+                <pref-width>195</pref-width>
                 <height>25</height>
-                <!-- <stretch>1</stretch> -->
+                <stretch>1</stretch>
                 <live>1</live>
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name</property>
                 <binding>
@@ -140,6 +140,135 @@
                 </binding>
             </button>
         </group>
+
+        <!-- <group>
+            <layout>vbox</layout>
+
+            <group>
+                <layout>hbox</layout>
+                <checkbox>
+                    <name>enable-exec-nasal</name>
+                    <halign>left</halign>
+                    <width>12</width>
+                    <height>12</height>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-exec-nasal</property>
+                    <label>Exec Nasal script:</label>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>enable-exec-nasal</object-name>
+                    </binding>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.currentCameraSettings.toggleExecNasal()</script>
+                    </binding>
+                </checkbox>
+                <hrule><stretch>true</stretch></hrule>
+            </group>
+
+            <group>
+                <layout>hbox</layout>
+                <text>
+                    <label>For entry:</label>
+                    <halign>right</halign>
+                    <stretch>1</stretch>
+                </text>
+
+                <input>
+                    <name>script-for-entry</name>
+                    <halign>left</halign>
+                    <pref-width>220</pref-width>
+                    <height>25</height>
+                    <live>1</live>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-entry</property>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>script-for-entry</object-name>
+                    </binding>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.currentCameraSettings.scriptForEntry()</script>
+                    </binding>
+                </input>
+
+                <button>
+                    <legend>cpy</legend>
+                    <pref-width>30</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script><![CDATA[
+                            var script = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-entry");
+                            clipboard.setText(script);
+                        ]]></script>
+                    </binding>
+                </button>
+
+                <button>
+                    <legend>pst</legend>
+                    <pref-width>30</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script><![CDATA[
+                            setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-entry", clipboard.getText());
+                            fgcamera.currentCameraSettings.scriptForEntry();
+                        ]]></script>
+                    </binding>
+                </button>
+            </group>
+
+            <group>
+                <layout>hbox</layout>
+                <text>
+                    <label>For leave:</label>
+                    <halign>right</halign>
+                    <stretch>1</stretch>
+                </text>
+
+                <input>
+                    <name>script-for-leave</name>
+                    <halign>left</halign>
+                    <pref-width>220</pref-width>
+                    <height>25</height>
+                    <live>1</live>
+                    <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-leave</property>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>script-for-leave</object-name>
+                    </binding>
+                    <binding>
+                        <command>nasal</command>
+                        <script>fgcamera.currentCameraSettings.scriptForLeave()</script>
+                    </binding>
+                </input>
+
+                <button>
+                    <legend>cpy</legend>
+                    <pref-width>30</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script><![CDATA[
+                            var script = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-leave");
+                            clipboard.setText(script);
+                        ]]></script>
+                    </binding>
+                </button>
+
+                <button>
+                    <legend>pst</legend>
+                    <pref-width>30</pref-width>
+                    <pref-height>30</pref-height>
+                    <binding>
+                        <command>nasal</command>
+                        <script><![CDATA[
+                            setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/script-for-leave", clipboard.getText());
+                            fgcamera.currentCameraSettings.scriptForLeave();
+                        ]]></script>
+                    </binding>
+                </button>
+            </group>
+        </group> -->
     </group>
 
     <group>
@@ -424,6 +553,9 @@
             <legend>Nasal...</legend>
             <pref-width>70</pref-width>
             <pref-height>30</pref-height>
+            <!-- <enable>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-exec-nasal</property>
+            </enable> -->
             <binding>
                 <command>dialog-show</command>
                 <dialog-name>nasal-config</dialog-name>
