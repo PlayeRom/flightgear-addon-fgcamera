@@ -2,7 +2,6 @@
 
 <PropertyList>
   <camera>
-    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -13,7 +12,8 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
-    <panel-show-type type="string">generic-vfr-panel</panel-show-type>
+    <name type="string">Pilot</name>
+    <panel-show-type type="string">controls-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
       <sensitivity type="string">2.0</sensitivity>
@@ -36,9 +36,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
+        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
-        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -51,7 +51,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <name type="string">Pilot</name>
+    <dialog-show type="string">0</dialog-show>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -331,6 +331,7 @@
         <v2 n="9" type="string">90</v2>
       </curves>
     </RND>
+    <script-for-leave type="string"></script-for-leave>
     <offsets type="double">-0.21</offsets>
     <offsets n="1" type="double">0.2987665525</offsets>
     <offsets n="2" type="double">0.36</offsets>
@@ -338,8 +339,11 @@
     <offsets n="4" type="double">-14.96296296</offsets>
     <offsets n="5" type="double">0</offsets>
     <category type="string">0</category>
+    <script-for-entry type="string"></script-for-entry>
+    <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="1">
+    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -350,7 +354,6 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
-    <name type="string">Panel</name>
     <panel-show-type type="string">controls-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -374,9 +377,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
+        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
-        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -389,7 +392,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <dialog-show type="string">0</dialog-show>
+    <name type="string">Panel</name>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -669,15 +672,19 @@
         <v2 n="9" type="string">90</v2>
       </curves>
     </RND>
+    <script-for-leave type="string"></script-for-leave>
     <offsets type="double">-0.2106187817</offsets>
     <offsets n="1" type="double">0.06373694886</offsets>
     <offsets n="2" type="double">0.02000056308</offsets>
     <offsets n="3" type="double">-1.387778781e-17</offsets>
     <offsets n="4" type="double">-10.88888889</offsets>
     <offsets n="5" type="double">0</offsets>
-    <category type="string">3</category>
+    <category type="string">1</category>
+    <script-for-entry type="string"></script-for-entry>
+    <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="2">
+    <dialog-show type="string">1</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -688,7 +695,6 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
-    <name type="string">Radio</name>
     <panel-show-type type="string">generic-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -712,9 +718,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
+        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
-        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -727,7 +733,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <dialog-show type="string">1</dialog-show>
+    <name type="string">Radio</name>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -1007,15 +1013,19 @@
         <v2 n="9" type="string">90</v2>
       </curves>
     </RND>
+    <script-for-leave type="string"></script-for-leave>
     <offsets type="double">-0.1321108308</offsets>
     <offsets n="1" type="double">0.04260837542</offsets>
     <offsets n="2" type="double">0.02903976035</offsets>
     <offsets n="3" type="double">-13.76433785</offsets>
     <offsets n="4" type="double">-15.51851852</offsets>
     <offsets n="5" type="double">0</offsets>
-    <category type="string">3</category>
+    <category type="string">1</category>
+    <script-for-entry type="string"></script-for-entry>
+    <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="3">
+    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -1026,7 +1036,6 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
-    <name type="string">Bottom panel</name>
     <panel-show-type type="string">controls-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -1050,9 +1059,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
+        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
-        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -1065,7 +1074,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <dialog-show type="string">0</dialog-show>
+    <name type="string">Bottom panel</name>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -1345,16 +1354,22 @@
         <v2 n="9" type="string">90</v2>
       </curves>
     </RND>
+    <script-for-leave type="string">setprop("/sim/rendering/als-secondary-lights/use-flashlight", 0);
+</script-for-leave>
     <offsets type="double">-0.208471252</offsets>
     <offsets n="1" type="double">-0.1831535505</offsets>
     <offsets n="2" type="double">0.08000417337</offsets>
     <offsets n="3" type="double">-0.3128258603</offsets>
     <offsets n="4" type="double">-9.037037037</offsets>
     <offsets n="5" type="double">0</offsets>
-    <category type="string">3</category>
+    <category type="string">1</category>
+    <script-for-entry type="string">getprop("/sim/rendering/shaders/skydome")
+    ? setprop("/sim/rendering/als-secondary-lights/use-flashlight", 1)
+    : gui.popupTip("FGCamera: enable ALS for flashlight", 4);
+</script-for-entry>
+    <enable-exec-nasal type="double">1</enable-exec-nasal>
   </camera>
   <camera n="4">
-    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="double">0</roll-deg>
       <heading-deg type="double">0</heading-deg>
@@ -1365,6 +1380,7 @@
     </tower>
     <type type="string">FGCamera4</type>
     <popupTip type="string">1</popupTip>
+    <name type="string">World look at</name>
     <panel-show-type type="string">generic-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -1388,9 +1404,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
+        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
-        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -1403,7 +1419,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <name type="string">world look at</name>
+    <dialog-show type="string">0</dialog-show>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -1683,16 +1699,18 @@
         <v2 n="9" type="string">90</v2>
       </curves>
     </RND>
+    <script-for-leave type="string"></script-for-leave>
     <offsets type="double">-0.21</offsets>
     <offsets n="1" type="double">0.2987665525</offsets>
     <offsets n="2" type="double">0.36</offsets>
     <offsets n="3" type="double">0.1042752868</offsets>
     <offsets n="4" type="double">-14.96296296</offsets>
     <offsets n="5" type="double">0</offsets>
-    <category type="string">1</category>
+    <category type="string">2</category>
+    <script-for-entry type="string"></script-for-entry>
+    <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="5">
-    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -1703,6 +1721,7 @@
     </tower>
     <type type="string">FGCamera4</type>
     <popupTip type="string">1</popupTip>
+    <name type="string">World look at zoom in</name>
     <panel-show-type type="string">generic-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -1726,9 +1745,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
+        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
-        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -1741,7 +1760,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <name type="string">world look at zoom in</name>
+    <dialog-show type="string">0</dialog-show>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -2021,13 +2040,16 @@
         <v2 n="9" type="string">90</v2>
       </curves>
     </RND>
+    <script-for-leave type="string"></script-for-leave>
     <offsets type="double">-0.21</offsets>
     <offsets n="1" type="double">-3.450481025</offsets>
     <offsets n="2" type="double">0.36</offsets>
     <offsets n="3" type="double">0.1042752868</offsets>
     <offsets n="4" type="double">-14.96296296</offsets>
     <offsets n="5" type="double">0</offsets>
-    <category type="string">1</category>
+    <category type="string">2</category>
+    <script-for-entry type="string"></script-for-entry>
+    <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <version type="string">1.2.7</version>
   <mini-dialog-type type="string">slots</mini-dialog-type>
