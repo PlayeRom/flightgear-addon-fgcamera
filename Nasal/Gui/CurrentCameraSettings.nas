@@ -1,13 +1,13 @@
 #
 # Class for GUI current-camera-config.xml
 #
-var CurrentCameraSettings = {
+var CurrentCameraConfig = {
     #
     # Constructor
     #
     new: func {
         var me = {
-            parents: [CurrentCameraSettings],
+            parents: [CurrentCameraConfig],
             _listener: nil,
         };
 

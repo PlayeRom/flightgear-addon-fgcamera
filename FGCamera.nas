@@ -15,7 +15,7 @@ var walker         = Walker.new();
 var nasal          = Nasal.new();
 
 # Scripts for dialogs
-var currentCameraSettings = nil;
+var currentCameraConfig = nil;
 var nasalConfig           = nil;
 
 #
@@ -31,8 +31,8 @@ var init = func(addon) {
     offsetsManager = OffsetsManager.new();
 
     # Scripts for dialogs
-    currentCameraSettings = CurrentCameraSettings.new();
-    nasalConfig           = NasalConfig.new();
+    currentCameraConfig = CurrentCameraConfig.new();
+    nasalConfig         = NasalConfig.new();
 
     var fdmInitListener = _setlistener("/sim/signals/fdm-initialized", func {
         removelistener(fdmInitListener);

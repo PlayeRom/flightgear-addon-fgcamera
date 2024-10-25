@@ -73,7 +73,7 @@ var NasalConfig = {
     updateScriptForEntry: func {
         var script = me.getEntryScript();
 
-        if (currentCameraSettings.isExecNasalEnabled()) {
+        if (currentCameraConfig.isExecNasalEnabled()) {
             nasal.exec(script);
         }
 
@@ -87,7 +87,7 @@ var NasalConfig = {
     updateScriptForLeave: func {
         var script = me.getLeaveScript();
 
-        if (!currentCameraSettings.isExecNasalEnabled()) {
+        if (!currentCameraConfig.isExecNasalEnabled()) {
             nasal.exec(script);
         }
 

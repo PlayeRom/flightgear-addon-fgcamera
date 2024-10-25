@@ -51,7 +51,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.togglePopupTip()</script>
+                    <script>fgcamera.currentCameraConfig.togglePopupTip()</script>
                 </binding>
             </checkbox>
         </group>
@@ -71,7 +71,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.toggle2DPanel()</script>
+                    <script>fgcamera.currentCameraConfig.toggle2DPanel()</script>
                 </binding>
             </checkbox>
             <combo>
@@ -86,7 +86,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.toggle2DPanel()</script>
+                    <script>fgcamera.currentCameraConfig.toggle2DPanel()</script>
                 </binding>
                 <value>generic-vfr-panel</value>
                 <value>controls-vfr-panel</value>
@@ -108,7 +108,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.toggleDialog()</script>
+                    <script>fgcamera.currentCameraConfig.toggleDialog()</script>
                 </binding>
             </checkbox>
 
@@ -126,7 +126,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.dialogName()</script>
+                    <script>fgcamera.currentCameraConfig.dialogName()</script>
                 </binding>
             </input>
 
@@ -170,7 +170,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.applyFov()</script>
+                    <script>fgcamera.currentCameraConfig.applyFov()</script>
                 </binding>
             </input>
         </group>
@@ -204,7 +204,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.applyMovementTime()</script>
+                    <script>fgcamera.currentCameraConfig.applyMovementTime()</script>
                 </binding>
             </input>
         </group>
@@ -238,7 +238,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.applyAdjustmentLinearVelocity()</script>
+                    <script>fgcamera.currentCameraConfig.applyAdjustmentLinearVelocity()</script>
                 </binding>
             </input>
             <input>
@@ -255,7 +255,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.applyAdjustmentAangularVelocity()</script>
+                    <script>fgcamera.currentCameraConfig.applyAdjustmentAangularVelocity()</script>
                 </binding>
             </input>
             <input>
@@ -272,7 +272,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.applyAdjustmentFilter()</script>
+                    <script>fgcamera.currentCameraConfig.applyAdjustmentFilter()</script>
                 </binding>
             </input>
         </group>
@@ -305,7 +305,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.applyMouseLookSensitivity()</script>
+                    <script>fgcamera.currentCameraConfig.applyMouseLookSensitivity()</script>
                 </binding>
             </input>
             <input>
@@ -322,7 +322,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraSettings.applyMouseLookFilter()</script>
+                    <script>fgcamera.currentCameraConfig.applyMouseLookFilter()</script>
                 </binding>
             </input>
         </group>
@@ -346,7 +346,7 @@
             </binding>
             <binding>
                 <command>nasal</command>
-                <script>fgcamera.currentCameraSettings.toggleDHM()</script>
+                <script>fgcamera.currentCameraConfig.toggleDHM()</script>
             </binding>
         </checkbox>
 
@@ -381,7 +381,7 @@
             </binding>
             <binding>
                 <command>nasal</command>
-                <script>fgcamera.currentCameraSettings.toggleRND()</script>
+                <script>fgcamera.currentCameraConfig.toggleRND()</script>
             </binding>
         </checkbox>
 
@@ -416,7 +416,7 @@
             </binding>
             <binding>
                 <command>nasal</command>
-                <script>fgcamera.currentCameraSettings.toggleExecNasal()</script>
+                <script>fgcamera.currentCameraConfig.toggleExecNasal()</script>
             </binding>
         </checkbox>
 
@@ -459,10 +459,10 @@
 
     <nasal>
         <open><![CDATA[
-            fgcamera.currentCameraSettings.open();
+            fgcamera.currentCameraConfig.open();
         ]]></open>
         <close><![CDATA[
-            fgcamera.currentCameraSettings.close();
+            fgcamera.currentCameraConfig.close();
         ]]></close>
     </nasal>
 </PropertyList>

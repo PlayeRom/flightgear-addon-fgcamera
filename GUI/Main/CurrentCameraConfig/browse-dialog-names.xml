@@ -181,7 +181,7 @@
 
                 setprop(fgcamera.g_myNodePath ~ "/dialogs/camera-settings/dialog-name", dialogName);
 
-                fgcamera.currentCameraSettings.dialogName();
+                fgcamera.currentCameraConfig.dialogName();
             };
         ]]></open>
 
