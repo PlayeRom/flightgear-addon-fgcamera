@@ -1,5 +1,5 @@
 #
-# Nasal for GUI current-camera-settings.xml
+# Nasal for GUI current-camera-config.xml
 #
 var CurrentCameraSettings = {
     #
@@ -65,7 +65,7 @@ var CurrentCameraSettings = {
     dialogUpdate: func (dlgObj = nil) {
         var hash = {
             "object-name" : dlgObj,
-            "dialog-name" : "current-camera-settings"
+            "dialog-name" : "current-camera-config"
         };
         fgcommand("dialog-update", props.Node.new(hash));
     },

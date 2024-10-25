@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-    <name>current-camera-settings</name>
+    <name>current-camera-config</name>
     <layout>vbox</layout>
     <x>20</x>
     <y>-50</y>
@@ -362,7 +362,7 @@
             </binding>
             <binding>
                 <command>dialog-close</command>
-                <dialog-name>current-camera-settings</dialog-name>
+                <dialog-name>current-camera-config</dialog-name>
             </binding>
         </button>
 
@@ -397,7 +397,7 @@
             </binding>
             <binding>
                 <command>dialog-close</command>
-                <dialog-name>current-camera-settings</dialog-name>
+                <dialog-name>current-camera-config</dialog-name>
             </binding>
         </button>
 

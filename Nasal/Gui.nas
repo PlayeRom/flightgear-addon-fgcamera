@@ -58,26 +58,26 @@ var Gui = {
     #
     _createDialogs: func {
         var dialogs = [
-            "confirm-delete-fgcamera",
-            "create-new-camera",
-            "current-camera-settings",
-            "DHM-settings",
-            "fgcamera-help",
-            "fgcamera-main",
-            "fgcamera-options",
-            "fgcamera-welcome",
-            'fgcamera-presets',
-            "RND-curves",
-            "RND-generator",
-            "RND-import",
-            "RND-mixer",
-            'browse-dialog-names',
+            { name: "fgcamera-main",           path: "/GUI/" },
+            { name: "fgcamera-welcome",        path: "/GUI/" },
+            { name: "confirm-delete-fgcamera", path: "/GUI/Main/" },
+            { name: "create-new-camera",       path: "/GUI/Main/" },
+            { name: "current-camera-config",   path: "/GUI/Main/" },
+            { name: "fgcamera-help",           path: "/GUI/Main/" },
+            { name: "fgcamera-options",        path: "/GUI/Main/" },
+            { name: 'fgcamera-presets',        path: "/GUI/Main/" },
+            { name: 'browse-dialog-names',     path: "/GUI/Main/CurrentCameraConfig/" },
+            { name: "DHM-settings",            path: "/GUI/Main/CurrentCameraConfig/" },
+            { name: "RND-curves",              path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
+            { name: "RND-generator",           path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
+            { name: "RND-import",              path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
+            { name: "RND-mixer",               path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
         ];
 
-        foreach (var name; dialogs) {
+        foreach (var dialog; dialogs) {
             gui.Dialog.new(
-                "/sim/gui/dialogs/" ~ name ~ "/dialog",
-                me._addonBasePath ~ "/GUI/" ~ name ~ ".xml"
+                "/sim/gui/dialogs/" ~ dialog.name ~ "/dialog",
+                me._addonBasePath ~ dialog.path ~ dialog.name ~ ".xml"
             );
         }
     },
@@ -153,12 +153,12 @@ var Gui = {
     _createMiniDialogs: func {
         me._miniDialogSimple = gui.Dialog.new(
             "/sim/gui/dialogs/fgcamera-mini-dialog-simple/dialog",
-            me._addonBasePath ~ "/GUI/fgcamera-mini-dialog-simple.xml"
+            me._addonBasePath ~ "/GUI/MiniDialog/fgcamera-mini-dialog-simple.xml"
         );
 
         me._miniDialogSlots = gui.Dialog.new(
             "/sim/gui/dialogs/fgcamera-mini-dialog-slots/dialog",
-            me._addonBasePath ~ "/GUI/fgcamera-mini-dialog-slots.xml"
+            me._addonBasePath ~ "/GUI/MiniDialog/fgcamera-mini-dialog-slots.xml"
         );
 
         me.setMiniDialogListener();

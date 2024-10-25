@@ -226,7 +226,7 @@
                 <pref-height>30</pref-height>
                 <binding>
                     <command>dialog-show</command>
-                    <dialog-name>current-camera-settings</dialog-name>
+                    <dialog-name>current-camera-config</dialog-name>
                 </binding>
             </button>
         </group>
