@@ -68,11 +68,11 @@ var Gui = {
             { name: 'fgcamera-presets',        path: "/GUI/Main/" },
             { name: 'browse-dialog-names',     path: "/GUI/Main/CurrentCameraConfig/" },
             { name: "DHM-settings",            path: "/GUI/Main/CurrentCameraConfig/" },
+            { name: "RND-mixer",               path: "/GUI/Main/CurrentCameraConfig/" },
             { name: "nasal-config",            path: "/GUI/Main/CurrentCameraConfig/" },
             { name: "RND-curves",              path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
             { name: "RND-generator",           path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
             { name: "RND-import",              path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
-            { name: "RND-mixer",               path: "/GUI/Main/CurrentCameraConfig/Rnd/" },
         ];
 
         foreach (var dialog; dialogs) {
