@@ -15,6 +15,7 @@ var walker         = Walker.new();
 var nasal          = Nasal.new();
 
 # Scripts for dialogs
+var browseDialogNames   = nil;
 var currentCameraConfig = nil;
 var nasalConfig         = nil;
 
@@ -31,6 +32,7 @@ var init = func(addon) {
     offsetsManager = OffsetsManager.new();
 
     # Scripts for dialogs
+    browseDialogNames   = BrowseDialogNames.new();
     currentCameraConfig = CurrentCameraConfig.new();
     nasalConfig         = NasalConfig.new();
 
