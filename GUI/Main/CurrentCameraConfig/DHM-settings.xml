@@ -600,6 +600,19 @@
         <padding>6</padding>
         <empty><stretch>1</stretch></empty>
         <button>
+            <legend>Defaults</legend>
+            <pref-width>90</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>nasal</command>
+                <script>setDefaultValues()</script>
+            </binding>
+            <binding>
+                <command>dialog-update</command>
+            </binding>
+        </button>
+
+        <button>
             <legend>Back</legend>
             <pref-width>90</pref-width>
             <pref-height>30</pref-height>
@@ -674,13 +687,16 @@
             #
             # @param  string  axis  Propery axis name
             # @param  string  name  Proprty name
+            # @param  bool  withDhmUpdate
             # @return void
             #
-            var setData = func(axis, name) {
+            var setData = func(axis, name, withDhmUpdate = 1) {
                 var value = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/" ~ axis ~ "/" ~ name);
                 fgcamera.cameras.getCurrent().DHM[axis][name] = value;
 
-                fgcamera.DHMHandler.updateValues();
+                if (withDhmUpdate) {
+                    fgcamera.DHMHandler.updateValues();
+                }
             };
 
             var setFilter = func {
@@ -689,6 +705,66 @@
                 fgcamera.RNDHandler.hpCoeff = value;
 
                 gui.popupTip(sprintf("RND hpCoeff = %.2f", value), 0.5);
+            };
+
+            var setDefaultValues = func {
+                var defaultsNode = props.Node.new();
+                var path = fgcamera.g_Addon.basePath ~ "/default-cameras.xml";
+                props.copy(io.read_properties(path), defaultsNode);
+
+                var dhm = defaultsNode.getChild("camera").getChild("DHM");
+
+                # Set defaults values to properties
+
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass", dhm.getNode("head-mass").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/g-load-release", dhm.getNode("g-load-release").getValue());
+
+                var xAxis = dhm.getChild("x-axis");
+
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/x-axis/constant-g",     xAxis.getNode("constant-g").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/x-axis/impulse-g",      xAxis.getNode("impulse-g").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/x-axis/head-bank",      xAxis.getNode("head-bank").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/x-axis/damping",        xAxis.getNode("damping").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/x-axis/movement-limit", xAxis.getNode("movement-limit").getValue());
+
+                var yAxis = dhm.getChild("y-axis");
+
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/y-axis/constant-g",     yAxis.getNode("constant-g").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/y-axis/impulse-g",      yAxis.getNode("impulse-g").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/y-axis/head-pitch",     yAxis.getNode("head-pitch").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/y-axis/damping",        yAxis.getNode("damping").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/y-axis/movement-limit", yAxis.getNode("movement-limit").getValue());
+
+                var zAxis = dhm.getChild("z-axis");
+
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/z-axis/constant-g",     zAxis.getNode("constant-g").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/z-axis/impulse-g",      zAxis.getNode("impulse-g").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/z-axis/damping",        zAxis.getNode("damping").getValue());
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/z-axis/movement-limit", zAxis.getNode("movement-limit").getValue());
+
+                # Set values from props to camera object
+                fgcamera.cameras.getCurrent().DHM["head-mass"] = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass") or 10;
+
+                setFilter();
+
+                setData("x-axis", "constant-g", 0);
+                setData("x-axis", "impulse-g", 0);
+                setData("x-axis", "head-bank", 0);
+                setData("x-axis", "damping", 0);
+                setData("x-axis", "movement-limit", 0);
+
+                setData("y-axis", "constant-g", 0);
+                setData("y-axis", "impulse-g", 0);
+                setData("y-axis", "head-pitch", 0);
+                setData("y-axis", "damping", 0);
+                setData("y-axis", "movement-limit", 0);
+
+                setData("z-axis", "constant-g", 0);
+                setData("z-axis", "impulse-g", 0);
+                setData("z-axis", "damping", 0);
+                setData("z-axis", "movement-limit", 0);
+
+                fgcamera.DHMHandler.updateValues();
             };
 
             update();
