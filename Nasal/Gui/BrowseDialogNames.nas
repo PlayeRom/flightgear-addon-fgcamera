@@ -41,8 +41,8 @@ var BrowseDialogNames = {
 
         list.removeChildren("value");
 
-        foreach (var valueNude; target.getChildren("value")) {
-            var value = valueNude.getValue();
+        foreach (var valueNode; target.getChildren("value")) {
+            var value = valueNode.getValue();
             if (value != nil) {
                 list.addChild("value").setValue(value);
             }
