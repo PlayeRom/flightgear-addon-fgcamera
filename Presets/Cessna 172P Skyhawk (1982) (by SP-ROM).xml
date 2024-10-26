@@ -2,6 +2,7 @@
 
 <PropertyList>
   <camera>
+    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -12,7 +13,6 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
-    <name type="string">Pilot</name>
     <panel-show-type type="string">controls-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -24,7 +24,8 @@
       <v n="1" type="string">30.0</v>
     </adjustment>
     <enable-RND type="string">1</enable-RND>
-    <panel-show type="string">0</panel-show>
+    <enable-nasal-leave type="double">0</enable-nasal-leave>
+    <panel-show type="double">0</panel-show>
     <dialog-name type="string"></dialog-name>
     <fov type="string">70</fov>
     <DHM>
@@ -36,9 +37,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
-        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
+        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -51,7 +52,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <dialog-show type="string">0</dialog-show>
+    <name type="string">Pilot</name>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -340,10 +341,10 @@
     <offsets n="5" type="double">0</offsets>
     <category type="string">0</category>
     <script-for-entry type="string"></script-for-entry>
+    <enable-nasal-entry type="double">0</enable-nasal-entry>
     <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="1">
-    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -354,6 +355,7 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
+    <name type="string">Panel</name>
     <panel-show-type type="string">controls-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -365,7 +367,8 @@
       <v n="1" type="string">30.0</v>
     </adjustment>
     <enable-RND type="string">1</enable-RND>
-    <panel-show type="string">1</panel-show>
+    <enable-nasal-leave type="double">0</enable-nasal-leave>
+    <panel-show type="double">1</panel-show>
     <dialog-name type="string"></dialog-name>
     <fov type="string">70</fov>
     <DHM>
@@ -377,9 +380,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
-        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
+        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -392,7 +395,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <name type="string">Panel</name>
+    <dialog-show type="string">0</dialog-show>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -681,10 +684,10 @@
     <offsets n="5" type="double">0</offsets>
     <category type="string">1</category>
     <script-for-entry type="string"></script-for-entry>
+    <enable-nasal-entry type="double">0</enable-nasal-entry>
     <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="2">
-    <dialog-show type="string">1</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -695,6 +698,7 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
+    <name type="string">Radio</name>
     <panel-show-type type="string">generic-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -706,6 +710,7 @@
       <v n="1" type="string">30.0</v>
     </adjustment>
     <enable-RND type="string">1</enable-RND>
+    <enable-nasal-leave type="double">0</enable-nasal-leave>
     <panel-show type="string">0</panel-show>
     <dialog-name type="string">map</dialog-name>
     <fov type="string">70</fov>
@@ -718,9 +723,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
-        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
+        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -733,7 +738,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <name type="string">Radio</name>
+    <dialog-show type="string">1</dialog-show>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -1022,10 +1027,10 @@
     <offsets n="5" type="double">0</offsets>
     <category type="string">1</category>
     <script-for-entry type="string"></script-for-entry>
+    <enable-nasal-entry type="double">0</enable-nasal-entry>
     <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="3">
-    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -1036,6 +1041,7 @@
     </tower>
     <type type="string">FGCamera1</type>
     <popupTip type="string">1</popupTip>
+    <name type="string">Bottom panel</name>
     <panel-show-type type="string">controls-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -1047,7 +1053,8 @@
       <v n="1" type="string">30.0</v>
     </adjustment>
     <enable-RND type="string">1</enable-RND>
-    <panel-show type="string">1</panel-show>
+    <enable-nasal-leave type="double">1</enable-nasal-leave>
+    <panel-show type="double">1</panel-show>
     <dialog-name type="string"></dialog-name>
     <fov type="string">70</fov>
     <DHM>
@@ -1059,9 +1066,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
-        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
+        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -1074,7 +1081,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <name type="string">Bottom panel</name>
+    <dialog-show type="string">0</dialog-show>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -1365,11 +1372,12 @@
     <category type="string">1</category>
     <script-for-entry type="string">getprop("/sim/rendering/shaders/skydome")
     ? setprop("/sim/rendering/als-secondary-lights/use-flashlight", 1)
-    : gui.popupTip("FGCamera: enable ALS for flashlight", 4);
-</script-for-entry>
+    : gui.popupTip("FGCamera: enable ALS for flashlight", 4);</script-for-entry>
+    <enable-nasal-entry type="double">1</enable-nasal-entry>
     <enable-exec-nasal type="double">1</enable-exec-nasal>
   </camera>
   <camera n="4">
+    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="double">0</roll-deg>
       <heading-deg type="double">0</heading-deg>
@@ -1380,7 +1388,6 @@
     </tower>
     <type type="string">FGCamera4</type>
     <popupTip type="string">1</popupTip>
-    <name type="string">World look at</name>
     <panel-show-type type="string">generic-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -1392,6 +1399,7 @@
       <v n="1" type="string">30.0</v>
     </adjustment>
     <enable-RND type="string">1</enable-RND>
+    <enable-nasal-leave type="double">0</enable-nasal-leave>
     <panel-show type="string">0</panel-show>
     <dialog-name type="string"></dialog-name>
     <fov type="string">65</fov>
@@ -1404,9 +1412,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
-        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
+        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -1419,7 +1427,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <dialog-show type="string">0</dialog-show>
+    <name type="string">World look at</name>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -1708,9 +1716,11 @@
     <offsets n="5" type="double">0</offsets>
     <category type="string">2</category>
     <script-for-entry type="string"></script-for-entry>
+    <enable-nasal-entry type="double">0</enable-nasal-entry>
     <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <camera n="5">
+    <dialog-show type="string">0</dialog-show>
     <tower>
       <roll-deg type="string">0</roll-deg>
       <heading-deg type="string">0</heading-deg>
@@ -1721,7 +1731,6 @@
     </tower>
     <type type="string">FGCamera4</type>
     <popupTip type="string">1</popupTip>
-    <name type="string">World look at zoom in</name>
     <panel-show-type type="string">generic-vfr-panel</panel-show-type>
     <mouse_look>
       <filter type="string">0.1</filter>
@@ -1733,6 +1742,7 @@
       <v n="1" type="string">30.0</v>
     </adjustment>
     <enable-RND type="string">1</enable-RND>
+    <enable-nasal-leave type="double">0</enable-nasal-leave>
     <panel-show type="string">0</panel-show>
     <dialog-name type="string"></dialog-name>
     <fov type="string">10</fov>
@@ -1745,9 +1755,9 @@
       </z-axis>
       <g-load-release type="double">0</g-load-release>
       <y-axis>
-        <constant-g type="double">0.05</constant-g>
         <damping type="double">30</damping>
         <impulse-g type="double">0.2</impulse-g>
+        <constant-g type="double">0.05</constant-g>
         <head-pitch type="double">50</head-pitch>
         <movement-limit type="double">0.025</movement-limit>
       </y-axis>
@@ -1760,7 +1770,7 @@
         <movement-limit type="double">0.05</movement-limit>
       </x-axis>
     </DHM>
-    <dialog-show type="string">0</dialog-show>
+    <name type="string">World look at zoom in</name>
     <head-tracker type="string">0</head-tracker>
     <enable-DHM type="string">1</enable-DHM>
     <movement>
@@ -2049,6 +2059,7 @@
     <offsets n="5" type="double">0</offsets>
     <category type="string">2</category>
     <script-for-entry type="string"></script-for-entry>
+    <enable-nasal-entry type="double">0</enable-nasal-entry>
     <enable-exec-nasal type="double">0</enable-exec-nasal>
   </camera>
   <version type="string">1.2.7</version>

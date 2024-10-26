@@ -3381,7 +3381,7 @@
     <offsets n="5" type="double">0</offsets>
     <category type="string">0</category>
   </camera>
-  <version type="string">1.2.7</version>
+  <version type="string">1.2.6</version>
   <mini-dialog-type type="string">simple</mini-dialog-type>
   <spring-loaded-mouse type="bool">true</spring-loaded-mouse>
   <force-look-around-mode-in-fg type="bool">true</force-look-around-mode-in-fg>
