@@ -47,7 +47,7 @@ var Migration = {
     # Get copy of the given hash
     #
     # @param  hash|string|double|int  hash  Hash to copy (or any value)
-    # @retrun hash  New instance of hash
+    # @return hash  New instance of hash
     #
     deepHashCopy: func (hash) {
         if (typeof(hash) != "hash") {
