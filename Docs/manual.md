@@ -53,14 +53,18 @@ want to change the camera position and not that you were just looking around**.
 * '**Config...**' button to access current camera configuration (see [Camera configuration](#camera-configuration) section),
 * '**Delete...**' button to delete the selected camera.
 
-![alt camera-config](images/camera-config.png "FGCamera config")
+![alt camera-main](images/camera-main.png "FGCamera main dialog")
 
 ## Camera Presets
 
 FGCamera contains a list of ready-made cameras for different aircraft. If you do
 not want to create a camera set from scratch, you can click the 'Import...'
 button. A new window will appear with a list of available cameras for different
-aircraft. Find your current aircraft, select it by clicking on it and click the
+aircraft.
+
+![alt camera-presets](images/camera-presets.png "Camera Presets")
+
+Find your current aircraft, select it by clicking on it and click the
 '**Load selected**' button. The list of cameras in your main window will be
 replaced. However, this configuration will not be permanently saved to disk, so
 you must click the 'Save' or 'Save & close' button to make it permanent. Saving
@@ -173,7 +177,7 @@ additional buttons from 0 to 9, with which you can select a specific camera.
 
 ## Camera configuration
 
-![alt camera-settings](images/camera-settings.png "Camera config")
+![alt camera-config](images/camera-config.png "Current Camera Config")
 
 Camera setting has different options regarding current selected camera. Available
 options:
@@ -184,10 +188,10 @@ options:
   can also choose between two panels to show (see next paragraph).
 * '**Show dialog**'- display any FG dialog with the selection of this camera. First,
   type the name of the dialog, such as `map` for map display, then check the
-  checkbox. To find more dialog names, edit the `gui/menubar.xml` file in your
-  FGData directory of your FlightGear installation and search this file for the
-  `<dialog-name>` tag. The names putting there are the names of the dialogs you
-  can enter to this option.
+  checkbox. To find the available dialog names in FlightGear, use '**...**'
+  (browse) button. However, the aircraft may have additional dialogs defined. To
+  find out what they are named, search the aircraft source code for the keyword
+  "dialog-name".
 * '**Field of view**' - default field of view in degrees. If you want a wider field
   of view, use a larger value. Default is 65 degrees.
 * '**View movement**' - duration of the transition animation (in seconds) from the
@@ -206,8 +210,9 @@ display with throttle.
 
 On the 'Current Camera Config' dialog, there are two buttons at the bottom:
 
-1. '**DHM**' for options regarding 'Dynamic Head Movement'
-2. '**RND**' for Random movement generator.
+1. '**DHM...**' for options regarding 'Dynamic Head Movement'
+2. '**RND...**' for Random movement generator.
+3. '**Nasal...**' for enter any Nasal scripts to be run on entry and leave of the current camera.
 
 ## Dynamic Head Movement
 
@@ -217,11 +222,11 @@ this effect. When enabled and configured the camera will move according to
 defined options the same as normally would move the head of the pilot in the
 aircraft.
 
-![alt dynamic-head-movement](images/dynamic-head-movement.png "dynamic head movement")
+![alt dhm](images/dhm.png "Dynamic Head Movement")
 
 ## Random View Generator
 
-When selecting '**RND**' on the camera config dialog, one is moved to the Random
+When selecting '**RND**' on the Current Camera Config dialog, one is moved to the Random
 View Generator dialog. There you can define predefined random movement. This
 option can simulate various aircraft and situations. When selecting 'Import'
 button, you can import predefined Random setting according to plane types e.g.
@@ -238,7 +243,27 @@ signal generators, that can feed the data to main random generator engine.
 When pressing '**Curves**' button, you can define additional output gain
 regarding velocity in knots.
 
-![alt random-curves](images/rnd-curves.png "Random curves")
+![alt random-main-window](images/random-main.png "Random - main window")
+
+## Execute Nasal Script
+
+Clicking the '**Nasal**' button in the Current Camera dialog will open a new window for entering Nasal scripts.
+
+![alt execute-nasal-script](images/execute-nasal-script.png "Execute Nasal Script")
+
+This window is divided into two parts. In the upper part we can enter a script to be executed upon entry to the current camera. In the lower part we can enter a script to exit the current camera.
+
+Each part has a checkbox, checking it means enabling the script execution. This way you can control which scripts are executed, independently from the main checkbox in the Current Camera Config dialog.
+
+The example in the image above comes from a Cessna 172P, where when entering the camera we have a script that turns on the flashlight (if ALS is enabled) and when leaving the camera we have the flashlight turned off.
+
+Writing a script in the GUI of the current version of FlightGear is very inconvenient, so for each editor field we have the following buttons:
+
+* '**Copy**' - copy the script from the editor to the clipboard;
+* '**Paste**' - paste the script from the clipboard to the editor;
+* '**Clear**' - remove everything that the editor window contains.
+
+For writing scripts I recommend using an external editor and here using only the above buttons.
 
 ## Saving changes
 
