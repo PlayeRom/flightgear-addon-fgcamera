@@ -30,8 +30,8 @@
         <offsets>0</offsets>
 
         <adjustment>
-            <v>0.1</v>
-            <v>30.0</v>
+            <v>0.1</v>  <!-- linera velocity, m/s -->
+            <v>30.0</v> <!-- angular velocity, deg/s -->
             <filter>0.2</filter>
         </adjustment>
 

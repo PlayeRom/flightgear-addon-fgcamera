@@ -20,6 +20,8 @@ var AdjustmentHandler = {
     _trigger: func {
         forindex (var i; me._coords) {
             var vCfg = cameras.getCurrent().adjustment.v;
+            # vCfg[0] - linear velocity config (for x, y, z)
+            # vCfg[1] - angular velocity config (for h, p, r)
             var v = vCfg[i < 3 ? 0 : 1];
 
             me._v[i] = getprop(g_myNodePath ~ "/controls/adjust-" ~ me._coords[i]) or 0;

@@ -13,6 +13,11 @@
 
 var Commands = {
     #
+    # Constants
+    #
+    TIMER_INTERVAL: 0.4,
+
+    #
     # Constructor
     #
     # @return me
@@ -21,6 +26,16 @@ var Commands = {
         var me = { parents: [Commands] };
 
         me._addCommands();
+
+        me._timers = {
+            x: maketimer(Commands.TIMER_INTERVAL, func setprop(g_myNodePath ~ "/controls/adjust-x", 0) ),
+            y: maketimer(Commands.TIMER_INTERVAL, func setprop(g_myNodePath ~ "/controls/adjust-y", 0) ),
+            z: maketimer(Commands.TIMER_INTERVAL, func setprop(g_myNodePath ~ "/controls/adjust-z", 0) ),
+        };
+
+        me._timers.x.singleShot = true;
+        me._timers.y.singleShot = true;
+        me._timers.z.singleShot = true;
 
         return me;
     },
@@ -50,9 +65,31 @@ var Commands = {
                 setprop(g_myNodePath ~ "/current-camera/camera-id", data["camera-id"]);
             },
 
+            #
+            # Parameters:
+            #  * dof - the axis along which we move the camera, "x", "y" and "z"
+            #  * velocity - move direction, for X: -1 - left,    1 - right
+            #                               for Y: -1 - down,    1 - up
+            #                               for Z: -1 - forward, 1 - backward
+            #               A value of 0 means stopping the movement for a given axis.
             "fgcamera-adjust": func {
                 var data = cmdarg().getValues();
                 setprop(g_myNodePath ~ "/controls/adjust-" ~ data.dof, data.velocity);
+
+                # FlightGear has a keyboard handling bug that if you hold, for example, Ctrl+Up, and release the Ctrl
+                # key first, FlightGear won't recognize the “<mod-up>” key raise event, and we won't get a signal that
+                # the key has been released and that we need to stop moving the camera. So the camera will keep moving
+                # indefinitely until the user gives another key command.
+                # Therefore, I made a workaround with timers, for each X, Y and Z axis.
+                # When the user holds the keys for any of the axes, the timer for that axis starts counting. When the
+                # user keeps holding the keys, the timer restarts and the timer function does not execute. If the user
+                # releases the keys (especially in the wrong order), the timer function is finally executed (we stop
+                # receiving "fgcamera-adjust" events) and the camera stops moving.
+                if (data.velocity != 0) {
+                    me._timers[data.dof].isRunning
+                        ? me._timers[data.dof].restart(Commands.TIMER_INTERVAL)
+                        : me._timers[data.dof].start();
+                }
             },
 
             "fgcamera-save": func {
