@@ -685,7 +685,7 @@
                 fgcamera.cameras.getCurrent().DHM["g-load-release"] = value;
                 fgcamera.RNDHandler.hpCoeff = value;
 
-                gui.popupTip("RND hpCoeff = " ~ value, 0.5);
+                gui.popupTip(sprintf("RND hpCoeff = %.2f", value), 0.5);
             };
 
             update();
