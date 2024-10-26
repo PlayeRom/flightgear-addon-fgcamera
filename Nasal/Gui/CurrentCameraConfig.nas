@@ -142,7 +142,7 @@ var CurrentCameraConfig = {
     #==================================================
     #   Dialog name
     #==================================================
-    dialogName: func {
+    applyDialogName: func {
         var dialogName = getprop(g_myNodePath ~ "/dialogs/camera-settings/dialog-name");
 
         if (me.isShowDialogEnabled()) {

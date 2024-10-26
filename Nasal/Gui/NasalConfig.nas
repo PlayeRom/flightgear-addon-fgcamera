@@ -66,13 +66,8 @@ var NasalConfig = {
         }));
     },
 
-    isEnableNasalEntry: func {
-        return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-nasal-entry");
-    },
-
-    isEnableNasalLeave: func {
-        return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-nasal-leave");
-    },
+    isEnableNasalEntry: func { return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-nasal-entry"); },
+    isEnableNasalLeave: func { return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-nasal-leave"); },
 
     toggleNasalEntry: func {
         var enabledNasal = currentCameraConfig.isExecNasalEnabled();
@@ -100,7 +95,7 @@ var NasalConfig = {
     #
     # Update entry script to camera and update dialog
     #
-    updateScriptForEntry: func {
+    applyScriptForEntry: func {
         var script = me.getEntryScript();
 
         if (currentCameraConfig.isExecNasalEnabled()) {
@@ -114,7 +109,7 @@ var NasalConfig = {
     #
     # Update leave script to camera and update dialog
     #
-    updateScriptForLeave: func {
+    applyScriptForLeave: func {
         var script = me.getLeaveScript();
 
         if (!currentCameraConfig.isExecNasalEnabled()) {
@@ -160,7 +155,7 @@ var NasalConfig = {
         setprop(prop, script);
 
         entry
-            ? me.updateScriptForEntry()
-            : me.updateScriptForLeave();
+            ? me.applyScriptForEntry()
+            : me.applyScriptForLeave();
     },
 };
