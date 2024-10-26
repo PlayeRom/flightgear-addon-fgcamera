@@ -1004,6 +1004,37 @@
         </button>
     </group>
 
+    <hrule/>
+
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
+        <empty><stretch>1</stretch></empty>
+        <button>
+            <legend>Back</legend>
+            <pref-width>90</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>current-camera-config</dialog-name>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
+                <dialog-name>RND-mixer</dialog-name>
+            </binding>
+        </button>
+
+        <button>
+            <legend>Close</legend>
+            <pref-width>90</pref-width>
+            <pref-height>30</pref-height>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+        <empty><stretch>1</stretch></empty>
+    </group>
+
     <nasal>
         <open> <![CDATA[
             var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/";
