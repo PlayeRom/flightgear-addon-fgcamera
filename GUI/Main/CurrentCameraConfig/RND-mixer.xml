@@ -1037,11 +1037,11 @@
 
     <nasal>
         <open> <![CDATA[
-            var path  = "/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/";
+            var path  = fgcamera.g_myNodePath ~ "/dialogs/RND/mixer/";
             var list1 = ["/GEN1", "/GEN2", "/GEN3", "/level"];
             var list2 = ["x", "y", "z", "h", "p", "r"];
             var mode  = nil;
-            var listener1 = setlistener("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func { update() });
+            var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func { update() });
 
             var update = func {
                 mode  = getMode();
@@ -1054,7 +1054,7 @@
                     }
                 }
 
-                setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s", fgcamera.RNDHandler.rnd[mode].mixer.s);
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/RND/mixer/s", fgcamera.RNDHandler.rnd[mode].mixer.s);
 
                 fgcommand("dialog-update", props.Node.new({ "dialog-name": "RND-mixer" }));
             }
@@ -1070,9 +1070,13 @@
                 return fgcamera.RNDHandler._mode;
             }
 
-            var toggleEdit = func fgcamera.RNDHandler.guiEdit = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/edit-mode");
+            var toggleEdit = func {
+                fgcamera.RNDHandler.guiEdit = getprop(fgcamera.g_myNodePath ~ "/dialogs/RND/edit-mode");
+            }
 
-            var setScale = func fgcamera.RNDHandler.rnd[mode].mixer.s = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/s");
+            var setScale = func {
+                fgcamera.RNDHandler.rnd[mode].mixer.s = getprop(fgcamera.g_myNodePath ~ "/dialogs/RND/mixer/s");
+            }
 
             var setData = func (key, i) {
                 fgcamera.RNDHandler.rnd[mode].mixer[key][i] = getprop(path ~ key ~ list1[i]);
@@ -1097,7 +1101,7 @@
             update();
         ]]> </open>
         <close> <![CDATA[
-            removelistener(listener1);
+            removelistener(listener);
         ]]> </close>
     </nasal>
 </PropertyList>

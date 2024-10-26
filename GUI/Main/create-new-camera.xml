@@ -118,13 +118,14 @@
 
     <nasal>
         <open> <![CDATA[
-            if (getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type") == nil) {
-                setprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type", "cockpit");
+            if (getprop(fgcamera.g_myNodePath ~ "/dialogs/create-camera/camera-type") == nil) {
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/create-camera/camera-type", "cockpit");
             }
-            var cameraN   = props.Node.new();
-            var path      = fgcamera.g_Addon.basePath ~ "/default-cameras.xml";
-            var type      = nil;
-            props.copy(io.read_properties(path), cameraN);
+
+            var cameraNode = props.Node.new();
+            var path       = fgcamera.g_Addon.basePath ~ "/default-cameras.xml";
+            var type       = nil;
+            props.copy(io.read_properties(path), cameraNode);
 
             #==================================================
             #   Functions
@@ -150,17 +151,18 @@
             #   Select camera type
             #==================================================
             var selectCameraType = func {
-                var selected = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-type") or "cockpit";
+                var selected = getprop(fgcamera.g_myNodePath ~ "/dialogs/create-camera/camera-type") or "cockpit";
                 var types    = [
-                    ["cockpit"              , "FGCamera1"],
-                    ["aircraft (look at)"   , "FGCamera2"],
-                    ["aircraft (look from)" , "FGCamera3"],
-                    ["world (look at)"      , "FGCamera4"],
-                    ["world (look from)"    , "FGCamera5"],
+                    { label: "cockpit",              value: "FGCamera1" },
+                    { label: "aircraft (look at)",   value: "FGCamera2" },
+                    { label: "aircraft (look from)", value: "FGCamera3" },
+                    { label: "world (look at)",      value: "FGCamera4" },
+                    { label: "world (look from)",    value: "FGCamera5" },
                 ];
-                foreach (var a; types) {
-                    if (selected == a[0]) {
-                        (type = a[1]) and break;
+
+                foreach (var item; types) {
+                    if (selected == item.label) {
+                        (type = item.value) and break;
                     }
                 }
             }
@@ -172,11 +174,11 @@
                 var currentCamera  = fgcamera.cameras.getCurrent();
 
                 var camera   = {};
-                var cameraName = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/create-camera/camera-name") or "new camera";
+                var cameraName = getprop(fgcamera.g_myNodePath ~ "/dialogs/create-camera/camera-name") or "new camera";
 
-                camera       = cameraN.getChild("camera").getValues();
-                camera.name  = cameraName;
-                camera.type  = type;
+                camera         = cameraNode.getChild("camera").getValues();
+                camera.name    = cameraName;
+                camera.type    = type;
                 camera.offsets = currentCamera.offsets[0:];
                 if (type == "FGCamera5") {
                     camera.tower = setTower(camera.tower);

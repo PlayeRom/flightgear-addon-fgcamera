@@ -235,8 +235,15 @@
                         var myCanvas1 = canvas.get(cmdarg());
                         myCanvas1.setColorBackground(0, 0, 0.3, 1); # transparent
 
-                        var myChart1 = Chart.new({ x: "v1", y: "level", chart: myCanvas1.createGroup() });
-                        append(listeners, setlistener("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func { myChart1.update({ x: "v1", y: "level"}) } ));
+                        var myChart1 = Chart.new({
+                            x    : "v1",
+                            y    : "level",
+                            chart: myCanvas1.createGroup(),
+                        });
+
+                        append(listeners, setlistener(fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func {
+                            myChart1.update({ x: "v1", y: "level"})
+                        } ));
                     ]]> </load>
                 </nasal>
             </canvas>
@@ -269,14 +276,15 @@
                         var myCanvas2 = canvas.get(cmdarg());
                         myCanvas2.setColorBackground(0, 0, 0.3, 1);
 
-                        var myChart2 = Chart.new({ x: "v2", y: "filter", chart: myCanvas2.createGroup() });
-                        append(
-                            listeners,
-                            setlistener(
-                                "/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated",
-                                func { myChart2.update({ x: "v2", y: "filter" }); }
-                            )
-                        );
+                        var myChart2 = Chart.new({
+                            x    : "v2",
+                            y    : "filter",
+                            chart: myCanvas2.createGroup(),
+                        });
+
+                        append(listeners, setlistener(fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func {
+                            myChart2.update({ x: "v2", y: "filter" });
+                        } ));
                     ]]> </load>
                 </nasal>
             </canvas>

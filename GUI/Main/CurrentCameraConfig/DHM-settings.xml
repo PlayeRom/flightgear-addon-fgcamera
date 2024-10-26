@@ -663,7 +663,10 @@
             # @return void
             #
             var initProp = func(axis, name) {
-                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/" ~ axis ~ "/" ~ name, fgcamera.cameras.getCurrent().DHM[axis][name]);
+                setprop(
+                    fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/" ~ axis ~ "/" ~ name,
+                    fgcamera.cameras.getCurrent().DHM[axis][name]
+                );
             };
 
             #

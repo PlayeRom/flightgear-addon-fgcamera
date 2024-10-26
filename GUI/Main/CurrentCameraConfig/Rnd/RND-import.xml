@@ -68,12 +68,12 @@
 
     <nasal>
         <open> <![CDATA[
-            var listN    = cmdarg().getNode("group[1]/list");
+            var listNode = gui.findElementByName(cmdarg(), "file-list");
             var path     = fgcamera.g_Addon.basePath ~ "/Effects/RND";
             var dir      = directory(path);
             var list     = [];
             var mode     = nil;
-            var listener = setlistener("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/RND-updated", func { updateMode() });
+            var listener = setlistener(fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func { updateMode() });
 
             var dialogUpdate = func () {
                 forindex (var i; arg) {
@@ -87,7 +87,7 @@
 
             var importEffect = func {
                 var node      = props.Node.new();
-                var selection = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/RND/mixer/import/selected-effect");
+                var selection = getprop(fgcamera.g_myNodePath ~ "/dialogs/RND/mixer/import/selected-effect");
 
                 props.copy(io.read_properties(path ~ "/" ~ selection ~ ".xml"), node);
 
@@ -104,10 +104,10 @@
                 }
             }
 
-            listN.removeChildren("value");
+            listNode.removeChildren("value");
 
             forindex (var i; list) {
-                listN.addChild("value").setValue(list[i]);
+                listNode.addChild("value").setValue(list[i]);
             }
 
             dialogUpdate("file-list");

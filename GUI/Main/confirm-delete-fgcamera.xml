@@ -69,13 +69,12 @@
             #==================================================
             #   Functions
             #==================================================
-            var compressVector = func (v) {
-                var s = size(v);
+            var compressVector = func (vector) {
                 var newVector = [];
-                if (s != 0) {
-                    forindex (var i; v) {
-                        if (v[i] != nil) {
-                            append(newVector, v[i]);
+                if (size(vector)) {
+                    forindex (var i; vector) {
+                        if (vector[i] != nil) {
+                            append(newVector, vector[i]);
                         }
                     }
                 }

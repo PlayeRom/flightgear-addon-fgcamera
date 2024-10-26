@@ -337,8 +337,8 @@
                     var select = "";
 
                     if (i == fgcamera.cameras.getCurrentId()) {
-                        setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name", name);
-                        setprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category", camera.category);
+                        setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-name", name);
+                        setprop(fgcamera.g_myNodePath ~ "/current-camera/category", camera.category);
                         select = " <-";
                     }
 
@@ -398,7 +398,7 @@
             #   Rename camera
             #==================================================
             var renameCamera = func {
-                fgcamera.cameras.getCurrent().name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/camera-name");
+                fgcamera.cameras.getCurrent().name = getprop(fgcamera.g_myNodePath ~ "/current-camera/camera-name");
                 updateList();
             }
 
@@ -406,7 +406,7 @@
             #   Set category
             #==================================================
             var setCategory = func {
-                fgcamera.cameras.getCurrent().category = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/category");
+                fgcamera.cameras.getCurrent().category = getprop(fgcamera.g_myNodePath ~ "/current-camera/category");
                 updateList();
             }
 
@@ -414,7 +414,7 @@
             #   Select camera
             #==================================================
             var selectCamera = func {
-                var name = getprop("/addons/by-id/a.marius.FGCamera/addon-devel/current-camera/name");
+                var name = getprop(fgcamera.g_myNodePath ~ "/current-camera/name");
                 var i = 0;
                 foreach (var item; list.getChildren("value")) {
                     if (item.getValue() == name) {
