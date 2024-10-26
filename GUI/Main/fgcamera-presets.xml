@@ -62,6 +62,7 @@
 
             <list>
                 <name>presets-list</name>
+                <pref-width>450</pref-width>
                 <pref-height>210</pref-height>
                 <halign>fill</halign>
                 <valign>fill</valign>

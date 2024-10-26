@@ -112,12 +112,13 @@
                 </binding>
             </checkbox>
 
+            <empty><stretch>1</stretch></empty>
+
             <input>
                 <name>dialog-name</name>
                 <halign>right</halign>
-                <pref-width>180</pref-width>
+                <pref-width>164</pref-width>
                 <height>25</height>
-                <!-- <stretch>1</stretch> -->
                 <live>1</live>
                 <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/dialog-name</property>
                 <binding>
