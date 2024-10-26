@@ -9,8 +9,8 @@
 
         <empty><stretch>1</stretch></empty>
         <text>
+            <label>FGCamera Quick Help</label>
             <halign>left</halign>
-            <label>FGCamera quick help</label>
         </text>
         <empty><stretch>1</stretch></empty>
         <button>
