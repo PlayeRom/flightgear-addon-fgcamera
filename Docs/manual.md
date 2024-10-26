@@ -283,7 +283,7 @@ Settings regarding each aircraft are stored in
 
 # Additional resources
 
-* See [`aircraft-integration.md`](./aircraft-integration.md)` file for additional API for integration with the
+* See [`aircraft-integration.md`](./aircraft-integration.md) file for additional API for integration with the
 aircraft code in order to get more precise control e.g. walker bypass options
 * See [`headtracker-integration.md`](./headtracker-integration.md) file for information how to integrate additional
 head-tracker interfaces (beside Linux Track and TrackIR.)

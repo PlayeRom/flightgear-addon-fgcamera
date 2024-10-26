@@ -15,7 +15,7 @@ FlightGear virtual camera. Written in NASAL. Adds features similar to Ezdok Came
 
 # Documentation
 
-More documents can be found in the Docs folder.
+More documents can be found in the Docs folder (see [`Docs/manual.md`](./Docs/manual.md)).
 
 # Configuration
 
@@ -50,11 +50,9 @@ More documents can be found in the Docs folder.
 - 1.2.6:
     * Restore the "world (look at)" camera which positions itself in the tower position and the view always follows the aircraft.
 
-# Planned by Marius_A (branch next)
+# Upload your config as a preset
 
-- 2.x
-  - new GUI for configuration
-  - logic moved to property-rules
+If you are using FGCamera and have a solid and proven camera setup for any aircraft that would be useful to others, please share it with the FlightGear community by [upload form](https://fgcamera.flightgear.org.pl/).
 
 # Authors
 
@@ -66,6 +64,7 @@ More documents can be found in the Docs folder.
 
 - FlightGear wiki: [Wiki](http://wiki.flightgear.org/FGCamera)
 - FlightGear forum: [Forum](https://forum.flightgear.org/viewtopic.php?f=6&t=21685)
+- Upload form for camera presets: [Uploader](https://fgcamera.flightgear.org.pl/)
 
 # License
 
