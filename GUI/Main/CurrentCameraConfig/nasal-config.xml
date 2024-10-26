@@ -37,9 +37,22 @@
 
         <group>
             <layout>hbox</layout>
-            <text>
+            <checkbox>
+                <name>enable-nasal-entry</name>
+                <halign>left</halign>
+                <width>12</width>
+                <height>12</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-nasal-entry</property>
                 <label>Nasal script for camera entry action</label>
-            </text>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>enable-nasal-entry</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>fgcamera.nasalConfig.toggleNasalEntry()</script>
+                </binding>
+            </checkbox>
             <hrule><stretch>true</stretch></hrule>
         </group>
 
@@ -115,9 +128,22 @@
 
         <group>
             <layout>hbox</layout>
-            <text>
+            <checkbox>
+                <name>enable-nasal-leave</name>
+                <halign>left</halign>
+                <width>12</width>
+                <height>12</height>
+                <property>/addons/by-id/a.marius.FGCamera/addon-devel/dialogs/camera-settings/enable-nasal-leave</property>
                 <label>Nasal script for camera leave action</label>
-            </text>
+                <binding>
+                    <command>dialog-apply</command>
+                    <object-name>enable-nasal-leave</object-name>
+                </binding>
+                <binding>
+                    <command>nasal</command>
+                    <script>fgcamera.nasalConfig.toggleNasalLeave()</script>
+                </binding>
+            </checkbox>
             <hrule><stretch>true</stretch></hrule>
         </group>
 

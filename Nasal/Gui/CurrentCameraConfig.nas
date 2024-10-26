@@ -42,22 +42,28 @@ var CurrentCameraConfig = {
     cameraData: func {
         var camera = cameras.getCurrent();
         return [
-            { name: "popup-tip",                   value: camera.popupTip },
-            { name: "show-panel",                  value: camera["panel-show"] },
-            { name: "show-panel-type",             value: camera["panel-show-type"] },
-            { name: "show-dialog",                 value: camera["dialog-show"] },
-            { name: "dialog-name",                 value: camera["dialog-name"] },
-            { name: "enable-exec-nasal",           value: camera["enable-exec-nasal"] },
-            { name: "enable-RND",                  value: camera["enable-RND"] },
-            { name: "enable-DHM",                  value: camera["enable-DHM"] },
-            { name: "field-of-view",               value: camera.fov },
-            { name: "movement-transition-time",    value: camera.movement.time },
-            { name: "adjustment-linear-velocity",  value: camera.adjustment.v[0] },
-            { name: "adjustment-angular-velocity", value: camera.adjustment.v[1] },
-            { name: "adjustment-filter",           value: camera.adjustment.filter },
-            { name: "mlook-sensitivity",           value: camera.mouse_look.sensitivity },
-            { name: "mlook-filter",                value: camera.mouse_look.filter },
-            { name: "label-bar",                   value: "\"" ~ camera.name ~ "\" Config" },
+            { name: "popup-tip",                   value: camera.popupTip,                  dlgUpdate: true },
+            { name: "show-panel",                  value: camera["panel-show"],             dlgUpdate: true },
+            { name: "show-panel-type",             value: camera["panel-show-type"],        dlgUpdate: true },
+            { name: "show-dialog",                 value: camera["dialog-show"],            dlgUpdate: true },
+            { name: "dialog-name",                 value: camera["dialog-name"],            dlgUpdate: true },
+            { name: "enable-exec-nasal",           value: camera["enable-exec-nasal"],      dlgUpdate: true },
+            { name: "enable-RND",                  value: camera["enable-RND"],             dlgUpdate: true },
+            { name: "enable-DHM",                  value: camera["enable-DHM"],             dlgUpdate: true },
+            { name: "field-of-view",               value: camera.fov,                       dlgUpdate: true },
+            { name: "movement-transition-time",    value: camera.movement.time,             dlgUpdate: true },
+            { name: "adjustment-linear-velocity",  value: camera.adjustment.v[0],           dlgUpdate: true },
+            { name: "adjustment-angular-velocity", value: camera.adjustment.v[1],           dlgUpdate: true },
+            { name: "adjustment-filter",           value: camera.adjustment.filter,         dlgUpdate: true },
+            { name: "mlook-sensitivity",           value: camera.mouse_look.sensitivity,    dlgUpdate: true },
+            { name: "mlook-filter",                value: camera.mouse_look.filter,         dlgUpdate: true },
+            { name: "label-bar",                   value: "\"" ~ camera.name ~ "\" Config", dlgUpdate: true },
+
+            # We also need to update variables from nasal-config.xml here, but only setprop because it's a different window
+            { name: "enable-nasal-entry",          value: camera["enable-nasal-entry"],     dlgUpdate: false },
+            { name: "enable-nasal-leave",          value: camera["enable-nasal-leave"],     dlgUpdate: false },
+            { name: "script-for-entry",            value: camera["script-for-entry"],       dlgUpdate: false },
+            { name: "script-for-leave",            value: camera["script-for-leave"],       dlgUpdate: false },
         ];
     },
 
@@ -65,7 +71,9 @@ var CurrentCameraConfig = {
         foreach (var item; me.cameraData()) {
             setprop(g_myNodePath ~ "/dialogs/camera-settings/" ~ item.name, item.value);
 
-            me.dialogUpdate(item.name);
+            if (item.dlgUpdate) {
+                me.dialogUpdate(item.name);
+            }
         }
     },
 
@@ -157,10 +165,13 @@ var CurrentCameraConfig = {
         var enabled = me.isExecNasalEnabled();
 
         cameras.getCurrent()["enable-exec-nasal"] = enabled;
-        nasal.exec(enabled
-            ? nasalConfig.getEntryScript()
-            : nasalConfig.getLeaveScript()
-        );
+
+        if (enabled and nasalConfig.isEnableNasalEntry()) {
+            nasal.exec(nasalConfig.getEntryScript());
+        }
+        elsif (!enabled and nasalConfig.isEnableNasalLeave()) {
+            nasal.exec(nasalConfig.getLeaveScript());
+        }
     },
 
     #==================================================

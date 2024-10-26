@@ -46,6 +46,8 @@
                             <dialog-name></dialog-name>
 
                             <enable-exec-nasal type="bool">false</enable-exec-nasal>
+                            <enable-nasal-entry type="bool">false</enable-nasal-entry>
+                            <enable-nasal-leave type="bool">false</enable-nasal-leave>
                             <script-for-entry></script-for-entry>
                             <script-for-leave></script-for-leave>
 

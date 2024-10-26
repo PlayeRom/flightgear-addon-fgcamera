@@ -106,12 +106,7 @@ var MovementHandler = {
 
         camGui.closeDialog(); # close dialog for cameras.getCurrent();
         Panel2D.hide();
-
-        # Execute leave nasal script if it's set for previous camera
-        if (currentCamera["enable-exec-nasal"]) {
-            var script = currentCamera["script-for-leave"];
-            nasal.exec(script);
-        }
+        nasal.cameraLeaveAction();
 
         if (getprop(g_myNodePath ~ "/popupTip") and incomingCamera.popupTip) {
             gui.popupTip(incomingCamera.name, 1);
@@ -162,13 +157,8 @@ var MovementHandler = {
 
             camGui.showDialog();
             Panel2D.show();
+            nasal.cameraEntryAction();
             setprop("/sim/current-view/field-of-view", cameras.getCurrent().fov); # to be sure that finally the fov is correct
-
-            # Execute entry nasal script if it's set
-            if (cameras.getCurrent()["enable-exec-nasal"]) {
-                var script = cameras.getCurrent()["script-for-entry"];
-                nasal.exec(script);
-            }
         }
         else {
             # FIXME - remove comment ?

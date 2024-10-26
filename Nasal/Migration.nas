@@ -33,7 +33,11 @@ var Migration = {
             foreach (var item; keys(versionItems[version])) {
                 # items = "DHM", "enable-exec-nasal", etc.
                 forindex (var i; cameras.getVector()) {
-                    cameras.getCamera(i)[item] = me.deepHashCopy(versionItems[version][item]);
+                    # Check if the name exists, if it does, do not insert a default
+                    # one so as not to overwrite values that may already exist
+                    if (!view.hasmember(cameras.getCamera(i), item)) {
+                        cameras.getCamera(i)[item] = me.deepHashCopy(versionItems[version][item]);
+                    }
                 }
             }
         }
@@ -110,9 +114,11 @@ var Migration = {
             },
 
             "v1.2.7": {
-                "enable-exec-nasal": 0,
-                "script-for-entry": "",
-                "script-for-leave": "",
+                "enable-exec-nasal"     : 0,
+                "enable-nasal-entry"    : 0,
+                "enable-nasal-leave"    : 0,
+                "script-for-entry"      : "",
+                "script-for-leave"      : "",
                 "DHM": {
                     "head-mass"         : 10,
                     "g-load-release"    : 0,

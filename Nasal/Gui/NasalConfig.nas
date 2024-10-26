@@ -44,8 +44,10 @@ var NasalConfig = {
     cameraData: func {
         var camera = cameras.getCurrent();
         return [
-            { name: "script-for-entry", value: camera["script-for-entry"] },
-            { name: "script-for-leave", value: camera["script-for-leave"] },
+            { name: "enable-nasal-entry", value: camera["enable-nasal-entry"] },
+            { name: "enable-nasal-leave", value: camera["enable-nasal-leave"] },
+            { name: "script-for-entry",   value: camera["script-for-entry"] },
+            { name: "script-for-leave",   value: camera["script-for-leave"] },
         ];
     },
 
@@ -62,6 +64,34 @@ var NasalConfig = {
             "object-name": objName,
             "dialog-name": "nasal-config",
         }));
+    },
+
+    isEnableNasalEntry: func {
+        return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-nasal-entry");
+    },
+
+    isEnableNasalLeave: func {
+        return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-nasal-leave");
+    },
+
+    toggleNasalEntry: func {
+        var enabledNasal = currentCameraConfig.isExecNasalEnabled();
+        var enabledEntry = me.isEnableNasalEntry();
+
+        cameras.getCurrent()["enable-nasal-entry"] = enabledEntry;
+        if (enabledNasal and enabledEntry) {
+            nasal.exec(me.getEntryScript());
+        }
+    },
+
+    toggleNasalLeave: func {
+        var enabledNasal = currentCameraConfig.isExecNasalEnabled();
+        var enabledLeave = me.isEnableNasalLeave();
+
+        cameras.getCurrent()["enable-nasal-leave"] = enabledLeave;
+        if (enabledNasal and enabledLeave) {
+            nasal.exec(me.getLeaveScript());
+        }
     },
 
     getEntryScript: func { return getprop(me.propScriptForEntry) },

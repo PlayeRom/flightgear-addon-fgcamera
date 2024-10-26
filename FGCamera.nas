@@ -16,7 +16,7 @@ var nasal          = Nasal.new();
 
 # Scripts for dialogs
 var currentCameraConfig = nil;
-var nasalConfig           = nil;
+var nasalConfig         = nil;
 
 #
 # Initialize FGCamera

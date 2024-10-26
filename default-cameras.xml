@@ -13,6 +13,8 @@
         <dialog-show>0</dialog-show>
         <dialog-name></dialog-name>
         <enable-exec-nasal>0</enable-exec-nasal>
+        <enable-nasal-entry>0</enable-nasal-entry>
+        <enable-nasal-leave>0</enable-nasal-leave>
         <script-for-entry></script-for-entry>
         <script-for-leave></script-for-leave>
         <head-tracker>0</head-tracker>
