@@ -256,7 +256,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.currentCameraConfig.applyAdjustmentAangularVelocity()</script>
+                    <script>fgcamera.currentCameraConfig.applyAdjustmentAngularVelocity()</script>
                 </binding>
             </input>
             <input>

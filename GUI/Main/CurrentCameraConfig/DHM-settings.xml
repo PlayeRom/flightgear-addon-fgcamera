@@ -671,8 +671,8 @@
             #
             # Assign the value from the camera object to the dialog property
             #
-            # @param  string  axis  Propery axis name
-            # @param  string  name  Proprty name
+            # @param  string  axis  Property axis name
+            # @param  string  name  Property name
             # @return void
             #
             var initProp = func(axis, name) {
@@ -685,8 +685,8 @@
             #
             # Assign the value from the dialog property to the camera object
             #
-            # @param  string  axis  Propery axis name
-            # @param  string  name  Proprty name
+            # @param  string  axis  Property axis name
+            # @param  string  name  Property name
             # @param  bool  withDhmUpdate
             # @return void
             #

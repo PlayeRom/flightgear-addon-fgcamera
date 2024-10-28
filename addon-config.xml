@@ -16,7 +16,7 @@
                         <!-- <adjust-r> -->
                         <!-- <adjust-x> - move camera left-right-->
                         <!-- <adjust-y> - move camera up-dawn -->
-                        <!-- <adjust-z> - move cameru forward-backward -->
+                        <!-- <adjust-z> - move camera forward-backward -->
                     <!-- <current-camera> -->
                         <!-- <RDN-updated type="double"> -->
                         <!-- <camera-id type="double"> -->
@@ -26,7 +26,7 @@
                     <dialogs>
                         <presets>
                             <list type="string"></list> <!-- selected text on camera presets list -->
-                            <selected type="bool">false</selected> <!-- true when usre selcted some preset -->
+                            <selected type="bool">false</selected> <!-- true when user selected some preset -->
                         </presets>
 
                         <browse-dialog-names> <!-- helper to select dialog name-->

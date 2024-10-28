@@ -58,8 +58,8 @@ var BrowseDialogNames = {
     # @return string|nil
     #
     findFileToLoad: func () {
-        var fgversion = getprop("/sim/version/flightgear");
-        var (major, minor, patch) = split(".", fgversion);
+        var fgVersion = getprop("/sim/version/flightgear");
+        var (major, minor, patch) = split(".", fgVersion);
 
         var availableFiles = me.getAvailableFiles();
         if (size(availableFiles) == 0) {

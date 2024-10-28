@@ -35,7 +35,7 @@ var CurrentCameraConfig = {
     },
 
     #
-    # Geat data used in current-camera-config dialog
+    # Get data used in current-camera-config dialog
     #
     # @return vector  Vector of hash
     #
@@ -215,7 +215,7 @@ var CurrentCameraConfig = {
     #==================================================
     #   Apply angular_velocity
     #==================================================
-    applyAdjustmentAangularVelocity: func {
+    applyAdjustmentAngularVelocity: func {
         var path  = g_myNodePath ~ "/dialogs/camera-settings/adjustment-angular-velocity";
         var value = getprop(path);
         var min   = 0.01;

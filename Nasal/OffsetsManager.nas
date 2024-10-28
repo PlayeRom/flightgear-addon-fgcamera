@@ -141,7 +141,7 @@ var OffsetsManager = {
     update: func () {
         var dt = me._deltaTimeNode.getDoubleValue();
 
-        var updateF  = false;
+        var updateF = false;
 
         # Reset offsets
         for (var i = 0; i < TemplateHandler.COORD_SIZE; i += 1) {
@@ -224,15 +224,15 @@ var OffsetsManager = {
     # Call for all handlers the given function name if the function exists,
     # if not then call the callback function
     #
-    # @param  string  funcName  The neme of function to call
-    # @param  func  nagativeCallback  The function that will be called if the handler does not have the function specified in the name
+    # @param  string  funcName  The name of function to call
+    # @param  func  negativeCallback  The function that will be called if the handler does not have the function specified in the name
     # @return void
     #
-    _callHandlersFunction: func (funcName, nagativeCallback = nil) {
+    _callHandlersFunction: func (funcName, negativeCallback = nil) {
         foreach (var handler; me._handlers.vector) {
             var called = me._callHandlerFunction(handler, funcName);
-            if (!called and nagativeCallback != nil) {
-                nagativeCallback(handler);
+            if (!called and negativeCallback != nil) {
+                negativeCallback(handler);
             }
         }
     },
@@ -241,7 +241,7 @@ var OffsetsManager = {
     # Call for handler the given function name if the function exists.
     #
     # @param  hash  handler  Object of handler
-    # @param  string  funcName  The neme of function to call
+    # @param  string  funcName  The name of function to call
     # @return bool  Return true if function was called, otherwise return false
     #
     _callHandlerFunction: func (handler, funcName) {

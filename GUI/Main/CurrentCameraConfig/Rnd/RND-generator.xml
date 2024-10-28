@@ -739,7 +739,7 @@
 
     <nasal>
         <open> <![CDATA[
-            var path = gcamera.g_myNodePath ~ "/dialogs/RND/generator/";
+            var path = fgcamera.g_myNodePath ~ "/dialogs/RND/generator/";
             var g_id = getprop(path ~ "current-generator");
             var listeners = [
                 setlistener(fgcamera.g_myNodePath ~ "/current-camera/RND-updated", func update()),

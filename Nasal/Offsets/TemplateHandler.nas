@@ -8,7 +8,7 @@ var TemplateHandler = {
     new: func {
         var me = { parents: [TemplateHandler] };
 
-        # position (x, y, z) and roatation (heading, pitch, roll)
+        # position (x, y, z) and rotation (heading, pitch, roll)
         me._coords     = ["x", "y", "z", "h", "p", "r"];
 
         me.offsets     = zeros(TemplateHandler.COORD_SIZE);

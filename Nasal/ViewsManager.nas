@@ -30,7 +30,7 @@ var ViewsManager = {
             }
 
             me._rightBtnModeCycle = node.getBoolValue();
-            # logprint(LOG_INFO, "FGCamera: mouse mode; user selected = ", (me._rightBtnModeCycle ? "cycle" :  "look around"));
+            # logprint(LOG_INFO, "FGCamera: mouse mode; user selected = ", (me._rightBtnModeCycle ? "cycle" : "look around"));
         });
 
         return me;

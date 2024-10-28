@@ -37,7 +37,7 @@ var NasalConfig = {
     },
 
     #
-    # Geat data used in nasal-config dialog
+    # Get data used in nasal-config dialog
     #
     # @return vector  Vector of hash
     #

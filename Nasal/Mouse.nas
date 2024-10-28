@@ -2,7 +2,7 @@
 #   fgcamera.mouse routines
 #
 #   getXY()      - ... returns [x, y],
-#   get_dxdy()   - ... returns [dx, dy],
+#   getDelta()   - ... returns [dx, dy, dz, dh, dp, dr],
 #   getButton(n) - ... returns 0 / 1.
 #==================================================
 var Mouse = {
