@@ -108,7 +108,7 @@ var OffsetsManager = {
     },
 
     #
-    # Callback function form ViewHandler, called only once at startup
+    # Callback function from ViewHandler, called only once at startup
     #
     # @return void
     #
@@ -123,7 +123,7 @@ var OffsetsManager = {
     },
 
     #
-    # Callback function form ViewHandler, called when view is switched to our view
+    # Callback function from ViewHandler, called when view is switched to our view
     #
     # @return void
     #
@@ -134,7 +134,7 @@ var OffsetsManager = {
     },
 
     #
-    # Callback function form ViewHandler, called iteratively.
+    # Callback function from ViewHandler, called iteratively.
     #
     # @return double  Interval in seconds until next invocation.
     #
@@ -182,7 +182,7 @@ var OffsetsManager = {
     },
 
     #
-    # Callback function form ViewHandler, called when view is switched away from our view
+    # Callback function from ViewHandler, called when view is switched away from our view
     #
     # @return void
     #

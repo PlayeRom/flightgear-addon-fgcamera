@@ -123,7 +123,7 @@ var FileHandler = {
         var file     = aircraft ~ ".xml";
         var node     = props.Node.new();
         var index    = 0; # default child index
-        var create   = 1;
+        var create   = true;
 
         forindex (var i; cameras.getVector()) {
             foreach (var a; keys(cameras.getCamera(i))) {

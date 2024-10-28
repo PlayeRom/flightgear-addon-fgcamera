@@ -16,7 +16,7 @@ var ViewHandler = {
     },
 
     #
-    # Callback function form FlightGear, called only once at startup
+    # Callback function from FlightGear, called only once at startup
     #
     # @return void
     #
@@ -25,7 +25,7 @@ var ViewHandler = {
     },
 
     #
-    # Callback function form FlightGear, called when view is switched to our view
+    # Callback function from FlightGear, called when view is switched to our view
     #
     # @return void
     #
@@ -35,7 +35,7 @@ var ViewHandler = {
     },
 
     #
-    # Callback function form FlightGear, called iteratively.
+    # Callback function from FlightGear, called iteratively.
     #
     # @return double  Interval in seconds until next invocation.
     #
@@ -44,7 +44,7 @@ var ViewHandler = {
     },
 
     #
-    # Callback function form FlightGear, called when view is switched away from our view
+    # Callback function from FlightGear, called when view is switched away from our view
     #
     # @return void
     #
