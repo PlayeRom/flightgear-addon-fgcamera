@@ -39,9 +39,28 @@
         <group>
             <layout>hbox</layout>
             <text>
-                <label>Select and load one of the ready-made presets for your aircraft</label>
+                <label>Select and load one of the ready-made presets for your aircraft.</label>
                 <halign>left</halign>
             </text>
+        </group>
+
+        <group>
+            <layout>hbox</layout>
+            <text>
+                <label>Please help expand the preset database:</label>
+                <halign>left</halign>
+            </text>
+
+            <button>
+                <legend>Upload form</legend>
+                <pref-height>30</pref-height>
+                <binding>
+                    <command>open-browser</command>
+                    <url>https://fgcamera.flightgear.org.pl/</url>
+                </binding>
+            </button>
+
+            <empty><stretch>1</stretch></empty>
         </group>
 
         <group>
