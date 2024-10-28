@@ -142,8 +142,12 @@ var OffsetsManager = {
         var dt = me._deltaTimeNode.getDoubleValue();
 
         var updateF  = false;
-        var offsets  = zeros(TemplateHandler.COORD_SIZE);
-        var offsets2 = zeros(TemplateHandler.COORD_SIZE);
+
+        # Reset offsets
+        for (var i = 0; i < TemplateHandler.COORD_SIZE; i += 1) {
+            me.offsets[i] = 0;
+            me.offsets2[i] = 0;
+        }
 
         foreach (var handler; me._handlers.vector) {
             if (handler._updateF) {
@@ -152,26 +156,25 @@ var OffsetsManager = {
 
             handler.update(dt);
 
-            if (handler._effect) {
-                forindex (var i; handler.offsets) {
-                    offsets2[i] += handler.offsets[i];
-                }
-            }
-            else {
-                forindex (var i; handler.offsets) {
-                    offsets[i] += handler.offsets[i];
-                }
-            }
+            me._updateOffsets(handler, handler._effect ? me.offsets2 : me.offsets);
         }
-
-        me.offsets  = offsets;
-        me.offsets2 = offsets2;
 
         if (updateF) {
             me._apply();
         }
 
         return 0;
+    },
+
+    #
+    # @param  hash  handler
+    # @param  vector  offsets  The vector is passed by reference by default, so we change the offset values ​​directly
+    # @return void
+    #
+    _updateOffsets: func (handler, offsets) {
+        forindex (var i; handler.offsets) {
+            offsets[i] += handler.offsets[i];
+        }
     },
 
     reset: func {
