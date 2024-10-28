@@ -250,7 +250,10 @@
                 <pref-height>30</pref-height>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.offsetsManager.save()</script>
+                    <script>
+                        fgcamera.offsetsManager.save();
+                        gui.popupTip("Confirmed");
+                    </script>
                 </binding>
             </button>
 
@@ -293,7 +296,10 @@
             <pref-height>30</pref-height>
             <binding>
                 <command>nasal</command>
-                <script>fgcamera.fileHandler.saveCameras()</script>
+                <script>
+                    fgcamera.fileHandler.saveCameras();
+                    gui.popupTip("Saved");
+                </script>
             </binding>
         </button>
 
