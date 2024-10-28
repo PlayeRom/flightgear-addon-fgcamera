@@ -154,26 +154,6 @@ var CurrentCameraConfig = {
         me.updateValues();
     },
 
-    isExecNasalEnabled: func {
-        return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-exec-nasal");
-    },
-
-    #==================================================
-    #   Toggle Exec Nasal
-    #==================================================
-    toggleExecNasal: func {
-        var enabled = me.isExecNasalEnabled();
-
-        cameras.getCurrent()["enable-exec-nasal"] = enabled;
-
-        if (enabled and nasalConfig.isEnableNasalEntry()) {
-            nasal.exec(nasalConfig.getEntryScript());
-        }
-        elsif (!enabled and nasalConfig.isEnableNasalLeave()) {
-            nasal.exec(nasalConfig.getLeaveScript());
-        }
-    },
-
     #==================================================
     #   Apply FOV
     #==================================================
@@ -324,5 +304,25 @@ var CurrentCameraConfig = {
         var value = getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-RND");
 
         cameras.getCurrent()["enable-RND"] = value;
+    },
+
+    #==================================================
+    #   Toggle Exec Nasal
+    #==================================================
+    toggleExecNasal: func {
+        var enabled = me.isExecNasalEnabled();
+
+        cameras.getCurrent()["enable-exec-nasal"] = enabled;
+
+        if (enabled and nasalConfig.isEnableNasalEntry()) {
+            nasal.exec(nasalConfig.getEntryScript());
+        }
+        elsif (!enabled and nasalConfig.isEnableNasalLeave()) {
+            nasal.exec(nasalConfig.getLeaveScript());
+        }
+    },
+
+    isExecNasalEnabled: func {
+        return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-exec-nasal");
     },
 };
