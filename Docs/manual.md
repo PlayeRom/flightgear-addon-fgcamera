@@ -175,11 +175,11 @@ additional buttons from 0 to 9, with which you can select a specific camera.
   Ctrl-9 if `Use Ctrl with numeric key` options is enabled.
 * Ctrl-Space - toggle aircraft control by mouse.
 
-## Camera configuration
+## Curren Camera Configuration
 
 ![alt camera-config](images/camera-config.png "Current Camera Config")
 
-Camera setting has different options regarding current selected camera. Available
+Camera config has different options regarding current selected camera. Available
 options:
 
 * '**Show popup tip with camera name**' - when selecting it, the popup will
@@ -247,7 +247,7 @@ regarding velocity in knots.
 
 ## Execute Nasal Script
 
-Clicking the '**Nasal**' button in the Current Camera dialog will open a new window for entering Nasal scripts.
+Clicking the '**Nasal**' button in the Current Camera Config dialog will open a new window for entering Nasal scripts.
 
 ![alt execute-nasal-script](images/execute-nasal-script.png "Execute Nasal Script")
 
