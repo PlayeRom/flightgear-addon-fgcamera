@@ -44,7 +44,7 @@ You can change order of the selected camera by using '**Up**' and '**Dn**' butto
 In the bottom you have 'Current camera' section with controls assigned to selected camera:
 * input text field to change the name of the selected camera,
 * combobox to change current group of the selected camera (thanks to this you will
-be able to switch between cameras of the same group only using a mini-dialogue),
+be able to switch between cameras of the same group only using a mini-dialog),
 * '**Copy camera**' button to create a new camera by copying the current one.
 * '**Confirm position**' button, which you have to click after changing the
 position and rotation of the camera, to store the position and not lose it when
