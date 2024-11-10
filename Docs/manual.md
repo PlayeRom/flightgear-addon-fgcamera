@@ -216,7 +216,7 @@ On the 'Current Camera Config' dialog, there are two buttons at the bottom:
 
 ## Dynamic Head Movement
 
-When selecting 'DHM' on the camera setting dialog, user is moved to the options
+When selecting 'DHM' on the Current Camera Config dialog, user is moved to the options
 regarding dynamic head movement. There you can define various options regarding
 this effect. When enabled and configured the camera will move according to
 defined options the same as normally would move the head of the pilot in the
