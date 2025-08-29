@@ -193,7 +193,7 @@ var MovementHandler = {
     },
 
     #
-    # Override stop of parent (TemplateHandler) so it doesn't get called out
+    # Override stop of parent (TemplateHandler) so it doesn't get called out.
     #
     stop: func,
 };

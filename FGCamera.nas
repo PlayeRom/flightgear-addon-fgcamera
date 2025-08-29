@@ -20,9 +20,9 @@ var currentCameraConfig = nil;
 var nasalConfig         = nil;
 
 #
-# Initialize FGCamera
+# Initialize FGCamera.
 #
-# @param hash addon - addons.Addon object
+# @param  hash  addon  Object of addons.Addon.
 # @return void
 #
 var init = func(addon) {

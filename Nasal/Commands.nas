@@ -41,7 +41,7 @@ var Commands = {
     },
 
     #
-    # Load all commands
+    # Load all commands.
     #
     # @return void
     #
@@ -53,7 +53,7 @@ var Commands = {
     },
 
     #
-    # Get all commands in hash
+    # Get all commands in hash.
     #
     # @return hash
     #
@@ -120,9 +120,9 @@ var Commands = {
     },
 
     #
-    # Cycle through categories
+    # Cycle through categories.
     #
-    # @param int direction - If direction > 0 - move forward, direction < 0 - move backward
+    # @param  int  direction  If direction > 0 - move forward, direction < 0 - move backward.
     # @return void
     #
     _cycleCategoryOnly: func(direction) {
@@ -208,9 +208,9 @@ var Commands = {
     },
 
     #
-    # Cycle through cameras within current category
+    # Cycle through cameras within current category.
     #
-    # @param int direction - If direction > 0 - move forward, direction < 0 - move backward
+    # @param  int  direction  If direction > 0 - move forward, direction < 0 - move backward.
     # @return void
     #
     _cycleCameraInCategory: func(direction) {

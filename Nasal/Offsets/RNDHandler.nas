@@ -479,4 +479,3 @@ var RNDHandler = {
         return 1; # air
     },
 };
-#end

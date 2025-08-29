@@ -37,7 +37,7 @@ var ViewsManager = {
     },
 
     #
-    # Register FGCamera views to FG
+    # Register FGCamera views to FG.
     #
     # @return void
     #
@@ -50,7 +50,7 @@ var ViewsManager = {
     #
     # Changing the FG configuration depending on whether you enable the FGCamera view or the FG view.
     #
-    # @param bool start - If true then then called on start, otherwise called on stop
+    # @param  bool  start  If true then then called on start, otherwise called on stop.
     # @return void
     #
     configureFG: func (start) {
@@ -62,7 +62,7 @@ var ViewsManager = {
     # When FGCamera view is going to start then change right mouse button behavior to cycle mode.
     # When FGCamera view is going to stop then bring back previous right button behavior.
     #
-    # @param bool start - If true then then called on start, otherwise called on stop
+    # @param  bool  start  If true then then called on start, otherwise called on stop.
     # @return void
     #
     _configureRightBtnMode: func(start) {
@@ -77,8 +77,8 @@ var ViewsManager = {
     },
 
     #
-    # @param bool start - If true then then called on start, otherwise called on stop
-    # return bool
+    # @param  bool  start  If true then then called on start, otherwise called on stop.
+    # @return bool
     #
     _getRightBtnModeCycle: func(start) {
         if (start) {
@@ -99,7 +99,7 @@ var ViewsManager = {
     # When the FGCamera view is launched then remove the models of people in the cockpit.
     # When the FGCamera view is going to stop then bring back previous setting.
     #
-    # @param bool start - If true then then called on start, otherwise called on stop
+    # @param  bool start  If true then then called on start, otherwise called on stop.
     # @return void
     #
     _configureModelOccupants: func(start) {

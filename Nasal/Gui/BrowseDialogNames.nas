@@ -13,14 +13,14 @@ var BrowseDialogNames = {
     },
 
     #
-    # Called in <open> tag of dialog XML
+    # Called in <open> tag of dialog XML.
     #
     open: func {
         me.loadValuesFromFile();
     },
 
     #
-    # Called in <close> tag of dialog XML
+    # Called in <close> tag of dialog XML.
     #
     close: func {
     },

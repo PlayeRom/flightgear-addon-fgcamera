@@ -6,6 +6,9 @@
 #
 # Converted to a FlightGear addon by
 # Slawek Mikula, October 2017
+#
+# Maintenance, bug fixing and further development by
+# Roman Ludwicki, since 2023
 
 var main = func(addon) {
     var basePath = addon.basePath;
@@ -56,7 +59,7 @@ var main = func(addon) {
 }
 
 #
-# @return bool  Return true if running on FG version 2024.x and later
+# @return bool  Return true if running on FG version 2024.x and later.
 #
 var isFG2024Version = func() {
     var fgVersion = getprop("/sim/version/flightgear");

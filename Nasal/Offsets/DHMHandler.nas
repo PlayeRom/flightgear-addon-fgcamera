@@ -9,7 +9,7 @@ var DHM = {
     SCALE: 1,
 
     #
-    # @param  string  props  Property path
+    # @param  string  props  Property path.
     # @return hash
     #
     new: func (prop) {

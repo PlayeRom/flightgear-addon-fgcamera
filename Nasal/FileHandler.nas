@@ -1,11 +1,11 @@
 #
-# Save/Load cameras for current aircraft
+# Save/Load cameras for current aircraft.
 #
 var FileHandler = {
     #
     # Constructor
     #
-    # @param hash addon
+    # @param  hash  addon
     # @return me
     #
     new: func(addon) {
@@ -28,11 +28,11 @@ var FileHandler = {
     },
 
     #
-    # Load cameras from the file for the current aircraft
+    # Load cameras from the file for the current aircraft.
     #
-    # @param  string  path  Path where the camera file is located
-    # @param  string  file  XML file name with the camera
-    # @return int - Number of loaded cameras
+    # @param  string  path  Path where the camera file is located.
+    # @param  string  file  XML file name with the camera.
+    # @return int  Number of loaded cameras.
     #
     loadCameras: func (path, file) {
         var cameraNode = props.Node.new();
@@ -83,12 +83,12 @@ var FileHandler = {
     },
 
     #
-    # Load single boolean option
+    # Load single boolean option.
     #
-    # @param hash cameraNode - Node object
-    # @param bool defaultValue
-    # @param string optionName
-    # @param string|nil propName
+    # @param  hash  cameraNode  Node object.
+    # @param  bool  defaultValue
+    # @param  string  optionName
+    # @param  string|nil  propName
     # @return void
     #
     _loadBoolOption: func(cameraNode, defaultValue, optionName, propName = nil) {
@@ -102,7 +102,7 @@ var FileHandler = {
     },
 
     #
-    # Load defaults offsets
+    # Load defaults offsets.
     #
     # @return void
     #
@@ -113,7 +113,7 @@ var FileHandler = {
     },
 
     #
-    # Save cameras to the file for the current aircraft
+    # Save cameras to the file for the current aircraft.
     #
     # @return void
     #

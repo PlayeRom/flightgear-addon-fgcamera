@@ -1,5 +1,5 @@
 #
-# Walker handler class for support walk view toggle, when he gets out
+# Walker handler class for support walk view toggle, when he gets out.
 #
 var Walker = {
     #

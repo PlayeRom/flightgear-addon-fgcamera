@@ -1,5 +1,5 @@
 #
-# Helicopter class
+# Helicopter class.
 #
 var Helicopter = {
     #
@@ -25,16 +25,16 @@ var Helicopter = {
     },
 
     #
-    # @return bool - Return true if current aircraft was recognized as helicopter
+    # @return bool  Return true if current aircraft was recognized as helicopter.
     #
     isHelicopter: func {
         return me._isHelicopter;
     },
 
     #
-    # Check if the aircraft is a helicopter
+    # Check if the aircraft is a helicopter.
     #
-    # @return bool - Return true if current aircraft was recognized as helicopter
+    # @return bool  Return true if current aircraft was recognized as helicopter.
     #
     check: func {
         me._isHelicopter = props.globals.getNode("/rotors/main/torque", 0, 0) != nil;

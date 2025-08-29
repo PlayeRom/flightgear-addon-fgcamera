@@ -1,11 +1,11 @@
 #
-# ViewHandler representing one of the five camera views that is registered to the FlightGear
+# ViewHandler representing one of the five camera views that is registered to the FlightGear.
 #
 var ViewHandler = {
     #
     # Constructor
     #
-    # @param  hash  viewsManager  Object of ViewsManager
+    # @param  hash  viewsManager  Object of ViewsManager.
     # @return me
     #
     new: func (viewsManager) {
@@ -16,7 +16,7 @@ var ViewHandler = {
     },
 
     #
-    # Callback function from FlightGear, called only once at startup
+    # Callback function from FlightGear, called only once at startup.
     #
     # @return void
     #
@@ -25,7 +25,7 @@ var ViewHandler = {
     },
 
     #
-    # Callback function from FlightGear, called when view is switched to our view
+    # Callback function from FlightGear, called when view is switched to our view.
     #
     # @return void
     #
@@ -44,7 +44,7 @@ var ViewHandler = {
     },
 
     #
-    # Callback function from FlightGear, called when view is switched away from our view
+    # Callback function from FlightGear, called when view is switched away from our view.
     #
     # @return void
     #

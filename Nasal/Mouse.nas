@@ -15,7 +15,7 @@ var Mouse = {
     #
     # Constructor
     #
-    # @param hash addon
+    # @param  hash  addon
     # @return me
     #
     new: func(addon) {
@@ -50,7 +50,7 @@ var Mouse = {
     },
 
     #
-    # Load new mouse configuration & reinit input subsystem
+    # Load new mouse configuration & reinit input subsystem.
     #
     # @return bool
     #
@@ -86,9 +86,9 @@ var Mouse = {
     },
 
     #
-    # Set mouse mode
+    # Set mouse mode.
     #
-    # @param int mode - 0 - pointer mode, 1 - control mode, 2 - look around mode
+    # @param  int  mode  0 - pointer mode, 1 - control mode, 2 - look around mode.
     # @return void
     #
     setMode: func(mode) {
@@ -96,19 +96,19 @@ var Mouse = {
     },
 
     #
-    # Get current mouse mode
+    # Get current mouse mode.
     #
-    # @return int - 0 - pointer mode, 1 - control mode, 2 - look around mode
+    # @return int  0 - pointer mode, 1 - control mode, 2 - look around mode
     #
     getMode: func {
         me._modeNode.getIntValue();
     },
 
     #
-    # Get button state
+    # Get button state.
     #
-    # @param int n - Button index, 0 - left button, 1 - middle button, 2 - right button
-    # @return bool - If return true then button is pressed
+    # @param  int  n  Button index: 0 - left button, 1 - middle button, 2 - right button.
+    # @return bool  If return true then button is pressed.
     #
     getButton: func(n) {
         getprop(me._path ~ "button[" ~ n ~ "]") or 0;
@@ -127,7 +127,7 @@ var Mouse = {
     },
 
     #
-    # Called by Ctrl-Space keyboard shortcut
+    # Called by Ctrl-Space keyboard shortcut.
     #
     # @return void
     #
@@ -138,9 +138,9 @@ var Mouse = {
     },
 
     #
-    # Listener callback function for right mouse button
+    # Listener callback function for right mouse button.
     #
-    # @param hash node - Node object of right mouse button
+    # @param  hash  node  Node object of right mouse button.
     # @return void
     #
     _useSpringLoaded: func(node) {

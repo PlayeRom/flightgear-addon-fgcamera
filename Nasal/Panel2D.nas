@@ -1,6 +1,6 @@
 
 #
-# Panel 2D class
+# Panel 2D class.
 #
 var Panel2D = {
     #
@@ -9,7 +9,7 @@ var Panel2D = {
     DEFAULT : "generic-vfr-panel",
 
     #
-    # Show panel 2D of current camera
+    # Show panel 2D of current camera.
     #
     # @return void
     #
@@ -18,9 +18,9 @@ var Panel2D = {
     },
 
     #
-    # Show panel 2D by given path
+    # Show panel 2D by given path.
     #
-    # @param string path
+    # @param  string  path
     # @return void
     #
     showPath: func(path) {
@@ -39,7 +39,7 @@ var Panel2D = {
     },
 
     #
-    # Hide visible 2D panel
+    # Hide visible 2D panel.
     #
     # @return void
     #

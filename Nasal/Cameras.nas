@@ -19,9 +19,9 @@ var Cameras = {
     },
 
     #
-    # Append new camera
+    # Append new camera.
     #
-    # @param hash camera
+    # @param  hash  camera
     # @return void
     #
     append: func(camera) {
@@ -29,7 +29,7 @@ var Cameras = {
     },
 
     #
-    # Remove all cameras
+    # Remove all cameras.
     #
     # @return void
     #
@@ -38,9 +38,9 @@ var Cameras = {
     },
 
     #
-    # Remove all cameras and append new ones
+    # Remove all cameras and append new ones.
     #
-    # @param vector cameras - Vector of new cameras
+    # @param  vector  cameras  Vector of new cameras.
     # @return void
     #
     replace: func (cameras) {
@@ -49,7 +49,7 @@ var Cameras = {
     },
 
     #
-    # Return vector of all cameras
+    # Return vector of all cameras.
     #
     # @return vector
     #
@@ -58,9 +58,9 @@ var Cameras = {
     },
 
     #
-    # Return camera given by index
+    # Return camera given by index.
     #
-    # @param int index
+    # @param  int  index
     # @return hash
     #
     getCamera: func(index) {
@@ -72,7 +72,7 @@ var Cameras = {
     },
 
     #
-    # Get current camera
+    # Get current camera.
     #
     # @return hash
     #
@@ -81,7 +81,7 @@ var Cameras = {
     },
 
     #
-    # Return the number of cameras
+    # Return the number of cameras.
     #
     # @return int
     #
@@ -90,7 +90,7 @@ var Cameras = {
     },
 
     #
-    # Return ID of current camera
+    # Return ID of current camera.
     #
     # @return int
     #
@@ -99,9 +99,9 @@ var Cameras = {
     },
 
     #
-    # Set ID of current camera
+    # Set ID of current camera.
     #
-    # @param int id
+    # @param  int  id
     # @return void
     #
     setCurrentId: func (id) {
@@ -109,7 +109,7 @@ var Cameras = {
     },
 
     #
-    # Return ID of current view
+    # Return ID of current view.
     #
     # @return int
     #
@@ -118,9 +118,9 @@ var Cameras = {
     },
 
     #
-    # Set ID of current view
+    # Set ID of current view.
     #
-    # @param int id
+    # @param  int  id
     # @return void
     #
     setCurrentViewId: func (id) {

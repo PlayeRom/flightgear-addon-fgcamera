@@ -61,7 +61,7 @@ var OffsetsManager = {
     },
 
     #
-    # Check if the specified handler has already been added to use
+    # Check if the specified handler has already been added to use.
     #
     # @return bool
     #
@@ -76,9 +76,9 @@ var OffsetsManager = {
     },
 
     #
-    # Add given handler to use
+    # Add given handler to use.
     #
-    # @param  hash handler  Handler object to add
+    # @param  hash  handler  Handler object to add.
     # @return bool
     #
     _add: func (handler) {
@@ -92,9 +92,9 @@ var OffsetsManager = {
     },
 
     #
-    # Remove given handler from use
+    # Remove given handler from use.
     #
-    # @param  hash handler  Handler object to remove
+    # @param  hash  handler  Handler object to remove.
     # @return bool
     #
     _remove: func (handler) {
@@ -108,7 +108,7 @@ var OffsetsManager = {
     },
 
     #
-    # Callback function from ViewHandler, called only once at startup
+    # Callback function from ViewHandler, called only once at startup.
     #
     # @return void
     #
@@ -123,7 +123,7 @@ var OffsetsManager = {
     },
 
     #
-    # Callback function from ViewHandler, called when view is switched to our view
+    # Callback function from ViewHandler, called when view is switched to our view.
     #
     # @return void
     #
@@ -168,7 +168,7 @@ var OffsetsManager = {
 
     #
     # @param  hash  handler
-    # @param  vector  offsets  The vector is passed by reference by default, so we change the offset values ​​directly
+    # @param  vector  offsets  The vector is passed by reference by default, so we change the offset values ​​directly.
     # @return void
     #
     _updateOffsets: func (handler, offsets) {
@@ -182,7 +182,7 @@ var OffsetsManager = {
     },
 
     #
-    # Callback function from ViewHandler, called when view is switched away from our view
+    # Callback function from ViewHandler, called when view is switched away from our view.
     #
     # @return void
     #
@@ -203,7 +203,7 @@ var OffsetsManager = {
     },
 
     #
-    # Apply offsets
+    # Apply offsets.
     #
     _apply: func {
         forindex (var i; me._nodes) {
@@ -212,7 +212,7 @@ var OffsetsManager = {
     },
 
     #
-    # Save offsets
+    # Save offsets.
     #
     save: func {
         forindex (var i; cameras.getCurrent().offsets) {
@@ -222,10 +222,10 @@ var OffsetsManager = {
 
     #
     # Call for all handlers the given function name if the function exists,
-    # if not then call the callback function
+    # if not then call the callback function.
     #
-    # @param  string  funcName  The name of function to call
-    # @param  func  negativeCallback  The function that will be called if the handler does not have the function specified in the name
+    # @param  string  funcName  The name of function to call.
+    # @param  func  negativeCallback  The function that will be called if the handler does not have the function specified in the name.
     # @return void
     #
     _callHandlersFunction: func (funcName, negativeCallback = nil) {
@@ -240,9 +240,9 @@ var OffsetsManager = {
     #
     # Call for handler the given function name if the function exists.
     #
-    # @param  hash  handler  Object of handler
-    # @param  string  funcName  The name of function to call
-    # @return bool  Return true if function was called, otherwise return false
+    # @param  hash  handler  Object of handler.
+    # @param  string  funcName  The name of function to call.
+    # @return bool  Return true if function was called, otherwise return false.
     #
     _callHandlerFunction: func (handler, funcName) {
         if (view.hasmember(handler, funcName) and typeof(handler[funcName]) == "func") {

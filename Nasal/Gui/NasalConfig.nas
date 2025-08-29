@@ -17,7 +17,7 @@ var NasalConfig = {
     },
 
     #
-    # Called in <open> tag of dialog XML
+    # Called in <open> tag of dialog XML.
     #
     open: func {
         me._listener = setlistener(g_myNodePath ~ "/current-camera/camera-id", func {
@@ -28,7 +28,7 @@ var NasalConfig = {
     },
 
     #
-    # Called in <close> tag of dialog XML
+    # Called in <close> tag of dialog XML.
     #
     close: func {
         if (me._listener != nil) {
@@ -37,9 +37,9 @@ var NasalConfig = {
     },
 
     #
-    # Get data used in nasal-config dialog
+    # Get data used in nasal-config dialog.
     #
-    # @return vector  Vector of hash
+    # @return vector  Vector of hash.
     #
     cameraData: func {
         var camera = cameras.getCurrent();
@@ -93,7 +93,7 @@ var NasalConfig = {
     getLeaveScript: func { return getprop(me.propScriptForLeave) },
 
     #
-    # Update entry script to camera and update dialog
+    # Update entry script to camera and update dialog.
     #
     applyScriptForEntry: func {
         var script = me.getEntryScript();
@@ -107,7 +107,7 @@ var NasalConfig = {
     },
 
     #
-    # Update leave script to camera and update dialog
+    # Update leave script to camera and update dialog.
     #
     applyScriptForLeave: func {
         var script = me.getLeaveScript();
@@ -129,9 +129,9 @@ var NasalConfig = {
     clearLeaveScript: func { me._setScript(false); },
 
     #
-    # Copy the content of the script to clipboard
+    # Copy the content of the script to clipboard.
     #
-    # @param  bool  entry  True for entry camera action, false for leave camera action
+    # @param  bool  entry  True for entry camera action, false for leave camera action.
     # @return void
     #
     _copyScript: func (entry) {
@@ -141,10 +141,10 @@ var NasalConfig = {
     },
 
     #
-    # Set property with script code
+    # Set property with script code.
     #
-    # @param  bool  entry  True for entry camera action, false for leave camera action
-    # @param  string  script  The content of the script that will be assigned to the property
+    # @param  bool  entry  True for entry camera action, false for leave camera action.
+    # @param  string  script  The content of the script that will be assigned to the property.
     # @return void
     #
     _setScript: func(entry, script = "") {

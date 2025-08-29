@@ -14,9 +14,9 @@ var Migration = {
     },
 
     #
-    # Upgrade cameras from given version to current one
+    # Upgrade cameras from given version to current one.
     #
-    # @param string oldVersion
+    # @param  string  oldVersion
     # @return void
     #
     upgradeVersion: func (oldVersion) {
@@ -44,9 +44,9 @@ var Migration = {
     },
 
     #
-    # Get copy of the given hash
+    # Get copy of the given hash.
     #
-    # @param  hash|string|double|int  hash  Hash to copy (or any value)
+    # @param  hash|string|double|int  hash  Hash to copy (or any value).
     # @return hash  New instance of hash
     #
     deepHashCopy: func (hash) {
@@ -68,9 +68,9 @@ var Migration = {
     },
 
     #
-    # Get vector of versions according to given version
+    # Get vector of versions according to given version.
     #
-    # @param string version
+    # @param  string  version
     # @return vector
     #
     _getVersionsVector: func (version) {
@@ -91,7 +91,7 @@ var Migration = {
     },
 
     #
-    # Get hash of versions with new items
+    # Get hash of versions with new items.
     #
     # @return hash
     #

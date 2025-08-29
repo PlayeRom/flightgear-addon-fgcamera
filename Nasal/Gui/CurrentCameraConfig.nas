@@ -15,7 +15,7 @@ var CurrentCameraConfig = {
     },
 
     #
-    # Called in <open> tag of dialog XML
+    # Called in <open> tag of dialog XML.
     #
     open: func {
         me._listener = setlistener(g_myNodePath ~ "/current-camera/camera-id", func {
@@ -26,7 +26,7 @@ var CurrentCameraConfig = {
     },
 
     #
-    # Called in <close> tag of dialog XML
+    # Called in <close> tag of dialog XML.
     #
     close: func {
         if (me._listener != nil) {
@@ -35,9 +35,9 @@ var CurrentCameraConfig = {
     },
 
     #
-    # Get data used in current-camera-config dialog
+    # Get data used in current-camera-config dialog.
     #
-    # @return vector  Vector of hash
+    # @return vector  Vector of hash.
     #
     cameraData: func {
         var camera = cameras.getCurrent();

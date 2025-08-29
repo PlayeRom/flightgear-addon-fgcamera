@@ -8,7 +8,7 @@
 #==================================================
 
 #
-# Low pass filter
+# Low pass filter.
 #
 var lowPass = {
     new: func(coeff = 0) {
@@ -49,7 +49,7 @@ var lowPass = {
 };
 
 #
-# Hi pass filter
+# Hi pass filter.
 #
 # var hiPass = {
 #     new: func(coeff = 0) {
@@ -81,7 +81,7 @@ var lowPass = {
 # };
 
 #
-# Return an n-element vector filled with 0 values
+# Return an n-element vector filled with 0 values.
 #
 # @return vector
 #
@@ -97,7 +97,7 @@ var zeros = func (n) {
 };
 
 #
-# Linear interpolation
+# Linear interpolation.
 #
 var linearInterp = func (x0, y0, x1, y1, x) {
     return y0 + (y1 - y0) * (x - x0) / (x1 - x0);

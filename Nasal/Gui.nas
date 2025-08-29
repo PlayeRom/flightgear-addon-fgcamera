@@ -1,5 +1,5 @@
 #
-# GUI loader and handler class
+# GUI loader and handler class.
 #
 var Gui = {
     #
@@ -12,7 +12,7 @@ var Gui = {
     #
     # Constructor
     #
-    # @param hash addon
+    # @param  hash  addon
     # @return me
     #
     new: func(addon) {
@@ -123,7 +123,7 @@ var Gui = {
     #
     # Show dialog assigned to the current camera
     #
-    # @param bool show - If true then force to show
+    # @param  bool  show  If true then force to show.
     # @return void
     #
     showDialog: func (show = 0) {
@@ -137,7 +137,7 @@ var Gui = {
     #
     # Close dialog assigned to the current camera
     #
-    # @param bool show - If true then force to close
+    # @param  bool  close  If true then force to close.
     # @return void
     #
     closeDialog: func (close = 0) {
