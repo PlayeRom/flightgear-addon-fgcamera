@@ -21,7 +21,7 @@ var ViewHandler = {
     # @return void
     #
     init: func {
-        offsetsManager.init();
+        g_offsetsManager.init();
     },
 
     #
@@ -30,7 +30,7 @@ var ViewHandler = {
     # @return void
     #
     start: func {
-        offsetsManager.start();
+        g_offsetsManager.start();
         me._viewsManager.configureFG(1);
     },
 
@@ -40,7 +40,7 @@ var ViewHandler = {
     # @return double  Interval in seconds until next invocation.
     #
     update: func {
-        return offsetsManager.update();
+        return g_offsetsManager.update();
     },
 
     #
@@ -49,7 +49,7 @@ var ViewHandler = {
     # @return void
     #
     stop: func {
-        offsetsManager.stop();
+        g_offsetsManager.stop();
         me._viewsManager.configureFG(0);
     },
 };

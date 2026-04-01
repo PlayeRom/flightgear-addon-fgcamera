@@ -81,7 +81,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.browseDialogNames.selectItemList()</script>
+                    <script>fgcamera.g_browseDialogNames.selectItemList()</script>
                 </binding>
             </list>
         </group>
@@ -109,11 +109,11 @@
 
     <nasal>
         <open><![CDATA[
-            fgcamera.browseDialogNames.open();
+            fgcamera.g_browseDialogNames.open();
         ]]></open>
 
         <close><![CDATA[
-            fgcamera.browseDialogNames.close();
+            fgcamera.g_browseDialogNames.close();
         ]]></close>
     </nasal>
 </PropertyList>

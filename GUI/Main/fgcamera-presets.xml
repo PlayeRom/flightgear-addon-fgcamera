@@ -172,7 +172,7 @@
                 var path = fgcamera.g_Addon.basePath ~ "/Presets";
                 var file = getprop(fgcamera.g_myNodePath ~ "/dialogs/presets/list") ~ ".xml";
 
-                fgcamera.fileHandler.loadCameras(path, file);
+                fgcamera.g_fileHandler.loadCameras(path, file);
 
                 # Restart main dialog
                 fgcommand("dialog-close", props.Node.new({ "dialog-name" : "fgcamera-main" }));

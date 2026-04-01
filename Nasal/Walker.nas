@@ -13,7 +13,7 @@ var Walker = {
     # @return me
     #
     new: func () {
-        var me = {
+        var obj = {
             parents       : [Walker],
 
             # The following variables define the behavior and may be overridden by aircraft (for example to open the door before going out)
@@ -29,25 +29,26 @@ var Walker = {
             # we let pass some time so the walker code can execute first
             var timer = nil;
             if (node.getBoolValue()) {
-                me.getOutCallback();
-                timer = maketimer(me.getOutTime + 0.5, func {
+                obj.getOutCallback();
+                timer = maketimer(obj.getOutTime + 0.5, func {
                     # went outside
                     me.lastCamera = getprop("/sim/current-view/view-number-raw");
                     view.setViewByIndex(Walker.VIEW_ID);
                 });
             }
             else {
-                me.getInCallback();
-                timer = maketimer(me.getInTime + 0.5, func {
+                obj.getInCallback();
+                timer = maketimer(obj.getInTime + 0.5, func {
                     # went inside
-                    view.setViewByIndex(me.lastCamera);
-                    me.lastCamera = nil;
+                    view.setViewByIndex(obj.lastCamera);
+                    obj.lastCamera = nil;
                 });
             }
+
             timer.singleShot = true; # timer will only be run once
             timer.start();
         });
 
-        return me;
+        return obj;
     },
 };

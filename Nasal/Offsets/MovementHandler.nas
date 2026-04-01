@@ -8,7 +8,7 @@ var MovementHandler = {
     name    : "MovementHandler",
     _free   : true,
     blend   : 0.0,
-    _b      : 0,
+    _b      : 0.0,
     _from   : zeros(TemplateHandler.COORD_SIZE),
     _to     : [],
     _fromFov: getprop("/sim/current-view/field-of-view"),
@@ -16,7 +16,6 @@ var MovementHandler = {
     _diffFov: 0.0,
 
     _dlg    : nil,
-    # timeF   : 0,
 
     #
     # @return bool
@@ -47,30 +46,30 @@ var MovementHandler = {
     # @return bool
     #
     _checkWorldView: func (id) {
-        if (cameras.getCamera(id).type == "FGCamera5") {
-            return me._setTower(cameras.getCamera(id).tower);
+        if (g_cameras.getCamera(id).type == "FGCamera5") {
+            return me._setTower(g_cameras.getCamera(id).tower);
         }
 
         return false;
     },
 
     _setFromTo: func (viewId, cameraId) {
-        me._to   = cameras.getCamera(cameraId).offsets;
+        me._to   = g_cameras.getCamera(cameraId).offsets;
         var bTwr = me._checkWorldView(cameraId);
 
-        if (cameras.getCurrentViewId() == viewId) {
+        if (g_cameras.getCurrentViewId() == viewId) {
             for (var i = 0; i <= 5; i += 1) {
-                me._from[i] = offsetsManager.offsets[i] + RNDHandler.offsets[i]; # fix (cross-reference)
+                me._from[i] = g_offsetsManager.offsets[i] + RNDHandler.offsets[i]; # fix (cross-reference)
             }
 
-            me._b = 0 + bTwr;
+            me._b = bTwr ? 1.0 : 0.0;
         }
         else {
             for (var i = 0; i <= 5; i += 1) {
                 me._from[i] = me._to[i];
             }
 
-            me._b = 1;
+            me._b = 1.0;
         }
 
         foreach (var a; ["_from", "_to"]) {
@@ -79,8 +78,8 @@ var MovementHandler = {
             }
         }
 
-        cameras.setCurrentId(cameraId);
-        cameras.setCurrentViewId(viewId);
+        g_cameras.setCurrentId(cameraId);
+        g_cameras.setCurrentViewId(viewId);
     },
 
     _setView: func (viewId) {
@@ -93,31 +92,29 @@ var MovementHandler = {
     _trigger: func {
         # ID of the camera we will switch to
         var cameraId = getprop(g_myNodePath ~ "/current-camera/camera-id");
-        if (cameraId + 1 > cameras.size()) {
+        if (cameraId + 1 > g_cameras.size()) {
             cameraId = 0;
         }
 
-        var currentCamera  = cameras.getCurrent();
-        var incomingCamera = cameras.getCamera(cameraId);
+        var currentCamera  = g_cameras.getCurrent();
+        var incomingCamera = g_cameras.getCamera(cameraId);
 
         var viewId = view.indexof(incomingCamera.type);
 
-        # timeF = (currentCamera.category == incomingCamera.category);
-
-        camGui.closeDialog(); # close dialog for cameras.getCurrent();
+        g_camGui.closeDialog(); # close dialog for g_cameras.getCurrent();
         Panel2D.hide();
-        nasal.cameraLeaveAction();
+        g_nasal.cameraLeaveAction();
 
         if (getprop(g_myNodePath ~ "/popupTip") and incomingCamera.popupTip) {
             gui.popupTip(incomingCamera.name, 1);
         }
 
-        me._setFromTo(viewId, cameraId); # <- this function change cameras.getCurrent();
+        me._setFromTo(viewId, cameraId); # <- this function change g_cameras.getCurrent();
         me._setView(viewId);
-        offsetsManager._reset();
+        g_offsetsManager._reset();
 
         me._fromFov = getprop("/sim/current-view/field-of-view");
-        me._toFov = cameras.getCurrent().fov;
+        me._toFov = g_cameras.getCurrent().fov;
         me._diffFov = math.abs(me._fromFov - me._toFov);
 
         me._updateF = true;
@@ -138,27 +135,26 @@ var MovementHandler = {
         }
 
         me._updateF = false;
-        var data    = cameras.getCurrent().movement;
+        var data    = g_cameras.getCurrent().movement;
 
-        # FIXME - remove comment ?
-        if (data.time > 0) { # and (timeF != 0) )
+        if (data.time > 0) {
             me._b += dt / data.time;
         }
         else {
-            me._b = 1;
+            me._b = 1.0;
         }
 
-        if (me._b >= 1) {
-            me._b = 0;
+        if (me._b >= 1.0) {
+            me._b = 0.0;
 
             forindex (var i; me.offsets) {
                 me.offsets[i] = me._to[i];
             }
 
-            camGui.showDialog();
+            g_camGui.showDialog();
             Panel2D.show();
-            nasal.cameraEntryAction();
-            setprop("/sim/current-view/field-of-view", cameras.getCurrent().fov); # to be sure that finally the fov is correct
+            g_nasal.cameraEntryAction();
+            setprop("/sim/current-view/field-of-view", g_cameras.getCurrent().fov); # to be sure that finally the fov is correct
         }
         else {
             # FIXME - remove comment ?

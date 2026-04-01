@@ -32,11 +32,11 @@ var Migration = {
         foreach (var version; versions) {
             foreach (var item; keys(versionItems[version])) {
                 # items = "DHM", "enable-exec-nasal", etc.
-                forindex (var i; cameras.getVector()) {
+                forindex (var i; g_cameras.getVector()) {
                     # Check if the name exists, if it does, do not insert a default
                     # one so as not to overwrite values that may already exist
-                    if (!view.hasmember(cameras.getCamera(i), item)) {
-                        cameras.getCamera(i)[item] = me.deepHashCopy(versionItems[version][item]);
+                    if (!view.hasmember(g_cameras.getCamera(i), item)) {
+                        g_cameras.getCamera(i)[item] = me.deepHashCopy(versionItems[version][item]);
                     }
                 }
             }

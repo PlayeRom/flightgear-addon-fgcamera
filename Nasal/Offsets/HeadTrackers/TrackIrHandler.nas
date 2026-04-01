@@ -40,7 +40,7 @@ var TrackIrHandler = {
     },
 
     _rotate: func {
-        var a = offsetsManager.offsets[3] * D2R; #math.pi / 180;
+        var a = g_offsetsManager.offsets[3] * D2R; #math.pi / 180;
         var c = math.cos(a);
         var s = math.sin(a);
 

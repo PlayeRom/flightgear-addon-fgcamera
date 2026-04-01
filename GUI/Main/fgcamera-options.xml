@@ -89,7 +89,7 @@
                 <binding>
                     <command>nasal</command>
                     <script><![CDATA[
-                        fgcamera.camGui.setMiniDialogListener();
+                        fgcamera.g_camGui.setMiniDialogListener();
                     ]]></script>
                 </binding>
             </checkbox>
@@ -118,7 +118,7 @@
                     <binding>
                         <command>nasal</command>
                         <script><![CDATA[
-                            fgcamera.camGui.setMiniDialogListener();
+                            fgcamera.g_camGui.setMiniDialogListener();
                         ]]></script>
                     </binding>
                     <value>simple</value>
@@ -139,7 +139,7 @@
                 <binding>
                     <command>nasal</command>
                     <script><![CDATA[
-                        fgcamera.camGui.setMiniDialogListener();
+                        fgcamera.g_camGui.setMiniDialogListener();
                     ]]></script>
                 </binding>
             </checkbox>
@@ -220,7 +220,7 @@
             <binding>
                 <command>nasal</command>
                 <script><![CDATA[
-                    fgcamera.fileHandler.saveCameras();
+                    fgcamera.g_fileHandler.saveCameras();
                 ]]></script>
             </binding>
             <binding>

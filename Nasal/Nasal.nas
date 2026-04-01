@@ -32,7 +32,7 @@ var Nasal = {
     # @return void
     #
     _cameraExecAction: func(enableActionName, scriptFieldName) {
-        var camera = cameras.getCurrent();
+        var camera = g_cameras.getCurrent();
 
         if (camera["enable-exec-nasal"] and camera[enableActionName]) {
             var script = camera[scriptFieldName];
@@ -57,7 +57,7 @@ var Nasal = {
 
         var locals = globals["__fgcamera"];
 
-        var tag = "<\"" ~ cameras.getCurrent().name ~ "\" FGCamera>";
+        var tag = "<\"" ~ g_cameras.getCurrent().name ~ "\" FGCamera>";
         var err = [];
 
         var function = call(func { compile(script, tag) }, nil, nil, nil, err);

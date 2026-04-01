@@ -50,7 +50,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.nasalConfig.toggleNasalEntry()</script>
+                    <script>fgcamera.g_nasalConfig.toggleNasalEntry()</script>
                 </binding>
             </checkbox>
             <hrule><stretch>true</stretch></hrule>
@@ -78,7 +78,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.nasalConfig.applyScriptForEntry()</script>
+                    <script>fgcamera.g_nasalConfig.applyScriptForEntry()</script>
                 </binding>
             </textbox>
 
@@ -93,7 +93,7 @@
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
-                        <script>fgcamera.nasalConfig.copyEntryScript()</script>
+                        <script>fgcamera.g_nasalConfig.copyEntryScript()</script>
                     </binding>
                 </button>
 
@@ -103,7 +103,7 @@
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
-                        <script>fgcamera.nasalConfig.pasteEntryScript()</script>
+                        <script>fgcamera.g_nasalConfig.pasteEntryScript()</script>
                     </binding>
                 </button>
 
@@ -113,7 +113,7 @@
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
-                        <script>fgcamera.nasalConfig.clearEntryScript()</script>
+                        <script>fgcamera.g_nasalConfig.clearEntryScript()</script>
                     </binding>
                 </button>
 
@@ -141,7 +141,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.nasalConfig.toggleNasalLeave()</script>
+                    <script>fgcamera.g_nasalConfig.toggleNasalLeave()</script>
                 </binding>
             </checkbox>
             <hrule><stretch>true</stretch></hrule>
@@ -169,7 +169,7 @@
                 </binding>
                 <binding>
                     <command>nasal</command>
-                    <script>fgcamera.nasalConfig.applyScriptForLeave()</script>
+                    <script>fgcamera.g_nasalConfig.applyScriptForLeave()</script>
                 </binding>
             </textbox>
 
@@ -184,7 +184,7 @@
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
-                        <script>fgcamera.nasalConfig.copyLeaveScript()</script>
+                        <script>fgcamera.g_nasalConfig.copyLeaveScript()</script>
                     </binding>
                 </button>
 
@@ -194,7 +194,7 @@
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
-                        <script>fgcamera.nasalConfig.pasteLeaveScript()</script>
+                        <script>fgcamera.g_nasalConfig.pasteLeaveScript()</script>
                     </binding>
                 </button>
 
@@ -204,7 +204,7 @@
                     <pref-height>30</pref-height>
                     <binding>
                         <command>nasal</command>
-                        <script>fgcamera.nasalConfig.clearLeaveScript()</script>
+                        <script>fgcamera.g_nasalConfig.clearLeaveScript()</script>
                     </binding>
                 </button>
 
@@ -246,10 +246,10 @@
 
     <nasal>
         <open><![CDATA[
-            fgcamera.nasalConfig.open();
+            fgcamera.g_nasalConfig.open();
         ]]></open>
         <close><![CDATA[
-            fgcamera.nasalConfig.close();
+            fgcamera.g_nasalConfig.close();
         ]]></close>
     </nasal>
 </PropertyList>

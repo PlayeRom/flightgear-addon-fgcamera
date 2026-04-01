@@ -8,20 +8,20 @@ var Helicopter = {
     # @return me
     #
     new: func () {
-        var me = {
+        var obj = {
             parents       : [Helicopter],
-            _isHelicopter : 0,
+            _isHelicopter : false,
         };
 
         var delayTimer = maketimer(2, func {
             # Check helicopter with delay, the "torque" property is not set so quickly
-            me.check();
-            logprint(LOG_INFO, "FGCamera: helicopter: ", helicopter.isHelicopter());
+            obj.check();
+            logprint(LOG_INFO, "FGCamera: helicopter: ", obj.isHelicopter());
         });
         delayTimer.singleShot = true;
         delayTimer.start();
 
-        return me;
+        return obj;
     },
 
     #

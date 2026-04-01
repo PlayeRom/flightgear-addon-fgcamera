@@ -352,7 +352,7 @@ var RNDHandler = {
     rndEffectNode : nil, # for copy/pase in Rnd-mixer dialog
 
     updateRndData: func {
-        me.rnd = cameras.getCurrent().RND;
+        me.rnd = g_cameras.getCurrent().RND;
     },
 
     init: func {
@@ -388,7 +388,7 @@ var RNDHandler = {
     },
 
     update: func (dt) {
-        if (!cameras.getCurrent()["enable-RND"]) {
+        if (!g_cameras.getCurrent()["enable-RND"]) {
             me.offsets = zeros(TemplateHandler.COORD_SIZE);
             return;
         }
@@ -404,7 +404,7 @@ var RNDHandler = {
             me._mode = me._checkMode();
 
             var v = getprop(
-                helicopter.isHelicopter()
+                g_helicopter.isHelicopter()
                     ? "/rotors/main/rpm"
                     : "/velocities/groundspeed-kt"
             );

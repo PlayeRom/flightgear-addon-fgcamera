@@ -51,10 +51,10 @@ var FileHandler = {
 
         props.copy(io.read_properties(path ~ "/" ~ file), cameraNode);
 
-        cameras.clear();
+        g_cameras.clear();
         var vec = cameraNode.getChildren("camera");
         forindex (var i; vec) {
-            cameras.append(vec[i].getValues());
+            g_cameras.append(vec[i].getValues());
         }
 
         if (isDefault) {
@@ -79,7 +79,7 @@ var FileHandler = {
         me._loadBoolOption(cameraNode, false, "track-ir-handler", "handlers/track-ir");
 
         cameraNode.remove();
-        return cameras.size();
+        return g_cameras.size();
     },
 
     #
@@ -107,8 +107,8 @@ var FileHandler = {
     # @return void
     #
     _setDefaultOffsets: func {
-        forindex (var i; offsetsManager.coords) {
-            cameras.getCamera(0).offsets[i] = num(getprop("/sim/view/config/" ~ offsetsManager.coords[i])) or 0;
+        forindex (var i; g_offsetsManager.coords) {
+            g_cameras.getCamera(0).offsets[i] = num(getprop("/sim/view/config/" ~ g_offsetsManager.coords[i])) or 0;
         }
     },
 
@@ -125,10 +125,10 @@ var FileHandler = {
         var index    = 0; # default child index
         var create   = true;
 
-        forindex (var i; cameras.getVector()) {
-            foreach (var a; keys(cameras.getCamera(i))) {
+        forindex (var i; g_cameras.getVector()) {
+            foreach (var a; keys(g_cameras.getCamera(i))) {
                 var data = {};
-                data[a]  = cameras.getCamera(i)[a];
+                data[a]  = g_cameras.getCamera(i)[a];
 
                 node.getChild("camera", i, create).setValues(data);
             }

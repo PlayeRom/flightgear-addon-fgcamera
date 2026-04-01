@@ -42,7 +42,7 @@ var NasalConfig = {
     # @return vector  Vector of hash.
     #
     cameraData: func {
-        var camera = cameras.getCurrent();
+        var camera = g_cameras.getCurrent();
         return [
             { name: "enable-nasal-entry", value: camera["enable-nasal-entry"] },
             { name: "enable-nasal-leave", value: camera["enable-nasal-leave"] },
@@ -70,22 +70,22 @@ var NasalConfig = {
     isEnableNasalLeave: func { return getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-nasal-leave"); },
 
     toggleNasalEntry: func {
-        var enabledNasal = currentCameraConfig.isExecNasalEnabled();
+        var enabledNasal = g_currentCameraConfig.isExecNasalEnabled();
         var enabledEntry = me.isEnableNasalEntry();
 
-        cameras.getCurrent()["enable-nasal-entry"] = enabledEntry;
+        g_cameras.getCurrent()["enable-nasal-entry"] = enabledEntry;
         if (enabledNasal and enabledEntry) {
-            nasal.exec(me.getEntryScript());
+            g_nasal.exec(me.getEntryScript());
         }
     },
 
     toggleNasalLeave: func {
-        var enabledNasal = currentCameraConfig.isExecNasalEnabled();
+        var enabledNasal = g_currentCameraConfig.isExecNasalEnabled();
         var enabledLeave = me.isEnableNasalLeave();
 
-        cameras.getCurrent()["enable-nasal-leave"] = enabledLeave;
+        g_cameras.getCurrent()["enable-nasal-leave"] = enabledLeave;
         if (enabledNasal and enabledLeave) {
-            nasal.exec(me.getLeaveScript());
+            g_nasal.exec(me.getLeaveScript());
         }
     },
 
@@ -98,11 +98,11 @@ var NasalConfig = {
     applyScriptForEntry: func {
         var script = me.getEntryScript();
 
-        if (currentCameraConfig.isExecNasalEnabled()) {
-            nasal.exec(script);
+        if (g_currentCameraConfig.isExecNasalEnabled()) {
+            g_nasal.exec(script);
         }
 
-        cameras.getCurrent()["script-for-entry"] = script;
+        g_cameras.getCurrent()["script-for-entry"] = script;
         me.updateValues();
     },
 
@@ -112,11 +112,11 @@ var NasalConfig = {
     applyScriptForLeave: func {
         var script = me.getLeaveScript();
 
-        if (!currentCameraConfig.isExecNasalEnabled()) {
-            nasal.exec(script);
+        if (!g_currentCameraConfig.isExecNasalEnabled()) {
+            g_nasal.exec(script);
         }
 
-        cameras.getCurrent()["script-for-leave"] = script;
+        g_cameras.getCurrent()["script-for-leave"] = script;
         me.updateValues();
     },
 

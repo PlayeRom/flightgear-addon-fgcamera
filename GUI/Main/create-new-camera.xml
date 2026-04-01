@@ -171,7 +171,7 @@
             #   Create new camera
             #==================================================
             var createCamera = func {
-                var currentCamera  = fgcamera.cameras.getCurrent();
+                var currentCamera  = fgcamera.g_cameras.getCurrent();
 
                 var camera   = {};
                 var cameraName = getprop(fgcamera.g_myNodePath ~ "/dialogs/create-camera/camera-name") or "new camera";
@@ -184,9 +184,9 @@
                     camera.tower = setTower(camera.tower);
                 }
 
-                fgcamera.cameras.append(camera);
+                fgcamera.g_cameras.append(camera);
 
-                fgcommand("fgcamera-select", props.Node.new({ "camera-id": fgcamera.cameras.size() - 1 }));
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": fgcamera.g_cameras.size() - 1 }));
             }
 
             #==================================================

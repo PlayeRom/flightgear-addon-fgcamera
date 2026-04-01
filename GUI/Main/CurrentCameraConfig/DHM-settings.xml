@@ -62,7 +62,7 @@
                 <binding>
                     <command>nasal</command>
                     <script><![CDATA[
-                        fgcamera.cameras.getCurrent().DHM["head-mass"] = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass") or 10;
+                        fgcamera.g_cameras.getCurrent().DHM["head-mass"] = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass") or 10;
                         fgcamera.DHMHandler.updateValues();
                     ]]></script>
                 </binding>
@@ -645,8 +645,8 @@
 
             # Update dialog props from current camera object
             var update = func {
-                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass", fgcamera.cameras.getCurrent().DHM["head-mass"]);
-                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/g-load-release", fgcamera.cameras.getCurrent().DHM["g-load-release"]);
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass", fgcamera.g_cameras.getCurrent().DHM["head-mass"]);
+                setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/g-load-release", fgcamera.g_cameras.getCurrent().DHM["g-load-release"]);
 
                 initProp("y-axis", "constant-g");
                 initProp("y-axis", "impulse-g");
@@ -678,7 +678,7 @@
             var initProp = func(axis, name) {
                 setprop(
                     fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/" ~ axis ~ "/" ~ name,
-                    fgcamera.cameras.getCurrent().DHM[axis][name]
+                    fgcamera.g_cameras.getCurrent().DHM[axis][name]
                 );
             };
 
@@ -692,7 +692,7 @@
             #
             var setData = func(axis, name, withDhmUpdate = 1) {
                 var value = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/" ~ axis ~ "/" ~ name);
-                fgcamera.cameras.getCurrent().DHM[axis][name] = value;
+                fgcamera.g_cameras.getCurrent().DHM[axis][name] = value;
 
                 if (withDhmUpdate) {
                     fgcamera.DHMHandler.updateValues();
@@ -701,7 +701,7 @@
 
             var setFilter = func {
                 var value = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/g-load-release");
-                fgcamera.cameras.getCurrent().DHM["g-load-release"] = value;
+                fgcamera.g_cameras.getCurrent().DHM["g-load-release"] = value;
                 fgcamera.RNDHandler.hpCoeff = value;
 
                 gui.popupTip(sprintf("RND hpCoeff = %.2f", value), 0.5);
@@ -743,7 +743,7 @@
                 setprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/z-axis/movement-limit", zAxis.getNode("movement-limit").getValue());
 
                 # Set values from props to camera object
-                fgcamera.cameras.getCurrent().DHM["head-mass"] = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass") or 10;
+                fgcamera.g_cameras.getCurrent().DHM["head-mass"] = getprop(fgcamera.g_myNodePath ~ "/dialogs/DHM-settings/head-mass") or 10;
 
                 setFilter();
 

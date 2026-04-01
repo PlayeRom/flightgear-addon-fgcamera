@@ -19,7 +19,7 @@ var AdjustmentHandler = {
 
     _trigger: func {
         forindex (var i; me._coords) {
-            var vCfg = cameras.getCurrent().adjustment.v;
+            var vCfg = g_cameras.getCurrent().adjustment.v;
             # vCfg[0] - linear velocity config (for x, y, z)
             # vCfg[1] - angular velocity config (for h, p, r)
             var v = vCfg[i < 3 ? 0 : 1];
@@ -42,7 +42,7 @@ var AdjustmentHandler = {
         if (me._updateF) {
             me._updateF = false;
 
-            var filter  = cameras.getCurrent().adjustment.filter;
+            var filter  = g_cameras.getCurrent().adjustment.filter;
 
             me._rotate();
 
@@ -74,7 +74,7 @@ var AdjustmentHandler = {
 
     _rotate: func {
         var t = subvec(me._v, 0, 3);
-        var r = subvec(offsetsManager.offsets, 3);
+        var r = subvec(g_offsetsManager.offsets, 3);
         var c = rotate3d(t, r);
 
         forindex (var i; c) {

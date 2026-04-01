@@ -251,7 +251,7 @@
                 <binding>
                     <command>nasal</command>
                     <script>
-                        fgcamera.offsetsManager.save();
+                        fgcamera.g_offsetsManager.save();
                         gui.popupTip("Confirmed");
                     </script>
                 </binding>
@@ -284,7 +284,7 @@
             <pref-height>30</pref-height>
             <binding>
                 <command>nasal</command>
-                <script>fgcamera.fileHandler.saveCameras()</script>
+                <script>fgcamera.g_fileHandler.saveCameras()</script>
             </binding>
             <binding>
                 <command>dialog-close</command>
@@ -297,7 +297,7 @@
             <binding>
                 <command>nasal</command>
                 <script>
-                    fgcamera.fileHandler.saveCameras();
+                    fgcamera.g_fileHandler.saveCameras();
                     gui.popupTip("Saved");
                 </script>
             </binding>
@@ -338,11 +338,11 @@
             var updateList = func {
                 list.removeChildren("value");
                 var i = 0;
-                foreach (var camera; fgcamera.cameras.getVector()) {
+                foreach (var camera; fgcamera.g_cameras.getVector()) {
                     var name = camera.name;
                     var select = "";
 
-                    if (i == fgcamera.cameras.getCurrentId()) {
+                    if (i == fgcamera.g_cameras.getCurrentId()) {
                         setprop(fgcamera.g_myNodePath ~ "/current-camera/camera-name", name);
                         setprop(fgcamera.g_myNodePath ~ "/current-camera/category", camera.category);
                         select = " <-";
@@ -369,12 +369,12 @@
 
             var copyCamera = func () {
                 var cameraN = props.Node.new();
-                cameraN.setValues(fgcamera.cameras.getCurrent());
+                cameraN.setValues(fgcamera.g_cameras.getCurrent());
                 var newCamera = cameraN.getValues();
                 newCamera.name ~= "-copy";
-                fgcamera.cameras.append(newCamera);
+                fgcamera.g_cameras.append(newCamera);
 
-                fgcommand("fgcamera-select", props.Node.new({ "camera-id": fgcamera.cameras.size() - 1 }));
+                fgcommand("fgcamera-select", props.Node.new({ "camera-id": fgcamera.g_cameras.size() - 1 }));
 
                 updateList();
 
@@ -385,16 +385,16 @@
             #   Up / Down
             #==================================================
             var reorderCameras = func (dir) {
-                var vec = fgcamera.cameras.getVector();
-                var id1 = fgcamera.cameras.getCurrentId();
+                var vec = fgcamera.g_cameras.getVector();
+                var id1 = fgcamera.g_cameras.getCurrentId();
                 var id2 = id1 + math.sgn(dir);
                 if (id2 >= 0 and id2 < size(vec)) {
                     var tmp  = vec[id1];
                     vec[id1] = vec[id2];
                     vec[id2] = tmp;
 
-                    fgcamera.cameras.replace(vec);
-                    fgcamera.cameras.setCurrentId(id2);
+                    fgcamera.g_cameras.replace(vec);
+                    fgcamera.g_cameras.setCurrentId(id2);
 
                     updateList();
                 }
@@ -404,7 +404,7 @@
             #   Rename camera
             #==================================================
             var renameCamera = func {
-                fgcamera.cameras.getCurrent().name = getprop(fgcamera.g_myNodePath ~ "/current-camera/camera-name");
+                fgcamera.g_cameras.getCurrent().name = getprop(fgcamera.g_myNodePath ~ "/current-camera/camera-name");
                 updateList();
             }
 
@@ -412,7 +412,7 @@
             #   Set category
             #==================================================
             var setCategory = func {
-                fgcamera.cameras.getCurrent().category = getprop(fgcamera.g_myNodePath ~ "/current-camera/category");
+                fgcamera.g_cameras.getCurrent().category = getprop(fgcamera.g_myNodePath ~ "/current-camera/category");
                 updateList();
             }
 

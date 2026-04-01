@@ -4,20 +4,20 @@ var g_myNodePath = nil;
 #==================================================
 #   "Objects"
 #==================================================
-var offsetsManager = nil;
-var mouse          = nil;
-var camGui         = nil;
-var fileHandler    = nil;
-var helicopter     = nil;
-var views          = nil;
-var cameras        = Cameras.new();
-var walker         = Walker.new();
-var nasal          = Nasal.new();
+var g_offsetsManager = nil;
+var g_mouse          = nil;
+var g_camGui         = nil;
+var g_fileHandler    = nil;
+var g_helicopter     = nil;
+var g_views          = nil;
+var g_cameras        = Cameras.new();
+var g_walker         = Walker.new();
+var g_nasal          = Nasal.new();
 
 # Scripts for dialogs
-var browseDialogNames   = nil;
-var currentCameraConfig = nil;
-var nasalConfig         = nil;
+var g_browseDialogNames   = nil;
+var g_currentCameraConfig = nil;
+var g_nasalConfig         = nil;
 
 #
 # Initialize FGCamera.
@@ -29,22 +29,22 @@ var init = func(addon) {
     g_Addon = addon;
     g_myNodePath = g_Addon.node.getPath() ~ "/addon-devel";
 
-    offsetsManager = OffsetsManager.new();
+    g_offsetsManager = OffsetsManager.new();
 
     # Scripts for dialogs
-    browseDialogNames   = BrowseDialogNames.new();
-    currentCameraConfig = CurrentCameraConfig.new();
-    nasalConfig         = NasalConfig.new();
+    g_browseDialogNames   = BrowseDialogNames.new();
+    g_currentCameraConfig = CurrentCameraConfig.new();
+    g_nasalConfig         = NasalConfig.new();
 
     var fdmInitListener = _setlistener("/sim/signals/fdm-initialized", func {
         removelistener(fdmInitListener);
 
         Commands.new();
-        helicopter  = Helicopter.new();
-        mouse       = Mouse.new(addon);
-        fileHandler = FileHandler.new(addon);
-        camGui      = Gui.new(addon);
-        views       = ViewsManager.new();
+        g_helicopter  = Helicopter.new();
+        g_mouse       = Mouse.new(addon);
+        g_fileHandler = FileHandler.new(addon);
+        g_camGui      = Gui.new(addon);
+        g_views       = ViewsManager.new();
 
         if (getprop(g_myNodePath ~ "/enable")) {
             # setting default FGCamera
@@ -65,23 +65,23 @@ var init = func(addon) {
     });
 
     setlistener("/sim/signals/reinit", func {
-        if (mouse != nil) {
-            mouse.init();
+        if (g_mouse != nil) {
+            g_mouse.init();
         }
 
         fgcommand("gui-redraw");
         fgcommand("fgcamera-reset-view");
 
-        if (helicopter != nil) {
-            helicopter.check();
+        if (g_helicopter != nil) {
+            g_helicopter.check();
         }
     });
 
     setlistener("/sim/signals/exit", func(node) {
         if (node.getBoolValue()) {
             # sim is going to exit, back previous FG settings for correct autosave
-            if (views != nil) {
-                views.configureFG(0);
+            if (g_views != nil) {
+                g_views.configureFG(0);
             }
         }
     });

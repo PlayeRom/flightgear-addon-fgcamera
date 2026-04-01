@@ -215,8 +215,8 @@ var OffsetsManager = {
     # Save offsets.
     #
     save: func {
-        forindex (var i; cameras.getCurrent().offsets) {
-            cameras.getCurrent().offsets[i] = me.offsets[i];
+        forindex (var i; g_cameras.getCurrent().offsets) {
+            g_cameras.getCurrent().offsets[i] = me.offsets[i];
         }
     },
 

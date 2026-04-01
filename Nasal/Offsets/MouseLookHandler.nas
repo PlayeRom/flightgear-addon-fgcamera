@@ -26,14 +26,14 @@ var MouseLookHandler = {
     # Mouse mode changed
     #
     _trigger: func {
-        var mode = mouse.getMode();
+        var mode = g_mouse.getMode();
 
         if (mode == Mouse.MODE_LOOK_AROUND or mode == 3) { # TODO: what is mode 3?
             me._mlook = true;
 
-            mouse.reset();
+            g_mouse.reset();
 
-            var m = cameras.getCurrent().mouse_look;
+            var m = g_cameras.getCurrent().mouse_look;
             me._sensitivity = m.sensitivity;
             me._filter      = m.filter;
 
@@ -58,7 +58,7 @@ var MouseLookHandler = {
 
         me._updateF = me._mlook;
 
-        me._delta = mouse.getDelta();
+        me._delta = g_mouse.getDelta();
         me._rotate();
 
         var i = 0;
@@ -80,7 +80,7 @@ var MouseLookHandler = {
 
     _rotate: func {
         var t = subvec(me._delta, 0, 3); # take the first 3 values from the _delta vector
-        var r = subvec(offsetsManager.offsets, 3); # take the last 3 values from the offsetsManager.offsets vector
+        var r = subvec(g_offsetsManager.offsets, 3); # take the last 3 values from the g_offsetsManager.offsets vector
         var c = rotate3d(t, r);
 
         forindex (var i; c) {

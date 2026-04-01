@@ -127,7 +127,7 @@ var Gui = {
     # @return void
     #
     showDialog: func (show = 0) {
-        var camera = cameras.getCurrent();
+        var camera = g_cameras.getCurrent();
 
         if (camera["dialog-show"] or show) {
             gui.showDialog(camera["dialog-name"]);
@@ -141,7 +141,7 @@ var Gui = {
     # @return void
     #
     closeDialog: func (close = 0) {
-        var camera = cameras.getCurrent();
+        var camera = g_cameras.getCurrent();
 
         if (camera["dialog-show"] or close) {
             fgcommand("dialog-close", props.Node.new({

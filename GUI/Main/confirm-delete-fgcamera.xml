@@ -48,20 +48,20 @@
             #   Delete camera
             #==================================================
             var deleteCamera = func {
-                var n = fgcamera.cameras.size();
+                var n = fgcamera.g_cameras.size();
                 if (n == 1) {
                     gui.popupTip("The last camera cannot be deleted");
                     return;
                 }
 
-                var id = fgcamera.cameras.getCurrentId();
+                var id = fgcamera.g_cameras.getCurrentId();
                 var newId = id;
                 if (newId == (n - 1)) {
                     newId -= 1;
                 }
-                fgcamera.cameras.getVector()[id] = nil;
-                fgcamera.cameras.replace(compressVector(fgcamera.cameras.getVector()));
-                fgcamera.cameras.setCurrentId(newId);
+                fgcamera.g_cameras.getVector()[id] = nil;
+                fgcamera.g_cameras.replace(compressVector(fgcamera.g_cameras.getVector()));
+                fgcamera.g_cameras.setCurrentId(newId);
 
                 fgcommand("fgcamera-select", props.Node.new({ "camera-id": newId }));
             }

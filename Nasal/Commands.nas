@@ -23,21 +23,21 @@ var Commands = {
     # @return me
     #
     new: func () {
-        var me = { parents: [Commands] };
+        var obj = { parents: [Commands] };
 
-        me._addCommands();
+        obj._addCommands();
 
-        me._timers = {
+        obj._timers = {
             x: maketimer(Commands.TIMER_INTERVAL, func setprop(g_myNodePath ~ "/controls/adjust-x", 0) ),
             y: maketimer(Commands.TIMER_INTERVAL, func setprop(g_myNodePath ~ "/controls/adjust-y", 0) ),
             z: maketimer(Commands.TIMER_INTERVAL, func setprop(g_myNodePath ~ "/controls/adjust-z", 0) ),
         };
 
-        me._timers.x.singleShot = true;
-        me._timers.y.singleShot = true;
-        me._timers.z.singleShot = true;
+        obj._timers.x.singleShot = true;
+        obj._timers.y.singleShot = true;
+        obj._timers.z.singleShot = true;
 
-        return me;
+        return obj;
     },
 
     #
@@ -98,7 +98,7 @@ var Commands = {
 
             "fgcamera-reset-view": func {
                 setprop(g_myNodePath ~ "/popupTip", 0);
-                setprop(g_myNodePath ~ "/current-camera/camera-id", cameras.getCurrentId());
+                setprop(g_myNodePath ~ "/current-camera/camera-id", g_cameras.getCurrentId());
             },
 
             "fgcamera-next-category": func {
@@ -131,8 +131,8 @@ var Commands = {
 
         # Prepare sorting structure without category duplicates
         var camerasToSort = std.Vector.new();
-        forindex (var index; cameras.getVector()) {
-            var category = cameras.getCamera(index).category;
+        forindex (var index; g_cameras.getVector()) {
+            var category = g_cameras.getCamera(index).category;
 
             # is category already included
             var exist = false;
@@ -177,7 +177,7 @@ var Commands = {
             }
         }
 
-        var categoryIterator = cameras.getCurrent().category;
+        var categoryIterator = g_cameras.getCurrent().category;
         var br = false;
         while (!br) {
             if (direction > 0) { # Button [>>]
@@ -214,8 +214,8 @@ var Commands = {
     # @return void
     #
     _cycleCameraInCategory: func(direction) {
-        var cameraId        = cameras.getCurrentId();
-        var currentCategory = cameras.getCurrent().category;
+        var cameraId        = g_cameras.getCurrentId();
+        var currentCategory = g_cameras.getCurrent().category;
 
         var br = false;
         while (!br) {
@@ -227,19 +227,19 @@ var Commands = {
             }
 
             if (cameraId < 0) {
-                cameraId = cameras.size() - 1;
+                cameraId = g_cameras.size() - 1;
             }
-            elsif (cameraId > (cameras.size() - 1)) {
+            elsif (cameraId > (g_cameras.size() - 1)) {
                 cameraId = 0;
             }
 
-            var category = num(cameras.getCamera(cameraId).category);
+            var category = num(g_cameras.getCamera(cameraId).category);
 
             if (currentCategory == category) {
                 fgcommand("fgcamera-select", props.Node.new({ "camera-id": cameraId }));
                 br = true;
             }
-            elsif (cameraId == cameras.getCurrentId()) {
+            elsif (cameraId == g_cameras.getCurrentId()) {
                 br = true;
             }
         }

@@ -40,7 +40,7 @@ var CurrentCameraConfig = {
     # @return vector  Vector of hash.
     #
     cameraData: func {
-        var camera = cameras.getCurrent();
+        var camera = g_cameras.getCurrent();
         return [
             { name: "popup-tip",                   value: camera.popupTip,                  dlgUpdate: true },
             { name: "show-panel",                  value: camera["panel-show"],             dlgUpdate: true },
@@ -100,7 +100,7 @@ var CurrentCameraConfig = {
     togglePopupTip: func {
         var value = getprop(g_myNodePath ~ "/dialogs/camera-settings/popup-tip");
 
-        cameras.getCurrent().popupTip = value;
+        g_cameras.getCurrent().popupTip = value;
     },
 
     #==================================================
@@ -110,8 +110,8 @@ var CurrentCameraConfig = {
         var value = getprop(g_myNodePath ~ "/dialogs/camera-settings/show-panel");
         var selected_type = getprop(g_myNodePath ~ "/dialogs/camera-settings/show-panel-type") or Panel2D.DEFAULT;
 
-        cameras.getCurrent()["panel-show"] = value;
-        cameras.getCurrent()["panel-show-type"] = selected_type;
+        g_cameras.getCurrent()["panel-show"] = value;
+        g_cameras.getCurrent()["panel-show-type"] = selected_type;
         if (value) {
             Panel2D.showPath(selected_type);
         }
@@ -130,12 +130,12 @@ var CurrentCameraConfig = {
     toggleDialog: func {
         var value = me.isShowDialogEnabled();
 
-        cameras.getCurrent()["dialog-show"] = value;
+        g_cameras.getCurrent()["dialog-show"] = value;
         if (value) {
-            camGui.showDialog(1);
+            g_camGui.showDialog(1);
         }
         else {
-            camGui.closeDialog(1);
+            g_camGui.closeDialog(1);
         }
     },
 
@@ -146,11 +146,11 @@ var CurrentCameraConfig = {
         var dialogName = getprop(g_myNodePath ~ "/dialogs/camera-settings/dialog-name");
 
         if (me.isShowDialogEnabled()) {
-            camGui.closeDialog(1);
-            cameras.getCurrent()["dialog-show"] = false;
+            g_camGui.closeDialog(1);
+            g_cameras.getCurrent()["dialog-show"] = false;
         }
 
-        cameras.getCurrent()["dialog-name"] = dialogName;
+        g_cameras.getCurrent()["dialog-name"] = dialogName;
         me.updateValues();
     },
 
@@ -164,12 +164,12 @@ var CurrentCameraConfig = {
         var max   = 120;
 
         if (me.validateValue(value, min, max) == nil) {
-            value = cameras.getCurrent().fov;
+            value = g_cameras.getCurrent().fov;
             setprop(path, value);
             me.updateValues();
         }
         else {
-            cameras.getCurrent().fov = value;
+            g_cameras.getCurrent().fov = value;
             setprop("/sim/current-view/field-of-view", value);
         }
     },
@@ -184,12 +184,12 @@ var CurrentCameraConfig = {
         var max   = 10;
 
         if (me.validateValue(value, min, max) == nil) {
-            value = cameras.getCurrent().movement.time;
+            value = g_cameras.getCurrent().movement.time;
             setprop(path, value);
             me.updateValues();
         }
         else {
-            cameras.getCurrent().movement.time = value;
+            g_cameras.getCurrent().movement.time = value;
         }
     },
 
@@ -203,12 +203,12 @@ var CurrentCameraConfig = {
         var max   = 1000;
 
         if (me.validateValue(value, min, max) == nil) {
-            value = cameras.getCurrent().adjustment.v[0];
+            value = g_cameras.getCurrent().adjustment.v[0];
             setprop(path, value);
             me.updateValues();
         }
         else {
-            cameras.getCurrent().adjustment.v[0] = value;
+            g_cameras.getCurrent().adjustment.v[0] = value;
         }
     },
 
@@ -222,12 +222,12 @@ var CurrentCameraConfig = {
         var max   = 360;
 
         if (me.validateValue(value, min, max) == nil) {
-            value = cameras.getCurrent().adjustment.v[1];
+            value = g_cameras.getCurrent().adjustment.v[1];
             setprop(path, value);
             me.updateValues();
         }
         else {
-            cameras.getCurrent().adjustment.v[1] = value;
+            g_cameras.getCurrent().adjustment.v[1] = value;
         }
     },
 
@@ -241,12 +241,12 @@ var CurrentCameraConfig = {
         var max   = 10;
 
         if (me.validateValue(value, min, max) == nil) {
-            value = cameras.getCurrent().adjustment.filter;
+            value = g_cameras.getCurrent().adjustment.filter;
             setprop(path, value);
             me.updateValues();
         }
         else {
-            cameras.getCurrent().adjustment.filter = value;
+            g_cameras.getCurrent().adjustment.filter = value;
         }
     },
 
@@ -260,12 +260,12 @@ var CurrentCameraConfig = {
         var max   = 10;
 
         if (me.validateValue(value, min, max) == nil) {
-            value = cameras.getCurrent().mouse_look.sensitivity;
+            value = g_cameras.getCurrent().mouse_look.sensitivity;
             setprop(path, value);
             me.updateValues();
         }
         else {
-            cameras.getCurrent().mouse_look.sensitivity = value;
+            g_cameras.getCurrent().mouse_look.sensitivity = value;
         }
     },
 
@@ -279,12 +279,12 @@ var CurrentCameraConfig = {
         var max   = 10;
 
         if (me.validateValue(value, min, max) == nil) {
-            value = cameras.getCurrent().mouse_look.filter;
+            value = g_cameras.getCurrent().mouse_look.filter;
             setprop(path, value);
             me.updateValues();
         }
         else {
-            cameras.getCurrent().mouse_look.filter = value;
+            g_cameras.getCurrent().mouse_look.filter = value;
         }
     },
 
@@ -294,7 +294,7 @@ var CurrentCameraConfig = {
     toggleDHM: func {
         var value = getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-DHM");
 
-        cameras.getCurrent()["enable-DHM"] = value;
+        g_cameras.getCurrent()["enable-DHM"] = value;
     },
 
     #==================================================
@@ -303,7 +303,7 @@ var CurrentCameraConfig = {
     toggleRND: func {
         var value = getprop(g_myNodePath ~ "/dialogs/camera-settings/enable-RND");
 
-        cameras.getCurrent()["enable-RND"] = value;
+        g_cameras.getCurrent()["enable-RND"] = value;
     },
 
     #==================================================
@@ -312,13 +312,13 @@ var CurrentCameraConfig = {
     toggleExecNasal: func {
         var enabled = me.isExecNasalEnabled();
 
-        cameras.getCurrent()["enable-exec-nasal"] = enabled;
+        g_cameras.getCurrent()["enable-exec-nasal"] = enabled;
 
-        if (enabled and nasalConfig.isEnableNasalEntry()) {
-            nasal.exec(nasalConfig.getEntryScript());
+        if (enabled and g_nasalConfig.isEnableNasalEntry()) {
+            g_nasal.exec(g_nasalConfig.getEntryScript());
         }
-        elsif (!enabled and nasalConfig.isEnableNasalLeave()) {
-            nasal.exec(nasalConfig.getLeaveScript());
+        elsif (!enabled and g_nasalConfig.isEnableNasalLeave()) {
+            g_nasal.exec(g_nasalConfig.getLeaveScript());
         }
     },
 

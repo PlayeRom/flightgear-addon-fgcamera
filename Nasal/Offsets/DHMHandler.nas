@@ -4,7 +4,7 @@ var DHM = {
     # Constants
     #
     # FIXME - remove comment ?
-    RATE: 0.1, #150;
+    RATE: 0.1, # 150;
     # RATE2: 5,
     SCALE: 1,
 
@@ -13,35 +13,35 @@ var DHM = {
     # @return hash
     #
     new: func (prop) {
-        var me = { parents: [ DHM ] };
+        var obj = { parents: [ DHM ] };
 
-        me.prop = prop;
+        obj.prop = prop;
 
-        me.m = 0;
-        me.c = 0;
+        obj.m = 0;
+        obj.c = 0;
 
-        me.v0 = 0; me.v1 = 0;
-        me.a0 = 0; me.a1 = 0;
-        me.u0 = 0; me.u1 = 0;
-        me.F0 = 0; me.F1 = 0;
-        me.Fr = lowPass.new(0);
+        obj.v0 = 0; obj.v1 = 0;
+        obj.a0 = 0; obj.a1 = 0;
+        obj.u0 = 0; obj.u1 = 0;
+        obj.F0 = 0; obj.F1 = 0;
+        obj.Fr = lowPass.new(0);
 
-        me.outputFilter = 0.1;
-        me.output = lowPass.new(0);
+        obj.outputFilter = 0.1;
+        obj.output = lowPass.new(0);
 
-        me.defaultAcc = 0;
-        me.correction = 0;
+        obj.defaultAcc = 0;
+        obj.correction = 0;
 
-        me._bank   = 0;
-        me._pitch  = 0;
-        me.uLim    = 0;
+        obj._bank   = 0;
+        obj._pitch  = 0;
+        obj.uLim    = 0;
 
-        me.constantG = 0;
-        me.impulseG  = 0;
+        obj.constantG = 0;
+        obj.impulseG  = 0;
 
-        me._offset = 0;
+        obj._offset = 0;
 
-        return me;
+        return obj;
     },
 
     offset: func (dt) {
@@ -113,7 +113,7 @@ var DHMHandler = {
     },
 
     updateValues: func {
-        var dhm = cameras.getCurrent().DHM;
+        var dhm = g_cameras.getCurrent().DHM;
         var headMass = dhm["head-mass"];
         var x = dhm["x-axis"];
         var y = dhm["y-axis"];
@@ -148,7 +148,7 @@ var DHMHandler = {
     _trigger: func {},
 
     update: func (dt) {
-        if (!cameras.getCurrent()["enable-DHM"]) {
+        if (!g_cameras.getCurrent()["enable-DHM"]) {
             return;
         }
 

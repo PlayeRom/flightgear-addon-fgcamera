@@ -129,6 +129,6 @@ var BrowseDialogNames = {
 
         setprop(g_myNodePath ~ "/dialogs/camera-settings/dialog-name", dialogName);
 
-        currentCameraConfig.applyDialogName();
+        g_currentCameraConfig.applyDialogName();
     },
 };
