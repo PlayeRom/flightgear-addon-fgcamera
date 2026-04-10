@@ -176,7 +176,7 @@ var MovementHandler = {
                 }
                 setprop("/sim/current-view/field-of-view", fov);
             }
-            else if (me._fromFov < me._toFov) {
+            elsif (me._fromFov < me._toFov) {
                 var fov = me._fromFov + (me._diffFov * me._b);
                 if (fov > me._toFov) {
                     fov = me._toFov;

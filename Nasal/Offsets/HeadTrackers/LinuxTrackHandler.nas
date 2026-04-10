@@ -31,7 +31,7 @@ var LinuxTrackHandler = {
                     me._offsetsRaw[i] = getprop(me._coords[i]) or 0;
                 }
             }
-            else if (i >= 3) {
+            elsif (i >= 3) {
                 # h,p,r values
                 me._offsetsRaw[i] = getprop(me._coords[i]) or 0;
             }
@@ -45,9 +45,9 @@ var LinuxTrackHandler = {
     },
 
     _getPropPathByIndex: func (index) {
-             if (index == 0) return "/sim/linuxtrack/track-x";
-        else if (index == 1) return "/sim/linuxtrack/track-y";
-        else if (index == 2) return "/sim/linuxtrack/track-z";
+        if (index == 0) return "/sim/linuxtrack/track-x";
+        if (index == 1) return "/sim/linuxtrack/track-y";
+        if (index == 2) return "/sim/linuxtrack/track-z";
 
         return nil;
     },
